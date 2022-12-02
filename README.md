@@ -32,13 +32,16 @@ npm i -D @uni-helper/uni-ui-types
     "types": ["@dcloudio/types", "@uni-helper/uni-ui-types"]
   },
   "vueCompilerOptions": {
-    "experimentalRuntimeMode": "runtime-uni-app"
+    "experimentalRuntimeMode": "runtime-uni-app",
+    "nativeTags": ["block", "component", "template", "slot"]
   },
   "include": ["src/**/*.vue"]
 }
 ```
 
 - 重启编辑器 / IDE
+
+如果你发现配置后项目仍然有错误的类型提示，请先看看 [johnsoncodehk/volar#2165 (comment)](https://github.com/johnsoncodehk/volar/issues/2165#issuecomment-1334803492)。
 
 ## 类型
 
