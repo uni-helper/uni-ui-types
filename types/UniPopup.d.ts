@@ -54,7 +54,7 @@ export interface UniPopupProps {
    * @desc 主窗口背景色
    * @desc 默认为 none
    */
-  backgroundColor: 'none';
+  backgroundColor: string;
   /**
    * @desc 是否适配底部安全区
    * @desc 默认为 true

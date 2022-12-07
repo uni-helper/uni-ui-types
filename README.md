@@ -4,7 +4,13 @@
 
 [![npm](https://img.shields.io/npm/v/@uni-helper/uni-ui-types)](https://www.npmjs.com/package/@uni-helper/uni-ui-types)
 
-`uni-ui` 组件类型。[@uni-helper/uni-app-types](https://github.com/uni-helper/uni-app-types) 提供 `uni-ui` 组件类型，[@uni-helper/uni-cloud-types](https://github.com/uni-helper/uni-cloud-types) 提供 `uni-cloud` 组件类型。
+ uni-helper 旨在增强 uni-app 系列产品的开发体验。
+
+- [@uni-helper/uni-app-types](https://github.com/uni-helper/uni-app-types) 提供 `uni-app` 组件类型
+
+- [@uni-helper/uni-ui-types](https://github.com/uni-helper/uni-ui-types) 提供 `uni-ui` 组件类型（当前仓库）
+
+- [@uni-helper/uni-cloud-types](https://github.com/uni-helper/uni-cloud-types) 提供 `uni-cloud` 组件类型
 
 基于 [这个 PR](https://github.com/vuejs/core/pull/3399)，[Volar](https://github.com/johnsoncodehk/volar) 已经支持。
 
@@ -3242,7 +3248,7 @@ export interface UniPopupProps {
    * @desc 主窗口背景色
    * @desc 默认为 none
    */
-  backgroundColor: 'none';
+  backgroundColor: string;
   /**
    * @desc 是否适配底部安全区
    * @desc 默认为 true
