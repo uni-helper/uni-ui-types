@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.2.1 (2022-12-07)
+
+- fix: 修复 `uni-popup` 类型，感谢 [Megasu](https://github.com/Megasu) 和 [itcastsu](https://github.com/itcastsu) 在 [#3](https://github.com/uni-helper/uni-ui-types/pull/3) 的贡献
+
 ## 0.2.0 (2022-12-02)
 
 升级 `@uni-helper/uni-app-types`，理论上无破坏性更新，但值得留意。
