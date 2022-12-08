@@ -1,4 +1,4 @@
-import { Component } from '@uni-helper/uni-app-types';
+import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 
 /**
  * @desc 内置校验规则
@@ -74,7 +74,7 @@ export interface UniFormsProps {
   /**
    * @desc 表单数据
    */
-  model: Record<string, any>;
+  model: AnyRecord;
   /**
    * @desc 表单校验规则
    */

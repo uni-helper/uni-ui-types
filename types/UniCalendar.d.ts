@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { AnyRecord, BaseEvent, Component } from '@uni-helper/uni-app-types';
 
 export interface UniCalendarProps {
   /**
@@ -85,7 +85,7 @@ export interface UniCalendarProps {
     date: UniCalendarProps['date'];
     fulldate: UniCalendarProps['date'];
     lunar: UniCalendarProps['lunar'];
-    extraInfo: Record<string, any>;
+    extraInfo: AnyRecord;
   }) => void;
   onMonthSwitch: (event: { year: number; month: number }) => void;
 }

@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { AnyRecord, BaseEvent, Component } from '@uni-helper/uni-app-types';
 
 /**
  * @desc 角标颜色类型
@@ -61,7 +61,7 @@ export interface UniBadgeProps {
   /**
    * @desc 自定义样式
    */
-  customStyle: Record<string, any>;
+  customStyle: AnyRecord;
   /**
    * @desc 是否无需背景颜色
    * @desc true 背景颜色将变为文字的字体颜色

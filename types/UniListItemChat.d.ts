@@ -1,4 +1,4 @@
-import { Component } from '@uni-helper/uni-app-types';
+import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 
 /**
  * @desc 新页面的跳转方式
@@ -60,7 +60,7 @@ export interface UniListItemChatProps {
   /**
    * @desc 点击 uni-list-item-chat 触发，需开启点击反馈
    */
-  onClick: (event?: Record<string, any>) => void;
+  onClick: (event?: AnyRecord) => void;
 }
 
 export type UniListItemChat = Component<Partial<UniListItemChatProps>>;

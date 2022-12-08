@@ -1,4 +1,4 @@
-import { Component } from '@uni-helper/uni-app-types';
+import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 import { UniBadgeProps } from './UniBadge';
 import { UniIconsProps, UniIconsType } from './UniIcons';
 
@@ -135,7 +135,7 @@ export interface UniListItemProps {
   /**
    * @desc 点击 uni-list-item 触发，需开启点击反馈
    */
-  onClick: (event?: Record<string, any>) => void;
+  onClick: (event?: AnyRecord) => void;
   /**
    * @desc 点击切换 switch 时触发，需显示 switch
    */
