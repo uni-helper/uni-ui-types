@@ -84,6 +84,7 @@ export {
   _UniListItemChatAvatar as UniListItemChatAvatar,
   _UniListItemChatOnClick as UniListItemChatOnClick,
   _UniListItemChatProps as UniListItemChatProps,
+  _UniListItemChat as UniListItemChat,
 };
 
 declare global {

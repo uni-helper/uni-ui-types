@@ -55,10 +55,21 @@ interface _UniCollapseItemProps {
 
 type _UniCollapseItem = Component<Partial<_UniCollapseItemProps>>;
 
-export { _UniCollapseItemProps as UniCollapseItemProps, _UniCollapseItem as UniCollapseItem };
+export {
+  _UniCollapseItemTitleBorder as UniCollapseItemTitleBorder,
+  _UniCollapseItemProps as UniCollapseItemProps,
+  _UniCollapseItem as UniCollapseItem,
+};
 
 declare global {
   namespace UniHelper {
+    /**
+     * @desc 折叠面板标题分隔线
+     * @desc auto 分隔线自动显示
+     * @desc none 不显示分隔线
+     * @desc show 一直显示分隔线
+     */
+    export type UniCollapseItemTitleBorder = _UniCollapseItemTitleBorder;
     export interface UniCollapseItemProps extends _UniCollapseItemProps {}
     export type UniCollapseItem = _UniCollapseItem;
   }

@@ -120,7 +120,7 @@ export {
   _UniBadgeAbsolute as UniBadgeAbsolute,
   _UniBadgeOnClick as UniBadgeOnClick,
   _UniBadgeProps as UniBadgeProps,
-  _UniBadge as _UniBadge,
+  _UniBadge as UniBadge,
 };
 
 declare global {

@@ -97,6 +97,7 @@ export {
   _UniLoadMoreContentText as UniLoadMoreContentText,
   _UniLoadMoreOnClickLoadMoreDetail as UniLoadMoreOnClickLoadMoreDetail,
   _UniLoadMoreOnClickLoadMore as UniLoadMoreOnClickLoadMore,
+  _UniLoadMoreProps as UniLoadMoreProps,
   _UniLoadMore as UniLoadMore,
 };
 

@@ -78,6 +78,7 @@ export {
   _UniFavContentText as UniFavContentText,
   _UniFavOnClick as UniFavOnClick,
   _UniFavProps as UniFavProps,
+  _UniFav as UniFav,
 };
 
 declare global {

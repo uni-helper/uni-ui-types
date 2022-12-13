@@ -108,7 +108,7 @@ interface _UniFilePickerImageStyles {
 /**
  * @desc 事件回调参数
  */
-interface _UniFilePickerEvent {
+interface _UniFilePickerBaseDetail {
   /**
    * @desc 上传进度
    */
@@ -150,39 +150,49 @@ interface _UniFilePickerClearFiles {
   (index?: number): void;
 }
 
+interface _UniFilePickerOnSelectDetail extends _UniFilePickerBaseDetail {}
+
 /**
  * @desc 选择文件后触发
  */
 interface _UniFilePickerOnSelect {
-  (event: _UniFilePickerEvent): void;
+  (event: _UniFilePickerOnSelectDetail): void;
 }
+
+interface _UniFilePickerOnProgressDetail extends _UniFilePickerBaseDetail {}
 
 /**
  * @desc 文件上传时触发
  */
 interface _UniFilePickerOnProgress {
-  (event: _UniFilePickerEvent): void;
+  (event: _UniFilePickerOnProgressDetail): void;
 }
+
+interface _UniFilePickerOnSuccessDetail extends _UniFilePickerBaseDetail {}
 
 /**
  * @desc 上传成功触发
  */
 interface _UniFilePickerOnSuccess {
-  (event: _UniFilePickerEvent): void;
+  (event: _UniFilePickerOnSuccessDetail): void;
 }
+
+interface _UniFilePickerOnFailDetail extends _UniFilePickerBaseDetail {}
 
 /**
  * @desc 上传失败触发
  */
 interface _UniFilePickerOnFail {
-  (event: _UniFilePickerEvent): void;
+  (event: _UniFilePickerOnFailDetail): void;
 }
+
+interface _UniFilePickerOnDeleteDetail extends _UniFilePickerBaseDetail {}
 
 /**
  * @desc 文件从列表移除时触发
  */
 interface _UniFilePickerOnDelete {
-  (event: _UniFilePickerEvent): void;
+  (event: _UniFilePickerOnDeleteDetail): void;
 }
 
 interface _UniFilePickerBaseProps {
@@ -326,13 +336,18 @@ export {
   _UniFilePickerFileMediatype as UniFilePickerFileMediatype,
   _UniFilePickerListStyles as UniFilePickerListStyles,
   _UniFilePickerImageStyles as UniFilePickerImageStyles,
-  _UniFilePickerEvent as UniFilePickerEvent,
+  _UniFilePickerBaseDetail as UniFilePickerBaseDetail,
   _UniFilePickerUpload as UniFilePickerUpload,
   _UniFilePickerClearFiles as UniFilePickerClearFiles,
+  _UniFilePickerOnSelectDetail as UniFilePickerOnSelectDetail,
   _UniFilePickerOnSelect as UniFilePickerOnSelect,
+  _UniFilePickerOnProgressDetail as UniFilePickerOnProgressDetail,
   _UniFilePickerOnProgress as UniFilePickerOnProgress,
+  _UniFilePickerOnSuccessDetail as UniFilePickerOnSuccessDetail,
   _UniFilePickerOnSuccess as UniFilePickerOnSuccess,
+  _UniFilePickerOnFailDetail as UniFilePickerOnFailDetail,
   _UniFilePickerOnFail as UniFilePickerOnFail,
+  _UniFilePickerOnDeleteDetail as UniFilePickerOnDeleteDetail,
   _UniFilePickerOnDelete as UniFilePickerOnDelete,
   _UniFilePickerBaseProps as UniFilePickerBaseProps,
   _UniFilePickerArrayProps as UniFilePickerArrayProps,
@@ -370,7 +385,7 @@ declare global {
     /**
      * @desc 事件回调参数
      */
-    export interface UniFilePickerEvent extends _UniFilePickerEvent {}
+    export interface UniFilePickerBaseDetail extends _UniFilePickerBaseDetail {}
     /**
      * @desc 手动上传
      */
@@ -381,22 +396,27 @@ declare global {
      * @desc 不传入下标则删除所有
      */
     export interface UniFilePickerClearFiles extends _UniFilePickerClearFiles {}
+    export interface UniFilePickerOnSelectDetail extends _UniFilePickerOnSelectDetail {}
     /**
      * @desc 选择文件后触发
      */
     export interface UniFilePickerOnSelect extends _UniFilePickerOnSelect {}
+    export interface UniFilePickerOnProgressDetail extends _UniFilePickerOnProgressDetail {}
     /**
      * @desc 文件上传时触发
      */
     export interface UniFilePickerOnProgress extends _UniFilePickerOnProgress {}
+    export interface UniFilePickerOnSuccessDetail extends _UniFilePickerOnSuccessDetail {}
     /**
      * @desc 上传成功触发
      */
     export interface UniFilePickerOnSuccess extends _UniFilePickerOnSuccess {}
+    export interface UniFilePickerOnFailDetail extends _UniFilePickerOnFailDetail {}
     /**
      * @desc 上传失败触发
      */
     export interface UniFilePickerOnFail extends _UniFilePickerOnFail {}
+    export interface UniFilePickerOnDeleteDetail extends _UniFilePickerOnDeleteDetail {}
     /**
      * @desc 文件从列表移除时触发
      */
@@ -407,7 +427,7 @@ declare global {
     /**
      * @desc 文件选择上传组件属性
      */
-    export interface UniFilePickerProps extends _UniFilePickerProps {}
+    export type UniFilePickerProps = _UniFilePickerProps;
     /**
      * @desc 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间
      */

@@ -70,7 +70,7 @@ declare global {
     /**
      * @desc 点击触发
      */
-    export interface _UniIndexedListOnClick extends _UniIndexedListOnClick {}
+    export interface UniIndexedListOnClick extends _UniIndexedListOnClick {}
     /**
      * @desc 索引列表属性
      */

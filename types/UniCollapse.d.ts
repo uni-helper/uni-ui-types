@@ -145,7 +145,7 @@ declare global {
     /**
      * @desc 折叠面板属性
      */
-    export interface UniCollapseProps extends _UniCollapseProps {}
+    export type UniCollapseProps = _UniCollapseProps;
     /**
      * @desc 折叠面板用来折叠/显示过长的内容或者是列表
      * @desc 通常是在多内容分类项使用，折叠不重要的内容，显示重要内容

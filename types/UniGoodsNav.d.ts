@@ -130,7 +130,7 @@ declare global {
      */
     export interface UniGoodsNavOnButtonClick extends _UniGoodsNavOnButtonClick {}
 
-    export interface _UniGoodsNavProps extends _UniGoodsNavProps {}
+    export interface UniGoodsNavProps extends _UniGoodsNavProps {}
     /**
      * @desc 商品加入购物车，立即购买
      */

@@ -226,7 +226,7 @@ declare global {
      */
     export interface UniDataCheckboxMultipleOnChange extends _UniDataCheckboxMultipleOnChange {}
     export interface UniDataCheckboxMultipleProps extends _UniDataCheckboxMultipleProps {}
-    export interface UniDataCheckboxProps extends _UniDataCheckboxProps {}
+    export type UniDataCheckboxProps = _UniDataCheckboxProps;
     /**
      * @desc 本组件是基于 uni-app 基础组件 checkbox 的封装。本组件要解决问题包括：
      * @desc 数据绑定型组件：给本组件绑定一个data，会自动渲染一组候选内容，在以往，开发者需要编写不少代码实现类似功能

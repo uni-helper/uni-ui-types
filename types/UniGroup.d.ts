@@ -42,7 +42,7 @@ declare global {
      * @desc default 默认
      * @desc card 卡片
      */
-    export type UniGroupMode = UniGroupMode;
+    export type UniGroupMode = _UniGroupMode;
     /**
      * @desc 分组属性
      */

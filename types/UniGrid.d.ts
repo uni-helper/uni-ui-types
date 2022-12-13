@@ -1,5 +1,16 @@
 import { CustomEvent, Component } from '@uni-helper/uni-app-types';
 
+interface _UniGridOnChangeDetail {
+  index: number;
+}
+
+/**
+ * @desc 点击触发
+ */
+interface _UniGridOnChange {
+  (event: CustomEvent<_UniGridOnChangeDetail>): void;
+}
+
 /**
  * @desc 宫格属性
  */
@@ -32,11 +43,7 @@ interface _UniGridProps {
   /**
    * @desc 点击触发
    */
-  onChange: (
-    event: CustomEvent<{
-      index: number;
-    }>,
-  ) => void;
+  onChange: _UniGridOnChange;
 }
 
 /**
@@ -44,10 +51,20 @@ interface _UniGridProps {
  */
 type _UniGrid = Component<Partial<_UniGridProps>>;
 
-export { _UniGridProps as UniGridProps, _UniGrid as UniGrid };
+export {
+  _UniGridOnChangeDetail as UniGridOnChangeDetail,
+  _UniGridOnChange as UniGridOnChange,
+  _UniGridProps as UniGridProps,
+  _UniGrid as UniGrid,
+};
 
 declare global {
   namespace UniHelper {
+    export interface UniGridOnChangeDetail extends _UniGridOnChangeDetail {}
+    /**
+     * @desc 点击触发
+     */
+    export interface UniGridOnChange extends _UniGridOnChange {}
     /**
      * @desc 宫格属性
      */

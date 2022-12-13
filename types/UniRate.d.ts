@@ -96,7 +96,7 @@ export {
   _UniRateValue as UniRateValue,
   _UniRateOnChangeDetail as UniRateOnChangeDetail,
   _UniRateOnChange as UniRateOnChange,
-  _UniRateProps as _UniRateProps,
+  _UniRateProps as UniRateProps,
   _UniRate as UniRate,
 };
 

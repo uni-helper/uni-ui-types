@@ -177,6 +177,7 @@ export {
   _UniSearchBarOnCancelDetail as UniSearchBarOnCancelDetail,
   _UniSearchBarOnCancel as UniSearchBarOnCancel,
   _UniSearchBarOnClearDetail as UniSearchBarOnClearDetail,
+  _UniSearchBarOnClear as UniSearchBarOnClear,
   _UniSearchBarOnFocusDetail as UniSearchBarOnFocusDetail,
   _UniSearchBarOnFocus as UniSearchBarOnFocus,
   _UniSearchBarOnBlurDetail as UniSearchBarOnBlurDetail,
