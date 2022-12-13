@@ -6,6 +6,9 @@
     "module": "ES2022",
     "target": "ES2022",
     "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./types/*"]
+    },
     "types": ["@dcloudio/types", "node"]
   },
   "include": [
