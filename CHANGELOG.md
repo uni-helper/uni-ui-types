@@ -1,5 +1,13 @@
 # 改动日志
 
+## 0.3.0-0 (2022-12-13)
+
+- feat!: 要求 `node>=14.18`，这是为了对标 `rollup` 和 `vite`
+- feat!: 调整部分类型命名
+- feat: 增加导出
+- feat: 增加 `UniHelper` 命名空间
+- feat: 增加基本测试
+
 ## 0.2.1 (2022-12-07)
 
 - fix: 修复 `uni-popup` 类型，感谢 [Megasu](https://github.com/Megasu) 和 [itcastsu](https://github.com/itcastsu) 在 [#3](https://github.com/uni-helper/uni-ui-types/pull/3) 的贡献
