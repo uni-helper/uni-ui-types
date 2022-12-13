@@ -20,6 +20,8 @@
 
 ## 使用
 
+### 配置
+
 - 安装依赖
 
 ```shell
@@ -44,6 +46,43 @@ npm i -D @uni-helper/uni-ui-types
 更多关于 `experimentalRuntimeMode` 和 `nativeTags` 的信息请查看 [johnsoncodehk/volar#2165 (comment)](https://github.com/johnsoncodehk/volar/issues/2165#issuecomment-1334803492)。
 
 - 重启编辑器 / IDE
+
+### 标注类型
+
+推荐使用 `@uni-helper/uni-ui-types` 导出的类型为变量标注类型。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { UniBadgeType, UniBadgeOnClick } from '@uni-helper/uni-app-types';
+
+const type = ref<UniBadgeType>('default');
+const onClick: UniBadgeOnClick = (event) => {
+  ...
+};
+</script>
+
+<template>
+  <uni-badge :type="type" @click="onClick"></uni-badge>
+</template>
+```
+
+也可以直接使用命名空间来为变量标注类型。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const type = ref<UniHelper.UniBadgeType>('default');
+const onClick: UniHelper.UniBadgeOnClick = (event) => {
+  ...
+};
+</script>
+
+<template>
+  <uni-badge :type="type" @click="onClick"></uni-badge>
+</template>
+```
 
 请查看 [types](./types) 了解所有类型。
 
