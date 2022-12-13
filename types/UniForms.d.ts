@@ -3,12 +3,24 @@ import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 /**
  * @desc 内置校验规则
  */
-export type UniFormsFormat = 'string' | 'number' | 'boolean' | 'array' | 'object' | 'url' | 'email';
+type _UniFormsFormat = 'string' | 'number' | 'boolean' | 'array' | 'object' | 'url' | 'email';
+
+interface _UniFormsCallback {
+  (...args: any): any;
+}
+
+interface _UniFormsValidateFunction {
+  (rule: any, value: any, data: any, callback: _UniFormsCallback):
+    | boolean
+    | void
+    | Promise<boolean>
+    | Promise<void>;
+}
 
 /**
  * @desc 规则
  */
-export interface UniFormsRule {
+interface _UniFormsRule {
   /**
    * @desc 是否必填
    * @desc 配置此参数不会显示输入框左边的必填星号
@@ -17,7 +29,7 @@ export interface UniFormsRule {
   /**
    * @desc 内置校验规则
    */
-  format: UniFormsFormat;
+  format: _UniFormsFormat;
   /**
    * @desc 校验用的正则表达式
    */
@@ -41,36 +53,73 @@ export interface UniFormsRule {
   /**
    * @desc 自定义校验规则
    */
-  validateFunction: (
-    rule: any,
-    value: any,
-    data: any,
-    callback: (...args: any) => any,
-  ) => boolean | void | Promise<boolean> | Promise<void>;
+  validateFunction: _UniFormsValidateFunction;
 }
 
 /**
  * @desc 表单校验时机
  */
-export type UniFormsValidateTrigger = 'bind' | 'submit' | 'blur';
+type _UniFormsValidateTrigger = 'bind' | 'submit' | 'blur';
 
 /**
  * @desc label 位置
  */
-export type UniFormsLabelPosition = 'top' | 'left';
+type _UniFormsLabelPosition = 'top' | 'left';
 
 /**
  * @desc label 对齐方式
  */
-export type UniFormsLabelAlign = 'left' | 'center' | 'right';
+type _UniFormsLabelAlign = 'left' | 'center' | 'right';
 
 /**
  * @desc 错误信息提示方式
  * @desc 默认为 undertext
  */
-export type UniFormsErrShowType = 'undertext' | 'toast' | 'modal';
+type _UniFormsErrShowType = 'undertext' | 'toast' | 'modal';
 
-export interface UniFormsProps {
+/**
+ * @desc 动态设置表单规则
+ */
+interface _UniFormsSetRules {
+  (rules: _UniFormsRule | _UniFormsRule[]): void;
+}
+
+/**
+ * @desc 校验整个表单
+ * @param keepItem 不参与校验的字段
+ * @param callback 回调函数
+ */
+interface _UniFormsValidate {
+  (keepItem: string[], callback: _UniFormsCallback): void | Promise<void>;
+}
+
+/**
+ * @desc 校验部分表单，返回对应表单数据
+ * @param items 需要校验的字段
+ */
+interface _UniFormsValidateFields {
+  (items: string | string[]): Promise<any>;
+}
+
+/**
+ * @desc 移除表单的校验结果
+ * @param items 需要移除校验的字段
+ */
+interface _UniFormsClearValidate {
+  (items?: string | string[]): void;
+}
+
+/**
+ * @desc 任意表单项被校验后触发，返回表单校验信息
+ */
+interface _UniFormsOnValidate {
+  (results: any[]): void;
+}
+
+/**
+ * @desc 表单属性
+ */
+interface _UniFormsProps {
   /**
    * @desc 表单数据
    */
@@ -78,17 +127,17 @@ export interface UniFormsProps {
   /**
    * @desc 表单校验规则
    */
-  rules: UniFormsRule[];
+  rules: _UniFormsRule[];
   /**
    * @desc 表单校验时机
    * @desc 默认为 submit
    */
-  validateTrigger: UniFormsValidateTrigger;
+  validateTrigger: _UniFormsValidateTrigger;
   /**
    * @desc label 位置
    * @desc 默认为 left
    */
-  labelPosition: UniFormsLabelPosition;
+  labelPosition: _UniFormsLabelPosition;
   /**
    * @desc label 宽度
    * @desc 单位为 px
@@ -99,12 +148,12 @@ export interface UniFormsProps {
    * @desc label 对齐方式
    * @desc 默认为 left
    */
-  labelAlign: UniFormsLabelAlign;
+  labelAlign: _UniFormsLabelAlign;
   /**
    * @desc 错误信息提示方式
    * @desc 默认为 undertext
    */
-  errShowType: UniFormsErrShowType;
+  errShowType: _UniFormsErrShowType;
   /**
    * @desc 是否显示分隔线
    * @desc 默认为 false
@@ -113,30 +162,121 @@ export interface UniFormsProps {
   /**
    * @desc 动态设置表单规则
    */
-  setRules: (rules: UniFormsRule | UniFormsRule[]) => void;
+  setRules: _UniFormsSetRules;
   /**
    * @desc 校验整个表单
    * @param keepItem 不参与校验的字段
    * @param callback 回调函数
    */
-  validate: (keepItem: string[], callback: (...args: any) => any) => void | Promise<void>;
+  validate: _UniFormsValidate;
   /**
    * @desc 校验部分表单，返回对应表单数据
    * @param items 需要校验的字段
    */
-  validateFields: (items: string | string[]) => Promise<any>;
+  validateFields: _UniFormsValidateFields;
   /**
    * @desc 移除表单的校验结果
    * @param items 需要移除校验的字段
    */
-  clearValidate: (items?: string | string[]) => void;
+  clearValidate: _UniFormsClearValidate;
   /**
    * @desc 任意表单项被校验后触发，返回表单校验信息
    */
-  onValidate: (results: any[]) => void;
+  onValidate: _UniFormsOnValidate;
 }
 
 /**
  * @desc 表单，用于提交表单内容，内置了表单验证功能
  */
-export type UniForms = Component<Partial<UniFormsProps>>;
+type _UniForms = Component<Partial<_UniFormsProps>>;
+
+export {
+  _UniFormsFormat as UniFormsFormat,
+  _UniFormsCallback as UniFormsCallback,
+  _UniFormsValidateFunction as UniFormsValidateFunction,
+  _UniFormsRule as UniFormsRule,
+  _UniFormsValidateTrigger as UniFormsValidateTrigger,
+  _UniFormsLabelPosition as UniFormsLabelPosition,
+  _UniFormsLabelAlign as UniFormsLabelAlign,
+  _UniFormsErrShowType as UniFormsErrShowType,
+  _UniFormsSetRules as UniFormsSetRules,
+  _UniFormsValidate as UniFormsValidate,
+  _UniFormsValidateFields as UniFormsValidateFields,
+  _UniFormsClearValidate as UniFormsClearValidate,
+  _UniFormsOnValidate as UniFormsOnValidate,
+  _UniFormsProps as UniFormsProps,
+  _UniForms as UniForms,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 内置校验规则
+     */
+    export type UniFormsFormat = _UniFormsFormat;
+    export interface UniFormsCallback extends _UniFormsCallback {}
+    export interface UniFormsValidateFunction extends _UniFormsValidateFunction {}
+    /**
+     * @desc 规则
+     */
+    export interface UniFormsRule extends _UniFormsRule {}
+    /**
+     * @desc 表单校验时机
+     */
+    export type UniFormsValidateTrigger = _UniFormsValidateTrigger;
+    /**
+     * @desc label 位置
+     */
+    export type UniFormsLabelPosition = _UniFormsLabelPosition;
+    /**
+     * @desc label 对齐方式
+     */
+    export type UniFormsLabelAlign = _UniFormsLabelAlign;
+    /**
+     * @desc 错误信息提示方式
+     * @desc 默认为 undertext
+     */
+    export type UniFormsErrShowType = _UniFormsErrShowType;
+    /**
+     * @desc 动态设置表单规则
+     */
+    export interface UniFormsSetRules extends _UniFormsSetRules {}
+    /**
+     * @desc 校验整个表单
+     * @param keepItem 不参与校验的字段
+     * @param callback 回调函数
+     */
+    export interface UniFormsValidate extends _UniFormsValidate {}
+    /**
+     * @desc 校验部分表单，返回对应表单数据
+     * @param items 需要校验的字段
+     */
+    export interface UniFormsValidateFields extends _UniFormsValidateFields {}
+    /**
+     * @desc 移除表单的校验结果
+     * @param items 需要移除校验的字段
+     */
+    export interface UniFormsClearValidate extends _UniFormsClearValidate {}
+    /**
+     * @desc 任意表单项被校验后触发，返回表单校验信息
+     */
+    export interface UniFormsOnValidate extends _UniFormsOnValidate {}
+    /**
+     * @desc 表单属性
+     */
+    export interface UniFormsProps extends _UniFormsProps {}
+    /**
+     * @desc 表单，用于提交表单内容，内置了表单验证功能
+     */
+    export type UniForms = _UniForms;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 表单，用于提交表单内容，内置了表单验证功能
+     */
+    UniForms: _UniForms;
+  }
+}

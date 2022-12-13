@@ -1,6 +1,9 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniRowProps {
+/**
+ * @desc 行属性
+ */
+interface _UniRowProps {
   /**
    * @desc 栅格间隔
    * @desc 默认为 0
@@ -17,4 +20,28 @@ export interface UniRowProps {
 /**
  * @desc 流式栅格系统中的行
  */
-export type UniRow = Component<Partial<UniRowProps>>;
+type _UniRow = Component<Partial<_UniRowProps>>;
+
+export { _UniRowProps as UniRowProps, _UniRow as UniRow };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 行属性
+     */
+    export interface UniRowProps extends _UniRowProps {}
+    /**
+     * @desc 流式栅格系统中的行
+     */
+    export type UniRow = _UniRow;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 流式栅格系统中的行
+     */
+    UniRow: _UniRow;
+  }
+}

@@ -1,6 +1,16 @@
 import { BaseEvent, Component } from '@uni-helper/uni-app-types';
 
-export interface UniCardProps {
+/**
+ * @desc 点击事件
+ */
+interface _UniCardOnClick {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 卡片组件属性
+ */
+interface _UniCardProps {
   /**
    * @desc 标题文字
    */
@@ -63,7 +73,7 @@ export interface UniCardProps {
   /**
    * @desc 点击事件
    */
-  onClick: (event: BaseEvent) => void;
+  onClick: _UniCardOnClick;
 }
 
 /**
@@ -71,4 +81,36 @@ export interface UniCardProps {
  * @desc 例如一篇文章的预览图、作者信息、时间等
  * @desc 卡片通常是更复杂和更详细信息的入口点
  */
-export type UniCard = Component<Partial<UniCardProps>>;
+type _UniCard = Component<Partial<_UniCardProps>>;
+
+export { _UniCardOnClick as UniCardOnClick, _UniCardProps as UniCardProps, _UniCard as UniCard };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 点击事件
+     */
+    export interface UniCardOnClick extends _UniCardOnClick {}
+    /**
+     * @desc 卡片组件属性
+     */
+    export interface UniCardProps extends _UniCardProps {}
+    /**
+     * @desc 卡片组件通用来显示完整独立的一段信息，同时让用户理解它的作用
+     * @desc 例如一篇文章的预览图、作者信息、时间等
+     * @desc 卡片通常是更复杂和更详细信息的入口点
+     */
+    export type UniCard = _UniCard;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 卡片组件通用来显示完整独立的一段信息，同时让用户理解它的作用
+     * @desc 例如一篇文章的预览图、作者信息、时间等
+     * @desc 卡片通常是更复杂和更详细信息的入口点
+     */
+    UniCard: _UniCard;
+  }
+}

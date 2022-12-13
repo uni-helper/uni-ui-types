@@ -1,6 +1,22 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniPopupShareProps {
+interface _UniPopupShareOnSelectDetail {
+  value: {
+    text: string;
+    icon: string;
+    name: string;
+  };
+  index: number;
+}
+
+/**
+ * @desc 选择时触发
+ */
+interface _UniPopupShareOnSelect {
+  (detail: _UniPopupShareOnSelectDetail): void;
+}
+
+interface _UniPopupShareProps {
   /**
    * @desc 分享弹窗标题
    */
@@ -11,14 +27,35 @@ export interface UniPopupShareProps {
    * @desc 默认为 false
    */
   beforeClose: boolean;
-  onSelect: (event: {
-    value: {
-      text: string;
-      icon: string;
-      name: string;
-    };
-    index: number;
-  }) => void;
+  /**
+   * @desc 选择时触发
+   */
+  onSelect: _UniPopupShareOnSelect;
 }
 
-export type UniPopupShare = Component<Partial<UniPopupShareProps>>;
+type _UniPopupShare = Component<Partial<_UniPopupShareProps>>;
+
+export {
+  _UniPopupShareOnSelectDetail as UniPopupShareOnSelectDetail,
+  _UniPopupShareOnSelect as UniPopupShareOnSelect,
+  _UniPopupShareProps as UniPopupShareProps,
+  _UniPopupShare as UniPopupShare,
+};
+
+declare global {
+  namespace UniHelper {
+    export interface UniPopupShareOnSelectDetail extends _UniPopupShareOnSelectDetail {}
+    /**
+     * @desc 选择时触发
+     */
+    export interface UniPopupShareOnSelect extends _UniPopupShareOnSelect {}
+    export interface UniPopupShareProps extends _UniPopupShareProps {}
+    export type UniPopupShare = _UniPopupShare;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniPopupShare: _UniPopupShare;
+  }
+}

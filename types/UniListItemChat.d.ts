@@ -3,9 +3,23 @@ import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 /**
  * @desc 新页面的跳转方式
  */
-export type UniListItemChatLink = 'navigateTo' | 'redirectTo' | 'reLaunch' | 'switchTab';
+type _UniListItemChatLink = 'navigateTo' | 'redirectTo' | 'reLaunch' | 'switchTab';
 
-export interface UniListItemChatProps {
+/**
+ * @desc 头像
+ */
+interface _UniListItemChatAvatar {
+  url: string;
+}
+
+/**
+ * @desc 点击 uni-list-item-chat 触发，需开启点击反馈
+ */
+interface _UniListItemChatOnClick {
+  (event?: AnyRecord): void;
+}
+
+interface _UniListItemChatProps {
   /**
    * @desc 标题
    */
@@ -33,7 +47,7 @@ export interface UniListItemChatProps {
    * @desc 新页面的跳转方式
    * @desc 默认为 navigateTo
    */
-  link: UniListItemChatLink;
+  link: _UniListItemChatLink;
   /**
    * @desc 新页面跳转地址
    * @desc 如填写此属性，click 会返回页面是否跳转成功
@@ -56,11 +70,43 @@ export interface UniListItemChatProps {
   /**
    * @desc 头像组
    */
-  avatarList: { url: string }[];
+  avatarList: _UniListItemChatAvatar[];
   /**
    * @desc 点击 uni-list-item-chat 触发，需开启点击反馈
    */
-  onClick: (event?: AnyRecord) => void;
+  onClick: _UniListItemChatOnClick;
 }
 
-export type UniListItemChat = Component<Partial<UniListItemChatProps>>;
+type _UniListItemChat = Component<Partial<_UniListItemChatProps>>;
+
+export {
+  _UniListItemChatLink as UniListItemChatLink,
+  _UniListItemChatAvatar as UniListItemChatAvatar,
+  _UniListItemChatOnClick as UniListItemChatOnClick,
+  _UniListItemChatProps as UniListItemChatProps,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 新页面的跳转方式
+     */
+    export type UniListItemChatLink = _UniListItemChatLink;
+    /**
+     * @desc 头像
+     */
+    export interface UniListItemChatAvatar extends _UniListItemChatAvatar {}
+    /**
+     * @desc 点击 uni-list-item-chat 触发，需开启点击反馈
+     */
+    export interface UniListItemChatOnClick extends _UniListItemChatOnClick {}
+    export interface UniListItemChatProps extends _UniListItemChatProps {}
+    export type UniListItemChat = _UniListItemChat;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniListItemChat: _UniListItemChat;
+  }
+}

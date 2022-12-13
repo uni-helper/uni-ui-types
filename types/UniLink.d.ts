@@ -1,6 +1,9 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniLinkProps {
+/**
+ * @desc 外部网页超链接组件属性
+ */
+interface _UniLinkProps {
   /**
    * @desc 链接地址
    */
@@ -42,4 +45,34 @@ export interface UniLinkProps {
  * @desc 在 APP 内打开外部浏览器
  * @desc 在 H5 端打开新网页
  */
-export type UniLink = Component<Partial<UniLinkProps>>;
+type _UniLink = Component<Partial<_UniLinkProps>>;
+
+export { _UniLinkProps as UniLinkProps, _UniLink as UniLink };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 外部网页超链接组件属性
+     */
+    export interface UniLinkProps extends _UniLinkProps {}
+    /**
+     * @desc 外部网页超链接组件
+     * @desc 在小程序内复制 URL
+     * @desc 在 APP 内打开外部浏览器
+     * @desc 在 H5 端打开新网页
+     */
+    export type UniLink = _UniLink;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 外部网页超链接组件
+     * @desc 在小程序内复制 URL
+     * @desc 在 APP 内打开外部浏览器
+     * @desc 在 H5 端打开新网页
+     */
+    UniLink: _UniLink;
+  }
+}

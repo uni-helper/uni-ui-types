@@ -1,9 +1,10 @@
 import { Component } from '@uni-helper/uni-app-types';
+import type { UniFormsFormat, UniFormsValidateFunction } from './UniForms';
 
 /**
  * @desc 规则
  */
-export interface UniFormsItemRule {
+interface _UniFormsItemRule {
   /**
    * @desc 是否必填
    * @desc 配置此参数不会显示输入框左边的必填星号
@@ -36,20 +37,29 @@ export interface UniFormsItemRule {
   /**
    * @desc 自定义校验规则
    */
-  validateFunction: (
-    rule: any,
-    value: any,
-    data: any,
-    callback: (...args: any) => any,
-  ) => boolean | void | Promise<boolean> | Promise<void>;
+  validateFunction: UniFormsValidateFunction;
 }
 
 /**
  * @desc label 对齐方式
  */
-export type UniFormsItemLabelAlign = 'left' | 'center' | 'right';
+type _UniFormsItemLabelAlign = 'left' | 'center' | 'right';
 
-export interface UniFormsItemProps {
+/**
+ * @desc 动态设置表单规则
+ */
+interface _UniFormsItemSetRules {
+  (rules: _UniFormsItemRule | _UniFormsItemRule[]): void;
+}
+
+/**
+ * @desc 校验子表单
+ */
+interface _UniFormsItemOnFieldChange {
+  (value: any): void;
+}
+
+interface _UniFormsItemProps {
   /**
    * @desc 表单域的属性名，在使用校验规则时必填
    */
@@ -57,7 +67,7 @@ export interface UniFormsItemProps {
   /**
    * @desc 表单校验规则
    */
-  rules: UniFormsItemRule;
+  rules: _UniFormsItemRule;
   /**
    * @desc label 右边显示红色 * 号，样式显示不会对校验规则产生效果
    * @desc 默认为 false
@@ -82,15 +92,54 @@ export interface UniFormsItemProps {
    * @desc label 对齐方式
    * @desc 默认为 left
    */
-  labelAlign: UniFormsItemLabelAlign;
+  labelAlign: _UniFormsItemLabelAlign;
   /**
    * @desc 动态设置表单规则
    */
-  setRules: (rules: UniFormsItemRule | UniFormsItemRule[]) => void;
+  setRules: _UniFormsItemSetRules;
   /**
    * @desc 校验子表单
    */
-  onFieldChange: (value: any) => void;
+  onFieldChange: _UniFormsItemOnFieldChange;
 }
 
-export type UniFormsItem = Component<Partial<UniFormsItemProps>>;
+type _UniFormsItem = Component<Partial<_UniFormsItemProps>>;
+
+export {
+  _UniFormsItemRule as UniFormsItemRule,
+  _UniFormsItemLabelAlign as UniFormsItemLabelAlign,
+  _UniFormsItemSetRules as UniFormsItemSetRules,
+  _UniFormsItemOnFieldChange as UniFormsItemOnFieldChange,
+  _UniFormsItemProps as UniFormsItemProps,
+  _UniFormsItem as UniFormsItem,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 规则
+     */
+    export interface UniFormsItemRule extends _UniFormsItemRule {}
+    /**
+     * @desc label 对齐方式
+     */
+    export type UniFormsItemLabelAlign = _UniFormsItemLabelAlign;
+    /**
+     * @desc 动态设置表单规则
+     */
+    export interface UniFormsItemSetRules extends _UniFormsItemSetRules {}
+
+    /**
+     * @desc 校验子表单
+     */
+    export interface UniFormsItemOnFieldChange extends _UniFormsItemOnFieldChange {}
+    export interface UniFormsItemProps extends _UniFormsItemProps {}
+    export type UniFormsItem = _UniFormsItem;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniFormsItem: _UniFormsItem;
+  }
+}

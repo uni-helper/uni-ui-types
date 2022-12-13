@@ -8,14 +8,19 @@ import { AnyRecord, BaseEvent, Component } from '@uni-helper/uni-app-types';
  * @desc warning 黄色
  * @desc error 红色
  */
-export type UniBadgeType = 'default' | 'primary' | 'success' | 'warning' | 'error';
+type _UniBadgeType = 'default' | 'primary' | 'success' | 'warning' | 'error';
 
 /**
  * @desc 角标大小
  * @desc normal 正常
  * @desc small 小
  */
-export type UniBadgeSize = 'normal' | 'small';
+type _UniBadgeSize = 'normal' | 'small';
+
+/**
+ * @desc 自定义样式
+ */
+type _UniBadgeCustomStyle = AnyRecord;
 
 /**
  * @desc 开启绝对定位，角标将定位到其包裹的标签的四个角上
@@ -24,9 +29,19 @@ export type UniBadgeSize = 'normal' | 'small';
  * @desc leftBottom 左下角
  * @desc leftTop 左上角
  */
-export type UniBadgeAbsolute = 'rightTop' | 'rightBottom' | 'leftBottom' | 'leftTop';
+type _UniBadgeAbsolute = 'rightTop' | 'rightBottom' | 'leftBottom' | 'leftTop';
 
-export interface UniBadgeProps {
+/**
+ * @desc 点击事件
+ */
+interface _UniBadgeOnClick {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 数字角标属性
+ */
+interface _UniBadgeProps {
   /**
    * @desc 角标内容
    */
@@ -40,14 +55,14 @@ export interface UniBadgeProps {
    * @desc error 红色
    * @desc 默认为 default
    */
-  type: UniBadgeType;
+  type: _UniBadgeType;
   /**
    * @desc 角标大小
    * @desc normal 正常
    * @desc small 小
    * @desc 默认为 normal
    */
-  size: UniBadgeSize;
+  size: _UniBadgeSize;
   /**
    * @desc 是否只展示一个点不展示内容
    * @desc 默认为 false
@@ -61,7 +76,7 @@ export interface UniBadgeProps {
   /**
    * @desc 自定义样式
    */
-  customStyle: AnyRecord;
+  customStyle: _UniBadgeCustomStyle;
   /**
    * @desc 是否无需背景颜色
    * @desc true 背景颜色将变为文字的字体颜色
@@ -76,7 +91,7 @@ export interface UniBadgeProps {
    * @desc leftTop 左上角
    * @desc 默认为 rightTop
    */
-  absolute: UniBadgeAbsolute;
+  absolute: _UniBadgeAbsolute;
   /**
    * @desc 距定位角中心点的偏移量
    * @desc [-10, -10] 表示向 absolute 指定的方向偏移 10px
@@ -89,11 +104,76 @@ export interface UniBadgeProps {
   /**
    * @desc 点击事件
    */
-  onClick: (event: BaseEvent) => void;
+  onClick: _UniBadgeOnClick;
 }
 
 /**
  * @desc 数字角标
  * @desc 一般和其它控件（列表、九宫格等）配合使用，用于进行数量提示，默认为实心灰色背景
  */
-export type UniBadge = Component<Partial<UniBadgeProps>>;
+type _UniBadge = Component<Partial<_UniBadgeProps>>;
+
+export {
+  _UniBadgeType as UniBadgeType,
+  _UniBadgeSize as UniBadgeSize,
+  _UniBadgeCustomStyle as UniBadgeCustomStyle,
+  _UniBadgeAbsolute as UniBadgeAbsolute,
+  _UniBadgeOnClick as UniBadgeOnClick,
+  _UniBadgeProps as UniBadgeProps,
+  _UniBadge as _UniBadge,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 角标颜色类型
+     * @desc default 灰色
+     * @desc primary 蓝色
+     * @desc success 绿色
+     * @desc warning 黄色
+     * @desc error 红色
+     */
+    export type UniBadgeType = _UniBadgeType;
+    /**
+     * @desc 角标大小
+     * @desc normal 正常
+     * @desc small 小
+     */
+    export type UniBadgeSize = _UniBadgeSize;
+    /**
+     * @desc 自定义样式
+     */
+    export type UniBadgeCustomStyle = _UniBadgeCustomStyle;
+    /**
+     * @desc 开启绝对定位，角标将定位到其包裹的标签的四个角上
+     * @desc rightTop 右上角
+     * @desc rightBottom 右下角
+     * @desc leftBottom 左下角
+     * @desc leftTop 左上角
+     */
+    export type UniBadgeAbsolute = _UniBadgeAbsolute;
+    /**
+     * @desc 点击事件
+     */
+    export interface UniBadgeOnClick extends _UniBadgeOnClick {}
+    /**
+     * @desc 数字角标属性
+     */
+    export interface UniBadgeProps extends _UniBadgeProps {}
+    /**
+     * @desc 数字角标
+     * @desc 一般和其它控件（列表、九宫格等）配合使用，用于进行数量提示，默认为实心灰色背景
+     */
+    export type UniBadge = _UniBadge;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 数字角标
+     * @desc 一般和其它控件（列表、九宫格等）配合使用，用于进行数量提示，默认为实心灰色背景
+     */
+    UniBadge: _UniBadge;
+  }
+}

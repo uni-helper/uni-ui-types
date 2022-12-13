@@ -1,6 +1,9 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniColRules {
+/**
+ * @desc 栅格规则
+ */
+interface _UniColRules {
   /**
    * @desc 栅格占据的列数
    * @desc 默认为 24
@@ -20,7 +23,10 @@ export interface UniColRules {
   pull: number;
 }
 
-export interface UniColProps extends UniColRules {
+/**
+ * @desc 列属性
+ */
+interface _UniColProps extends _UniColRules {
   /**
    * @desc 屏幕宽度 <768px 时，要显示的栅格规则
    */
@@ -46,4 +52,32 @@ export interface UniColProps extends UniColRules {
 /**
  * @desc 流式栅格系统中的列
  */
-export type UniCol = Component<Partial<UniColProps>>;
+type _UniCol = Component<Partial<_UniColProps>>;
+
+export { _UniColRules as UniColRules, _UniColProps as UniColProps, _UniCol as UniCol };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 栅格规则
+     */
+    export interface UniColRules extends _UniColRules {}
+    /**
+     * @desc 列属性
+     */
+    export interface UniColProps extends _UniColProps {}
+    /**
+     * @desc 流式栅格系统中的列
+     */
+    export type UniCol = _UniCol;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 流式栅格系统中的列
+     */
+    UniCol: _UniCol;
+  }
+}

@@ -1,6 +1,23 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniPaginationProps {
+type _UniPaginationOnChangeType = 'prev' | 'next';
+
+interface _UniPaginationOnChangeDetail {
+  type: _UniPaginationOnChangeType;
+  current: number;
+}
+
+/**
+ * @desc 点击页码按钮时触发
+ */
+interface _UniPaginationOnChange {
+  (detail: _UniPaginationOnChangeDetail): void;
+}
+
+/**
+ * @desc 分页器属性
+ */
+interface _UniPaginationProps {
   /**
    * @desc 左侧按钮文字
    * @desc 默认为 上一页
@@ -39,10 +56,46 @@ export interface UniPaginationProps {
   /**
    * @desc 点击页码按钮时触发
    */
-  onChange: (event: { type: 'prev' | 'next'; current: number }) => void;
+  onChange: _UniPaginationOnChange;
 }
 
 /**
  * @desc 分页器组件，用于展示页码、请求数据等
  */
-export type UniPagination = Component<Partial<UniPaginationProps>>;
+type _UniPagination = Component<Partial<_UniPaginationProps>>;
+
+export {
+  _UniPaginationOnChangeType as UniPaginationOnChangeType,
+  _UniPaginationOnChangeDetail as UniPaginationOnChangeDetail,
+  _UniPaginationOnChange as UniPaginationOnChange,
+  _UniPaginationProps as UniPaginationProps,
+  _UniPagination as UniPagination,
+};
+
+declare global {
+  namespace UniHelper {
+    export type UniPaginationOnChangeType = _UniPaginationOnChangeType;
+    export interface UniPaginationOnChangeDetail extends _UniPaginationOnChangeDetail {}
+    /**
+     * @desc 点击页码按钮时触发
+     */
+    export interface UniPaginationOnChange extends _UniPaginationOnChange {}
+    /**
+     * @desc 分页器属性
+     */
+    export interface UniPaginationProps extends _UniPaginationProps {}
+    /**
+     * @desc 分页器组件，用于展示页码、请求数据等
+     */
+    export type UniPagination = _UniPagination;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 分页器组件，用于展示页码、请求数据等
+     */
+    UniPagination: _UniPagination;
+  }
+}

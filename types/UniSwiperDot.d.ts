@@ -3,12 +3,12 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * @desc 指示点的类型
  */
-export type UniSwiperDotMode = 'default' | 'round' | 'nav' | 'indexes';
+type _UniSwiperDotMode = 'default' | 'round' | 'nav' | 'indexes';
 
 /**
  * @desc 指示点样式
  */
-export interface UniSwiperDotDotsStyles {
+interface _UniSwiperDotDotsStyles {
   /**
    * @desc 指示点宽度
    * @desc mode="nav"、mode="indexes" 时无效
@@ -50,7 +50,7 @@ export interface UniSwiperDotDotsStyles {
   selectedBorder: string;
 }
 
-export interface UniSwiperDotProps {
+interface _UniSwiperDotProps {
   /**
    * @desc 当前指示点索引
    * @desc 必须是通过 swiper 的 change 事件获取到的 e.detail.current
@@ -59,7 +59,7 @@ export interface UniSwiperDotProps {
   /**
    * @desc 指示点类型
    */
-  mode: UniSwiperDotMode;
+  mode: _UniSwiperDotMode;
   /**
    * @desc 显示的内容字段
    * @desc mode="nav" 时有效
@@ -72,10 +72,38 @@ export interface UniSwiperDotProps {
   /**
    * @desc 指示点样式
    */
-  dotsStyles: UniSwiperDotDotsStyles;
+  dotsStyles: _UniSwiperDotDotsStyles;
 }
 
 /**
  * @desc 轮播图指示点
  */
-export type UniSwiperDot = Component<Partial<UniSwiperDotProps>>;
+type _UniSwiperDot = Component<Partial<_UniSwiperDotProps>>;
+
+export {
+  _UniSwiperDotMode as UniSwiperDotMode,
+  _UniSwiperDotDotsStyles as UniSwiperDotDotsStyles,
+  _UniSwiperDotProps as UniSwiperDotProps,
+  _UniSwiperDot as UniSwiperDot,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 指示点的类型
+     */
+    export type UniSwiperDotMode = _UniSwiperDotMode;
+    /**
+     * @desc 指示点样式
+     */
+    export interface UniSwiperDotDotsStyles extends _UniSwiperDotDotsStyles {}
+    export interface UniSwiperDotProps extends _UniSwiperDotProps {}
+    export type UniSwiperDot = _UniSwiperDot;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniSwiperDot: _UniSwiperDot;
+  }
+}

@@ -1,6 +1,9 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export type UniIconsType =
+/**
+ * @desc 图标类型
+ */
+type _UniIconsType =
   | 'color'
   | 'wallet'
   | 'settings-filled'
@@ -160,7 +163,10 @@ export type UniIconsType =
   | 'headphones'
   | 'cart';
 
-export interface UniIconsProps {
+/**
+ * @desc 图标属性
+ */
+interface _UniIconsProps {
   /**
    * @desc 图标大小
    * @desc 默认为 16
@@ -186,4 +192,32 @@ export interface UniIconsProps {
 /**
  * @desc 图标
  */
-export type UniIcons = Component<Partial<UniIconsProps>>;
+type _UniIcons = Component<Partial<_UniIconsProps>>;
+
+export { _UniIconsType as UniIconsType, _UniIconsProps as UniIconsProps, _UniIcons as UniIcons };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 图标类型
+     */
+    export type UniIconsType = _UniIconsType;
+    /**
+     * @desc 图标属性
+     */
+    export interface UniIconsProps extends _UniIconsProps {}
+    /**
+     * @desc 图标
+     */
+    export type UniIcons = _UniIcons;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 图标
+     */
+    UniIcons: _UniIcons;
+  }
+}

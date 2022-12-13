@@ -3,7 +3,7 @@ import { BaseEvent, Component } from '@uni-helper/uni-app-types';
 /**
  * @desc 收藏按钮文字
  */
-export interface UniFavContentText {
+interface _UniFavContentText {
   /**
    * @desc 未收藏文字
    * @desc 默认为 收藏
@@ -16,7 +16,14 @@ export interface UniFavContentText {
   contentFav: string;
 }
 
-export interface UniFavProps {
+/**
+ * @desc 点击触发
+ */
+interface _UniFavOnClick {
+  (event: BaseEvent): void;
+}
+
+interface _UniFavProps {
   /**
    * @desc 按钮是否带星
    * @desc 默认为 true
@@ -55,14 +62,47 @@ export interface UniFavProps {
   /**
    * @desc 收藏按钮文字
    */
-  contentText: UniFavContentText;
+  contentText: _UniFavContentText;
   /**
    * @desc 点击触发
    */
-  onClick: (event: BaseEvent) => void;
+  onClick: _UniFavOnClick;
 }
 
 /**
  * @desc 用于收藏功能，可点击切换选中、不选中的状态
  */
-export type UniFav = Component<Partial<UniFavProps>>;
+type _UniFav = Component<Partial<_UniFavProps>>;
+
+export {
+  _UniFavContentText as UniFavContentText,
+  _UniFavOnClick as UniFavOnClick,
+  _UniFavProps as UniFavProps,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 收藏按钮文字
+     */
+    export interface UniFavContentText extends _UniFavContentText {}
+    /**
+     * @desc 点击触发
+     */
+    export interface UniFavOnClick extends _UniFavOnClick {}
+    export interface UniFavProps extends _UniFavProps {}
+    /**
+     * @desc 用于收藏功能，可点击切换选中、不选中的状态
+     */
+    export type UniFav = _UniFav;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 用于收藏功能，可点击切换选中、不选中的状态
+     */
+    UniFav: _UniFav;
+  }
+}

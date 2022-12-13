@@ -1,6 +1,6 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniFilePickerValue {
+interface _UniFilePickerValue {
   name: string;
   extname: string;
   url: string;
@@ -11,7 +11,7 @@ export interface UniFilePickerValue {
  * @desc list 列表
  * @desc grid 网格
  */
-export type UniFilePickerMode = 'list' | 'grid';
+type _UniFilePickerMode = 'list' | 'grid';
 
 /**
  * @desc 选择文件类型
@@ -19,13 +19,13 @@ export type UniFilePickerMode = 'list' | 'grid';
  * @desc video 视频
  * @desc all 全部
  */
-export type UniFilePickerFileMediatype = 'image' | 'video' | 'all';
+type _UniFilePickerFileMediatype = 'image' | 'video' | 'all';
 
 /**
  * @desc 样式
  * @desc mode="list" 时有效
  */
-export interface UniFilePickerListStyles {
+interface _UniFilePickerListStyles {
   /**
    * @desc 边框样式
    */
@@ -63,11 +63,12 @@ export interface UniFilePickerListStyles {
    */
   dividline: boolean;
 }
+
 /**
  * @desc 样式
  * @desc mode="grid" 时有效
  */
-export interface UniFilePickerImageStyles {
+interface _UniFilePickerImageStyles {
   /**
    * @desc 高度
    */
@@ -107,7 +108,7 @@ export interface UniFilePickerImageStyles {
 /**
  * @desc 事件回调参数
  */
-export interface UniFilePickerEvent {
+interface _UniFilePickerEvent {
   /**
    * @desc 上传进度
    */
@@ -133,7 +134,58 @@ export interface UniFilePickerEvent {
   tempFilePaths?: string[];
 }
 
-export interface UniFilePickerBaseProps {
+/**
+ * @desc 手动上传
+ */
+interface _UniFilePickerUpload {
+  (): void;
+}
+
+/**
+ * @desc 清除选择结果
+ * @desc 传入下标则删除指定下标文件
+ * @desc 不传入下标则删除所有
+ */
+interface _UniFilePickerClearFiles {
+  (index?: number): void;
+}
+
+/**
+ * @desc 选择文件后触发
+ */
+interface _UniFilePickerOnSelect {
+  (event: _UniFilePickerEvent): void;
+}
+
+/**
+ * @desc 文件上传时触发
+ */
+interface _UniFilePickerOnProgress {
+  (event: _UniFilePickerEvent): void;
+}
+
+/**
+ * @desc 上传成功触发
+ */
+interface _UniFilePickerOnSuccess {
+  (event: _UniFilePickerEvent): void;
+}
+
+/**
+ * @desc 上传失败触发
+ */
+interface _UniFilePickerOnFail {
+  (event: _UniFilePickerEvent): void;
+}
+
+/**
+ * @desc 文件从列表移除时触发
+ */
+interface _UniFilePickerOnDelete {
+  (event: _UniFilePickerEvent): void;
+}
+
+interface _UniFilePickerBaseProps {
   /**
    * @desc 组件是否禁用
    * @desc 默认为 false
@@ -150,7 +202,7 @@ export interface UniFilePickerBaseProps {
    * @desc grid 网格
    * @desc 默认为 list
    */
-  mode: UniFilePickerMode;
+  mode: _UniFilePickerMode;
   /**
    * @desc 是否禁用图片预览
    * @desc mode="grid" 时有效
@@ -185,7 +237,7 @@ export interface UniFilePickerBaseProps {
    * @desc all 全部
    * @desc 默认为 image
    */
-  fileMediatype: UniFilePickerFileMediatype;
+  fileMediatype: _UniFilePickerFileMediatype;
   /**
    * @desc 选择文件后缀，字符串的情况下需要用逗号分隔
    * @desc 推荐使用字符串
@@ -197,60 +249,60 @@ export interface UniFilePickerBaseProps {
    * @desc 样式
    * @desc mode="list" 时有效
    */
-  listStyles: UniFilePickerListStyles;
+  listStyles: _UniFilePickerListStyles;
   /**
    * @desc 样式
    * @desc mode="grid" 时有效
    */
-  imageStyles: UniFilePickerImageStyles;
+  imageStyles: _UniFilePickerImageStyles;
   /**
    * @desc 手动上传
    */
-  upload: () => void;
+  upload: _UniFilePickerUpload;
   /**
    * @desc 清除选择结果
    * @desc 传入下标则删除指定下标文件
    * @desc 不传入下标则删除所有
    */
-  clearFiles: (index?: number) => void;
+  clearFiles: _UniFilePickerClearFiles;
   /**
    * @desc 选择文件后触发
    */
-  onSelect: (event: UniFilePickerEvent) => void;
+  onSelect: _UniFilePickerOnSelect;
   /**
    * @desc 文件上传时触发
    */
-  onProgress: (event: UniFilePickerEvent) => void;
+  onProgress: _UniFilePickerOnProgress;
   /**
    * @desc 上传成功触发
    */
-  onSuccess: (event: UniFilePickerEvent) => void;
+  onSuccess: _UniFilePickerOnSuccess;
   /**
    * @desc 上传失败触发
    */
-  onFail: (event: UniFilePickerEvent) => void;
+  onFail: _UniFilePickerOnFail;
   /**
    * @desc 文件从列表移除时触发
    */
-  onDelete: (event: UniFilePickerEvent) => void;
+  onDelete: _UniFilePickerOnDelete;
 }
 
-export interface UniFilePickerArrayProps extends UniFilePickerBaseProps {
+interface _UniFilePickerArrayProps extends _UniFilePickerBaseProps {
   /**
    * @desc 组件数据，通常用来回显
    */
-  value: UniFilePickerValue[];
+  value: _UniFilePickerValue[];
   /**
    * @desc 限制 value 类型
    */
   returnType?: 'array';
 }
 
-export interface UniFilePickerObjectProps extends UniFilePickerBaseProps {
+interface _UniFilePickerObjectProps extends _UniFilePickerBaseProps {
   /**
    * @desc 组件数据，通常用来回显
    */
-  value: UniFilePickerValue;
+  value: _UniFilePickerValue;
   /**
    * @desc 限制 value 类型
    * @desc 只能单选，且会覆盖
@@ -258,9 +310,116 @@ export interface UniFilePickerObjectProps extends UniFilePickerBaseProps {
   returnType: 'object';
 }
 
-export type UniFilePickerProps = UniFilePickerArrayProps | UniFilePickerObjectProps;
+/**
+ * @desc 文件选择上传组件属性
+ */
+type _UniFilePickerProps = _UniFilePickerArrayProps | _UniFilePickerObjectProps;
 
 /**
  * @desc 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间
  */
-export type UniFilePicker = Component<Partial<UniFilePickerProps>>;
+type _UniFilePicker = Component<Partial<_UniFilePickerProps>>;
+
+export {
+  _UniFilePickerValue as UniFilePickerValue,
+  _UniFilePickerMode as UniFilePickerMode,
+  _UniFilePickerFileMediatype as UniFilePickerFileMediatype,
+  _UniFilePickerListStyles as UniFilePickerListStyles,
+  _UniFilePickerImageStyles as UniFilePickerImageStyles,
+  _UniFilePickerEvent as UniFilePickerEvent,
+  _UniFilePickerUpload as UniFilePickerUpload,
+  _UniFilePickerClearFiles as UniFilePickerClearFiles,
+  _UniFilePickerOnSelect as UniFilePickerOnSelect,
+  _UniFilePickerOnProgress as UniFilePickerOnProgress,
+  _UniFilePickerOnSuccess as UniFilePickerOnSuccess,
+  _UniFilePickerOnFail as UniFilePickerOnFail,
+  _UniFilePickerOnDelete as UniFilePickerOnDelete,
+  _UniFilePickerBaseProps as UniFilePickerBaseProps,
+  _UniFilePickerArrayProps as UniFilePickerArrayProps,
+  _UniFilePickerObjectProps as UniFilePickerObjectProps,
+  _UniFilePickerProps as UniFilePickerProps,
+  _UniFilePicker as UniFilePicker,
+};
+
+declare global {
+  namespace UniHelper {
+    export interface UniFilePickerValue extends _UniFilePickerValue {}
+    /**
+     * @desc 选择文件后的文件列表样式
+     * @desc list 列表
+     * @desc grid 网格
+     */
+    export type UniFilePickerMode = _UniFilePickerMode;
+    /**
+     * @desc 选择文件类型
+     * @desc image 图片
+     * @desc video 视频
+     * @desc all 全部
+     */
+    export type UniFilePickerFileMediatype = _UniFilePickerFileMediatype;
+    /**
+     * @desc 样式
+     * @desc mode="list" 时有效
+     */
+    export interface UniFilePickerListStyles extends _UniFilePickerListStyles {}
+    /**
+     * @desc 样式
+     * @desc mode="grid" 时有效
+     */
+    export interface UniFilePickerImageStyles extends _UniFilePickerImageStyles {}
+    /**
+     * @desc 事件回调参数
+     */
+    export interface UniFilePickerEvent extends _UniFilePickerEvent {}
+    /**
+     * @desc 手动上传
+     */
+    export interface UniFilePickerUpload extends _UniFilePickerUpload {}
+    /**
+     * @desc 清除选择结果
+     * @desc 传入下标则删除指定下标文件
+     * @desc 不传入下标则删除所有
+     */
+    export interface UniFilePickerClearFiles extends _UniFilePickerClearFiles {}
+    /**
+     * @desc 选择文件后触发
+     */
+    export interface UniFilePickerOnSelect extends _UniFilePickerOnSelect {}
+    /**
+     * @desc 文件上传时触发
+     */
+    export interface UniFilePickerOnProgress extends _UniFilePickerOnProgress {}
+    /**
+     * @desc 上传成功触发
+     */
+    export interface UniFilePickerOnSuccess extends _UniFilePickerOnSuccess {}
+    /**
+     * @desc 上传失败触发
+     */
+    export interface UniFilePickerOnFail extends _UniFilePickerOnFail {}
+    /**
+     * @desc 文件从列表移除时触发
+     */
+    export interface UniFilePickerOnDelete extends _UniFilePickerOnDelete {}
+    export interface UniFilePickerBaseProps extends _UniFilePickerBaseProps {}
+    export interface UniFilePickerArrayProps extends _UniFilePickerArrayProps {}
+    export interface UniFilePickerObjectProps extends _UniFilePickerObjectProps {}
+    /**
+     * @desc 文件选择上传组件属性
+     */
+    export interface UniFilePickerProps extends _UniFilePickerProps {}
+    /**
+     * @desc 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间
+     */
+    export interface UniFilePicker extends _UniFilePicker {}
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间
+     */
+    UniFilePicker: _UniFilePicker;
+  }
+}

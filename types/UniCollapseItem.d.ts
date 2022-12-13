@@ -6,9 +6,9 @@ import { Component } from '@uni-helper/uni-app-types';
  * @desc none 不显示分隔线
  * @desc show 一直显示分隔线
  */
-export type UniCollapseItemTitleBorder = 'auto' | 'none' | 'show';
+type _UniCollapseItemTitleBorder = 'auto' | 'none' | 'show';
 
-export interface UniCollapseItemProps {
+interface _UniCollapseItemProps {
   /**
    * @desc 标题文字
    */
@@ -45,7 +45,7 @@ export interface UniCollapseItemProps {
    * @desc show 一直显示分隔线
    * @desc 默认为 auto
    */
-  titleBorder: UniCollapseItemTitleBorder;
+  titleBorder: _UniCollapseItemTitleBorder;
   /**
    * @desc 是否显示右侧箭头
    * @desc 默认为 true
@@ -53,4 +53,19 @@ export interface UniCollapseItemProps {
   showArrow: boolean;
 }
 
-export type UniCollapseItem = Component<Partial<UniCollapseItemProps>>;
+type _UniCollapseItem = Component<Partial<_UniCollapseItemProps>>;
+
+export { _UniCollapseItemProps as UniCollapseItemProps, _UniCollapseItem as UniCollapseItem };
+
+declare global {
+  namespace UniHelper {
+    export interface UniCollapseItemProps extends _UniCollapseItemProps {}
+    export type UniCollapseItem = _UniCollapseItem;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniCollapseItem: _UniCollapseItem;
+  }
+}

@@ -1,5 +1,20 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-export interface UniTrProps {}
+interface _UniTrProps {}
 
-export type UniTr = Component<Partial<UniTrProps>>;
+type _UniTr = Component<Partial<_UniTrProps>>;
+
+export { _UniTrProps as UniTrProps, _UniTr as UniTr };
+
+declare global {
+  namespace UniHelper {
+    export interface UniTrProps extends _UniTrProps {}
+    export type UniTr = _UniTr;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniTr: _UniTr;
+  }
+}

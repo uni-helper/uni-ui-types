@@ -7,9 +7,9 @@ import { Component } from '@uni-helper/uni-app-types';
  * @desc error 失败
  * @desc info 消息
  */
-export type UniPopupMessageType = 'success' | 'warn' | 'error' | 'info';
+type _UniPopupMessageType = 'success' | 'warn' | 'error' | 'info';
 
-export interface UniPopupMessageProps {
+interface _UniPopupMessageProps {
   /**
    * @desc 消息提示主题
    * @desc success 成功
@@ -18,7 +18,7 @@ export interface UniPopupMessageProps {
    * @desc info 消息
    * @desc 默认为 success
    */
-  type: UniPopupMessageType;
+  type: _UniPopupMessageType;
   /**
    * @desc 消息提示文字
    */
@@ -31,4 +31,31 @@ export interface UniPopupMessageProps {
   duration: number;
 }
 
-export type UniPopupMessage = Component<Partial<UniPopupMessageProps>>;
+type _UniPopupMessage = Component<Partial<_UniPopupMessageProps>>;
+
+export {
+  _UniPopupMessageType as UniPopupMessageType,
+  _UniPopupMessageProps as UniPopupMessageProps,
+  _UniPopupMessage as UniPopupMessage,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 消息提示主题
+     * @desc success 成功
+     * @desc warn 警告
+     * @desc error 失败
+     * @desc info 消息
+     */
+    export type UniPopupMessageType = _UniPopupMessageType;
+    export interface UniPopupMessageProps extends _UniPopupMessageProps {}
+    export type UniPopupMessage = _UniPopupMessage;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniPopupMessage: _UniPopupMessage;
+  }
+}

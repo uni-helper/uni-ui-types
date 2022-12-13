@@ -1,13 +1,15 @@
 import { Component } from '@uni-helper/uni-app-types';
 
+type _UniDataSelectValue = string | number;
+
 /**
  * @desc 本地数据
  */
-export interface UniDataSelectLocaldata {
+interface _UniDataSelectLocaldata {
   /**
    * @desc 值
    */
-  value: string | number;
+  value: _UniDataSelectValue;
   /**
    * @desc 显示文字
    */
@@ -19,15 +21,22 @@ export interface UniDataSelectLocaldata {
   disable: boolean;
 }
 
-export interface UniDataSelectProps {
+/**
+ * @desc 改变时触发
+ */
+interface _UniDataSelectOnChange {
+  (event: _UniDataSelectValue): void;
+}
+
+interface _UniDataSelectProps {
   /**
    * @desc 已选择数据的 value 值
    */
-  value: string | number;
+  value: _UniDataSelectValue;
   /**
    * @desc 本地数据
    */
-  localdata: UniDataSelectLocaldata[];
+  localdata: _UniDataSelectLocaldata[];
   /**
    * @desc 是否可以清空已选项
    * @desc 默认为 true
@@ -50,7 +59,7 @@ export interface UniDataSelectProps {
   /**
    * @desc 改变时触发
    */
-  onChange: (event: UniDataSelectProps['value']) => void;
+  onChange: _UniDataSelectOnChange;
 }
 
 /**
@@ -59,4 +68,34 @@ export interface UniDataSelectProps {
  * @desc 数据绑定型组件：给本组件绑定一个 data，会自动渲染一组候选内容
  * @desc 自动的表单校验：组件绑定了 data，且符合 uni-forms 的表单校验规范，搭配使用会自动实现表单校验
  */
-export type UniDataSelect = Component<Partial<UniDataSelectProps>>;
+type _UniDataSelect = Component<Partial<_UniDataSelectProps>>;
+
+export {
+  _UniDataSelectValue as UniDataSelectValue,
+  _UniDataSelectLocaldata as UniDataSelectLocaldata,
+  _UniDataSelectOnChange as UniDataSelectOnChange,
+  _UniDataSelectProps as UniDataSelectProps,
+  _UniDataSelect as UniDataSelect,
+};
+
+declare global {
+  namespace UniHelper {
+    export type UniDataSelectValue = _UniDataSelectValue;
+    /**
+     * @desc 本地数据
+     */
+    export interface UniDataSelectLocaldata extends _UniDataSelectLocaldata {}
+    /**
+     * @desc 改变时触发
+     */
+    export interface UniDataSelectOnChange extends _UniDataSelectOnChange {}
+    export interface UniDataSelectProps extends _UniDataSelectProps {}
+    export type UniDataSelect = _UniDataSelect;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniDataSelect: _UniDataSelect;
+  }
+}

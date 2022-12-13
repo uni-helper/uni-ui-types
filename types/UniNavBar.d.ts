@@ -1,7 +1,10 @@
 import { Component } from '@uni-helper/uni-app-types';
 import { UniIconsType } from './UniIcons';
 
-export interface UniNavBarProps {
+/**
+ * @desc 导航栏属性
+ */
+interface _UniNavBarProps {
   /**
    * @desc 标题文字
    */
@@ -80,4 +83,28 @@ export interface UniNavBarProps {
 /**
  * @desc 导航栏组件，主要用于头部导航
  */
-export type UniNavBar = Component<Partial<UniNavBarProps>>;
+type _UniNavBar = Component<Partial<_UniNavBarProps>>;
+
+export { _UniNavBarProps as UniNavBarProps, _UniNavBar as UniNavBar };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 导航栏属性
+     */
+    export interface UniNavBarProps extends _UniNavBarProps {}
+    /**
+     * @desc 导航栏组件，主要用于头部导航
+     */
+    export type UniNavBar = _UniNavBar;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 导航栏组件，主要用于头部导航
+     */
+    UniNavBar: _UniNavBar;
+  }
+}

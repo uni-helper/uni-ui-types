@@ -1,6 +1,9 @@
 import { CustomEvent, Component } from '@uni-helper/uni-app-types';
 
-export interface UniGridProps {
+/**
+ * @desc 宫格属性
+ */
+interface _UniGridProps {
   /**
    * @desc 每列显示个数
    * @desc 默认为 3
@@ -39,4 +42,28 @@ export interface UniGridProps {
 /**
  * @desc 宫格
  */
-export type UniGrid = Component<Partial<UniGridProps>>;
+type _UniGrid = Component<Partial<_UniGridProps>>;
+
+export { _UniGridProps as UniGridProps, _UniGrid as UniGrid };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 宫格属性
+     */
+    export interface UniGridProps extends _UniGridProps {}
+    /**
+     * @desc 宫格
+     */
+    export type UniGrid = _UniGrid;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 宫格
+     */
+    UniGrid: _UniGrid;
+  }
+}

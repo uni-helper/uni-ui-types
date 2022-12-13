@@ -5,14 +5,22 @@ import { Component } from '@uni-helper/uni-app-types';
  * @desc zh 中文
  * @desc en 英文
  */
-export type UniDateformatLocale = 'zh' | 'en';
+type _UniDateformatLocale = 'zh' | 'en';
 
-export interface UniDateformatProps {
+/**
+ * @desc 要格式化的日期对象/日期字符串/时间戳
+ */
+type _UniDateformatData = Date | string | number;
+
+/**
+ * @desc 日期格式化组件属性
+ */
+interface _UniDateformatProps {
   /**
    * @desc 要格式化的日期对象/日期字符串/时间戳
    * @desc 默认为 Date.now()
    */
-  date: Date | string | number;
+  date: _UniDateformatData;
   /**
    * @desc 转化类型阈值
    * @desc 默认为 [0, 0]
@@ -43,10 +51,47 @@ export interface UniDateformatProps {
    * @desc en 英文
    * @desc 默认为 zh
    */
-  locale: UniDateformatLocale;
+  locale: _UniDateformatLocale;
 }
 
 /**
  * @desc 日期格式化组件
  */
-export type UniDateformat = Component<Partial<UniDateformatProps>>;
+type _UniDateformat = Component<Partial<_UniDateformatProps>>;
+
+export {
+  _UniDateformatLocale as UniDateformatLocale,
+  _UniDateformatData as UniDateformatData,
+  _UniDateformatProps as UniDateformatProps,
+  _UniDateformat as UniDateformat,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 格式化使用的语言
+     */
+    export type UniDateformatLocale = _UniDateformatLocale;
+    /**
+     * @desc 要格式化的日期对象/日期字符串/时间戳
+     */
+    export type UniDateformatData = _UniDateformatData;
+    /**
+     * @desc 日期格式化组件属性
+     */
+    export interface UniDateformatProps extends _UniDateformatProps {}
+    /**
+     * @desc 日期格式化组件
+     */
+    export type UniDateformat = _UniDateformat;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 日期格式化组件
+     */
+    UniDateformat: _UniDateformat;
+  }
+}

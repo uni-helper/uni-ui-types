@@ -11,7 +11,7 @@ import { Component } from '@uni-helper/uni-app-types';
  * @desc dialog 预置样式，对话框
  * @desc share 预置样式，底部弹出分享
  */
-export type UniPopupType =
+type _UniPopupType =
   | 'top'
   | 'center'
   | 'bottom'
@@ -21,7 +21,26 @@ export type UniPopupType =
   | 'dialog'
   | 'share';
 
-export interface UniPopupProps {
+interface _UniPopupOnChangeDetail {
+  show: boolean;
+  type: _UniPopupType;
+}
+
+/**
+ * @desc 状态变化时触发
+ */
+interface _UniPopupOnChange {
+  (detail: _UniPopupOnChangeDetail): void;
+}
+
+/**
+ * @desc 点击遮罩层触发
+ */
+interface _UniPopupOnMaskClick {
+  (): void;
+}
+
+interface _UniPopupProps {
   /**
    * @desc 是否开启动画
    * @desc 默认为 true
@@ -39,7 +58,7 @@ export interface UniPopupProps {
    * @desc share 预置样式，底部弹出分享
    * @desc 默认为 center
    */
-  type: UniPopupType;
+  type: _UniPopupType;
   /**
    * @desc 蒙版点击是否关闭弹窗
    * @desc 默认为 true
@@ -63,7 +82,7 @@ export interface UniPopupProps {
   /**
    * @desc 打开弹出层
    */
-  open: (type?: UniPopupType) => void;
+  open: (type?: _UniPopupType) => void;
   /**
    * @desc 关闭弹出层
    */
@@ -71,14 +90,60 @@ export interface UniPopupProps {
   /**
    * @desc 状态变化时触发
    */
-  onChange: (event: { show: boolean; type: UniPopupType }) => void;
+  onChange: _UniPopupOnChange;
   /**
    * @desc 点击遮罩层触发
    */
-  onMaskClick: () => void;
+  onMaskClick: _UniPopupOnMaskClick;
 }
 
 /**
  * @desc 弹出层，在应用中弹出一个消息提示窗口、提示框等
  */
-export type UniPopup = Component<Partial<UniPopupProps>>;
+type _UniPopup = Component<Partial<_UniPopupProps>>;
+
+export {
+  _UniPopupType as UniPopupType,
+  _UniPopupOnChangeDetail as UniPopupOnChangeDetail,
+  _UniPopupOnChange as UniPopupOnChange,
+  _UniPopupOnMaskClick as UniPopupOnMaskClick,
+  _UniPopupProps as UniPopupProps,
+  _UniPopup as UniPopup,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 弹出方式
+     * @desc top 顶部弹出
+     * @desc center 居中弹出
+     * @desc bottom 底部弹出
+     * @desc left 左侧弹出
+     * @desc right 右侧弹出
+     * @desc message 预置样式，消息提示
+     * @desc dialog 预置样式，对话框
+     * @desc share 预置样式，底部弹出分享
+     */
+    export type UniPopupType = _UniPopupType;
+    export interface UniPopupOnChangeDetail extends _UniPopupOnChangeDetail {}
+    /**
+     * @desc 状态变化时触发
+     */
+    export interface UniPopupOnChange extends _UniPopupOnChange {}
+    /**
+     * @desc 点击遮罩层触发
+     */
+    export interface UniPopupOnMaskClick extends _UniPopupOnMaskClick {}
+    export interface UniPopupProps extends _UniPopupProps {}
+    /**
+     * @desc 弹出层，在应用中弹出一个消息提示窗口、提示框等
+     */
+    export type UniPopup = _UniPopup;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniPopup: _UniPopup;
+  }
+}

@@ -10,7 +10,7 @@ import { BaseEvent, Component } from '@uni-helper/uni-app-types';
  * @desc zoom-in 由小到大过渡
  * @desc zoom-out 由大到小过渡
  */
-export type UniTransitionModeClass =
+type _UniTransitionModeClass =
   | 'fade'
   | 'slide-top'
   | 'slide-right'
@@ -29,7 +29,7 @@ export type UniTransitionModeClass =
  * @desc step-start 动画第一帧就跳至结束状态直到结束
  * @desc step-end 动画一直保持开始状态，最后一帧跳到结束状态
  */
-export type UniTransitionTimingFunction =
+type _UniTransitionTimingFunction =
   | 'linear'
   | 'ease'
   | 'ease-in'
@@ -38,7 +38,7 @@ export type UniTransitionTimingFunction =
   | 'step-start'
   | 'step-end';
 
-export interface UniTransitionConfig {
+interface _UniTransitionConfig {
   /**
    * @desc 动画持续时间
    * @desc 单位为 ms
@@ -56,7 +56,7 @@ export interface UniTransitionConfig {
    * @desc step-end 动画一直保持开始状态，最后一帧跳到结束状态
    * @desc 默认为 linear
    */
-  timingFunction: UniTransitionTimingFunction;
+  timingFunction: _UniTransitionTimingFunction;
   /**
    * @desc 动画延迟时间
    * @desc 单位为 ms
@@ -75,7 +75,7 @@ export interface UniTransitionConfig {
   transformOrigin: string;
 }
 
-export interface UniTransitionType {
+interface _UniTransitionType {
   /**
    * @desc 透明度
    * @desc 取值范围为 0 - 1
@@ -174,7 +174,47 @@ export interface UniTransitionType {
   scale3d: string;
 }
 
-export interface UniTransitionProps {
+/**
+ * @desc 手动设置动画配置
+ */
+interface _UniTransitionInit {
+  (config: _UniTransitionConfig): void;
+}
+
+/**
+ * @desc 调用表示一组动画完成
+ */
+interface _UniTransitionStep {
+  (type: _UniTransitionType, config?: _UniTransitionConfig): void;
+}
+
+/**
+ * @desc 执行动画
+ * @param callback 所有动画执行完毕后回调
+ */
+interface _UniTransitionRun {
+  (callback: () => void): void;
+}
+
+/**
+ * @desc 点击触发
+ */
+interface _UniTransitionOnClick {
+  (event: BaseEvent): void;
+}
+
+interface _UniTransitionOnChangeDetail {
+  detail: boolean;
+}
+
+/**
+ * @desc 过渡动画结束时触发
+ */
+interface _UniTransitionOnChange {
+  (detail: _UniTransitionOnChangeDetail): void;
+}
+
+interface _UniTransitionProps {
   /**
    * @desc 控制组件是否显示
    * @desc 默认为 false
@@ -190,7 +230,7 @@ export interface UniTransitionProps {
    * @desc zoom-in 由小到大过渡
    * @desc zoom-out 由大到小过渡
    */
-  modeClass: UniTransitionModeClass | UniTransitionModeClass[];
+  modeClass: _UniTransitionModeClass | _UniTransitionModeClass[];
   /**
    * @desc 自定义类名
    */
@@ -203,27 +243,107 @@ export interface UniTransitionProps {
   /**
    * @desc 手动设置动画配置
    */
-  init: (config: UniTransitionConfig) => void;
+  init: _UniTransitionStep;
   /**
    * @desc 调用表示一组动画完成
    */
-  step: (type: UniTransitionType, config?: UniTransitionConfig) => void;
+  step: _UniTransitionStep;
   /**
    * @desc 执行动画
    * @param 所有动画执行完毕后回调
    */
-  run: (callback: () => void) => void;
+  run: _UniTransitionRun;
   /**
    * @desc 点击触发
    */
-  onClick: (event: BaseEvent) => void;
+  onClick: _UniTransitionOnClick;
   /**
    * @desc 过渡动画结束时触发
    */
-  onChange: (event: { detail: boolean }) => void;
+  onChange: _UniTransitionOnChange;
 }
 
 /**
  * @desc 元素过渡动画
  */
-export type UniTransition = Component<Partial<UniTransitionProps>>;
+type _UniTransition = Component<Partial<_UniTransitionProps>>;
+
+export {
+  _UniTransitionModeClass as UniTransitionModeClass,
+  _UniTransitionTimingFunction as UniTransitionTimingFunction,
+  _UniTransitionConfig as UniTransitionConfig,
+  _UniTransitionType as UniTransitionType,
+  _UniTransitionInit as UniTransitionInit,
+  _UniTransitionStep as UniTransitionStep,
+  _UniTransitionRun as UniTransitionRun,
+  _UniTransitionOnClick as UniTransitionOnClick,
+  _UniTransitionOnChangeDetail as UniTransitionOnChangeDetail,
+  _UniTransitionOnChange as UniTransitionOnChange,
+  _UniTransitionProps as UniTransitionProps,
+  _UniTransition as UniTransition,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 内置过渡动画类型
+     * @desc fade 渐隐渐出过渡
+     * @desc slide-top 由上至下过渡
+     * @desc slide-right 由右至左过渡
+     * @desc slide-bottom 由下至上过渡
+     * @desc slide-left 由左至右过渡
+     * @desc zoom-in 由小到大过渡
+     * @desc zoom-out 由大到小过渡
+     */
+    export type UniTransitionModeClass = _UniTransitionModeClass;
+    /**
+     * @desc 动画效果
+     * @desc linear 动画从头到尾的速度是相同的
+     * @desc ease 动画以低速开始，然后加快，在结束前变慢
+     * @desc ease-in 动画以低速开始
+     * @desc ease-in-out 动画以低速开始和结束
+     * @desc ease-out 动画以低速结束
+     * @desc step-start 动画第一帧就跳至结束状态直到结束
+     * @desc step-end 动画一直保持开始状态，最后一帧跳到结束状态
+     */
+    export type UniTransitionTimingFunction = _UniTransitionTimingFunction;
+    export interface UniTransitionConfig extends _UniTransitionConfig {}
+    export interface UniTransitionType extends _UniTransitionType {}
+    /**
+     * @desc 手动设置动画配置
+     */
+    export interface UniTransitionInit extends _UniTransitionInit {}
+    /**
+     * @desc 调用表示一组动画完成
+     */
+    export interface UniTransitionStep extends _UniTransitionStep {}
+    /**
+     * @desc 执行动画
+     * @param callback 所有动画执行完毕后回调
+     */
+    export interface UniTransitionRun extends _UniTransitionRun {}
+    /**
+     * @desc 点击触发
+     */
+    export interface UniTransitionOnClick extends _UniTransitionOnClick {}
+    export interface UniTransitionOnChangeDetail extends _UniTransitionOnChangeDetail {}
+    /**
+     * @desc 过渡动画结束时触发
+     */
+    export interface UniTransitionOnChange extends _UniTransitionOnChange {}
+    export interface UniTransitionProps extends _UniTransitionProps {}
+    /**
+     * @desc 元素过渡动画
+     */
+    export type UniTransition = _UniTransition;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 元素过渡动画
+     */
+    UniTransition: _UniTransition;
+  }
+}

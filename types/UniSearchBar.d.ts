@@ -1,12 +1,17 @@
 import { Component } from '@uni-helper/uni-app-types';
 
 /**
+ * @desc 绑定值
+ */
+type _UniSearchBarValue = string | number;
+
+/**
  * @desc 清除按钮的显示方式
  * @desc always 一直显示
  * @desc auto 输入框不为空时显示
  * @desc none 一直不显示
  */
-export type UniSearchBarClearButton = 'always' | 'auto' | 'none';
+type _UniSearchBarClearButton = 'always' | 'auto' | 'none';
 
 /**
  * @desc 取消按钮的显示方式
@@ -14,13 +19,74 @@ export type UniSearchBarClearButton = 'always' | 'auto' | 'none';
  * @desc auto 输入框不为空时显示
  * @desc none 一直不显示
  */
-export type UniSearchBarCancelButton = 'always' | 'auto' | 'none';
+type _UniSearchBarCancelButton = 'always' | 'auto' | 'none';
 
-export interface UniSearchBarProps {
+interface _UniSearchBarBaseDetail {
+  value: _UniSearchBarValue;
+}
+
+interface _UniSearchBarOnConfirmDetail extends _UniSearchBarBaseDetail {}
+
+/**
+ * @desc 确认时触发
+ */
+interface _UniSearchBarOnConfirm {
+  (detail: _UniSearchBarOnConfirmDetail): void;
+}
+
+interface _UniSearchBarOnInputDetail extends _UniSearchBarBaseDetail {}
+
+/**
+ * @desc value 改变时触发
+ */
+interface _UniSearchBarOnInput {
+  (detail: _UniSearchBarOnInputDetail): void;
+}
+
+interface _UniSearchBarOnCancelDetail extends _UniSearchBarBaseDetail {}
+
+/**
+ * @desc 取消时触发
+ */
+interface _UniSearchBarOnCancel {
+  (detail: _UniSearchBarOnCancelDetail): void;
+}
+
+interface _UniSearchBarOnClearDetail extends _UniSearchBarBaseDetail {}
+
+/**
+ * @desc 清除时触发
+ */
+interface _UniSearchBarOnClear {
+  (detail: _UniSearchBarOnClearDetail): void;
+}
+
+interface _UniSearchBarOnFocusDetail extends _UniSearchBarBaseDetail {}
+
+/**
+ * @desc 聚焦时触发
+ */
+interface _UniSearchBarOnFocus {
+  (detail: _UniSearchBarOnFocusDetail): void;
+}
+
+interface _UniSearchBarOnBlurDetail extends _UniSearchBarBaseDetail {}
+
+/**
+ * @desc 失焦时触发
+ */
+interface _UniSearchBarOnBlur {
+  (detail: _UniSearchBarOnBlurDetail): void;
+}
+
+/**
+ * @desc 搜索栏属性
+ */
+interface _UniSearchBarProps {
   /**
    * @desc 绑定值
    */
-  value: string | number;
+  value: _UniSearchBarValue;
   /**
    * @desc 占位文字
    * @desc 默认为 搜索
@@ -39,7 +105,7 @@ export interface UniSearchBarProps {
    * @desc none 一直不显示
    * @desc 默认为 auto
    */
-  clearButton: UniSearchBarClearButton;
+  clearButton: _UniSearchBarClearButton;
   /**
    * @desc 取消按钮的显示方式
    * @desc always 一直显示
@@ -47,7 +113,7 @@ export interface UniSearchBarProps {
    * @desc none 一直不显示
    * @desc 默认为 auto
    */
-  cancelButton: UniSearchBarCancelButton;
+  cancelButton: _UniSearchBarCancelButton;
   /**
    * @desc 取消按钮的文字
    * @desc 默认为 取消
@@ -71,30 +137,121 @@ export interface UniSearchBarProps {
   /**
    * @desc 确认时触发
    */
-  onConfirm: (event: { value: UniSearchBarProps['value'] }) => void;
+  onConfirm: _UniSearchBarOnConfirm;
   /**
    * @desc value 改变时触发
    */
-  onInput: (value: UniSearchBarProps['value']) => void;
+  onInput: _UniSearchBarOnInput;
   /**
    * @desc 取消时触发
    */
-  onCancel: (event: { value: UniSearchBarProps['value'] }) => void;
+  onCancel: _UniSearchBarOnCancel;
   /**
    * @desc 清除时触发
    */
-  onClear: (event: { value: UniSearchBarProps['value'] }) => void;
+  onClear: _UniSearchBarOnClear;
   /**
    * @desc 聚焦时触发
    */
-  onFocus: (event: { value: UniSearchBarProps['value'] }) => void;
+  onFocus: _UniSearchBarOnFocus;
   /**
    * @desc 失焦时触发
    */
-  onBlur: (event: { value: UniSearchBarProps['value'] }) => void;
+  onBlur: _UniSearchBarOnBlur;
 }
 
 /**
  * @desc 搜索栏
  */
-export type UniSearchBar = Component<Partial<UniSearchBarProps>>;
+type _UniSearchBar = Component<Partial<_UniSearchBarProps>>;
+
+export {
+  _UniSearchBarValue as UniSearchBarValue,
+  _UniSearchBarClearButton as UniSearchBarClearButton,
+  _UniSearchBarCancelButton as UniSearchBarCancelButton,
+  _UniSearchBarBaseDetail as UniSearchBarBaseDetail,
+  _UniSearchBarOnConfirmDetail as UniSearchBarOnConfirmDetail,
+  _UniSearchBarOnConfirm as UniSearchBarOnConfirm,
+  _UniSearchBarOnInputDetail as UniSearchBarOnInputDetail,
+  _UniSearchBarOnInput as UniSearchBarOnInput,
+  _UniSearchBarOnCancelDetail as UniSearchBarOnCancelDetail,
+  _UniSearchBarOnCancel as UniSearchBarOnCancel,
+  _UniSearchBarOnClearDetail as UniSearchBarOnClearDetail,
+  _UniSearchBarOnFocusDetail as UniSearchBarOnFocusDetail,
+  _UniSearchBarOnFocus as UniSearchBarOnFocus,
+  _UniSearchBarOnBlurDetail as UniSearchBarOnBlurDetail,
+  _UniSearchBarOnBlur as UniSearchBarOnBlur,
+  _UniSearchBarProps as UniSearchBarProps,
+  _UniSearchBar as UniSearchBar,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 绑定值
+     */
+    export type UniSearchBarValue = _UniSearchBarValue;
+    /**
+     * @desc 清除按钮的显示方式
+     * @desc always 一直显示
+     * @desc auto 输入框不为空时显示
+     * @desc none 一直不显示
+     */
+    export type UniSearchBarClearButton = _UniSearchBarClearButton;
+    /**
+     * @desc 取消按钮的显示方式
+     * @desc always 一直显示
+     * @desc auto 输入框不为空时显示
+     * @desc none 一直不显示
+     */
+    export type UniSearchBarCancelButton = _UniSearchBarCancelButton;
+    export interface UniSearchBarBaseDetail extends _UniSearchBarBaseDetail {}
+    export interface UniSearchBarOnConfirmDetail extends _UniSearchBarOnConfirmDetail {}
+    /**
+     * @desc 确认时触发
+     */
+    export interface UniSearchBarOnConfirm extends _UniSearchBarOnConfirm {}
+    export interface UniSearchBarOnInputDetail extends _UniSearchBarOnInputDetail {}
+    /**
+     * @desc value 改变时触发
+     */
+    export interface UniSearchBarOnInput extends _UniSearchBarOnInput {}
+    export interface UniSearchBarOnCancelDetail extends _UniSearchBarOnCancelDetail {}
+    /**
+     * @desc 取消时触发
+     */
+    export interface UniSearchBarOnCancel extends _UniSearchBarOnCancel {}
+    export interface UniSearchBarOnClearDetail extends _UniSearchBarOnClearDetail {}
+    /**
+     * @desc 清除时触发
+     */
+    export interface UniSearchBarOnClear extends _UniSearchBarOnClear {}
+    export interface UniSearchBarOnFocusDetail extends _UniSearchBarOnFocusDetail {}
+    /**
+     * @desc 聚焦时触发
+     */
+    export interface UniSearchBarOnFocus extends _UniSearchBarOnFocus {}
+    export interface UniSearchBarOnBlurDetail extends _UniSearchBarOnBlurDetail {}
+    /**
+     * @desc 失焦时触发
+     */
+    export interface UniSearchBarOnBlur extends _UniSearchBarOnBlur {}
+    /**
+     * @desc 搜索栏属性
+     */
+    export interface UniSearchBarProps extends _UniSearchBarProps {}
+    /**
+     * @desc 搜索栏
+     */
+    export type UniSearchBar = _UniSearchBar;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 搜索栏
+     */
+    UniSearchBar: _UniSearchBar;
+  }
+}

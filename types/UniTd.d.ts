@@ -3,9 +3,9 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * @desc 单元格对齐方式
  */
-export type UniTdAlign = 'left' | 'center' | 'right';
+type _UniTdAlign = 'left' | 'center' | 'right';
 
-export interface UniTdProps {
+interface _UniTdProps {
   /**
    * @desc 单元格宽度
    */
@@ -14,7 +14,7 @@ export interface UniTdProps {
    * @desc 对齐方式
    * @desc 默认为 left
    */
-  align: UniTdAlign;
+  align: _UniTdAlign;
   /**
    * @desc 行合并
    * @desc 默认为 1
@@ -27,4 +27,23 @@ export interface UniTdProps {
   colspan: number | string;
 }
 
-export type UniTd = Component<Partial<UniTdProps>>;
+type _UniTd = Component<Partial<_UniTdProps>>;
+
+export { _UniTdAlign as UniTdAlign, _UniTdProps as UniTdProps, _UniTd as UniTd };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 单元格对齐方式
+     */
+    export type UniTdAlign = _UniTdAlign;
+    export interface UniTdProps extends _UniTdProps {}
+    export type UniTd = _UniTd;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    UniTd: _UniTd;
+  }
+}

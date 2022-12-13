@@ -1,15 +1,22 @@
 import { BaseEvent, CustomEvent, Component } from '@uni-helper/uni-app-types';
 
 /**
+ * @desc 服务商
+ * @desc aliyun 阿里云
+ * @desc tencent 腾讯云
+ */
+type _UniDataPickerSpaceInfoProvider = 'aliyun' | 'tencent';
+
+/**
  * @desc 服务空间信息
  */
-export interface UniDataPickerSpaceInfo {
+interface _UniDataPickerSpaceInfo {
   /**
    * @desc 服务商
    * @desc aliyun 阿里云
    * @desc tencent 腾讯云
    */
-  provider: 'aliyun' | 'tencent';
+  provider: _UniDataPickerSpaceInfoProvider;
   /**
    * @desc 服务空间 ID
    */
@@ -24,14 +31,16 @@ export interface UniDataPickerSpaceInfo {
   endpoint?: string;
 }
 
+export type _UniDataPickerValue = string | number | boolean | null;
+
 /**
  * @desc 本地数据
  */
-export interface UniDataPickerLocaldata {
+interface _UniDataPickerLocaldata {
   /**
    * @desc 值
    */
-  value: string | number | boolean | null;
+  value: _UniDataPickerValue;
   /**
    * @desc 显示文字
    */
@@ -59,31 +68,91 @@ export interface UniDataPickerLocaldata {
   /**
    * @desc 子节点
    */
-  children?: UniDataPickerLocaldata[];
+  children?: _UniDataPickerLocaldata[];
 }
 
 /**
  * @desc 字段映射
  * @desc 将 text/value 映射到数据中的其他字段
  */
-export interface UniDataPickerMap {
+interface _UniDataPickerMap {
   text: string;
   value: string;
 }
 
-export interface UniDataPickerProps {
+/**
+ * @desc 打开弹出层
+ */
+interface _UniDataPickerShow {
+  (): void;
+}
+
+/**
+ * @desc 关闭弹出层
+ */
+interface _UniDataPickerHide {
+  (): void;
+}
+
+/**
+ * @desc 清除已选项
+ */
+interface _UniDataPickerClear {
+  (): void;
+}
+
+interface _UniDataPickerOnChangeDetail {
+  value: _UniDataPickerValue;
+}
+
+/**
+ * @desc 选择完成时触发
+ */
+interface _UniDataPickerOnChange {
+  (event: CustomEvent<_UniDataPickerOnChangeDetail>): void;
+}
+
+/**
+ * @desc 节点被点击时触发
+ */
+interface _UniDataPickerOnNodeclick {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 动态加载节点数据前触发
+ */
+interface _UniDataPickerOnStepsearch {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 弹出层弹出时触发
+ */
+interface _UniDataPickerOnPopupopened {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 弹出层关闭时触发
+ */
+interface _UniDataPickerOnPopupclosed {
+  (event: BaseEvent): void;
+}
+
+interface _UniDataPickerProps {
   /**
    * @desc 绑定数据
    */
-  value: string | number | boolean | null;
+  value: _UniDataPickerValue;
   /**
    * @desc 服务空间信息
    */
-  spaceInfo: UniDataPickerSpaceInfo;
+  spaceInfo: _UniDataPickerSpaceInfo;
   /**
    * @desc 本地数据
    */
-  localdata: UniDataPickerLocaldata[];
+  localdata: _UniDataPickerLocaldata[];
   /**
    * @desc 是否预加载数据
    * @desc 默认为 false
@@ -145,43 +214,39 @@ export interface UniDataPickerProps {
    * @desc 字段映射
    * @desc 将 text/value 映射到数据中的其他字段
    */
-  map: UniDataPickerMap;
+  map: _UniDataPickerMap;
   /**
    * @desc 打开弹出层
    */
-  show: () => void;
+  show: _UniDataPickerShow;
   /**
    * @desc 关闭弹出层
    */
-  hide: () => void;
+  hide: _UniDataPickerHide;
   /**
    * @desc 清除已选项
    */
-  clear: () => void;
+  clear: _UniDataPickerClear;
   /**
    * @desc 选择完成时触发
    */
-  onChange: (
-    event: CustomEvent<{
-      value: UniDataPickerProps['value'];
-    }>,
-  ) => void;
+  onChange: _UniDataPickerOnChange;
   /**
    * @desc 节点被点击时触发
    */
-  onNodeclick: (event: BaseEvent) => void;
+  onNodeclick: _UniDataPickerOnNodeclick;
   /**
    * @desc 动态加载节点数据前触发
    */
-  onStepsearch: (event: BaseEvent) => void;
+  onStepsearch: _UniDataPickerOnStepsearch;
   /**
    * @desc 弹出层弹出时触发
    */
-  onPopupopened: (event: BaseEvent) => void;
+  onPopupopened: _UniDataPickerOnPopupopened;
   /**
    * @desc 弹出层关闭时触发
    */
-  onPopupclosed: (event: BaseEvent) => void;
+  onPopupclosed: _UniDataPickerOnPopupclosed;
 }
 
 /**
@@ -192,4 +257,105 @@ export interface UniDataPickerProps {
  * @desc uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
  * @desc uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
  */
-export type UniDataPicker = Component<Partial<UniDataPickerProps>>;
+type _UniDataPicker = Component<Partial<_UniDataPickerProps>>;
+
+export {
+  _UniDataPickerSpaceInfoProvider as UniDataPickerSpaceInfoProvider,
+  _UniDataPickerSpaceInfo as UniDataPickerSpaceInfo,
+  _UniDataPickerValue as UniDataPickerValue,
+  _UniDataPickerLocaldata as UniDataPickerLocaldata,
+  _UniDataPickerMap as UniDataPickerMap,
+  _UniDataPickerShow as UniDataPickerShow,
+  _UniDataPickerHide as UniDataPickerHide,
+  _UniDataPickerClear as UniDataPickerClear,
+  _UniDataPickerOnChangeDetail as UniDataPickerOnChangeDetail,
+  _UniDataPickerOnChange as UniDataPickerOnChange,
+  _UniDataPickerOnNodeclick as UniDataPickerOnNodeclick,
+  _UniDataPickerOnStepsearch as UniDataPickerOnStepsearch,
+  _UniDataPickerOnPopupopened as UniDataPickerOnPopupopened,
+  _UniDataPickerOnPopupclosed as UniDataPickerOnPopupclosed,
+  _UniDataPickerProps as UniDataPickerProps,
+  _UniDataPicker as UniDataPicker,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 服务商
+     * @desc aliyun 阿里云
+     * @desc tencent 腾讯云
+     */
+    export type UniDataPickerSpaceInfoProvider = _UniDataPickerSpaceInfoProvider;
+    /**
+     * @desc 服务空间信息
+     */
+    export interface UniDataPickerSpaceInfo extends _UniDataPickerSpaceInfo {}
+    export type UniDataPickerValue = _UniDataPickerValue;
+    /**
+     * @desc 本地数据
+     */
+    export interface UniDataPickerLocaldata extends _UniDataPickerLocaldata {}
+    /**
+     * @desc 字段映射
+     * @desc 将 text/value 映射到数据中的其他字段
+     */
+    export interface UniDataPickerMap extends _UniDataPickerMap {}
+    /**
+     * @desc 打开弹出层
+     */
+    export interface UniDataPickerShow extends _UniDataPickerShow {}
+    /**
+     * @desc 关闭弹出层
+     */
+    export interface UniDataPickerHide extends _UniDataPickerHide {}
+    /**
+     * @desc 清除已选项
+     */
+    export interface UniDataPickerClear extends _UniDataPickerClear {}
+    export interface UniDataPickerOnChangeDetail extends _UniDataPickerOnChangeDetail {}
+    /**
+     * @desc 选择完成时触发
+     */
+    export interface UniDataPickerOnChange extends _UniDataPickerOnChange {}
+    /**
+     * @desc 节点被点击时触发
+     */
+    export interface UniDataPickerOnNodeclick extends _UniDataPickerOnNodeclick {}
+    /**
+     * @desc 动态加载节点数据前触发
+     */
+    export interface UniDataPickerOnStepsearch extends _UniDataPickerOnStepsearch {}
+    /**
+     * @desc 弹出层弹出时触发
+     */
+    export interface UniDataPickerOnPopupopened extends _UniDataPickerOnPopupopened {}
+    /**
+     * @desc 弹出层关闭时触发
+     */
+    export interface UniDataPickerOnPopupclosed extends _UniDataPickerOnPopupclosed {}
+    export interface UniDataPickerProps extends _UniDataPickerProps {}
+    /**
+     * @desc 选择类 datacom 组件
+     * @desc 支持单列、和多列级联选择，列数没有限制，如果屏幕显示不全，顶部 tab 区域会左右滚动
+     * @desc 候选数据支持一次性加载完毕，也支持懒加载
+     * @desc uni-data-picker 尤其适用于地址选择、分类选择等选择类
+     * @desc uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
+     * @desc uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+     */
+    export type UniDataPicker = _UniDataPicker;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 选择类 datacom 组件
+     * @desc 支持单列、和多列级联选择，列数没有限制，如果屏幕显示不全，顶部 tab 区域会左右滚动
+     * @desc 候选数据支持一次性加载完毕，也支持懒加载
+     * @desc uni-data-picker 尤其适用于地址选择、分类选择等选择类
+     * @desc uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
+     * @desc uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+     */
+    UniDataPicker: _UniDataPicker;
+  }
+}
