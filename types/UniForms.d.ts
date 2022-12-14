@@ -1,8 +1,6 @@
 import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 
-/**
- * @desc 内置校验规则
- */
+/** 内置校验规则 */
 type _UniFormsFormat = 'string' | 'number' | 'boolean' | 'array' | 'object' | 'url' | 'email';
 
 interface _UniFormsCallback {
@@ -17,75 +15,54 @@ interface _UniFormsValidateFunction {
     | Promise<void>;
 }
 
-/**
- * @desc 规则
- */
+/** 规则 */
 interface _UniFormsRule {
   /**
-   * @desc 是否必填
-   * @desc 配置此参数不会显示输入框左边的必填星号
+   * 是否必填
+   *
+   * 配置此参数不会显示输入框左边的必填星号
    */
   required: boolean;
-  /**
-   * @desc 内置校验规则
-   */
+  /** 内置校验规则 */
   format: _UniFormsFormat;
-  /**
-   * @desc 校验用的正则表达式
-   */
+  /** 校验用的正则表达式 */
   pattern: RegExp;
-  /**
-   * @desc 校验最大值
-   */
+  /** 校验最大值 */
   maximum: number;
-  /**
-   * @desc 校验最小值
-   */
+  /** 校验最小值 */
   minimum: number;
-  /**
-   * @desc 校验数据最大长度
-   */
+  /** 校验数据最大长度 */
   maxLength: number;
-  /**
-   * @desc 校验失败提示信息语
-   */
+  /** 校验失败提示信息语 */
   errorMessage: string;
-  /**
-   * @desc 自定义校验规则
-   */
+  /** 自定义校验规则 */
   validateFunction: _UniFormsValidateFunction;
 }
 
-/**
- * @desc 表单校验时机
- */
+/** 表单校验时机 */
 type _UniFormsValidateTrigger = 'bind' | 'submit' | 'blur';
 
-/**
- * @desc label 位置
- */
+/** Label 位置 */
 type _UniFormsLabelPosition = 'top' | 'left';
 
-/**
- * @desc label 对齐方式
- */
+/** Label 对齐方式 */
 type _UniFormsLabelAlign = 'left' | 'center' | 'right';
 
 /**
- * @desc 错误信息提示方式
- * @desc 默认为 undertext
+ * 错误信息提示方式
+ *
+ * 默认为 undertext
  */
 type _UniFormsErrShowType = 'undertext' | 'toast' | 'modal';
 
-/**
- * @desc 动态设置表单规则
- */
+/** 动态设置表单规则 */
 interface _UniFormsSetRules {
   (rules: _UniFormsRule | _UniFormsRule[]): void;
 }
 
 /**
- * @desc 校验整个表单
+ * 校验整个表单
+ *
  * @param keepItem 不参与校验的字段
  * @param callback 回调函数
  */
@@ -94,7 +71,8 @@ interface _UniFormsValidate {
 }
 
 /**
- * @desc 校验部分表单，返回对应表单数据
+ * 校验部分表单，返回对应表单数据
+ *
  * @param items 需要校验的字段
  */
 interface _UniFormsValidateFields {
@@ -102,92 +80,89 @@ interface _UniFormsValidateFields {
 }
 
 /**
- * @desc 移除表单的校验结果
+ * 移除表单的校验结果
+ *
  * @param items 需要移除校验的字段
  */
 interface _UniFormsClearValidate {
   (items?: string | string[]): void;
 }
 
-/**
- * @desc 任意表单项被校验后触发，返回表单校验信息
- */
+/** 任意表单项被校验后触发，返回表单校验信息 */
 interface _UniFormsOnValidate {
   (results: any[]): void;
 }
 
-/**
- * @desc 表单属性
- */
+/** 表单属性 */
 interface _UniFormsProps {
-  /**
-   * @desc 表单数据
-   */
+  /** 表单数据 */
   model: AnyRecord;
-  /**
-   * @desc 表单校验规则
-   */
+  /** 表单校验规则 */
   rules: _UniFormsRule[];
   /**
-   * @desc 表单校验时机
-   * @desc 默认为 submit
+   * 表单校验时机
+   *
+   * 默认为 submit
    */
   validateTrigger: _UniFormsValidateTrigger;
   /**
-   * @desc label 位置
-   * @desc 默认为 left
+   * Label 位置
+   *
+   * 默认为 left
    */
   labelPosition: _UniFormsLabelPosition;
   /**
-   * @desc label 宽度
-   * @desc 单位为 px
-   * @desc 默认为 75
+   * Label 宽度
+   *
+   * 单位为 px
+   *
+   * 默认为 75
    */
   labelWidth: string | number;
   /**
-   * @desc label 对齐方式
-   * @desc 默认为 left
+   * Label 对齐方式
+   *
+   * 默认为 left
    */
   labelAlign: _UniFormsLabelAlign;
   /**
-   * @desc 错误信息提示方式
-   * @desc 默认为 undertext
+   * 错误信息提示方式
+   *
+   * 默认为 undertext
    */
   errShowType: _UniFormsErrShowType;
   /**
-   * @desc 是否显示分隔线
-   * @desc 默认为 false
+   * 是否显示分隔线
+   *
+   * 默认为 false
    */
   border: boolean;
-  /**
-   * @desc 动态设置表单规则
-   */
+  /** 动态设置表单规则 */
   setRules: _UniFormsSetRules;
   /**
-   * @desc 校验整个表单
+   * 校验整个表单
+   *
    * @param keepItem 不参与校验的字段
    * @param callback 回调函数
    */
   validate: _UniFormsValidate;
   /**
-   * @desc 校验部分表单，返回对应表单数据
+   * 校验部分表单，返回对应表单数据
+   *
    * @param items 需要校验的字段
    */
   validateFields: _UniFormsValidateFields;
   /**
-   * @desc 移除表单的校验结果
+   * 移除表单的校验结果
+   *
    * @param items 需要移除校验的字段
    */
   clearValidate: _UniFormsClearValidate;
-  /**
-   * @desc 任意表单项被校验后触发，返回表单校验信息
-   */
+  /** 任意表单项被校验后触发，返回表单校验信息 */
   onValidate: _UniFormsOnValidate;
 }
 
-/**
- * @desc 表单，用于提交表单内容，内置了表单验证功能
- */
+/** 表单，用于提交表单内容，内置了表单验证功能 */
 type _UniForms = Component<Partial<_UniFormsProps>>;
 
 export {
@@ -210,73 +185,57 @@ export {
 
 declare global {
   namespace UniHelper {
-    /**
-     * @desc 内置校验规则
-     */
+    /** 内置校验规则 */
     export type UniFormsFormat = _UniFormsFormat;
     export interface UniFormsCallback extends _UniFormsCallback {}
     export interface UniFormsValidateFunction extends _UniFormsValidateFunction {}
-    /**
-     * @desc 规则
-     */
+    /** 规则 */
     export interface UniFormsRule extends _UniFormsRule {}
-    /**
-     * @desc 表单校验时机
-     */
+    /** 表单校验时机 */
     export type UniFormsValidateTrigger = _UniFormsValidateTrigger;
-    /**
-     * @desc label 位置
-     */
+    /** Label 位置 */
     export type UniFormsLabelPosition = _UniFormsLabelPosition;
-    /**
-     * @desc label 对齐方式
-     */
+    /** Label 对齐方式 */
     export type UniFormsLabelAlign = _UniFormsLabelAlign;
     /**
-     * @desc 错误信息提示方式
-     * @desc 默认为 undertext
+     * 错误信息提示方式
+     *
+     * 默认为 undertext
      */
     export type UniFormsErrShowType = _UniFormsErrShowType;
-    /**
-     * @desc 动态设置表单规则
-     */
+    /** 动态设置表单规则 */
     export interface UniFormsSetRules extends _UniFormsSetRules {}
     /**
-     * @desc 校验整个表单
+     * 校验整个表单
+     *
      * @param keepItem 不参与校验的字段
      * @param callback 回调函数
      */
     export interface UniFormsValidate extends _UniFormsValidate {}
     /**
-     * @desc 校验部分表单，返回对应表单数据
+     * 校验部分表单，返回对应表单数据
+     *
      * @param items 需要校验的字段
      */
     export interface UniFormsValidateFields extends _UniFormsValidateFields {}
     /**
-     * @desc 移除表单的校验结果
+     * 移除表单的校验结果
+     *
      * @param items 需要移除校验的字段
      */
     export interface UniFormsClearValidate extends _UniFormsClearValidate {}
-    /**
-     * @desc 任意表单项被校验后触发，返回表单校验信息
-     */
+    /** 任意表单项被校验后触发，返回表单校验信息 */
     export interface UniFormsOnValidate extends _UniFormsOnValidate {}
-    /**
-     * @desc 表单属性
-     */
+    /** 表单属性 */
     export interface UniFormsProps extends _UniFormsProps {}
-    /**
-     * @desc 表单，用于提交表单内容，内置了表单验证功能
-     */
+    /** 表单，用于提交表单内容，内置了表单验证功能 */
     export type UniForms = _UniForms;
   }
 }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    /**
-     * @desc 表单，用于提交表单内容，内置了表单验证功能
-     */
+    /** 表单，用于提交表单内容，内置了表单验证功能 */
     UniForms: _UniForms;
   }
 }

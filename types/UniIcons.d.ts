@@ -1,8 +1,6 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-/**
- * @desc 图标类型
- */
+/** 图标类型 */
 type _UniIconsType =
   | 'color'
   | 'wallet'
@@ -163,61 +161,53 @@ type _UniIconsType =
   | 'headphones'
   | 'cart';
 
-/**
- * @desc 图标属性
- */
+/** 图标属性 */
 interface _UniIconsProps {
   /**
-   * @desc 图标大小
-   * @desc 默认为 16
+   * 图标大小
+   *
+   * 默认为 16
    */
   size: number | string;
   /**
-   * @desc 图标图案
-   * @desc 默认为 空字符串
+   * 图标图案
+   *
+   * 默认为 空字符串
    */
   type: UniIconsType;
   /**
-   * @desc 图标颜色
-   * @desc 默认为 #333333
+   * 图标颜色
+   *
+   * 默认为 #333333
    */
   color: string;
   /**
-   * @desc 自定义图标
-   * @desc 默认为 空字符串
+   * 自定义图标
+   *
+   * 默认为 空字符串
    */
   customPrefix: string;
 }
 
-/**
- * @desc 图标
- */
+/** 图标 */
 type _UniIcons = Component<Partial<_UniIconsProps>>;
 
 export { _UniIconsType as UniIconsType, _UniIconsProps as UniIconsProps, _UniIcons as UniIcons };
 
 declare global {
   namespace UniHelper {
-    /**
-     * @desc 图标类型
-     */
+    /** 图标类型 */
     export type UniIconsType = _UniIconsType;
-    /**
-     * @desc 图标属性
-     */
+    /** 图标属性 */
     export interface UniIconsProps extends _UniIconsProps {}
-    /**
-     * @desc 图标
-     */
+    /** 图标 */
     export type UniIcons = _UniIcons;
   }
 }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    /**
-     * @desc 图标
-     */
+    /** 图标 */
     UniIcons: _UniIcons;
   }
 }

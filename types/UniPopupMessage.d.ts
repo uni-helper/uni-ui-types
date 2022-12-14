@@ -1,32 +1,41 @@
 import { Component } from '@uni-helper/uni-app-types';
 
 /**
- * @desc 消息提示主题
- * @desc success 成功
- * @desc warn 警告
- * @desc error 失败
- * @desc info 消息
+ * 消息提示主题
+ *
+ * Success 成功
+ *
+ * Warn 警告
+ *
+ * Error 失败
+ *
+ * Info 消息
  */
 type _UniPopupMessageType = 'success' | 'warn' | 'error' | 'info';
 
 interface _UniPopupMessageProps {
   /**
-   * @desc 消息提示主题
-   * @desc success 成功
-   * @desc warn 警告
-   * @desc error 失败
-   * @desc info 消息
-   * @desc 默认为 success
+   * 消息提示主题
+   *
+   * Success 成功
+   *
+   * Warn 警告
+   *
+   * Error 失败
+   *
+   * Info 消息
+   *
+   * 默认为 success
    */
   type: _UniPopupMessageType;
-  /**
-   * @desc 消息提示文字
-   */
+  /** 消息提示文字 */
   message: string;
   /**
-   * @desc 消息显示时间，超过后自动关闭
-   * @desc 设置为 0 不会自动关闭，需手动调用 close 关闭
-   * @desc 默认为 3000
+   * 消息显示时间，超过后自动关闭
+   *
+   * 设置为 0 不会自动关闭，需手动调用 close 关闭
+   *
+   * 默认为 3000
    */
   duration: number;
 }
@@ -42,11 +51,15 @@ export {
 declare global {
   namespace UniHelper {
     /**
-     * @desc 消息提示主题
-     * @desc success 成功
-     * @desc warn 警告
-     * @desc error 失败
-     * @desc info 消息
+     * 消息提示主题
+     *
+     * Success 成功
+     *
+     * Warn 警告
+     *
+     * Error 失败
+     *
+     * Info 消息
      */
     export type UniPopupMessageType = _UniPopupMessageType;
     export interface UniPopupMessageProps extends _UniPopupMessageProps {}

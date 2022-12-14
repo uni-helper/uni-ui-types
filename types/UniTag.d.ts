@@ -1,77 +1,90 @@
 import { BaseEvent, Component } from '@uni-helper/uni-app-types';
 
 /**
- * @desc 大小尺寸
- * @desc normal 正常
- * @desc small 小
+ * 大小尺寸
+ *
+ * Normal 正常
+ *
+ * Small 小
  */
 type _UniTagSize = 'normal' | 'small';
 
 /**
- * @desc 颜色类型
- * @desc default 灰色
- * @desc primary 蓝色
- * @desc success 绿色
- * @desc warning 黄色
- * @desc error 红色
- * @desc royal 紫色
+ * 颜色类型
+ *
+ * Default 灰色
+ *
+ * Primary 蓝色
+ *
+ * Success 绿色
+ *
+ * Warning 黄色
+ *
+ * Error 红色
+ *
+ * Royal 紫色
  */
 type _UniTagType = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'royal';
 
-/**
- * @desc 点击触发
- */
+/** 点击触发 */
 interface _UniTagOnClick {
   (event: BaseEvent): void;
 }
 
 interface _UniTagProps {
-  /**
-   * @desc 标签内容
-   */
+  /** 标签内容 */
   text: string;
   /**
-   * @desc 大小尺寸
-   * @desc normal 正常
-   * @desc small 小
-   * @desc 默认为 normal
+   * 大小尺寸
+   *
+   * Normal 正常
+   *
+   * Small 小
+   *
+   * 默认为 normal
    */
   size: _UniTagSize;
   /**
-   * @desc 颜色类型
-   * @desc default 灰色
-   * @desc primary 蓝色
-   * @desc success 绿色
-   * @desc warning 黄色
-   * @desc error 红色
-   * @desc royal 紫色
-   * @desc 默认为 default
+   * 颜色类型
+   *
+   * Default 灰色
+   *
+   * Primary 蓝色
+   *
+   * Success 绿色
+   *
+   * Warning 黄色
+   *
+   * Error 红色
+   *
+   * Royal 紫色
+   *
+   * 默认为 default
    */
   type: _UniTagType;
   /**
-   * @desc 是否为禁用状态
-   * @desc 默认为 false
+   * 是否为禁用状态
+   *
+   * 默认为 false
    */
   disabled: boolean;
   /**
-   * @desc 是否无需背景颜色
-   * @desc 默认为 false
+   * 是否无需背景颜色
+   *
+   * 默认为 false
    */
   inverted: boolean;
   /**
-   * @desc 是否为圆角
-   * @desc 默认为 false
+   * 是否为圆角
+   *
+   * 默认为 false
    */
   circle: boolean;
-  /**
-   * @desc 点击触发
-   */
+  /** 点击触发 */
   onClick: _UniTagOnClick;
 }
 
-/**
- * @desc 用于展示一个或多个文字标签，可点击切换选中、不选中的状态
- */
+/** 用于展示一个或多个文字标签，可点击切换选中、不选中的状态 */
 type _UniTag = Component<Partial<_UniTagProps>>;
 
 export {
@@ -85,38 +98,40 @@ export {
 declare global {
   namespace UniHelper {
     /**
-     * @desc 大小尺寸
-     * @desc normal 正常
-     * @desc small 小
+     * 大小尺寸
+     *
+     * Normal 正常
+     *
+     * Small 小
      */
     export type UniTagSize = _UniTagSize;
     /**
-     * @desc 颜色类型
-     * @desc default 灰色
-     * @desc primary 蓝色
-     * @desc success 绿色
-     * @desc warning 黄色
-     * @desc error 红色
-     * @desc royal 紫色
+     * 颜色类型
+     *
+     * Default 灰色
+     *
+     * Primary 蓝色
+     *
+     * Success 绿色
+     *
+     * Warning 黄色
+     *
+     * Error 红色
+     *
+     * Royal 紫色
      */
     export type UniTagType = _UniTagType;
-    /**
-     * @desc 点击触发
-     */
+    /** 点击触发 */
     export interface UniTagOnClick extends _UniTagOnClick {}
     export interface UniTagProps extends _UniTagProps {}
-    /**
-     * @desc 用于展示一个或多个文字标签，可点击切换选中、不选中的状态
-     */
+    /** 用于展示一个或多个文字标签，可点击切换选中、不选中的状态 */
     export type UniTag = _UniTag;
   }
 }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    /**
-     * @desc 用于展示一个或多个文字标签，可点击切换选中、不选中的状态
-     */
+    /** 用于展示一个或多个文字标签，可点击切换选中、不选中的状态 */
     UniTag: _UniTag;
   }
 }
