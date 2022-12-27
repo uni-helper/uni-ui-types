@@ -204,7 +204,7 @@ declare global {
     /** 校验规则 */
     export interface UniFormsRulesRule extends _UniFormsRulesRule {}
     /** 校验规则 */
-    export interface UniFormsRules extends _UniFormsRules {}
+    export type UniFormsRules = _UniFormsRules;
     /** 表单校验时机 */
     export type UniFormsValidateTrigger = _UniFormsValidateTrigger;
     /** Label 位置 */
