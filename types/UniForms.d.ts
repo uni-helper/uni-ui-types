@@ -15,8 +15,8 @@ interface _UniFormsValidateFunction {
     | Promise<void>;
 }
 
-/** 规则 */
-interface _UniFormsRule {
+/** 校验规则 */
+interface _UniFormsRulesRule {
   /**
    * 是否必填
    *
@@ -39,6 +39,17 @@ interface _UniFormsRule {
   validateFunction: _UniFormsValidateFunction;
 }
 
+/** 校验规则 */
+type _UniFormsRules = Record<
+  string,
+  {
+    /** 校验规则 */
+    rules?: Array<Partial<_UniFormsRulesRule>>;
+    /** 当前表单域的字段中文名，多用于 errorMessage 的显示可不填 */
+    label?: string;
+  }
+>;
+
 /** 表单校验时机 */
 type _UniFormsValidateTrigger = 'bind' | 'submit' | 'blur';
 
@@ -57,7 +68,7 @@ type _UniFormsErrShowType = 'undertext' | 'toast' | 'modal';
 
 /** 动态设置表单规则 */
 interface _UniFormsSetRules {
-  (rules: _UniFormsRule | _UniFormsRule[]): void;
+  (rules: _UniFormsRules): void;
 }
 
 /**
@@ -98,7 +109,7 @@ interface _UniFormsProps {
   /** 表单数据 */
   model: AnyRecord;
   /** 表单校验规则 */
-  rules: _UniFormsRule[];
+  rules: _UniFormsRules;
   /**
    * 表单校验时机
    *
@@ -169,7 +180,8 @@ export {
   _UniFormsFormat as UniFormsFormat,
   _UniFormsCallback as UniFormsCallback,
   _UniFormsValidateFunction as UniFormsValidateFunction,
-  _UniFormsRule as UniFormsRule,
+  _UniFormsRulesRule as UniFormsRulesRule,
+  _UniFormsRules as UniFormsRules,
   _UniFormsValidateTrigger as UniFormsValidateTrigger,
   _UniFormsLabelPosition as UniFormsLabelPosition,
   _UniFormsLabelAlign as UniFormsLabelAlign,
@@ -189,8 +201,10 @@ declare global {
     export type UniFormsFormat = _UniFormsFormat;
     export interface UniFormsCallback extends _UniFormsCallback {}
     export interface UniFormsValidateFunction extends _UniFormsValidateFunction {}
-    /** 规则 */
-    export interface UniFormsRule extends _UniFormsRule {}
+    /** 校验规则 */
+    export interface UniFormsRulesRule extends _UniFormsRulesRule {}
+    /** 校验规则 */
+    export interface UniFormsRules extends _UniFormsRules {}
     /** 表单校验时机 */
     export type UniFormsValidateTrigger = _UniFormsValidateTrigger;
     /** Label 位置 */
