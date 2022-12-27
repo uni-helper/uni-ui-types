@@ -3,7 +3,8 @@ import type {
   UniFormsFormat,
   UniFormsCallback,
   UniFormsValidateFunction,
-  UniFormsRule,
+  UniFormsRulesRule,
+  UniFormsRules,
   UniFormsValidateTrigger,
   UniFormsLabelPosition,
   UniFormsLabelAlign,
@@ -27,8 +28,11 @@ describe('UniForms', () => {
   expectTypeOf<UniFormsValidateFunction>().toBeFunction();
   expectTypeOf<UniFormsValidateFunction>().toEqualTypeOf<UniHelper.UniFormsValidateFunction>();
 
-  expectTypeOf<UniFormsRule>().toBeObject();
-  expectTypeOf<UniFormsRule>().toEqualTypeOf<UniHelper.UniFormsRule>();
+  expectTypeOf<UniFormsRulesRule>().toBeObject();
+  expectTypeOf<UniFormsRulesRule>().toEqualTypeOf<UniHelper.UniFormsRulesRule>();
+
+  expectTypeOf<UniFormsRules>().toBeObject();
+  expectTypeOf<UniFormsRules>().toEqualTypeOf<UniHelper.UniFormsRules>();
 
   expectTypeOf<UniFormsValidateTrigger>().toBeString();
   expectTypeOf<UniFormsValidateTrigger>().toEqualTypeOf<UniHelper.UniFormsValidateTrigger>();
