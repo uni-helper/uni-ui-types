@@ -8,7 +8,7 @@
 
 ## 0.3.0-0 (2022-12-13)
 
-- feat!: 要求 `node>=14.18`，这是为了对标 `rollup` 和 `vite`
+- feat!: 要求 `node >= 14.18`，这是为了对标 `rollup` 和 `vite`
 - feat!: 调整部分类型命名
 - feat: 增加导出
 - feat: 增加 `UniHelper` 命名空间
