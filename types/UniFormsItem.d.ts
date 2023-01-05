@@ -1,36 +1,26 @@
 import { Component } from '@uni-helper/uni-app-types';
-import type { UniFormsFormat, UniFormsValidateFunction } from './UniForms';
+import type { UniFormsRulesRule } from './UniForms';
 
-/** 规则 */
-interface _UniFormsItemRule {
-  /**
-   * 是否必填
-   *
-   * 配置此参数不会显示输入框左边的必填星号
-   */
-  required: boolean;
-  /** 内置校验规则 */
-  format: UniFormsFormat;
-  /** 校验用的正则表达式 */
-  pattern: RegExp;
-  /** 校验最大值 */
-  maximum: number;
-  /** 校验最小值 */
-  minimum: number;
-  /** 校验数据最大长度 */
-  maxLength: number;
-  /** 校验失败提示信息语 */
-  errorMessage: string;
-  /** 自定义校验规则 */
-  validateFunction: UniFormsValidateFunction;
-}
+/** 校验规则 */
+interface _UniFormsItemRulesRule extends UniFormsRulesRule {}
+
+/** 校验规则 */
+type _UniFormsItemRules = Record<
+  string,
+  {
+    /** 校验规则 */
+    rules?: Array<Partial<_UniFormsItemRulesRule>>;
+    /** 当前表单域的字段中文名，多用于 errorMessage 的显示，可不填 */
+    label?: string;
+  }
+>;
 
 /** Label 对齐方式 */
 type _UniFormsItemLabelAlign = 'left' | 'center' | 'right';
 
 /** 动态设置表单规则 */
 interface _UniFormsItemSetRules {
-  (rules: _UniFormsItemRule | _UniFormsItemRule[]): void;
+  (rules: _UniFormsItemRules): void;
 }
 
 /** 校验子表单 */
@@ -42,7 +32,7 @@ interface _UniFormsItemProps {
   /** 表单域的属性名，在使用校验规则时必填 */
   name: string | string[];
   /** 表单校验规则 */
-  rules: _UniFormsItemRule;
+  rules: _UniFormsItemRules;
   /**
    * Label 右边显示红色 * 号，样式显示不会对校验规则产生效果
    *
@@ -80,7 +70,8 @@ interface _UniFormsItemProps {
 type _UniFormsItem = Component<Partial<_UniFormsItemProps>>;
 
 export {
-  _UniFormsItemRule as UniFormsItemRule,
+  _UniFormsItemRulesRule as UniFormsItemRulesRule,
+  _UniFormsItemRules as UniFormsItemRules,
   _UniFormsItemLabelAlign as UniFormsItemLabelAlign,
   _UniFormsItemSetRules as UniFormsItemSetRules,
   _UniFormsItemOnFieldChange as UniFormsItemOnFieldChange,
@@ -90,13 +81,14 @@ export {
 
 declare global {
   namespace UniHelper {
-    /** 规则 */
-    export interface UniFormsItemRule extends _UniFormsItemRule {}
+    /** 校验规则 */
+    export interface UniFormsItemRulesRule extends _UniFormsItemRulesRule {}
+    /** 校验规则 */
+    export type UniFormsItemRules = _UniFormsItemRules;
     /** Label 对齐方式 */
     export type UniFormsItemLabelAlign = _UniFormsItemLabelAlign;
     /** 动态设置表单规则 */
     export interface UniFormsItemSetRules extends _UniFormsItemSetRules {}
-
     /** 校验子表单 */
     export interface UniFormsItemOnFieldChange extends _UniFormsItemOnFieldChange {}
     export interface UniFormsItemProps extends _UniFormsItemProps {}
