@@ -45,7 +45,7 @@ type _UniFormsRules = Record<
   {
     /** 校验规则 */
     rules?: Array<Partial<_UniFormsRulesRule>>;
-    /** 当前表单域的字段中文名，多用于 errorMessage 的显示可不填 */
+    /** 当前表单域的字段中文名，多用于 errorMessage 的显示，可不填 */
     label?: string;
   }
 >;
