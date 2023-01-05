@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
-  UniFormsItemRule,
+  UniFormsItemRulesRule,
+  UniFormsItemRules,
   UniFormsItemLabelAlign,
   UniFormsItemSetRules,
   UniFormsItemOnFieldChange,
@@ -9,8 +10,11 @@ import type {
 } from '@/UniFormsItem';
 
 describe('UniFormsItem', () => {
-  expectTypeOf<UniFormsItemRule>().toBeObject();
-  expectTypeOf<UniFormsItemRule>().toEqualTypeOf<UniHelper.UniFormsItemRule>();
+  expectTypeOf<UniFormsItemRulesRule>().toBeObject();
+  expectTypeOf<UniFormsItemRulesRule>().toEqualTypeOf<UniHelper.UniFormsItemRulesRule>();
+
+  expectTypeOf<UniFormsItemRules>().toBeObject();
+  expectTypeOf<UniFormsItemRules>().toEqualTypeOf<UniHelper.UniFormsItemRules>();
 
   expectTypeOf<UniFormsItemLabelAlign>().toBeString();
   expectTypeOf<UniFormsItemLabelAlign>().toEqualTypeOf<UniHelper.UniFormsItemLabelAlign>();
