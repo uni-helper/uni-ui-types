@@ -30,14 +30,15 @@
     "types"
   ],
   "scripts": {
-    "release": "release-it",
+    "check:deps": "ncu --dep dev,optional,prod,packageManager",
     "check:types": "tsc --noEmit",
     "lint": "run-p lint:eslint lint:markdownlint check:types test:coverage",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue --ignore-path=.gitignore --cache",
+    "lint:eslint": "eslint ./types --ext=.js,.cjs,.mjs,.ts,.cts,.mts --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
+    "prepare": "is-ci || husky install",
+    "release": "release-it",
     "test": "vitest typecheck --run",
-    "test:coverage": "vitest typecheck --run --coverage",
-    "prepare": "is-ci || husky install"
+    "test:coverage": "vitest typecheck --run --coverage"
   },
   "dependencies": {
     "@dcloudio/types": "^3.2.7",
@@ -50,7 +51,7 @@
     "@commitlint/cli": "^17.4.0",
     "@commitlint/config-conventional": "^17.4.0",
     "@commitlint/prompt": "^17.4.0",
-    "@modyqyw/fabric": "^5.14.0",
+    "@modyqyw/fabric": "^5.16.0",
     "@tsconfig/node18": "^1.0.1",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
@@ -62,9 +63,9 @@
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.1.0",
-    "markdownlint-cli": "^0.32.2",
+    "markdownlint-cli": "^0.33.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.2",
     "release-it": "^15.6.0",
     "typescript": "^4.9.4",
     "vitest": "^0.26.3"
@@ -77,7 +78,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@7.21.0",
+  "packageManager": "pnpm@7.23.0",
   "engines": {
     "node": ">=14.18"
   },
