@@ -76,7 +76,7 @@ importers:
       '@dcloudio/uni-mp-toutiao': 3.0.0-alpha-3061620221230002
       '@dcloudio/uni-mp-weixin': 3.0.0-alpha-3061620221230002
       '@dcloudio/uni-quickapp-webview': 3.0.0-alpha-3061620221230002
-      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061620221230002
+      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061620230109001
       '@dcloudio/uni-ui': ^1.4.23
       '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061620221230002
       '@uni-helper/uni-app-types': ^0.3.1
@@ -106,7 +106,7 @@ importers:
       '@dcloudio/types': 3.2.7
       '@dcloudio/uni-automator': 3.0.0-alpha-3061620221230002_vue@3.2.45
       '@dcloudio/uni-cli-shared': 3.0.0-alpha-3061620221230002_vue@3.2.45
-      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061620221230002
+      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061620230109001
       '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061620221230002_vite@4.0.4+vue@3.2.45
       '@uni-helper/uni-app-types': 0.3.1_typescript@4.9.4
       '@uni-helper/uni-ui-types': link:..
@@ -996,7 +996,7 @@ packages:
     dependencies:
       '@vue/shared': 3.2.45
       parse-css-font: 4.0.0
-      postcss: 8.4.20
+      postcss: 8.4.21
     dev: false
 
   /@dcloudio/uni-push/3.0.0-alpha-3061620221230002_vue@3.2.45:
@@ -1030,8 +1030,8 @@ packages:
     dependencies:
       '@vue/shared': 3.2.45
 
-  /@dcloudio/uni-stacktracey/3.0.0-alpha-3061620221230002:
-    resolution: {integrity: sha512-PBdExbS6rXTcksBJCxrpmit/Pgqbkr+wWpd65rtUatuLylwmkvnWb5el7CE5v/rRjj/st67NeU0EA2zo1OSwOQ==}
+  /@dcloudio/uni-stacktracey/3.0.0-alpha-3061620230109001:
+    resolution: {integrity: sha512-fJ8NlgXwmbS3qmtzXrWnur9iHGVngUxcyiIvQsDH2uDbbfx/RxBdIxEbTGF95Psi/Pth04QieEh+GEmP4gekBQ==}
     dev: true
 
   /@dcloudio/uni-stat/3.0.0-alpha-3061620221230002_vue@3.2.45:
@@ -2108,7 +2108,7 @@ packages:
       '@vue/shared': 3.2.45
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.20
+      postcss: 8.4.21
       source-map: 0.6.1
 
   /@vue/compiler-ssr/3.2.45:
@@ -7067,7 +7067,6 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /prelude-ls/1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
