@@ -23,7 +23,6 @@
     "email": "wurui-dev@foxmail.com",
     "url": "https://modyqyw.github.io"
   },
-  "main": "index.d.ts",
   "types": "index.d.ts",
   "files": [
     "index.d.ts",
