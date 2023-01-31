@@ -6,22 +6,22 @@ type _UniSearchBarValue = string | number;
 /**
  * 清除按钮的显示方式
  *
- * Always 一直显示
+ * always 一直显示
  *
- * Auto 输入框不为空时显示
+ * auto 输入框不为空时显示
  *
- * None 一直不显示
+ * none 一直不显示
  */
 type _UniSearchBarClearButton = 'always' | 'auto' | 'none';
 
 /**
  * 取消按钮的显示方式
  *
- * Always 一直显示
+ * always 一直显示
  *
- * Auto 输入框不为空时显示
+ * auto 输入框不为空时显示
  *
- * None 一直不显示
+ * none 一直不显示
  */
 type _UniSearchBarCancelButton = 'always' | 'auto' | 'none';
 
@@ -38,7 +38,7 @@ interface _UniSearchBarOnConfirm {
 
 interface _UniSearchBarOnInputDetail extends _UniSearchBarBaseDetail {}
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _UniSearchBarOnInput {
   (detail: _UniSearchBarOnInputDetail): void;
 }
@@ -92,11 +92,11 @@ interface _UniSearchBarProps {
   /**
    * 清除按钮的显示方式
    *
-   * Always 一直显示
+   * always 一直显示
    *
-   * Auto 输入框不为空时显示
+   * auto 输入框不为空时显示
    *
-   * None 一直不显示
+   * none 一直不显示
    *
    * 默认为 auto
    */
@@ -104,11 +104,11 @@ interface _UniSearchBarProps {
   /**
    * 取消按钮的显示方式
    *
-   * Always 一直显示
+   * always 一直显示
    *
-   * Auto 输入框不为空时显示
+   * auto 输入框不为空时显示
    *
-   * None 一直不显示
+   * none 一直不显示
    *
    * 默认为 auto
    */
@@ -139,7 +139,7 @@ interface _UniSearchBarProps {
   focus: boolean;
   /** 确认时触发 */
   onConfirm: _UniSearchBarOnConfirm;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onInput: _UniSearchBarOnInput;
   /** 取消时触发 */
   onCancel: _UniSearchBarOnCancel;
@@ -182,21 +182,21 @@ declare global {
     /**
      * 清除按钮的显示方式
      *
-     * Always 一直显示
+     * always 一直显示
      *
-     * Auto 输入框不为空时显示
+     * auto 输入框不为空时显示
      *
-     * None 一直不显示
+     * none 一直不显示
      */
     export type UniSearchBarClearButton = _UniSearchBarClearButton;
     /**
      * 取消按钮的显示方式
      *
-     * Always 一直显示
+     * always 一直显示
      *
-     * Auto 输入框不为空时显示
+     * auto 输入框不为空时显示
      *
-     * None 一直不显示
+     * none 一直不显示
      */
     export type UniSearchBarCancelButton = _UniSearchBarCancelButton;
     export interface UniSearchBarBaseDetail extends _UniSearchBarBaseDetail {}
@@ -204,7 +204,7 @@ declare global {
     /** 确认时触发 */
     export interface UniSearchBarOnConfirm extends _UniSearchBarOnConfirm {}
     export interface UniSearchBarOnInputDetail extends _UniSearchBarOnInputDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface UniSearchBarOnInput extends _UniSearchBarOnInput {}
     export interface UniSearchBarOnCancelDetail extends _UniSearchBarOnCancelDetail {}
     /** 取消时触发 */

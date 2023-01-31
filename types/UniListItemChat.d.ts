@@ -59,7 +59,7 @@ interface _UniListItemChatProps {
   /**
    * 头像地址
    *
-   * AvatarCircle 不填时有效
+   * avatarCircle 不填时有效
    */
   avatar: string;
   /** 头像组 */

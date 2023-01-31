@@ -6,13 +6,13 @@ type _UniDataCheckboxValue = string | number;
 /**
  * 显示模式
  *
- * Default 横向显示
+ * default 横向显示
  *
- * List 列表
+ * list 列表
  *
- * Button 按钮
+ * button 按钮
  *
- * Tag 标签
+ * tag 标签
  */
 type _UniDataCheckboxMode = 'default' | 'list' | 'button' | 'tag';
 
@@ -26,7 +26,7 @@ interface _UniDataCheckboxLocaldata {
   disabled: boolean;
 }
 
-/** List 模式下 icon 显示的位置 */
+/** list 模式下 icon 显示的位置 */
 type _UniDataCheckboxIcon = 'left' | 'right';
 
 /**
@@ -45,13 +45,13 @@ interface _UniDataCheckboxBaseProps {
   /**
    * 显示模式
    *
-   * Default 横向显示
+   * default 横向显示
    *
-   * List 列表
+   * list 列表
    *
-   * Button 按钮
+   * button 按钮
    *
-   * Tag 标签
+   * tag 标签
    *
    * 默认为 default
    */
@@ -59,7 +59,7 @@ interface _UniDataCheckboxBaseProps {
   /** 是否换行显示 */
   wrap: boolean;
   /**
-   * List 模式下 icon 显示的位置
+   * list 模式下 icon 显示的位置
    *
    * 默认为 left
    */
@@ -133,13 +133,13 @@ interface _UniDataCheckboxMultipleProps extends _UniDataCheckboxBaseProps {
   /**
    * 最小选择个数
    *
-   * Multiple 为 true 时有效
+   * multiple 为 true 时有效
    */
   min: string | number;
   /**
    * 最大选择个数
    *
-   * Multiple 为 true 时有效
+   * multiple 为 true 时有效
    */
   max: string | number;
   /** 选中状态改变时触发 */
@@ -188,18 +188,18 @@ declare global {
     /**
      * 显示模式
      *
-     * Default 横向显示
+     * default 横向显示
      *
-     * List 列表
+     * list 列表
      *
-     * Button 按钮
+     * button 按钮
      *
-     * Tag 标签
+     * tag 标签
      */
     export type UniDataCheckboxMode = _UniDataCheckboxMode;
     /** 本地渲染数据 */
     export interface UniDataCheckboxLocaldata extends _UniDataCheckboxLocaldata {}
-    /** List 模式下 icon 显示的位置 */
+    /** list 模式下 icon 显示的位置 */
     export type UniDataCheckboxIcon = _UniDataCheckboxIcon;
     /**
      * 字段映射

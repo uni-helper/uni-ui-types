@@ -3,7 +3,7 @@ import { UniBadgeCustomStyle } from './UniBadge';
 import { UniIconsProps, UniIconsType } from './UniIcons';
 
 /**
- * Title 是否溢出隐藏
+ * title 是否溢出隐藏
  *
  * 0 默认
  *
@@ -16,11 +16,11 @@ type _UniListItemEllipsis = 0 | 1 | 2;
 /**
  * 缩略图尺寸
  *
- * Lg 大图
+ * lg 大图
  *
- * Base 一般
+ * base 一般
  *
- * Sm 小图
+ * sm 小图
  */
 type _UniListItemThumbSize = 'lg' | 'base' | 'sm';
 
@@ -30,13 +30,13 @@ type _UniListItemLink = 'navigateTo' | 'redirectTo' | 'reLaunch' | 'switchTab';
 /**
  * 排版方向
  *
- * Row 横向
+ * row 横向
  *
- * Column 纵向
+ * column 纵向
  */
 type _UniListItemDirection = 'row' | 'column';
 
-/** Switch 是否被选中 */
+/** switch 是否被选中 */
 type _UniListItemSwitchChecked = boolean;
 
 /** 扩展图标参数 */
@@ -48,7 +48,7 @@ interface _UniListItemOnClick {
 }
 
 interface _UniListItemOnSwitchChangeDetail {
-  /** Switch 是否被选中 */
+  /** switch 是否被选中 */
   value: _UniListItemSwitchChecked;
 }
 
@@ -63,7 +63,7 @@ interface _UniListItemProps {
   /** 描述 */
   note: string;
   /**
-   * Title 是否溢出隐藏
+   * title 是否溢出隐藏
    *
    * 0 默认
    *
@@ -83,11 +83,11 @@ interface _UniListItemProps {
   /**
    * 缩略图尺寸
    *
-   * Lg 大图
+   * lg 大图
    *
-   * Base 一般
+   * base 一般
    *
-   * Sm 小图
+   * sm 小图
    *
    * 默认为 base
    */
@@ -143,7 +143,7 @@ interface _UniListItemProps {
    */
   showSwitch: boolean;
   /**
-   * Switch 是否被选中
+   * switch 是否被选中
    *
    * 默认为 false
    */
@@ -159,9 +159,9 @@ interface _UniListItemProps {
   /**
    * 排版方向
    *
-   * Row 横向
+   * row 横向
    *
-   * Column 纵向
+   * column 纵向
    *
    * 默认为 row
    */
@@ -191,7 +191,7 @@ export {
 declare global {
   namespace UniHelper {
     /**
-     * Title 是否溢出隐藏
+     * title 是否溢出隐藏
      *
      * 0 默认
      *
@@ -203,11 +203,11 @@ declare global {
     /**
      * 缩略图尺寸
      *
-     * Lg 大图
+     * lg 大图
      *
-     * Base 一般
+     * base 一般
      *
-     * Sm 小图
+     * sm 小图
      */
     export type UniListItemThumbSize = _UniListItemThumbSize;
     /** 新页面的跳转方式 */
@@ -215,12 +215,12 @@ declare global {
     /**
      * 排版方向
      *
-     * Row 横向
+     * row 横向
      *
-     * Column 纵向
+     * column 纵向
      */
     export type UniListItemDirection = _UniListItemDirection;
-    /** Switch 是否被选中 */
+    /** switch 是否被选中 */
     export type UniListItemSwitchChecked = _UniListItemSwitchChecked;
     /** 扩展图标参数 */
     export interface UniListItemExtraIcon extends _UniListItemExtraIcon {}

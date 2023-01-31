@@ -3,7 +3,7 @@ import { CustomEvent, Component } from '@uni-helper/uni-app-types';
 /**
  * 空字符串 单选
  *
- * Selection 多选
+ * selection 多选
  */
 type _UniTableType = '' | 'selection';
 
@@ -58,7 +58,7 @@ interface _UniTableProps {
   /**
    * 空字符串 单选
    *
-   * Selection 多选
+   * selection 多选
    *
    * 默认为 空字符串
    */
@@ -111,7 +111,7 @@ declare global {
     /**
      * 空字符串 单选
      *
-     * Selection 多选
+     * selection 多选
      */
     export type UniTableType = _UniTableType;
     /** 选中全部行 */

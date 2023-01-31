@@ -9,27 +9,27 @@ interface _UniFilePickerValue {
 /**
  * 选择文件后的文件列表样式
  *
- * List 列表
+ * list 列表
  *
- * Grid 网格
+ * grid 网格
  */
 type _UniFilePickerMode = 'list' | 'grid';
 
 /**
  * 选择文件类型
  *
- * Image 图片
+ * image 图片
  *
- * Video 视频
+ * video 视频
  *
- * All 全部
+ * all 全部
  */
 type _UniFilePickerFileMediatype = 'image' | 'video' | 'all';
 
 /**
  * 样式
  *
- * Mode="list" 时有效
+ * mode="list" 时有效
  */
 interface _UniFilePickerListStyles {
   /** 边框样式 */
@@ -78,7 +78,7 @@ interface _UniFilePickerListStyles {
 /**
  * 样式
  *
- * Mode="grid" 时有效
+ * mode="grid" 时有效
  */
 interface _UniFilePickerImageStyles {
   /** 高度 */
@@ -209,9 +209,9 @@ interface _UniFilePickerBaseProps {
   /**
    * 选择文件后的文件列表样式
    *
-   * List 列表
+   * list 列表
    *
-   * Grid 网格
+   * grid 网格
    *
    * 默认为 list
    */
@@ -219,7 +219,7 @@ interface _UniFilePickerBaseProps {
   /**
    * 是否禁用图片预览
    *
-   * Mode="grid" 时有效
+   * mode="grid" 时有效
    *
    * 默认为 false
    */
@@ -233,9 +233,9 @@ interface _UniFilePickerBaseProps {
   /**
    * 是否自动上传
    *
-   * False 只触发 select 事件，可自行上传
+   * false 只触发 select 事件，可自行上传
    *
-   * True 自动上传
+   * true 自动上传
    *
    * 默认为 true
    */
@@ -251,11 +251,11 @@ interface _UniFilePickerBaseProps {
   /**
    * 选择文件类型
    *
-   * Image 图片
+   * image 图片
    *
-   * Video 视频
+   * video 视频
    *
-   * All 全部
+   * all 全部
    *
    * 默认为 image
    */
@@ -273,13 +273,13 @@ interface _UniFilePickerBaseProps {
   /**
    * 样式
    *
-   * Mode="list" 时有效
+   * mode="list" 时有效
    */
   listStyles: _UniFilePickerListStyles;
   /**
    * 样式
    *
-   * Mode="grid" 时有效
+   * mode="grid" 时有效
    */
   imageStyles: _UniFilePickerImageStyles;
   /** 手动上传 */
@@ -360,31 +360,31 @@ declare global {
     /**
      * 选择文件后的文件列表样式
      *
-     * List 列表
+     * list 列表
      *
-     * Grid 网格
+     * grid 网格
      */
     export type UniFilePickerMode = _UniFilePickerMode;
     /**
      * 选择文件类型
      *
-     * Image 图片
+     * image 图片
      *
-     * Video 视频
+     * video 视频
      *
-     * All 全部
+     * all 全部
      */
     export type UniFilePickerFileMediatype = _UniFilePickerFileMediatype;
     /**
      * 样式
      *
-     * Mode="list" 时有效
+     * mode="list" 时有效
      */
     export interface UniFilePickerListStyles extends _UniFilePickerListStyles {}
     /**
      * 样式
      *
-     * Mode="grid" 时有效
+     * mode="grid" 时有效
      */
     export interface UniFilePickerImageStyles extends _UniFilePickerImageStyles {}
     /** 事件回调参数 */

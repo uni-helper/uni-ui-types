@@ -6,11 +6,11 @@ type _UniTitleType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 /**
  * 对齐方式
  *
- * Left 左对齐
+ * left 左对齐
  *
- * Center 居中对齐
+ * center 居中对齐
  *
- * Right 右对齐
+ * right 右对齐
  */
 type _UniTitleAlign = 'left' | 'center' | 'right';
 
@@ -22,11 +22,11 @@ interface _UniTitleProps {
   /**
    * 对齐方式
    *
-   * Left 左对齐
+   * left 左对齐
    *
-   * Center 居中对齐
+   * center 居中对齐
    *
-   * Right 右对齐
+   * right 右对齐
    */
   align: _UniTitleAlign;
   /** 字体颜色 */
@@ -56,11 +56,11 @@ declare global {
     /**
      * 对齐方式
      *
-     * Left 左对齐
+     * left 左对齐
      *
-     * Center 居中对齐
+     * center 居中对齐
      *
-     * Right 右对齐
+     * right 右对齐
      */
     export type UniTitleAlign = _UniTitleAlign;
     export interface UniTitleProps extends _UniTitleProps {}

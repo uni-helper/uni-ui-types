@@ -6,9 +6,9 @@ type _UniSegmentedControlCurrent = number;
 /**
  * 分段器样式类型
  *
- * Button 按钮
+ * button 按钮
  *
- * Text 文字
+ * text 文字
  */
 type _UniSegmentedControlStyleType = 'button' | 'text';
 
@@ -32,9 +32,9 @@ interface _UniSegmentedControlProps {
   /**
    * 分段器样式类型
    *
-   * Button 按钮
+   * button 按钮
    *
-   * Text 文字
+   * text 文字
    *
    * 默认为 button
    */
@@ -70,9 +70,9 @@ declare global {
     /**
      * 分段器样式类型
      *
-     * Button 按钮
+     * button 按钮
      *
-     * Text 文字
+     * text 文字
      */
     export type UniSegmentedControlStyleType = _UniSegmentedControlStyleType;
     export interface UniSegmentedControlOnClickItemDetail

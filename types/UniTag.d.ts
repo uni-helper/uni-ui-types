@@ -3,26 +3,26 @@ import { BaseEvent, Component } from '@uni-helper/uni-app-types';
 /**
  * 大小尺寸
  *
- * Normal 正常
+ * normal 正常
  *
- * Small 小
+ * small 小
  */
 type _UniTagSize = 'normal' | 'small';
 
 /**
  * 颜色类型
  *
- * Default 灰色
+ * default 灰色
  *
- * Primary 蓝色
+ * primary 蓝色
  *
- * Success 绿色
+ * success 绿色
  *
- * Warning 黄色
+ * warning 黄色
  *
- * Error 红色
+ * error 红色
  *
- * Royal 紫色
+ * royal 紫色
  */
 type _UniTagType = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'royal';
 
@@ -37,9 +37,9 @@ interface _UniTagProps {
   /**
    * 大小尺寸
    *
-   * Normal 正常
+   * normal 正常
    *
-   * Small 小
+   * small 小
    *
    * 默认为 normal
    */
@@ -47,17 +47,17 @@ interface _UniTagProps {
   /**
    * 颜色类型
    *
-   * Default 灰色
+   * default 灰色
    *
-   * Primary 蓝色
+   * primary 蓝色
    *
-   * Success 绿色
+   * success 绿色
    *
-   * Warning 黄色
+   * warning 黄色
    *
-   * Error 红色
+   * error 红色
    *
-   * Royal 紫色
+   * royal 紫色
    *
    * 默认为 default
    */
@@ -100,25 +100,25 @@ declare global {
     /**
      * 大小尺寸
      *
-     * Normal 正常
+     * normal 正常
      *
-     * Small 小
+     * small 小
      */
     export type UniTagSize = _UniTagSize;
     /**
      * 颜色类型
      *
-     * Default 灰色
+     * default 灰色
      *
-     * Primary 蓝色
+     * primary 蓝色
      *
-     * Success 绿色
+     * success 绿色
      *
-     * Warning 黄色
+     * warning 黄色
      *
-     * Error 红色
+     * error 红色
      *
-     * Royal 紫色
+     * royal 紫色
      */
     export type UniTagType = _UniTagType;
     /** 点击触发 */

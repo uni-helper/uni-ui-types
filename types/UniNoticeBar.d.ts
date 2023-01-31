@@ -56,9 +56,9 @@ interface _UniNoticeBarProps {
   /**
    * 是否滚动
    *
-   * True 滚动，单行
+   * true 滚动，单行
    *
-   * False 不滚动
+   * false 不滚动
    *
    * 默认为 false
    */
@@ -77,8 +77,6 @@ interface _UniNoticeBarProps {
   showClose: boolean;
   /**
    * 是否显示右侧查看更多图标
-   *
-   * True 单行
    *
    * 默认为 false
    */

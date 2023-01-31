@@ -3,24 +3,24 @@ import { AnyRecord, BaseEvent, Component } from '@uni-helper/uni-app-types';
 /**
  * 角标颜色类型
  *
- * Default 灰色
+ * default 灰色
  *
- * Primary 蓝色
+ * primary 蓝色
  *
- * Success 绿色
+ * success 绿色
  *
- * Warning 黄色
+ * warning 黄色
  *
- * Error 红色
+ * error 红色
  */
 type _UniBadgeType = 'default' | 'primary' | 'success' | 'warning' | 'error';
 
 /**
  * 角标大小
  *
- * Normal 正常
+ * normal 正常
  *
- * Small 小
+ * small 小
  */
 type _UniBadgeSize = 'normal' | 'small';
 
@@ -30,13 +30,13 @@ type _UniBadgeCustomStyle = AnyRecord;
 /**
  * 开启绝对定位，角标将定位到其包裹的标签的四个角上
  *
- * RightTop 右上角
+ * rightTop 右上角
  *
- * RightBottom 右下角
+ * rightBottom 右下角
  *
- * LeftBottom 左下角
+ * leftBottom 左下角
  *
- * LeftTop 左上角
+ * leftTop 左上角
  */
 type _UniBadgeAbsolute = 'rightTop' | 'rightBottom' | 'leftBottom' | 'leftTop';
 
@@ -52,15 +52,15 @@ interface _UniBadgeProps {
   /**
    * 角标颜色类型
    *
-   * Default 灰色
+   * default 灰色
    *
-   * Primary 蓝色
+   * primary 蓝色
    *
-   * Success 绿色
+   * success 绿色
    *
-   * Warning 黄色
+   * warning 黄色
    *
-   * Error 红色
+   * error 红色
    *
    * 默认为 default
    */
@@ -68,9 +68,9 @@ interface _UniBadgeProps {
   /**
    * 角标大小
    *
-   * Normal 正常
+   * normal 正常
    *
-   * Small 小
+   * small 小
    *
    * 默认为 normal
    */
@@ -92,21 +92,21 @@ interface _UniBadgeProps {
   /**
    * 是否无需背景颜色
    *
-   * True 背景颜色将变为文字的字体颜色
+   * true 背景颜色将变为文字的字体颜色
    *
-   * False 正常显示
+   * false 正常显示
    */
   inverted: boolean;
   /**
    * 开启绝对定位，角标将定位到其包裹的标签的四个角上
    *
-   * RightTop 右上角
+   * rightTop 右上角
    *
-   * RightBottom 右下角
+   * rightBottom 右下角
    *
-   * LeftBottom 左下角
+   * leftBottom 左下角
    *
-   * LeftTop 左上角
+   * leftTop 左上角
    *
    * 默认为 rightTop
    */
@@ -151,23 +151,23 @@ declare global {
     /**
      * 角标颜色类型
      *
-     * Default 灰色
+     * default 灰色
      *
-     * Primary 蓝色
+     * primary 蓝色
      *
-     * Success 绿色
+     * success 绿色
      *
-     * Warning 黄色
+     * warning 黄色
      *
-     * Error 红色
+     * error 红色
      */
     export type UniBadgeType = _UniBadgeType;
     /**
      * 角标大小
      *
-     * Normal 正常
+     * normal 正常
      *
-     * Small 小
+     * small 小
      */
     export type UniBadgeSize = _UniBadgeSize;
     /** 自定义样式 */
@@ -175,13 +175,13 @@ declare global {
     /**
      * 开启绝对定位，角标将定位到其包裹的标签的四个角上
      *
-     * RightTop 右上角
+     * rightTop 右上角
      *
-     * RightBottom 右下角
+     * rightBottom 右下角
      *
-     * LeftBottom 左下角
+     * leftBottom 左下角
      *
-     * LeftTop 左上角
+     * leftTop 左上角
      */
     export type UniBadgeAbsolute = _UniBadgeAbsolute;
     /** 点击事件 */

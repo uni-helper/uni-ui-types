@@ -3,21 +3,21 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 弹出方式
  *
- * Top 顶部弹出
+ * top 顶部弹出
  *
- * Center 居中弹出
+ * center 居中弹出
  *
- * Bottom 底部弹出
+ * bottom 底部弹出
  *
- * Left 左侧弹出
+ * left 左侧弹出
  *
- * Right 右侧弹出
+ * right 右侧弹出
  *
- * Message 预置样式，消息提示
+ * message 预置样式，消息提示
  *
- * Dialog 预置样式，对话框
+ * dialog 预置样式，对话框
  *
- * Share 预置样式，底部弹出分享
+ * share 预置样式，底部弹出分享
  */
 type _UniPopupType =
   | 'top'
@@ -54,21 +54,21 @@ interface _UniPopupProps {
   /**
    * 弹出方式
    *
-   * Top 顶部弹出
+   * top 顶部弹出
    *
-   * Center 居中弹出
+   * center 居中弹出
    *
-   * Bottom 底部弹出
+   * bottom 底部弹出
    *
-   * Left 左侧弹出
+   * left 左侧弹出
    *
-   * Right 右侧弹出
+   * right 右侧弹出
    *
-   * Message 预置样式，消息提示
+   * message 预置样式，消息提示
    *
-   * Dialog 预置样式，对话框
+   * dialog 预置样式，对话框
    *
-   * Share 预置样式，底部弹出分享
+   * share 预置样式，底部弹出分享
    *
    * 默认为 center
    */
@@ -124,21 +124,21 @@ declare global {
     /**
      * 弹出方式
      *
-     * Top 顶部弹出
+     * top 顶部弹出
      *
-     * Center 居中弹出
+     * center 居中弹出
      *
-     * Bottom 底部弹出
+     * bottom 底部弹出
      *
-     * Left 左侧弹出
+     * left 左侧弹出
      *
-     * Right 右侧弹出
+     * right 右侧弹出
      *
-     * Message 预置样式，消息提示
+     * message 预置样式，消息提示
      *
-     * Dialog 预置样式，对话框
+     * dialog 预置样式，对话框
      *
-     * Share 预置样式，底部弹出分享
+     * share 预置样式，底部弹出分享
      */
     export type UniPopupType = _UniPopupType;
     export interface UniPopupOnChangeDetail extends _UniPopupOnChangeDetail {}

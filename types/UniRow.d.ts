@@ -9,7 +9,7 @@ interface _UniRowProps {
    */
   gutter: number;
   /**
-   * Nvue 中无百分比 width，使用 span 等属性时，需配置此项 rpx 值
+   * nvue 中无百分比 width，使用 span 等属性时，需配置此项 rpx 值
    *
    * 此项不会影响其他平台展示效果
    *

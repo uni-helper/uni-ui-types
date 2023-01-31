@@ -3,11 +3,11 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 折叠面板标题分隔线
  *
- * Auto 分隔线自动显示
+ * auto 分隔线自动显示
  *
- * None 不显示分隔线
+ * none 不显示分隔线
  *
- * Show 一直显示分隔线
+ * show 一直显示分隔线
  */
 type _UniCollapseItemTitleBorder = 'auto' | 'none' | 'show';
 
@@ -45,11 +45,11 @@ interface _UniCollapseItemProps {
   /**
    * 折叠面板标题分隔线
    *
-   * Auto 分隔线自动显示
+   * auto 分隔线自动显示
    *
-   * None 不显示分隔线
+   * none 不显示分隔线
    *
-   * Show 一直显示分隔线
+   * show 一直显示分隔线
    *
    * 默认为 auto
    */
@@ -75,11 +75,11 @@ declare global {
     /**
      * 折叠面板标题分隔线
      *
-     * Auto 分隔线自动显示
+     * auto 分隔线自动显示
      *
-     * None 不显示分隔线
+     * none 不显示分隔线
      *
-     * Show 一直显示分隔线
+     * show 一直显示分隔线
      */
     export type UniCollapseItemTitleBorder = _UniCollapseItemTitleBorder;
     export interface UniCollapseItemProps extends _UniCollapseItemProps {}

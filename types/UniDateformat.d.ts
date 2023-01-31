@@ -3,9 +3,9 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 格式化使用的语言
  *
- * Zh 中文
+ * zh 中文
  *
- * En 英文
+ * en 英文
  */
 type _UniDateformatLocale = 'zh' | 'en';
 
@@ -29,29 +29,29 @@ interface _UniDateformatProps {
   /**
    * 格式字符串
    *
-   * Yyyy 四位年份
+   * yyyy 四位年份
    *
-   * Yy 两位年份
+   * yy 两位年份
    *
    * MM 两位月份，不足则在前面补 0
    *
    * M 月份，不自动补 0
    *
-   * Dd 两位天，不足则在前面补 0
+   * dd 两位天，不足则在前面补 0
    *
-   * D 天，不自动补 0
+   * d 天，不自动补 0
    *
-   * Hh 两位小时，不足则在前面补 0
+   * hh 两位小时，不足则在前面补 0
    *
-   * H 小时，不自动补 0
+   * h 小时，不自动补 0
    *
-   * Mm 两位分钟，不足则在前面补 0
+   * mm 两位分钟，不足则在前面补 0
    *
-   * M 分钟，不自动补 0
+   * m 分钟，不自动补 0
    *
-   * Ss 两位秒，不足则在前面补 0
+   * ss 两位秒，不足则在前面补 0
    *
-   * S 秒，不自动补 0
+   * s 秒，不自动补 0
    *
    * SSS 三位毫秒，不足则在前面补 0
    *
@@ -63,9 +63,9 @@ interface _UniDateformatProps {
   /**
    * 格式化使用的语言
    *
-   * Zh 中文
+   * zh 中文
    *
-   * En 英文
+   * en 英文
    *
    * 默认为 zh
    */

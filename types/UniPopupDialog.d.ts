@@ -3,29 +3,29 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 消息提示主题
  *
- * Success 成功
+ * success 成功
  *
- * Warn 警告
+ * warn 警告
  *
- * Error 失败
+ * error 失败
  *
- * Info 消息
+ * info 消息
  */
 type _UniPopupDialogType = 'success' | 'warn' | 'error' | 'info';
 
 /**
  * 对话框模式
  *
- * Base 提示对话框
+ * base 提示对话框
  *
- * Input 可输入对话框
+ * input 可输入对话框
  */
 type _UniPopupDialogMode = 'base' | 'input';
 
 /**
  * 输入框值
  *
- * Mode="input" 时有效
+ * mode="input" 时有效
  */
 type _UniPopupDialogValue = string | number;
 
@@ -47,13 +47,13 @@ interface _UniPopupDialogProps {
   /**
    * 对话框标题主题
    *
-   * Success 成功
+   * success 成功
    *
-   * Warn 警告
+   * warn 警告
    *
-   * Error 失败
+   * error 失败
    *
-   * Info 消息
+   * info 消息
    *
    * 默认为 success
    */
@@ -61,9 +61,9 @@ interface _UniPopupDialogProps {
   /**
    * 对话框模式
    *
-   * Base 提示对话框
+   * base 提示对话框
    *
-   * Input 可输入对话框
+   * input 可输入对话框
    *
    * 默认为 base
    */
@@ -73,7 +73,7 @@ interface _UniPopupDialogProps {
   /**
    * 对话框内容
    *
-   * Mode="base" 时有效
+   * mode="base" 时有效
    */
   content: string;
   /** 确定按钮文本 */
@@ -83,19 +83,19 @@ interface _UniPopupDialogProps {
   /**
    * 输入框默认值
    *
-   * Mode="input" 时有效
+   * mode="input" 时有效
    */
   value: _UniPopupDialogValue;
   /**
    * 输入框提示文字
    *
-   * Mode="input" 时有效
+   * mode="input" 时有效
    */
   placeholder: string;
   /**
    * 是否拦截按钮事件
    *
-   * True 不会关闭对话框，手动调用 close 以关闭
+   * true 不会关闭对话框，手动调用 close 以关闭
    *
    * 默认为 false
    */
@@ -124,27 +124,27 @@ declare global {
     /**
      * 消息提示主题
      *
-     * Success 成功
+     * success 成功
      *
-     * Warn 警告
+     * warn 警告
      *
-     * Error 失败
+     * error 失败
      *
-     * Info 消息
+     * info 消息
      */
     export type UniPopupDialogType = _UniPopupDialogType;
     /**
      * 对话框模式
      *
-     * Base 提示对话框
+     * base 提示对话框
      *
-     * Input 可输入对话框
+     * input 可输入对话框
      */
     export type UniPopupDialogMode = _UniPopupDialogMode;
     /**
      * 输入框值
      *
-     * Mode="input" 时有效
+     * mode="input" 时有效
      */
     export type UniPopupDialogValue = _UniPopupDialogValue;
     /** 点击取消时触发 */

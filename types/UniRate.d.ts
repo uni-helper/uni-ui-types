@@ -51,7 +51,7 @@ interface _UniRateProps {
    */
   max: number;
   /**
-   * Margin 星星的间距
+   * 星星的间距
    *
    * 单位为 px
    *

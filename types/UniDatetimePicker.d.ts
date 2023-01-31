@@ -3,13 +3,13 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 选择器类型
  *
- * Date 日期
+ * date 日期
  *
- * Daterange 日期范围
+ * daterange 日期范围
  *
- * Datetime 日期时间
+ * datetime 日期时间
  *
- * Datetimerange 日期时间范围
+ * datetimerange 日期时间范围
  */
 type _UniDatetimePickerType = 'date' | 'daterange' | 'datetime' | 'datetimerange';
 
@@ -19,18 +19,18 @@ type _UniDatetimePickerValue = string | number | Date | string[] | number[] | Da
 /**
  * 最小值
  *
- * String 日期字符串
+ * string 日期字符串
  *
- * Number 时间戳
+ * number 时间戳
  */
 type _UniDatetimePickerStart = string | number;
 
 /**
  * 最大值
  *
- * String 日期字符串
+ * string 日期字符串
  *
- * Number 时间戳
+ * number 时间戳
  */
 type _UniDatetimePickerEnd = string | number;
 
@@ -66,13 +66,13 @@ interface _UniDatetimePickerProps {
   /**
    * 选择器类型
    *
-   * Date 日期
+   * date 日期
    *
-   * Daterange 日期范围
+   * daterange 日期范围
    *
-   * Datetime 日期时间
+   * datetime 日期时间
    *
-   * Datetimerange 日期时间范围
+   * datetimerange 日期时间范围
    *
    * 默认为 datetime
    */
@@ -160,13 +160,13 @@ declare global {
     /**
      * 选择器类型
      *
-     * Date 日期
+     * date 日期
      *
-     * Daterange 日期范围
+     * daterange 日期范围
      *
-     * Datetime 日期时间
+     * datetime 日期时间
      *
-     * Datetimerange 日期时间范围
+     * datetimerange 日期时间范围
      */
     export type UniDatetimePickerType = _UniDatetimePickerType;
     /** 值类型 */
@@ -174,17 +174,17 @@ declare global {
     /**
      * 最小值
      *
-     * String 日期字符串
+     * string 日期字符串
      *
-     * Number 时间戳
+     * number 时间戳
      */
     export type UniDatetimePickerStart = _UniDatetimePickerStart;
     /**
      * 最大值
      *
-     * String 日期字符串
+     * string 日期字符串
      *
-     * Number 时间戳
+     * number 时间戳
      */
     export type UniDatetimePickerEnd = _UniDatetimePickerEnd;
     /** 返回值类型 */

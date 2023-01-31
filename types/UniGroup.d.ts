@@ -3,9 +3,9 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 模式
  *
- * Default 默认
+ * default 默认
  *
- * Card 卡片
+ * card 卡片
  */
 type _UniGroupMode = 'default' | 'card';
 
@@ -18,9 +18,9 @@ interface _UniGroupProps {
   /**
    * 模式
    *
-   * Default 默认
+   * default 默认
    *
-   * Card 卡片
+   * card 卡片
    *
    * 默认为 default
    */
@@ -37,9 +37,9 @@ declare global {
     /**
      * 模式
      *
-     * Default 默认
+     * default 默认
      *
-     * Card 卡片
+     * card 卡片
      */
     export type UniGroupMode = _UniGroupMode;
     /** 分组属性 */

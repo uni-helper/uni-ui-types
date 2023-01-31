@@ -20,7 +20,7 @@ interface _UniPopupShareProps {
   /**
    * 是否拦截按钮事件
    *
-   * True 不会关闭对话框，手动调用 close 以关闭
+   * true 不会关闭对话框，手动调用 close 以关闭
    *
    * 默认为 false
    */

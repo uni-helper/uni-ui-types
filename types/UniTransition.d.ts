@@ -3,19 +3,19 @@ import { BaseEvent, Component } from '@uni-helper/uni-app-types';
 /**
  * 内置过渡动画类型
  *
- * Fade 渐隐渐出过渡
+ * fade 渐隐渐出过渡
  *
- * Slide-top 由上至下过渡
+ * slide-top 由上至下过渡
  *
- * Slide-right 由右至左过渡
+ * slide-right 由右至左过渡
  *
- * Slide-bottom 由下至上过渡
+ * slide-bottom 由下至上过渡
  *
- * Slide-left 由左至右过渡
+ * slide-left 由左至右过渡
  *
- * Zoom-in 由小到大过渡
+ * zoom-in 由小到大过渡
  *
- * Zoom-out 由大到小过渡
+ * zoom-out 由大到小过渡
  */
 type _UniTransitionModeClass =
   | 'fade'
@@ -29,19 +29,19 @@ type _UniTransitionModeClass =
 /**
  * 动画效果
  *
- * Linear 动画从头到尾的速度是相同的
+ * linear 动画从头到尾的速度是相同的
  *
- * Ease 动画以低速开始，然后加快，在结束前变慢
+ * ease 动画以低速开始，然后加快，在结束前变慢
  *
- * Ease-in 动画以低速开始
+ * ease-in 动画以低速开始
  *
- * Ease-in-out 动画以低速开始和结束
+ * ease-in-out 动画以低速开始和结束
  *
- * Ease-out 动画以低速结束
+ * ease-out 动画以低速结束
  *
- * Step-start 动画第一帧就跳至结束状态直到结束
+ * step-start 动画第一帧就跳至结束状态直到结束
  *
- * Step-end 动画一直保持开始状态，最后一帧跳到结束状态
+ * step-end 动画一直保持开始状态，最后一帧跳到结束状态
  */
 type _UniTransitionTimingFunction =
   | 'linear'
@@ -64,19 +64,19 @@ interface _UniTransitionConfig {
   /**
    * 动画效果
    *
-   * Linear 动画从头到尾的速度是相同的
+   * linear 动画从头到尾的速度是相同的
    *
-   * Ease 动画以低速开始，然后加快，在结束前变慢
+   * ease 动画以低速开始，然后加快，在结束前变慢
    *
-   * Ease-in 动画以低速开始
+   * ease-in 动画以低速开始
    *
-   * Ease-in-out 动画以低速开始和结束
+   * ease-in-out 动画以低速开始和结束
    *
-   * Ease-out 动画以低速结束
+   * ease-out 动画以低速结束
    *
-   * Step-start 动画第一帧就跳至结束状态直到结束
+   * step-start 动画第一帧就跳至结束状态直到结束
    *
-   * Step-end 动画一直保持开始状态，最后一帧跳到结束状态
+   * step-end 动画一直保持开始状态，最后一帧跳到结束状态
    *
    * 默认为 linear
    */
@@ -249,19 +249,19 @@ interface _UniTransitionProps {
   /**
    * 内置过渡动画类型
    *
-   * Fade 渐隐渐出过渡
+   * fade 渐隐渐出过渡
    *
-   * Slide-top 由上至下过渡
+   * slide-top 由上至下过渡
    *
-   * Slide-right 由右至左过渡
+   * slide-right 由右至左过渡
    *
-   * Slide-bottom 由下至上过渡
+   * slide-bottom 由下至上过渡
    *
-   * Slide-left 由左至右过渡
+   * slide-left 由左至右过渡
    *
-   * Zoom-in 由小到大过渡
+   * zoom-in 由小到大过渡
    *
-   * Zoom-out 由大到小过渡
+   * zoom-out 由大到小过渡
    */
   modeClass: _UniTransitionModeClass | _UniTransitionModeClass[];
   /** 自定义类名 */
@@ -311,37 +311,37 @@ declare global {
     /**
      * 内置过渡动画类型
      *
-     * Fade 渐隐渐出过渡
+     * fade 渐隐渐出过渡
      *
-     * Slide-top 由上至下过渡
+     * slide-top 由上至下过渡
      *
-     * Slide-right 由右至左过渡
+     * slide-right 由右至左过渡
      *
-     * Slide-bottom 由下至上过渡
+     * slide-bottom 由下至上过渡
      *
-     * Slide-left 由左至右过渡
+     * slide-left 由左至右过渡
      *
-     * Zoom-in 由小到大过渡
+     * zoom-in 由小到大过渡
      *
-     * Zoom-out 由大到小过渡
+     * zoom-out 由大到小过渡
      */
     export type UniTransitionModeClass = _UniTransitionModeClass;
     /**
      * 动画效果
      *
-     * Linear 动画从头到尾的速度是相同的
+     * linear 动画从头到尾的速度是相同的
      *
-     * Ease 动画以低速开始，然后加快，在结束前变慢
+     * ease 动画以低速开始，然后加快，在结束前变慢
      *
-     * Ease-in 动画以低速开始
+     * ease-in 动画以低速开始
      *
-     * Ease-in-out 动画以低速开始和结束
+     * ease-in-out 动画以低速开始和结束
      *
-     * Ease-out 动画以低速结束
+     * ease-out 动画以低速结束
      *
-     * Step-start 动画第一帧就跳至结束状态直到结束
+     * step-start 动画第一帧就跳至结束状态直到结束
      *
-     * Step-end 动画一直保持开始状态，最后一帧跳到结束状态
+     * step-end 动画一直保持开始状态，最后一帧跳到结束状态
      */
     export type UniTransitionTimingFunction = _UniTransitionTimingFunction;
     export interface UniTransitionConfig extends _UniTransitionConfig {}

@@ -3,9 +3,9 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 排列方向
  *
- * Row 横向
+ * row 横向
  *
- * Column 纵向
+ * column 纵向
  */
 type _UniStepsDirection = 'row' | 'column';
 
@@ -28,9 +28,9 @@ interface _UniStepsProps {
   /**
    * 排列方向
    *
-   * Row 横向
+   * row 横向
    *
-   * Column 纵向
+   * column 纵向
    *
    * 默认为 row
    */
@@ -60,9 +60,9 @@ declare global {
     /**
      * 排列方向
      *
-     * Row 横向
+     * row 横向
      *
-     * Column 纵向
+     * column 纵向
      */
     export type UniStepsDirection = _UniStepsDirection;
     /** 数据源 */

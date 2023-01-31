@@ -3,9 +3,9 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 抽屉滑出位置
  *
- * Left 从左侧滑出
+ * left 从左侧滑出
  *
- * Right 从右侧滑出
+ * right 从右侧滑出
  */
 type _UniDrawerMode = 'left' | 'right';
 
@@ -40,9 +40,9 @@ interface _UniDrawerProps {
   /**
    * 抽屉滑出位置
    *
-   * Left 从左侧滑出
+   * left 从左侧滑出
    *
-   * Right 从右侧滑出
+   * right 从右侧滑出
    *
    * 默认为 left
    */
@@ -78,9 +78,9 @@ declare global {
     /**
      * 抽屉滑出位置
      *
-     * Left 从左侧滑出
+     * left 从左侧滑出
      *
-     * Right 从右侧滑出
+     * right 从右侧滑出
      */
     export type UniDrawerMode = _UniDrawerMode;
     /** 打开抽屉 */

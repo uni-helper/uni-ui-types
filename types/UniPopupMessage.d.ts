@@ -3,13 +3,13 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 消息提示主题
  *
- * Success 成功
+ * success 成功
  *
- * Warn 警告
+ * warn 警告
  *
- * Error 失败
+ * error 失败
  *
- * Info 消息
+ * info 消息
  */
 type _UniPopupMessageType = 'success' | 'warn' | 'error' | 'info';
 
@@ -17,13 +17,13 @@ interface _UniPopupMessageProps {
   /**
    * 消息提示主题
    *
-   * Success 成功
+   * success 成功
    *
-   * Warn 警告
+   * warn 警告
    *
-   * Error 失败
+   * error 失败
    *
-   * Info 消息
+   * info 消息
    *
    * 默认为 success
    */
@@ -53,13 +53,13 @@ declare global {
     /**
      * 消息提示主题
      *
-     * Success 成功
+     * success 成功
      *
-     * Warn 警告
+     * warn 警告
      *
-     * Error 失败
+     * error 失败
      *
-     * Info 消息
+     * info 消息
      */
     export type UniPopupMessageType = _UniPopupMessageType;
     export interface UniPopupMessageProps extends _UniPopupMessageProps {}

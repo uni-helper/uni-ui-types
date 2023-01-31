@@ -28,9 +28,9 @@ interface _UniCardProps {
   /**
    * 卡片内容是否通栏
    *
-   * True 去除 padding
+   * true 去除 padding
    *
-   * False 保留 padding
+   * false 保留 padding
    *
    * 默认为 false
    */

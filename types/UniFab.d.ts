@@ -31,27 +31,27 @@ interface _UniFabPattern {
 /**
  * 水平对齐方式
  *
- * Left 左对齐
+ * left 左对齐
  *
- * Right 右对齐
+ * right 右对齐
  */
 type _UniFabHorizontal = 'left' | 'right';
 
 /**
  * 垂直对齐方式
  *
- * Bottom 下对齐
+ * bottom 下对齐
  *
- * Top 上对齐
+ * top 上对齐
  */
 type _UniFabVertical = 'bottom' | 'right';
 
 /**
  * 展开菜单显示方式
  *
- * Horizontal 水平显示
+ * horizontal 水平显示
  *
- * Vertical 垂直显示
+ * vertical 垂直显示
  */
 type _UniFabDirection = 'horizontal' | 'vertical';
 
@@ -91,9 +91,9 @@ interface _UniFabProps {
   /**
    * 水平对齐方式
    *
-   * Left 左对齐
+   * left 左对齐
    *
-   * Right 右对齐
+   * right 右对齐
    *
    * 默认为 left
    */
@@ -101,9 +101,9 @@ interface _UniFabProps {
   /**
    * 垂直对齐方式
    *
-   * Bottom 下对齐
+   * bottom 下对齐
    *
-   * Top 上对齐
+   * top 上对齐
    *
    * 默认为 bottom
    */
@@ -111,9 +111,9 @@ interface _UniFabProps {
   /**
    * 展开菜单显示方式
    *
-   * Horizontal 水平显示
+   * horizontal 水平显示
    *
-   * Vertical 垂直显示
+   * vertical 垂直显示
    *
    * 默认为 horizontal
    */
@@ -156,25 +156,25 @@ declare global {
     /**
      * 水平对齐方式
      *
-     * Left 左对齐
+     * left 左对齐
      *
-     * Right 右对齐
+     * right 右对齐
      */
     export type UniFabHorizontal = _UniFabHorizontal;
     /**
      * 垂直对齐方式
      *
-     * Bottom 下对齐
+     * bottom 下对齐
      *
-     * Top 上对齐
+     * top 上对齐
      */
     export type UniFabVertical = _UniFabVertical;
     /**
      * 展开菜单显示方式
      *
-     * Horizontal 水平显示
+     * horizontal 水平显示
      *
-     * Vertical 垂直显示
+     * vertical 垂直显示
      */
     export type UniFabDirection = _UniFabDirection;
     /** 展开菜单内容配置项 */

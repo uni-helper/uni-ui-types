@@ -53,10 +53,10 @@ type _UniFormsRules = Record<
 /** 表单校验时机 */
 type _UniFormsValidateTrigger = 'bind' | 'submit' | 'blur';
 
-/** Label 位置 */
+/** label 位置 */
 type _UniFormsLabelPosition = 'top' | 'left';
 
-/** Label 对齐方式 */
+/** label 对齐方式 */
 type _UniFormsLabelAlign = 'left' | 'center' | 'right';
 
 /**
@@ -117,13 +117,13 @@ interface _UniFormsProps {
    */
   validateTrigger: _UniFormsValidateTrigger;
   /**
-   * Label 位置
+   * label 位置
    *
    * 默认为 left
    */
   labelPosition: _UniFormsLabelPosition;
   /**
-   * Label 宽度
+   * label 宽度
    *
    * 单位为 px
    *
@@ -131,7 +131,7 @@ interface _UniFormsProps {
    */
   labelWidth: string | number;
   /**
-   * Label 对齐方式
+   * label 对齐方式
    *
    * 默认为 left
    */
@@ -207,9 +207,9 @@ declare global {
     export type UniFormsRules = _UniFormsRules;
     /** 表单校验时机 */
     export type UniFormsValidateTrigger = _UniFormsValidateTrigger;
-    /** Label 位置 */
+    /** label 位置 */
     export type UniFormsLabelPosition = _UniFormsLabelPosition;
-    /** Label 对齐方式 */
+    /** label 对齐方式 */
     export type UniFormsLabelAlign = _UniFormsLabelAlign;
     /**
      * 错误信息提示方式

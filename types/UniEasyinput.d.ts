@@ -6,53 +6,53 @@ type _UniEasyinputValue = string | number;
 /**
  * 输入框的类型
  *
- * Text 文字输入键盘
+ * text 文字输入键盘
  *
- * Textarea 多行文本输入键盘
+ * textarea 多行文本输入键盘
  *
- * Password 密码输入键盘
+ * password 密码输入键盘
  *
- * Number 数字输入键盘，iOS 上 app-vue 弹出的数字键盘不是九宫格
+ * number 数字输入键盘，iOS 上 app-vue 弹出的数字键盘不是九宫格
  *
- * Idcard 身份证输入键盘
+ * idcard 身份证输入键盘
  *
- * Digit 带小数点的数字键盘
+ * digit 带小数点的数字键盘
  */
 type _UniEasyinputType = 'text' | 'textarea' | 'password' | 'number' | 'idcard' | 'digit';
 
 /**
  * 设置键盘右下角按钮的文字
  *
- * Type="text" 时有效
+ * type="text" 时有效
  *
- * Send 发送
+ * send 发送
  *
- * Search 搜索
+ * search 搜索
  *
- * Next 下一个
+ * next 下一个
  *
- * Go 前往
+ * go 前往
  *
- * Done 完成
+ * done 完成
  */
 type _UniEasyinputOnConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
 /**
  * 自动去除空格的类型
  *
- * True 去除左右空格
+ * true 去除左右空格
  *
- * False 不去除左右空格
+ * false 不去除左右空格
  *
- * Both 去除两端空格
+ * both 去除两端空格
  *
- * Left 去除左侧空格
+ * left 去除左侧空格
  *
- * Right 去除右侧空格
+ * right 去除右侧空格
  *
- * All 去除所有空格
+ * all 去除所有空格
  *
- * None 不去除空格
+ * none 不去除空格
  */
 type _UniEasyinputTrim = boolean | 'both' | 'left' | 'right' | 'all' | 'none';
 
@@ -122,17 +122,17 @@ interface _UniEasyinputProps {
   /**
    * 输入框的类型
    *
-   * Text 文字输入键盘
+   * text 文字输入键盘
    *
-   * Textarea 多行文本输入键盘
+   * textarea 多行文本输入键盘
    *
-   * Password 密码输入键盘
+   * password 密码输入键盘
    *
-   * Number 数字输入键盘，iOS 上 app-vue 弹出的数字键盘不是九宫格
+   * number 数字输入键盘，iOS 上 app-vue 弹出的数字键盘不是九宫格
    *
-   * Idcard 身份证输入键盘
+   * idcard 身份证输入键盘
    *
-   * Digit 带小数点的数字键盘
+   * digit 带小数点的数字键盘
    *
    * 默认为 text
    */
@@ -150,7 +150,7 @@ interface _UniEasyinputProps {
   /**
    * 是否自动增高输入区域
    *
-   * Type="textarea" 时有效
+   * type="textarea" 时有效
    *
    * 默认为 false
    */
@@ -182,17 +182,17 @@ interface _UniEasyinputProps {
   /**
    * 设置键盘右下角按钮的文字
    *
-   * Type="text" 时有效
+   * type="text" 时有效
    *
-   * Send 发送
+   * send 发送
    *
-   * Search 搜索
+   * search 搜索
    *
-   * Next 下一个
+   * next 下一个
    *
-   * Go 前往
+   * go 前往
    *
-   * Done 完成
+   * done 完成
    *
    * 默认为 done
    */
@@ -212,19 +212,19 @@ interface _UniEasyinputProps {
   /**
    * 是否自动去除空格
    *
-   * True 去除左右空格
+   * true 去除左右空格
    *
-   * False 不去除左右空格
+   * false 不去除左右空格
    *
-   * Both 去除两端空格
+   * both 去除两端空格
    *
-   * Left 去除左侧空格
+   * left 去除左侧空格
    *
-   * Right 去除右侧空格
+   * right 去除右侧空格
    *
-   * All 去除所有空格
+   * all 去除所有空格
    *
-   * None 不去除空格
+   * none 不去除空格
    *
    * 默认为 false
    */
@@ -240,7 +240,7 @@ interface _UniEasyinputProps {
   /**
    * 是否显示眼睛图标
    *
-   * Type="password" 时有效
+   * type="password" 时有效
    *
    * 默认为 true
    */
@@ -289,51 +289,51 @@ declare global {
     /**
      * 输入框的类型
      *
-     * Text 文字输入键盘
+     * text 文字输入键盘
      *
-     * Textarea 多行文本输入键盘
+     * textarea 多行文本输入键盘
      *
-     * Password 密码输入键盘
+     * password 密码输入键盘
      *
-     * Number 数字输入键盘，iOS 上 app-vue 弹出的数字键盘不是九宫格
+     * number 数字输入键盘，iOS 上 app-vue 弹出的数字键盘不是九宫格
      *
-     * Idcard 身份证输入键盘
+     * idcard 身份证输入键盘
      *
-     * Digit 带小数点的数字键盘
+     * digit 带小数点的数字键盘
      */
     export type UniEasyinputType = _UniEasyinputType;
     /**
      * 设置键盘右下角按钮的文字
      *
-     * Type="text" 时有效
+     * type="text" 时有效
      *
-     * Send 发送
+     * send 发送
      *
-     * Search 搜索
+     * search 搜索
      *
-     * Next 下一个
+     * next 下一个
      *
-     * Go 前往
+     * go 前往
      *
-     * Done 完成
+     * done 完成
      */
     export type UniEasyinputOnConfirmType = _UniEasyinputOnConfirmType;
     /**
      * 自动去除空格的类型
      *
-     * True 去除左右空格
+     * true 去除左右空格
      *
-     * False 不去除左右空格
+     * false 不去除左右空格
      *
-     * Both 去除两端空格
+     * both 去除两端空格
      *
-     * Left 去除左侧空格
+     * left 去除左侧空格
      *
-     * Right 去除右侧空格
+     * right 去除右侧空格
      *
-     * All 去除所有空格
+     * all 去除所有空格
      *
-     * None 不去除空格
+     * none 不去除空格
      */
     export type UniEasyinputTrim = _UniEasyinputTrim;
     /** 自定义样式 */

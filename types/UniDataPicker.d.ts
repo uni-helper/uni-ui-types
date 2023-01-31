@@ -3,9 +3,9 @@ import { BaseEvent, CustomEvent, Component } from '@uni-helper/uni-app-types';
 /**
  * 服务商
  *
- * Aliyun 阿里云
+ * aliyun 阿里云
  *
- * Tencent 腾讯云
+ * tencent 腾讯云
  */
 type _UniDataPickerSpaceInfoProvider = 'aliyun' | 'tencent';
 
@@ -14,9 +14,9 @@ interface _UniDataPickerSpaceInfo {
   /**
    * 服务商
    *
-   * Aliyun 阿里云
+   * aliyun 阿里云
    *
-   * Tencent 腾讯云
+   * tencent 腾讯云
    */
   provider: _UniDataPickerSpaceInfoProvider;
   /** 服务空间 ID */
@@ -52,7 +52,7 @@ interface _UniDataPickerLocaldata {
   /**
    * 是否为叶子节点
    *
-   * True 忽略 children
+   * true 忽略 children
    *
    * 默认为 false
    */
@@ -199,11 +199,11 @@ interface _UniDataPickerProps {
  *
  * 候选数据支持一次性加载完毕，也支持懒加载
  *
- * Uni-data-picker 尤其适用于地址选择、分类选择等选择类
+ * uni-data-picker 尤其适用于地址选择、分类选择等选择类
  *
- * Uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
+ * uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
  *
- * Uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+ * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
  */
 type _UniDataPicker = Component<Partial<_UniDataPickerProps>>;
 
@@ -231,9 +231,9 @@ declare global {
     /**
      * 服务商
      *
-     * Aliyun 阿里云
+     * aliyun 阿里云
      *
-     * Tencent 腾讯云
+     * tencent 腾讯云
      */
     export type UniDataPickerSpaceInfoProvider = _UniDataPickerSpaceInfoProvider;
     /** 服务空间信息 */
@@ -272,11 +272,11 @@ declare global {
      *
      * 候选数据支持一次性加载完毕，也支持懒加载
      *
-     * Uni-data-picker 尤其适用于地址选择、分类选择等选择类
+     * uni-data-picker 尤其适用于地址选择、分类选择等选择类
      *
-     * Uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
+     * uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
      *
-     * Uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+     * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
      */
     export type UniDataPicker = _UniDataPicker;
   }
@@ -291,11 +291,11 @@ declare module '@vue/runtime-core' {
      *
      * 候选数据支持一次性加载完毕，也支持懒加载
      *
-     * Uni-data-picker 尤其适用于地址选择、分类选择等选择类
+     * uni-data-picker 尤其适用于地址选择、分类选择等选择类
      *
-     * Uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
+     * uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
      *
-     * Uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+     * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
      */
     UniDataPicker: _UniDataPicker;
   }

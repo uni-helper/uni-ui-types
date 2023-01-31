@@ -1,24 +1,24 @@
 import { CustomEvent, Component } from '@uni-helper/uni-app-types';
 
 /**
- * Loading 的状态
+ * loading 的状态
  *
- * More 加载前
+ * more 加载前
  *
- * Loading 加载中
+ * loading 加载中
  *
- * NoMore 没有更多数据
+ * noMore 没有更多数据
  */
 type _UniLoadMoreStatus = 'more' | 'loading' | 'noMore';
 
 /**
  * 图标样式
  *
- * Snow iOS 雪花加载样式
+ * snow iOS 雪花加载样式
  *
- * Circle Android 环形加载样式
+ * circle Android 环形加载样式
  *
- * Auto 根据平台自动选择加载样式
+ * auto 根据平台自动选择加载样式
  */
 type _UniLoadMoreIconType = 'auto' | 'snow' | 'circle';
 
@@ -33,6 +33,15 @@ interface _UniLoadMoreContentText {
 }
 
 interface _UniLoadMoreOnClickLoadMoreDetail {
+  /**
+   * loading 的状态
+   *
+   * more 加载前
+   *
+   * loading 加载中
+   *
+   * noMore 没有更多数据
+   */
   status: _UniLoadMoreStatus;
 }
 
@@ -49,7 +58,13 @@ interface _UniLoadMoreProps {
    */
   iconSize: number;
   /**
-   * Loading 的状态
+   * loading 的状态
+   *
+   * more 加载前
+   *
+   * loading 加载中
+   *
+   * noMore 没有更多数据
    *
    * 默认为 more
    */
@@ -68,6 +83,12 @@ interface _UniLoadMoreProps {
   showText: boolean;
   /**
    * 图标样式
+   *
+   * snow iOS 雪花加载样式
+   *
+   * circle Android 环形加载样式
+   *
+   * auto 根据平台自动选择加载样式
    *
    * 默认为 auto
    */
@@ -100,23 +121,23 @@ export {
 declare global {
   namespace UniHelper {
     /**
-     * Loading 的状态
+     * loading 的状态
      *
-     * More 加载前
+     * more 加载前
      *
-     * Loading 加载中
+     * loading 加载中
      *
-     * NoMore 没有更多数据
+     * noMore 没有更多数据
      */
     export type UniLoadMoreStatus = _UniLoadMoreStatus;
     /**
      * 图标样式
      *
-     * Snow iOS 雪花加载样式
+     * snow iOS 雪花加载样式
      *
-     * Circle Android 环形加载样式
+     * circle Android 环形加载样式
      *
-     * Auto 根据平台自动选择加载样式
+     * auto 根据平台自动选择加载样式
      */
     export type UniLoadMoreIconType = _UniLoadMoreIconType;
     /** 各状态文字说明 */

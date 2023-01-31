@@ -3,7 +3,7 @@ import { Component } from '@uni-helper/uni-app-types';
 /**
  * 关闭组件
  *
- * AutoClose 为 false 时有效
+ * autoClose 为 false 时有效
  */
 type _UniSwipeActionItemShow = 'left' | 'right' | 'none';
 
@@ -59,7 +59,7 @@ interface _UniSwipeActionItemProps {
   /**
    * 关闭组件
    *
-   * AutoClose 为 false 时有效
+   * autoClose 为 false 时有效
    */
   show: _UniSwipeActionItemShow;
   /**
@@ -101,7 +101,7 @@ declare global {
     /**
      * 关闭组件
      *
-     * AutoClose 为 false 时有效
+     * autoClose 为 false 时有效
      */
     export type UniSwipeActionItemShow = _UniSwipeActionItemShow;
     /** 选项内容及样式 */

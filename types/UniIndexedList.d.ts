@@ -25,9 +25,9 @@ interface _UniIndexedListProps {
   /**
    * 展示模式
    *
-   * True 展示默认
+   * true 展示默认
    *
-   * False 展示选择
+   * false 展示选择
    *
    * 默认为 false
    */

@@ -28,7 +28,7 @@ type _UniCalendarSelected = _UniCalendarSelectedElement[];
 /**
  * 弹出日历组件
  *
- * Insert 为 true 时有效
+ * insert 为 true 时有效
  */
 interface _UniCalendarOnOpen {
   (event: BaseEvent): void;
@@ -102,7 +102,7 @@ interface _UniCalendarOnChangeDetail extends _UniCalendarBaseDetail {}
 /**
  * 日期改变时触发
  *
- * Insert 为 true 时有效
+ * insert 为 true 时有效
  */
 interface _UniCalendarOnChange {
   (detail: _UniCalendarOnChangeDetail): void;
@@ -113,7 +113,7 @@ interface _UniCalendarOnConfirmDetail extends _UniCalendarBaseDetail {}
 /**
  * 确认选择时触发
  *
- * Insert 为 false 时有效
+ * insert 为 false 时有效
  */
 interface _UniCalendarOnConfirm {
   (detail: _UniCalendarOnConfirmDetail): void;
@@ -170,9 +170,9 @@ interface _UniCalendarProps {
   /**
    * 插入模式
    *
-   * True 插入模式
+   * true 插入模式
    *
-   * False 弹窗模式
+   * false 弹窗模式
    *
    * 默认为 true
    */
@@ -180,7 +180,7 @@ interface _UniCalendarProps {
   /**
    * 弹窗模式下是否清空上次选择内容
    *
-   * Insert 为 true 时有效
+   * insert 为 true 时有效
    *
    * 默认为 true
    */
@@ -196,19 +196,19 @@ interface _UniCalendarProps {
   /**
    * 弹出日历组件
    *
-   * Insert 为 true 时有效
+   * insert 为 true 时有效
    */
   open: _UniCalendarOnOpen;
   /**
    * 日期改变时触发
    *
-   * Insert 为 true 时有效
+   * insert 为 true 时有效
    */
   onChange: _UniCalendarOnChange;
   /**
    * 确认选择时触发
    *
-   * Insert 为 false 时有效
+   * insert 为 false 时有效
    */
   onConfirm: _UniCalendarOnConfirm;
   /** 切换月份时触发 */
@@ -257,7 +257,7 @@ declare global {
     /**
      * 弹出日历组件
      *
-     * Insert 为 true 时有效
+     * insert 为 true 时有效
      */
     export interface UniCalendarOnOpen extends _UniCalendarOnOpen {}
     export interface UniCalendarBaseDetail extends _UniCalendarBaseDetail {}
@@ -265,14 +265,14 @@ declare global {
     /**
      * 日期改变时触发
      *
-     * Insert 为 true 时有效
+     * insert 为 true 时有效
      */
     export interface UniCalendarOnChange extends _UniCalendarOnChange {}
     export interface UniCalendarOnConfirmDetail extends _UniCalendarOnConfirmDetail {}
     /**
      * 确认选择时触发
      *
-     * Insert 为 false 时有效
+     * insert 为 false 时有效
      */
     export interface UniCalendarOnConfirm extends _UniCalendarOnConfirm {}
     export interface UniCalendarOnMonthSwitchDetail extends _UniCalendarOnMonthSwitchDetail {}

@@ -15,7 +15,7 @@ type _UniFormsItemRules = Record<
   }
 >;
 
-/** Label 对齐方式 */
+/** label 对齐方式 */
 type _UniFormsItemLabelAlign = 'left' | 'center' | 'right';
 
 /** 动态设置表单规则 */
@@ -34,7 +34,7 @@ interface _UniFormsItemProps {
   /** 表单校验规则 */
   rules: _UniFormsItemRules;
   /**
-   * Label 右边显示红色 * 号，样式显示不会对校验规则产生效果
+   * label 右边显示红色 * 号，样式显示不会对校验规则产生效果
    *
    * 默认为 false
    */
@@ -42,7 +42,7 @@ interface _UniFormsItemProps {
   /** 输入框左边的文字提示 */
   label: string;
   /**
-   * Label 的宽度
+   * label 的宽度
    *
    * 单位为 px
    *
@@ -56,7 +56,7 @@ interface _UniFormsItemProps {
    */
   errorMessage: false | string;
   /**
-   * Label 对齐方式
+   * label 对齐方式
    *
    * 默认为 left
    */
@@ -85,7 +85,7 @@ declare global {
     export interface UniFormsItemRulesRule extends _UniFormsItemRulesRule {}
     /** 校验规则 */
     export type UniFormsItemRules = _UniFormsItemRules;
-    /** Label 对齐方式 */
+    /** label 对齐方式 */
     export type UniFormsItemLabelAlign = _UniFormsItemLabelAlign;
     /** 动态设置表单规则 */
     export interface UniFormsItemSetRules extends _UniFormsItemSetRules {}

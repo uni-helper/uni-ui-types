@@ -8,7 +8,7 @@ interface _UniSwiperDotDotsStyles {
   /**
    * 指示点宽度
    *
-   * Mode="nav"、mode="indexes" 时无效
+   * mode="nav"、mode="indexes" 时无效
    *
    * 默认为 8
    */
@@ -22,7 +22,7 @@ interface _UniSwiperDotDotsStyles {
   /**
    * 指示点前景色
    *
-   * Mode="nav"、mode="indexes" 时有效
+   * mode="nav"、mode="indexes" 时有效
    *
    * 默认为 #ffffff
    */
@@ -42,7 +42,7 @@ interface _UniSwiperDotDotsStyles {
   /**
    * 已选择指示点背景色
    *
-   * Mode="nav" 时无效
+   * mode="nav" 时无效
    *
    * 默认为 #333333
    */
@@ -50,7 +50,7 @@ interface _UniSwiperDotDotsStyles {
   /**
    * 已选择指示点边框样式
    *
-   * Mode="nav" 时无效
+   * mode="nav" 时无效
    *
    * 默认为 1px rgba(0, 0, 0, 0.9) solid
    */
@@ -69,7 +69,7 @@ interface _UniSwiperDotProps {
   /**
    * 显示的内容字段
    *
-   * Mode="nav" 时有效
+   * mode="nav" 时有效
    */
   field: string;
   /** 轮播图数据 */
