@@ -14,6 +14,7 @@ import type {
   UniDataCheckboxMultipleProps,
   UniDataCheckboxProps,
   UniDataCheckbox,
+  UniDataCheckboxInstance,
 } from '@/UniDataCheckbox';
 
 describe('UniDataCheckbox', () => {
@@ -63,4 +64,7 @@ describe('UniDataCheckbox', () => {
 
   expectTypeOf<UniDataCheckbox>().not.toBeAny();
   expectTypeOf<UniDataCheckbox>().toEqualTypeOf<UniHelper.UniDataCheckbox>();
+
+  expectTypeOf<UniDataCheckboxInstance>().not.toBeAny();
+  expectTypeOf<UniDataCheckboxInstance>().toEqualTypeOf<UniHelper.UniDataCheckboxInstance>();
 });

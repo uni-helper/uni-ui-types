@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniTrProps, UniTr } from '@/UniTr';
+import type { UniTrProps, UniTr, UniTrInstance } from '@/UniTr';
 
 describe('UniTr', () => {
   expectTypeOf<UniTrProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('UniTr', () => {
 
   expectTypeOf<UniTr>().not.toBeAny();
   expectTypeOf<UniTr>().toEqualTypeOf<UniHelper.UniTr>();
+
+  expectTypeOf<UniTrInstance>().not.toBeAny();
+  expectTypeOf<UniTrInstance>().toEqualTypeOf<UniHelper.UniTrInstance>();
 });

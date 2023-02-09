@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniCardOnClick, UniCardProps, UniCard } from '@/UniCard';
+import type { UniCardOnClick, UniCardProps, UniCard, UniCardInstance } from '@/UniCard';
 
 describe('UniCard', () => {
   expectTypeOf<UniCardOnClick>().toBeFunction();
@@ -10,4 +10,7 @@ describe('UniCard', () => {
 
   expectTypeOf<UniCard>().not.toBeAny();
   expectTypeOf<UniCard>().toEqualTypeOf<UniHelper.UniCard>();
+
+  expectTypeOf<UniCardInstance>().not.toBeAny();
+  expectTypeOf<UniCardInstance>().toEqualTypeOf<UniHelper.UniCardInstance>();
 });

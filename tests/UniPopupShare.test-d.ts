@@ -4,6 +4,7 @@ import type {
   UniPopupShareOnSelect,
   UniPopupShareProps,
   UniPopupShare,
+  UniPopupShareInstance,
 } from '@/UniPopupShare';
 
 describe('UniPopupShare', () => {
@@ -18,4 +19,7 @@ describe('UniPopupShare', () => {
 
   expectTypeOf<UniPopupShare>().not.toBeAny();
   expectTypeOf<UniPopupShare>().toEqualTypeOf<UniHelper.UniPopupShare>();
+
+  expectTypeOf<UniPopupShareInstance>().not.toBeAny();
+  expectTypeOf<UniPopupShareInstance>().toEqualTypeOf<UniHelper.UniPopupShareInstance>();
 });

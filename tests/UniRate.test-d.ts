@@ -5,6 +5,7 @@ import type {
   UniRateOnChange,
   UniRateProps,
   UniRate,
+  UniRateInstance,
 } from '@/UniRate';
 
 describe('UniRate', () => {
@@ -20,6 +21,6 @@ describe('UniRate', () => {
   expectTypeOf<UniRateProps>().toBeObject();
   expectTypeOf<UniRateProps>().toEqualTypeOf<UniHelper.UniRateProps>();
 
-  expectTypeOf<UniRate>().not.toBeAny();
-  expectTypeOf<UniRate>().toEqualTypeOf<UniHelper.UniRate>();
+  expectTypeOf<UniRateInstance>().not.toBeAny();
+  expectTypeOf<UniRateInstance>().toEqualTypeOf<UniHelper.UniRateInstance>();
 });

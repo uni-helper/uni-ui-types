@@ -1,5 +1,11 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniComboxValue, UniComboxOnInput, UniComboxProps, UniCombox } from '@/UniCombox';
+import type {
+  UniComboxValue,
+  UniComboxOnInput,
+  UniComboxProps,
+  UniCombox,
+  UniComboxInstance,
+} from '@/UniCombox';
 
 describe('UniCombox', () => {
   expectTypeOf<UniComboxValue>().toBeString();
@@ -13,4 +19,7 @@ describe('UniCombox', () => {
 
   expectTypeOf<UniCombox>().not.toBeAny();
   expectTypeOf<UniCombox>().toEqualTypeOf<UniHelper.UniCombox>();
+
+  expectTypeOf<UniComboxInstance>().not.toBeAny();
+  expectTypeOf<UniComboxInstance>().toEqualTypeOf<UniHelper.UniComboxInstance>();
 });

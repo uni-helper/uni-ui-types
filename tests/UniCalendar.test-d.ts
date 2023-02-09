@@ -15,6 +15,7 @@ import type {
   UniCalendarOnClose,
   UniCalendarProps,
   UniCalendar,
+  UniCalendarInstance,
 } from '@/UniCalendar';
 
 describe('UniCalendar', () => {
@@ -62,4 +63,7 @@ describe('UniCalendar', () => {
 
   expectTypeOf<UniCalendar>().not.toBeAny();
   expectTypeOf<UniCalendar>().toEqualTypeOf<UniHelper.UniCalendar>();
+
+  expectTypeOf<UniCalendarInstance>().not.toBeAny();
+  expectTypeOf<UniCalendarInstance>().toEqualTypeOf<UniHelper.UniCalendarInstance>();
 });

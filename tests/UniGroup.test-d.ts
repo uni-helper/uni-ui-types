@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniGroupMode, UniGroupProps, UniGroup } from '@/UniGroup';
+import type { UniGroupMode, UniGroupProps, UniGroup, UniGroupInstance } from '@/UniGroup';
 
 describe('UniGroup', () => {
   expectTypeOf<UniGroupMode>().toBeString();
@@ -10,4 +10,7 @@ describe('UniGroup', () => {
 
   expectTypeOf<UniGroup>().not.toBeAny();
   expectTypeOf<UniGroup>().toEqualTypeOf<UniHelper.UniGroup>();
+
+  expectTypeOf<UniGroupInstance>().not.toBeAny();
+  expectTypeOf<UniGroupInstance>().toEqualTypeOf<UniHelper.UniGroupInstance>();
 });

@@ -4,6 +4,7 @@ import type {
   UniSwiperDotDotsStyles,
   UniSwiperDotProps,
   UniSwiperDot,
+  UniSwiperDotInstance,
 } from '@/UniSwiperDot';
 
 describe('UniSwiperDot', () => {
@@ -18,4 +19,7 @@ describe('UniSwiperDot', () => {
 
   expectTypeOf<UniSwiperDot>().not.toBeAny();
   expectTypeOf<UniSwiperDot>().toEqualTypeOf<UniHelper.UniSwiperDot>();
+
+  expectTypeOf<UniSwiperDotInstance>().not.toBeAny();
+  expectTypeOf<UniSwiperDotInstance>().toEqualTypeOf<UniHelper.UniSwiperDotInstance>();
 });

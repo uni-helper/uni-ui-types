@@ -6,6 +6,7 @@ import type {
   UniPopupOnMaskClick,
   UniPopupProps,
   UniPopup,
+  UniPopupInstance,
 } from '@/UniPopup';
 
 describe('UniPopup', () => {
@@ -26,4 +27,7 @@ describe('UniPopup', () => {
 
   expectTypeOf<UniPopup>().not.toBeAny();
   expectTypeOf<UniPopup>().toEqualTypeOf<UniHelper.UniPopup>();
+
+  expectTypeOf<UniPopupInstance>().not.toBeAny();
+  expectTypeOf<UniPopupInstance>().toEqualTypeOf<UniHelper.UniPopupInstance>();
 });

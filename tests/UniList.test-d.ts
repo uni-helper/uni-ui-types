@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniListProps, UniList } from '@/UniList';
+import type { UniListProps, UniList, UniListInstance } from '@/UniList';
 
 describe('UniList', () => {
   expectTypeOf<UniListProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('UniList', () => {
 
   expectTypeOf<UniList>().not.toBeAny();
   expectTypeOf<UniList>().toEqualTypeOf<UniHelper.UniList>();
+
+  expectTypeOf<UniListInstance>().not.toBeAny();
+  expectTypeOf<UniListInstance>().toEqualTypeOf<UniHelper.UniListInstance>();
 });

@@ -9,6 +9,7 @@ import type {
   UniTableOnSelectionChange,
   UniTableProps,
   UniTable,
+  UniTableInstance,
 } from '@/UniTable';
 
 describe('UniTable', () => {
@@ -38,4 +39,7 @@ describe('UniTable', () => {
 
   expectTypeOf<UniTable>().not.toBeAny();
   expectTypeOf<UniTable>().toEqualTypeOf<UniHelper.UniTable>();
+
+  expectTypeOf<UniTableInstance>().not.toBeAny();
+  expectTypeOf<UniTableInstance>().toEqualTypeOf<UniHelper.UniTableInstance>();
 });

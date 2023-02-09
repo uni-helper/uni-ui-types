@@ -7,6 +7,7 @@ import type {
   UniSwipeActionItemOnChange,
   UniSwipeActionItemProps,
   UniSwipeActionItem,
+  UniSwipeActionItemInstance,
 } from '@/UniSwipeActionItem';
 
 describe('UniSwipeActionItem', () => {
@@ -30,4 +31,7 @@ describe('UniSwipeActionItem', () => {
 
   expectTypeOf<UniSwipeActionItem>().not.toBeAny();
   expectTypeOf<UniSwipeActionItem>().toEqualTypeOf<UniHelper.UniSwipeActionItem>();
+
+  expectTypeOf<UniSwipeActionItemInstance>().not.toBeAny();
+  expectTypeOf<UniSwipeActionItemInstance>().toEqualTypeOf<UniHelper.UniSwipeActionItemInstance>();
 });

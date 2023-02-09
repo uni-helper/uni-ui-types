@@ -5,6 +5,7 @@ import type {
   UniIndexedListOnClick,
   UniIndexedListProps,
   UniIndexedList,
+  UniIndexedListInstance,
 } from '@/UniIndexedList';
 
 describe('UniIndexedList', () => {
@@ -22,4 +23,7 @@ describe('UniIndexedList', () => {
 
   expectTypeOf<UniIndexedList>().not.toBeAny();
   expectTypeOf<UniIndexedList>().toEqualTypeOf<UniHelper.UniIndexedList>();
+
+  expectTypeOf<UniIndexedListInstance>().not.toBeAny();
+  expectTypeOf<UniIndexedListInstance>().toEqualTypeOf<UniHelper.UniIndexedListInstance>();
 });

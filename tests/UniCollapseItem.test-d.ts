@@ -3,6 +3,7 @@ import type {
   UniCollapseItemTitleBorder,
   UniCollapseItemProps,
   UniCollapseItem,
+  UniCollapseItemInstance,
 } from '@/UniCollapseItem';
 
 describe('UniCollapseItem', () => {
@@ -14,4 +15,7 @@ describe('UniCollapseItem', () => {
 
   expectTypeOf<UniCollapseItem>().not.toBeAny();
   expectTypeOf<UniCollapseItem>().toEqualTypeOf<UniHelper.UniCollapseItem>();
+
+  expectTypeOf<UniCollapseItemInstance>().not.toBeAny();
+  expectTypeOf<UniCollapseItemInstance>().toEqualTypeOf<UniHelper.UniCollapseItemInstance>();
 });

@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniLinkProps, UniLink } from '@/UniLink';
+import type { UniLinkProps, UniLink, UniLinkInstance } from '@/UniLink';
 
 describe('UniLink', () => {
   expectTypeOf<UniLinkProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('UniLink', () => {
 
   expectTypeOf<UniLink>().not.toBeAny();
   expectTypeOf<UniLink>().toEqualTypeOf<UniHelper.UniLink>();
+
+  expectTypeOf<UniLinkInstance>().not.toBeAny();
+  expectTypeOf<UniLinkInstance>().toEqualTypeOf<UniHelper.UniLinkInstance>();
 });

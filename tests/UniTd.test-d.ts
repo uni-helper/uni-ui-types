@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniTdAlign, UniTdProps, UniTd } from '@/UniTd';
+import type { UniTdAlign, UniTdProps, UniTd, UniTdInstance } from '@/UniTd';
 
 describe('UniTd', () => {
   expectTypeOf<UniTdAlign>().toBeString();
@@ -10,4 +10,7 @@ describe('UniTd', () => {
 
   expectTypeOf<UniTd>().not.toBeAny();
   expectTypeOf<UniTd>().toEqualTypeOf<UniHelper.UniTd>();
+
+  expectTypeOf<UniTdInstance>().not.toBeAny();
+  expectTypeOf<UniTdInstance>().toEqualTypeOf<UniHelper.UniTdInstance>();
 });

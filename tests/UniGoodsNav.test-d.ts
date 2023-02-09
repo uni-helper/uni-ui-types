@@ -8,6 +8,7 @@ import type {
   UniGoodsNavButton,
   UniGoodsNavProps,
   UniGoodsNav,
+  UniGoodsNavInstance,
 } from '@/UniGoodsNav';
 
 describe('UniGoodsNav', () => {
@@ -34,4 +35,7 @@ describe('UniGoodsNav', () => {
 
   expectTypeOf<UniGoodsNav>().not.toBeAny();
   expectTypeOf<UniGoodsNav>().toEqualTypeOf<UniHelper.UniGoodsNav>();
+
+  expectTypeOf<UniGoodsNavInstance>().not.toBeAny();
+  expectTypeOf<UniGoodsNavInstance>().toEqualTypeOf<UniHelper.UniGoodsNavInstance>();
 });

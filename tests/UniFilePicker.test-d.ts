@@ -23,6 +23,7 @@ import type {
   UniFilePickerObjectProps,
   UniFilePickerProps,
   UniFilePicker,
+  UniFilePickerInstance,
 } from '@/UniFilePicker';
 
 describe('UniFilePicker', () => {
@@ -94,4 +95,7 @@ describe('UniFilePicker', () => {
 
   expectTypeOf<UniFilePicker>().not.toBeAny();
   expectTypeOf<UniFilePicker>().toEqualTypeOf<UniHelper.UniFilePicker>();
+
+  expectTypeOf<UniFilePickerInstance>().not.toBeAny();
+  expectTypeOf<UniFilePickerInstance>().toEqualTypeOf<UniHelper.UniFilePickerInstance>();
 });

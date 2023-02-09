@@ -8,6 +8,7 @@ import type {
   UniPopupDialogOnConfirm,
   UniPopupDialogProps,
   UniPopupDialog,
+  UniPopupDialogInstance,
 } from '@/UniPopupDialog';
 
 describe('UniPopupDialog', () => {
@@ -34,4 +35,7 @@ describe('UniPopupDialog', () => {
 
   expectTypeOf<UniPopupDialog>().not.toBeAny();
   expectTypeOf<UniPopupDialog>().toEqualTypeOf<UniHelper.UniPopupDialog>();
+
+  expectTypeOf<UniPopupDialogInstance>().not.toBeAny();
+  expectTypeOf<UniPopupDialogInstance>().toEqualTypeOf<UniHelper.UniPopupDialogInstance>();
 });

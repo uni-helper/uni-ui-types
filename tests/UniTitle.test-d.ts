@@ -1,5 +1,11 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniTitleType, UniTitleAlign, UniTitleProps, UniTitle } from '@/UniTitle';
+import type {
+  UniTitleType,
+  UniTitleAlign,
+  UniTitleProps,
+  UniTitle,
+  UniTitleInstance,
+} from '@/UniTitle';
 
 describe('UniTitle', () => {
   expectTypeOf<UniTitleType>().toBeString();
@@ -13,4 +19,7 @@ describe('UniTitle', () => {
 
   expectTypeOf<UniTitle>().not.toBeAny();
   expectTypeOf<UniTitle>().toEqualTypeOf<UniHelper.UniTitle>();
+
+  expectTypeOf<UniTitleInstance>().not.toBeAny();
+  expectTypeOf<UniTitleInstance>().toEqualTypeOf<UniHelper.UniTitleInstance>();
 });

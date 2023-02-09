@@ -1,5 +1,11 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniStepsDirection, UniStepsOption, UniStepsProps, UniSteps } from '@/UniSteps';
+import type {
+  UniStepsDirection,
+  UniStepsOption,
+  UniStepsProps,
+  UniSteps,
+  UniStepsInstance,
+} from '@/UniSteps';
 
 describe('UniSteps', () => {
   expectTypeOf<UniStepsDirection>().toBeString();
@@ -13,4 +19,7 @@ describe('UniSteps', () => {
 
   expectTypeOf<UniSteps>().not.toBeAny();
   expectTypeOf<UniSteps>().toEqualTypeOf<UniHelper.UniSteps>();
+
+  expectTypeOf<UniStepsInstance>().not.toBeAny();
+  expectTypeOf<UniStepsInstance>().toEqualTypeOf<UniHelper.UniStepsInstance>();
 });

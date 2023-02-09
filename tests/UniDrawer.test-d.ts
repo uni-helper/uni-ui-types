@@ -6,6 +6,7 @@ import type {
   UniDrawerOnChange,
   UniDrawerProps,
   UniDrawer,
+  UniDrawerInstance,
 } from '@/UniDrawer';
 
 describe('UniDrawer', () => {
@@ -26,4 +27,7 @@ describe('UniDrawer', () => {
 
   expectTypeOf<UniDrawer>().not.toBeAny();
   expectTypeOf<UniDrawer>().toEqualTypeOf<UniHelper.UniDrawer>();
+
+  expectTypeOf<UniDrawerInstance>().not.toBeAny();
+  expectTypeOf<UniDrawerInstance>().toEqualTypeOf<UniHelper.UniDrawerInstance>();
 });

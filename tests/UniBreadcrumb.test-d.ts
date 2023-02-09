@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniBreadcrumbProps, UniBreadcrumb } from '@/UniBreadcrumb';
+import type { UniBreadcrumbProps, UniBreadcrumb, UniBreadcrumbInstance } from '@/UniBreadcrumb';
 
 describe('UniBreadcrumb', () => {
   expectTypeOf<UniBreadcrumbProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('UniBreadcrumb', () => {
 
   expectTypeOf<UniBreadcrumb>().not.toBeAny();
   expectTypeOf<UniBreadcrumb>().toEqualTypeOf<UniHelper.UniBreadcrumb>();
+
+  expectTypeOf<UniBreadcrumbInstance>().not.toBeAny();
+  expectTypeOf<UniBreadcrumbInstance>().toEqualTypeOf<UniHelper.UniBreadcrumbInstance>();
 });

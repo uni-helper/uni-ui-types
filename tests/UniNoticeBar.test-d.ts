@@ -5,6 +5,7 @@ import type {
   UniNoticeBarOnGetmore,
   UniNoticeBarProps,
   UniNoticeBar,
+  UniNoticeBarInstance,
 } from '@/UniNoticeBar';
 
 describe('UniNoticeBar', () => {
@@ -22,4 +23,7 @@ describe('UniNoticeBar', () => {
 
   expectTypeOf<UniNoticeBar>().not.toBeAny();
   expectTypeOf<UniNoticeBar>().toEqualTypeOf<UniHelper.UniNoticeBar>();
+
+  expectTypeOf<UniNoticeBarInstance>().not.toBeAny();
+  expectTypeOf<UniNoticeBarInstance>().toEqualTypeOf<UniHelper.UniNoticeBarInstance>();
 });

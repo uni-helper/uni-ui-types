@@ -18,6 +18,7 @@ import type {
   UniSearchBarOnBlur,
   UniSearchBarProps,
   UniSearchBar,
+  UniSearchBarInstance,
 } from '@/UniSearchBar';
 
 describe('UniSearchBar', () => {
@@ -74,4 +75,7 @@ describe('UniSearchBar', () => {
 
   expectTypeOf<UniSearchBar>().not.toBeAny();
   expectTypeOf<UniSearchBar>().toEqualTypeOf<UniHelper.UniSearchBar>();
+
+  expectTypeOf<UniSearchBarInstance>().not.toBeAny();
+  expectTypeOf<UniSearchBarInstance>().toEqualTypeOf<UniHelper.UniSearchBarInstance>();
 });

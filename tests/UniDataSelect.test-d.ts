@@ -5,6 +5,7 @@ import type {
   UniDataSelectOnChange,
   UniDataSelectProps,
   UniDataSelect,
+  UniDataSelectInstance,
 } from '@/UniDataSelect';
 
 describe('UniDataSelect', () => {
@@ -22,4 +23,7 @@ describe('UniDataSelect', () => {
 
   expectTypeOf<UniDataSelect>().not.toBeAny();
   expectTypeOf<UniDataSelect>().toEqualTypeOf<UniHelper.UniDataSelect>();
+
+  expectTypeOf<UniDataSelectInstance>().not.toBeAny();
+  expectTypeOf<UniDataSelectInstance>().toEqualTypeOf<UniHelper.UniDataSelectInstance>();
 });

@@ -6,6 +6,7 @@ import type {
   UniNumberBoxOnBlur,
   UniNumberBoxProps,
   UniNumberBox,
+  UniNumberBoxInstance,
 } from '@/UniNumberBox';
 
 describe('UniNumberBox', () => {
@@ -26,4 +27,7 @@ describe('UniNumberBox', () => {
 
   expectTypeOf<UniNumberBox>().not.toBeAny();
   expectTypeOf<UniNumberBox>().toEqualTypeOf<UniHelper.UniNumberBox>();
+
+  expectTypeOf<UniNumberBoxInstance>().not.toBeAny();
+  expectTypeOf<UniNumberBoxInstance>().toEqualTypeOf<UniHelper.UniNumberBoxInstance>();
 });

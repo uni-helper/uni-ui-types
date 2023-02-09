@@ -7,6 +7,7 @@ import type {
   UniBadgeOnClick,
   UniBadgeProps,
   UniBadge,
+  UniBadgeInstance,
 } from '@/UniBadge';
 
 describe('UniBadge', () => {
@@ -30,4 +31,7 @@ describe('UniBadge', () => {
 
   expectTypeOf<UniBadge>().not.toBeAny();
   expectTypeOf<UniBadge>().toEqualTypeOf<UniHelper.UniBadge>();
+
+  expectTypeOf<UniBadgeInstance>().not.toBeAny();
+  expectTypeOf<UniBadgeInstance>().toEqualTypeOf<UniHelper.UniBadgeInstance>();
 });

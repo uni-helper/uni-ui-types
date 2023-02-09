@@ -11,6 +11,7 @@ import type {
   UniListItemOnSwitchChange,
   UniListItemProps,
   UniListItem,
+  UniListItemInstance,
 } from '@/UniListItem';
 
 describe('UniListItem', () => {
@@ -46,4 +47,7 @@ describe('UniListItem', () => {
 
   expectTypeOf<UniListItem>().not.toBeAny();
   expectTypeOf<UniListItem>().toEqualTypeOf<UniHelper.UniListItem>();
+
+  expectTypeOf<UniListItemInstance>().not.toBeAny();
+  expectTypeOf<UniListItemInstance>().toEqualTypeOf<UniHelper.UniListItemInstance>();
 });

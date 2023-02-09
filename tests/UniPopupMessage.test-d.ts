@@ -1,5 +1,10 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniPopupMessageType, UniPopupMessageProps, UniPopupMessage } from '@/UniPopupMessage';
+import type {
+  UniPopupMessageType,
+  UniPopupMessageProps,
+  UniPopupMessage,
+  UniPopupMessageInstance,
+} from '@/UniPopupMessage';
 
 describe('UniPopupMessage', () => {
   expectTypeOf<UniPopupMessageType>().toBeString();
@@ -10,4 +15,7 @@ describe('UniPopupMessage', () => {
 
   expectTypeOf<UniPopupMessage>().not.toBeAny();
   expectTypeOf<UniPopupMessage>().toEqualTypeOf<UniHelper.UniPopupMessage>();
+
+  expectTypeOf<UniPopupMessageInstance>().not.toBeAny();
+  expectTypeOf<UniPopupMessageInstance>().toEqualTypeOf<UniHelper.UniPopupMessageInstance>();
 });

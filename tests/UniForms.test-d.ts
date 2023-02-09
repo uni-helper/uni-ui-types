@@ -16,6 +16,7 @@ import type {
   UniFormsOnValidate,
   UniFormsProps,
   UniForms,
+  UniFormsInstance,
 } from '@/UniForms';
 
 describe('UniForms', () => {
@@ -66,4 +67,7 @@ describe('UniForms', () => {
 
   expectTypeOf<UniForms>().not.toBeAny();
   expectTypeOf<UniForms>().toEqualTypeOf<UniHelper.UniForms>();
+
+  expectTypeOf<UniFormsInstance>().not.toBeAny();
+  expectTypeOf<UniFormsInstance>().toEqualTypeOf<UniHelper.UniFormsInstance>();
 });

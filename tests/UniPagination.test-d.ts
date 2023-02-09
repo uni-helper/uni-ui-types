@@ -5,6 +5,7 @@ import type {
   UniPaginationOnChange,
   UniPaginationProps,
   UniPagination,
+  UniPaginationInstance,
 } from '@/UniPagination';
 
 describe('UniPagination', () => {
@@ -22,4 +23,7 @@ describe('UniPagination', () => {
 
   expectTypeOf<UniPagination>().not.toBeAny();
   expectTypeOf<UniPagination>().toEqualTypeOf<UniHelper.UniPagination>();
+
+  expectTypeOf<UniPaginationInstance>().not.toBeAny();
+  expectTypeOf<UniPaginationInstance>().toEqualTypeOf<UniHelper.UniPaginationInstance>();
 });

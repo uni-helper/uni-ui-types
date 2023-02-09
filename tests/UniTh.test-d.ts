@@ -9,6 +9,7 @@ import type {
   UniThOnFilterChange,
   UniThProps,
   UniTh,
+  UniThInstance,
 } from '@/UniTh';
 
 describe('UniTh', () => {
@@ -38,4 +39,7 @@ describe('UniTh', () => {
 
   expectTypeOf<UniTh>().not.toBeAny();
   expectTypeOf<UniTh>().toEqualTypeOf<UniHelper.UniTh>();
+
+  expectTypeOf<UniThInstance>().not.toBeAny();
+  expectTypeOf<UniThInstance>().toEqualTypeOf<UniHelper.UniThInstance>();
 });

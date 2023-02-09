@@ -1,5 +1,11 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniFavContentText, UniFavOnClick, UniFavProps, UniFav } from '@/UniFav';
+import type {
+  UniFavContentText,
+  UniFavOnClick,
+  UniFavProps,
+  UniFav,
+  UniFavInstance,
+} from '@/UniFav';
 
 describe('UniFav', () => {
   expectTypeOf<UniFavContentText>().toBeObject();
@@ -13,4 +19,7 @@ describe('UniFav', () => {
 
   expectTypeOf<UniFav>().not.toBeAny();
   expectTypeOf<UniFav>().toEqualTypeOf<UniHelper.UniFav>();
+
+  expectTypeOf<UniFavInstance>().not.toBeAny();
+  expectTypeOf<UniFavInstance>().toEqualTypeOf<UniHelper.UniFavInstance>();
 });

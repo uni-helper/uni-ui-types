@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniColRules, UniColProps, UniCol } from '@/UniCol';
+import type { UniColRules, UniColProps, UniCol, UniColInstance } from '@/UniCol';
 
 describe('UniCol', () => {
   expectTypeOf<UniColRules>().toBeObject();
@@ -10,4 +10,7 @@ describe('UniCol', () => {
 
   expectTypeOf<UniCol>().not.toBeAny();
   expectTypeOf<UniCol>().toEqualTypeOf<UniHelper.UniCol>();
+
+  expectTypeOf<UniColInstance>().not.toBeAny();
+  expectTypeOf<UniColInstance>().toEqualTypeOf<UniHelper.UniColInstance>();
 });

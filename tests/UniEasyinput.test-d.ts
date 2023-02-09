@@ -15,6 +15,7 @@ import type {
   UniEasyinputOnChange,
   UniEasyinputProps,
   UniEasyinput,
+  UniEasyinputInstance,
 } from '@/UniEasyinput';
 
 describe('UniEasyinput', () => {
@@ -62,4 +63,7 @@ describe('UniEasyinput', () => {
 
   expectTypeOf<UniEasyinput>().not.toBeAny();
   expectTypeOf<UniEasyinput>().toEqualTypeOf<UniHelper.UniEasyinput>();
+
+  expectTypeOf<UniEasyinputInstance>().not.toBeAny();
+  expectTypeOf<UniEasyinputInstance>().toEqualTypeOf<UniHelper.UniEasyinputInstance>();
 });

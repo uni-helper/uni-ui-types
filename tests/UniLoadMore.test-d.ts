@@ -7,6 +7,7 @@ import type {
   UniLoadMoreOnClickLoadMore,
   UniLoadMoreProps,
   UniLoadMore,
+  UniLoadMoreInstance,
 } from '@/UniLoadMore';
 
 describe('UniLoadMore', () => {
@@ -30,4 +31,7 @@ describe('UniLoadMore', () => {
 
   expectTypeOf<UniLoadMore>().not.toBeAny();
   expectTypeOf<UniLoadMore>().toEqualTypeOf<UniHelper.UniLoadMore>();
+
+  expectTypeOf<UniLoadMoreInstance>().not.toBeAny();
+  expectTypeOf<UniLoadMoreInstance>().toEqualTypeOf<UniHelper.UniLoadMoreInstance>();
 });

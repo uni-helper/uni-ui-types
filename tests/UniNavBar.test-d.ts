@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniNavBarProps, UniNavBar } from '@/UniNavBar';
+import type { UniNavBarProps, UniNavBar, UniNavBarInstance } from '@/UniNavBar';
 
 describe('UniNavBar', () => {
   expectTypeOf<UniNavBarProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('UniNavBar', () => {
 
   expectTypeOf<UniNavBar>().not.toBeAny();
   expectTypeOf<UniNavBar>().toEqualTypeOf<UniHelper.UniNavBar>();
+
+  expectTypeOf<UniNavBarInstance>().not.toBeAny();
+  expectTypeOf<UniNavBarInstance>().toEqualTypeOf<UniHelper.UniNavBarInstance>();
 });

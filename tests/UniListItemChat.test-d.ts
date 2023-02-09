@@ -5,6 +5,7 @@ import type {
   UniListItemChatOnClick,
   UniListItemChatProps,
   UniListItemChat,
+  UniListItemChatInstance,
 } from '@/UniListItemChat';
 
 describe('UniListItemChat', () => {
@@ -22,4 +23,7 @@ describe('UniListItemChat', () => {
 
   expectTypeOf<UniListItemChat>().not.toBeAny();
   expectTypeOf<UniListItemChat>().toEqualTypeOf<UniHelper.UniListItemChat>();
+
+  expectTypeOf<UniListItemChatInstance>().not.toBeAny();
+  expectTypeOf<UniListItemChatInstance>().toEqualTypeOf<UniHelper.UniListItemChatInstance>();
 });

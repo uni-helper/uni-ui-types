@@ -12,6 +12,7 @@ import type {
   UniTransitionOnChange,
   UniTransitionProps,
   UniTransition,
+  UniTransitionInstance,
 } from '@/UniTransition';
 
 describe('UniTransition', () => {
@@ -50,4 +51,7 @@ describe('UniTransition', () => {
 
   expectTypeOf<UniTransition>().not.toBeAny();
   expectTypeOf<UniTransition>().toEqualTypeOf<UniHelper.UniTransition>();
+
+  expectTypeOf<UniTransitionInstance>().not.toBeAny();
+  expectTypeOf<UniTransitionInstance>().toEqualTypeOf<UniHelper.UniTransitionInstance>();
 });

@@ -4,6 +4,7 @@ import type {
   UniDateformatData,
   UniDateformatProps,
   UniDateformat,
+  UniDateformatInstance,
 } from '@/UniDateformat';
 
 describe('UniDateformat', () => {
@@ -18,4 +19,7 @@ describe('UniDateformat', () => {
 
   expectTypeOf<UniDateformat>().not.toBeAny();
   expectTypeOf<UniDateformat>().toEqualTypeOf<UniHelper.UniDateformat>();
+
+  expectTypeOf<UniDateformatInstance>().not.toBeAny();
+  expectTypeOf<UniDateformatInstance>().toEqualTypeOf<UniHelper.UniDateformatInstance>();
 });

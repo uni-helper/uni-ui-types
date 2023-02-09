@@ -16,6 +16,7 @@ import type {
   UniDataPickerOnPopupclosed,
   UniDataPickerProps,
   UniDataPicker,
+  UniDataPickerInstance,
 } from '@/UniDataPicker';
 
 describe('UniDataPicker', () => {
@@ -66,4 +67,7 @@ describe('UniDataPicker', () => {
 
   expectTypeOf<UniDataPicker>().not.toBeAny();
   expectTypeOf<UniDataPicker>().toEqualTypeOf<UniHelper.UniDataPicker>();
+
+  expectTypeOf<UniDataPickerInstance>().not.toBeAny();
+  expectTypeOf<UniDataPickerInstance>().toEqualTypeOf<UniHelper.UniDataPickerInstance>();
 });

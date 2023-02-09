@@ -10,6 +10,7 @@ import type {
   UniCollapseAccordionProps,
   UniCollapseProps,
   UniCollapse,
+  UniCollapseInstance,
 } from '@/UniCollapse';
 
 describe('UniCollapse', () => {
@@ -42,4 +43,7 @@ describe('UniCollapse', () => {
 
   expectTypeOf<UniCollapse>().not.toBeAny();
   expectTypeOf<UniCollapse>().toEqualTypeOf<UniHelper.UniCollapse>();
+
+  expectTypeOf<UniCollapseInstance>().not.toBeAny();
+  expectTypeOf<UniCollapseInstance>().toEqualTypeOf<UniHelper.UniCollapseInstance>();
 });

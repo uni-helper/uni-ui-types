@@ -7,6 +7,7 @@ import type {
   UniFormsItemOnFieldChange,
   UniFormsItemProps,
   UniFormsItem,
+  UniFormsItemInstance,
 } from '@/UniFormsItem';
 
 describe('UniFormsItem', () => {
@@ -30,4 +31,7 @@ describe('UniFormsItem', () => {
 
   expectTypeOf<UniFormsItem>().not.toBeAny();
   expectTypeOf<UniFormsItem>().toEqualTypeOf<UniHelper.UniFormsItem>();
+
+  expectTypeOf<UniFormsItemInstance>().not.toBeAny();
+  expectTypeOf<UniFormsItemInstance>().toEqualTypeOf<UniHelper.UniFormsItemInstance>();
 });

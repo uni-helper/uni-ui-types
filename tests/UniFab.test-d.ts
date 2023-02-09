@@ -11,6 +11,7 @@ import type {
   UniFabOnFabClick,
   UniFabProps,
   UniFab,
+  UniFabInstance,
 } from '@/UniFab';
 
 describe('UniFab', () => {
@@ -46,4 +47,7 @@ describe('UniFab', () => {
 
   expectTypeOf<UniFab>().not.toBeAny();
   expectTypeOf<UniFab>().toEqualTypeOf<UniHelper.UniFab>();
+
+  expectTypeOf<UniFabInstance>().not.toBeAny();
+  expectTypeOf<UniFabInstance>().toEqualTypeOf<UniHelper.UniFabInstance>();
 });

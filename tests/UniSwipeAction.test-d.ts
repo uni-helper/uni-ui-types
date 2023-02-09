@@ -4,6 +4,7 @@ import type {
   UniSwipeActionCloseAll,
   UniSwipeActionProps,
   UniSwipeAction,
+  UniSwipeActionInstance,
 } from '@/UniSwipeAction';
 
 describe('UniSwipeAction', () => {
@@ -18,4 +19,7 @@ describe('UniSwipeAction', () => {
 
   expectTypeOf<UniSwipeAction>().not.toBeAny();
   expectTypeOf<UniSwipeAction>().toEqualTypeOf<UniHelper.UniSwipeAction>();
+
+  expectTypeOf<UniSwipeActionInstance>().not.toBeAny();
+  expectTypeOf<UniSwipeActionInstance>().toEqualTypeOf<UniHelper.UniSwipeActionInstance>();
 });

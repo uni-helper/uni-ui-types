@@ -6,6 +6,7 @@ import type {
   UniSegmentedControlOnClickItem,
   UniSegmentedControlProps,
   UniSegmentedControl,
+  UniSegmentedControlInstance,
 } from '@/UniSegmentedControl';
 
 describe('UniSegmentedControl', () => {
@@ -26,4 +27,7 @@ describe('UniSegmentedControl', () => {
 
   expectTypeOf<UniSegmentedControl>().not.toBeAny();
   expectTypeOf<UniSegmentedControl>().toEqualTypeOf<UniHelper.UniSegmentedControl>();
+
+  expectTypeOf<UniSegmentedControlInstance>().not.toBeAny();
+  expectTypeOf<UniSegmentedControlInstance>().toEqualTypeOf<UniHelper.UniSegmentedControlInstance>();
 });

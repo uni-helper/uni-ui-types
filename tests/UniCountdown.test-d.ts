@@ -4,6 +4,7 @@ import type {
   UniCountdownOnTimeup,
   UniCountdownProps,
   UniCountdown,
+  UniCountdownInstance,
 } from '@/UniCountdown';
 
 describe('UniCountdown', () => {
@@ -18,4 +19,7 @@ describe('UniCountdown', () => {
 
   expectTypeOf<UniCountdown>().not.toBeAny();
   expectTypeOf<UniCountdown>().toEqualTypeOf<UniHelper.UniCountdown>();
+
+  expectTypeOf<UniCountdownInstance>().not.toBeAny();
+  expectTypeOf<UniCountdownInstance>().toEqualTypeOf<UniHelper.UniCountdownInstance>();
 });

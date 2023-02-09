@@ -12,6 +12,7 @@ import type {
   UniDatetimePickerOnMaskClick,
   UniDatetimePickerProps,
   UniDatetimePicker,
+  UniDatetimePickerInstance,
 } from '@/UniDatetimePicker';
 
 describe('UniDatetimePicker', () => {
@@ -52,4 +53,7 @@ describe('UniDatetimePicker', () => {
 
   expectTypeOf<UniDatetimePicker>().not.toBeAny();
   expectTypeOf<UniDatetimePicker>().toEqualTypeOf<UniHelper.UniDatetimePicker>();
+
+  expectTypeOf<UniDatetimePickerInstance>().not.toBeAny();
+  expectTypeOf<UniDatetimePickerInstance>().toEqualTypeOf<UniHelper.UniDatetimePickerInstance>();
 });

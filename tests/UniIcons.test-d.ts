@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniIconsType, UniIconsProps, UniIcons } from '@/UniIcons';
+import type { UniIconsType, UniIconsProps, UniIcons, UniIconsInstance } from '@/UniIcons';
 
 describe('UniIcons', () => {
   expectTypeOf<UniIconsType>().toBeString();
@@ -10,4 +10,7 @@ describe('UniIcons', () => {
 
   expectTypeOf<UniIcons>().not.toBeAny();
   expectTypeOf<UniIcons>().toEqualTypeOf<UniHelper.UniIcons>();
+
+  expectTypeOf<UniIconsInstance>().not.toBeAny();
+  expectTypeOf<UniIconsInstance>().toEqualTypeOf<UniHelper.UniIconsInstance>();
 });
