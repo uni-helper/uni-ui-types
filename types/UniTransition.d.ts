@@ -239,7 +239,7 @@ interface _UniTransitionOnChange {
   (detail: _UniTransitionOnChangeDetail): void;
 }
 
-interface _UniTransitionProps {
+type _UniTransitionProps = Partial<{
   /**
    * 控制组件是否显示
    *
@@ -286,10 +286,12 @@ interface _UniTransitionProps {
   onClick: _UniTransitionOnClick;
   /** 过渡动画结束时触发 */
   onChange: _UniTransitionOnChange;
-}
+}>;
 
 /** 元素过渡动画 */
-type _UniTransition = Component<Partial<_UniTransitionProps>>;
+type _UniTransition = Component<_UniTransitionProps>;
+
+type _UniTransitionInstance = InstanceType<_UniTransition>;
 
 export {
   _UniTransitionModeClass as UniTransitionModeClass,
@@ -304,6 +306,7 @@ export {
   _UniTransitionOnChange as UniTransitionOnChange,
   _UniTransitionProps as UniTransitionProps,
   _UniTransition as UniTransition,
+  _UniTransitionInstance as UniTransitionInstance,
 };
 
 declare global {
@@ -361,9 +364,10 @@ declare global {
     export interface UniTransitionOnChangeDetail extends _UniTransitionOnChangeDetail {}
     /** 过渡动画结束时触发 */
     export interface UniTransitionOnChange extends _UniTransitionOnChange {}
-    export interface UniTransitionProps extends _UniTransitionProps {}
+    export type UniTransitionProps = _UniTransitionProps;
     /** 元素过渡动画 */
     export type UniTransition = _UniTransition;
+    export type UniTransitionInstance = _UniTransitionInstance;
   }
 }
 

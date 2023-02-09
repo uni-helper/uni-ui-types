@@ -2,7 +2,7 @@ import { Component } from '@uni-helper/uni-app-types';
 import { UniIconsType } from './UniIcons';
 
 /** 导航栏属性 */
-interface _UniNavBarProps {
+type _UniNavBarProps = Partial<{
   /** 标题文字 */
   title: string;
   /** 左侧按钮文本 */
@@ -71,19 +71,28 @@ interface _UniNavBarProps {
   rightWidth: number | string;
   /** 是否开启统计标题功能 */
   stat: boolean | string;
-}
+}>;
 
 /** 导航栏组件，主要用于头部导航 */
-type _UniNavBar = Component<Partial<_UniNavBarProps>>;
+type _UniNavBar = Component<_UniNavBarProps>;
 
-export { _UniNavBarProps as UniNavBarProps, _UniNavBar as UniNavBar };
+/** 导航栏组件实例 */
+type _UniNavBarInstance = InstanceType<_UniNavBar>;
+
+export {
+  _UniNavBarProps as UniNavBarProps,
+  _UniNavBar as UniNavBar,
+  _UniNavBarInstance as UniNavBarInstance,
+};
 
 declare global {
   namespace UniHelper {
     /** 导航栏属性 */
-    export interface UniNavBarProps extends _UniNavBarProps {}
+    export type UniNavBarProps = _UniNavBarProps;
     /** 导航栏组件，主要用于头部导航 */
     export type UniNavBar = _UniNavBar;
+    /** 导航栏组件实例 */
+    export type UniNavBarInstance = _UniNavBarInstance;
   }
 }
 

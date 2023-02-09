@@ -39,7 +39,7 @@ interface _UniDataCheckboxMap {
   value: string;
 }
 
-interface _UniDataCheckboxBaseProps {
+type _UniDataCheckboxBaseProps = Partial<{
   /** 本地渲染数据 */
   localdata: _UniDataCheckboxLocaldata[];
   /**
@@ -88,7 +88,7 @@ interface _UniDataCheckboxBaseProps {
    * 将 text/value 映射到数据中的其他字段
    */
   map: _UniDataCheckboxMap;
-}
+}>;
 
 interface _UniDataCheckboxSingleOnChangeDetail {
   value: _UniDataCheckboxValue;
@@ -99,7 +99,7 @@ interface _UniDataCheckboxSingleOnChange {
   (event: CustomEvent<_UniDataCheckboxSingleOnChangeDetail>): void;
 }
 
-interface _UniDataCheckboxSingleProps extends _UniDataCheckboxBaseProps {
+type _UniDataCheckboxSingleProps = Partial<{
   /** 默认值 */
   value: _UniDataCheckboxValue;
   /**
@@ -110,7 +110,7 @@ interface _UniDataCheckboxSingleProps extends _UniDataCheckboxBaseProps {
   multiple?: false;
   /** 选中状态改变时触发 */
   onChange: _UniDataCheckboxSingleOnChange;
-}
+}>;
 
 interface _UniDataCheckboxMultipleOnChangeDetail {
   value: _UniDataCheckboxValue[];
@@ -121,7 +121,7 @@ interface _UniDataCheckboxMultipleOnChange {
   (event: CustomEvent<_UniDataCheckboxMultipleOnChangeDetail>): void;
 }
 
-interface _UniDataCheckboxMultipleProps extends _UniDataCheckboxBaseProps {
+type _UniDataCheckboxMultipleProps = Partial<{
   /** 默认值 */
   value: _UniDataCheckboxValue[];
   /**
@@ -144,7 +144,7 @@ interface _UniDataCheckboxMultipleProps extends _UniDataCheckboxBaseProps {
   max: string | number;
   /** 选中状态改变时触发 */
   onChange: _UniDataCheckboxMultipleOnChange;
-}
+}>;
 
 type _UniDataCheckboxProps = _UniDataCheckboxSingleProps | _UniDataCheckboxMultipleProps;
 
@@ -162,7 +162,9 @@ type _UniDataCheckboxProps = _UniDataCheckboxSingleProps | _UniDataCheckboxMulti
  * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成 uni-data-checkbox 组件并绑定好
  * data
  */
-type _UniDataCheckbox = Component<Partial<_UniDataCheckboxProps>>;
+type _UniDataCheckbox = Component<_UniDataCheckboxProps>;
+
+type _UniDataCheckboxInstance = InstanceType<_UniDataCheckbox>;
 
 export {
   _UniDataCheckboxValue as UniDataCheckboxValue,
@@ -179,6 +181,7 @@ export {
   _UniDataCheckboxMultipleProps as UniDataCheckboxMultipleProps,
   _UniDataCheckboxProps as UniDataCheckboxProps,
   _UniDataCheckbox as UniDataCheckbox,
+  _UniDataCheckboxInstance as UniDataCheckboxInstance,
 };
 
 declare global {
@@ -207,17 +210,17 @@ declare global {
      * 将 text/value 映射到数据中的其他字段
      */
     export interface UniDataCheckboxMap extends _UniDataCheckboxMap {}
-    export interface UniDataCheckboxBaseProps extends _UniDataCheckboxBaseProps {}
+    export type UniDataCheckboxBaseProps = _UniDataCheckboxBaseProps;
     export interface UniDataCheckboxSingleOnChangeDetail
       extends _UniDataCheckboxSingleOnChangeDetail {}
     /** 选中状态改变时触发 */
     export interface UniDataCheckboxSingleOnChange extends _UniDataCheckboxSingleOnChange {}
-    export interface UniDataCheckboxSingleProps extends _UniDataCheckboxSingleProps {}
+    export type UniDataCheckboxSingleProps = _UniDataCheckboxSingleProps;
     export interface UniDataCheckboxMultipleOnChangeDetail
       extends _UniDataCheckboxMultipleOnChangeDetail {}
     /** 选中状态改变时触发 */
     export interface UniDataCheckboxMultipleOnChange extends _UniDataCheckboxMultipleOnChange {}
-    export interface UniDataCheckboxMultipleProps extends _UniDataCheckboxMultipleProps {}
+    export type UniDataCheckboxMultipleProps = _UniDataCheckboxMultipleProps;
     export type UniDataCheckboxProps = _UniDataCheckboxProps;
     /**
      * 本组件是基于 uni-app 基础组件 checkbox 的封装。本组件要解决问题包括：
@@ -234,6 +237,7 @@ declare global {
      * data
      */
     export type UniDataCheckbox = _UniDataCheckbox;
+    export type UniDataCheckboxInstance = _UniDataCheckboxInstance;
   }
 }
 

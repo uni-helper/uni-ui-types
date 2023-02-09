@@ -72,7 +72,7 @@ interface _UniSearchBarOnBlur {
 }
 
 /** 搜索栏属性 */
-interface _UniSearchBarProps {
+type _UniSearchBarProps = Partial<{
   /** 绑定值 */
   value: _UniSearchBarValue;
   /**
@@ -149,10 +149,13 @@ interface _UniSearchBarProps {
   onFocus: _UniSearchBarOnFocus;
   /** 失焦时触发 */
   onBlur: _UniSearchBarOnBlur;
-}
+}>;
 
 /** 搜索栏 */
-type _UniSearchBar = Component<Partial<_UniSearchBarProps>>;
+type _UniSearchBar = Component<_UniSearchBarProps>;
+
+/** 搜索栏实例 */
+type _UniSearchBarInstance = InstanceType<_UniSearchBar>;
 
 export {
   _UniSearchBarValue as UniSearchBarValue,
@@ -173,6 +176,7 @@ export {
   _UniSearchBarOnBlur as UniSearchBarOnBlur,
   _UniSearchBarProps as UniSearchBarProps,
   _UniSearchBar as UniSearchBar,
+  _UniSearchBarInstance as UniSearchBarInstance,
 };
 
 declare global {
@@ -219,9 +223,11 @@ declare global {
     /** 失焦时触发 */
     export interface UniSearchBarOnBlur extends _UniSearchBarOnBlur {}
     /** 搜索栏属性 */
-    export interface UniSearchBarProps extends _UniSearchBarProps {}
+    export type UniSearchBarProps = _UniSearchBarProps;
     /** 搜索栏 */
     export type UniSearchBar = _UniSearchBar;
+    /** 搜索栏实例 */
+    export type UniSearchBarInstance = _UniSearchBarInstance;
   }
 }
 

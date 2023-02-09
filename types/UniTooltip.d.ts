@@ -1,20 +1,27 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-interface _UniTooltipProps {
+type _UniTooltipProps = Partial<{
   /** 显示内容 */
   content: string;
-}
+}>;
 
 /** 提示文字 */
-type _UniTooltip = Component<Partial<_UniTooltipProps>>;
+type _UniTooltip = Component<_UniTooltipProps>;
 
-export { _UniTooltipProps as UniTooltipProps, _UniTooltip as UniTooltip };
+type _UniTooltipInstance = InstanceType<_UniTooltip>;
+
+export {
+  _UniTooltipProps as UniTooltipProps,
+  _UniTooltip as UniTooltip,
+  _UniTooltipInstance as UniTooltipInstance,
+};
 
 declare global {
   namespace UniHelper {
-    export interface UniTooltipProps extends _UniTooltipProps {}
+    export type UniTooltipProps = _UniTooltipProps;
     /** 提示文字 */
     export type UniTooltip = _UniTooltip;
+    export type UniTooltipInstance = _UniTooltipInstance;
   }
 }
 

@@ -3,7 +3,7 @@ import { Component } from '@uni-helper/uni-app-types';
 /** 单元格对齐方式 */
 type _UniTdAlign = 'left' | 'center' | 'right';
 
-interface _UniTdProps {
+type _UniTdProps = Partial<{
   /** 单元格宽度 */
   width: string;
   /**
@@ -24,18 +24,26 @@ interface _UniTdProps {
    * 默认为 1
    */
   colspan: number | string;
-}
+}>;
 
-type _UniTd = Component<Partial<_UniTdProps>>;
+type _UniTd = Component<_UniTdProps>;
 
-export { _UniTdAlign as UniTdAlign, _UniTdProps as UniTdProps, _UniTd as UniTd };
+type _UniTdInstance = InstanceType<_UniTd>;
+
+export {
+  _UniTdAlign as UniTdAlign,
+  _UniTdProps as UniTdProps,
+  _UniTd as UniTd,
+  _UniTdInstance as UniTdInstance,
+};
 
 declare global {
   namespace UniHelper {
     /** 单元格对齐方式 */
     export type UniTdAlign = _UniTdAlign;
-    export interface UniTdProps extends _UniTdProps {}
+    export type UniTdProps = _UniTdProps;
     export type UniTd = _UniTd;
+    export type UniTdInstance = _UniTdInstance;
   }
 }
 

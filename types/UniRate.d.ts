@@ -12,8 +12,8 @@ interface _UniRateOnChange {
   (detail: _UniRateOnChangeDetail): void;
 }
 
-/** 评分属性 */
-interface _UniRateProps {
+/** 评分组件属性 */
+type _UniRateProps = Partial<{
   /**
    * 当前评分
    *
@@ -90,10 +90,13 @@ interface _UniRateProps {
   touchable: boolean;
   /** 值改变时触发 */
   onChange: _UniRateOnChange;
-}
+}>;
 
 /** 评分组件，多用于购买商品后，对商品进行评价等场景 */
-type _UniRate = Component<Partial<_UniRateProps>>;
+type _UniRate = Component<_UniRateProps>;
+
+/** 评分组件实例 */
+type _UniRateInstance = InstanceType<_UniRate>;
 
 export {
   _UniRateValue as UniRateValue,
@@ -101,6 +104,7 @@ export {
   _UniRateOnChange as UniRateOnChange,
   _UniRateProps as UniRateProps,
   _UniRate as UniRate,
+  _UniRateInstance as UniRateInstance,
 };
 
 declare global {
@@ -110,10 +114,12 @@ declare global {
     export interface UniRateOnChangeDetail extends _UniRateOnChangeDetail {}
     /** 值改变时触发 */
     export interface UniRateOnChange extends _UniRateOnChange {}
-    /** 评分属性 */
-    export interface UniRateProps extends _UniRateProps {}
+    /** 评分组件属性 */
+    export type UniRateProps = _UniRateProps;
     /** 评分组件，多用于购买商品后，对商品进行评价等场景 */
     export type UniRate = _UniRate;
+    /** 评分组件实例 */
+    export type UniRateInstance = _UniRateInstance;
   }
 }
 

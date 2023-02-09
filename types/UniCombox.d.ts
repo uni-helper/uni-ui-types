@@ -9,7 +9,7 @@ interface _UniComboxOnInput {
 }
 
 /** 组合框属性 */
-interface _UniComboxProps {
+type _UniComboxProps = Partial<{
   /** 标签文字 */
   label: string;
   /** 组合框值 */
@@ -32,16 +32,20 @@ interface _UniComboxProps {
   emptyTips: string;
   /** 输入时触发 */
   onInput: _UniComboxOnInput;
-}
+}>;
 
 /** 组合框组件，一般用于可以选择也可以输入的表单项 */
-type _UniCombox = Component<Partial<_UniComboxProps>>;
+type _UniCombox = Component<_UniComboxProps>;
+
+/** 组合框组件实例 */
+type _UniComboxInstance = InstanceType<_UniCombox>;
 
 export {
   _UniComboxValue as UniComboxValue,
   _UniComboxOnInput as UniComboxOnInput,
   _UniComboxProps as UniComboxProps,
   _UniCombox as UniCombox,
+  _UniComboxInstance as UniComboxInstance,
 };
 
 declare global {
@@ -51,9 +55,11 @@ declare global {
     /** 输入时触发 */
     export interface UniComboxOnInput extends _UniComboxOnInput {}
     /** 组合框属性 */
-    export interface UniComboxProps extends _UniComboxProps {}
+    export type UniComboxProps = _UniComboxProps;
     /** 组合框组件，一般用于可以选择也可以输入的表单项 */
     export type UniCombox = _UniCombox;
+    /** 组合框组件实例 */
+    export type UniComboxInstance = _UniComboxInstance;
   }
 }
 

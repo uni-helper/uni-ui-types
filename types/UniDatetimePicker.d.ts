@@ -62,7 +62,7 @@ interface _UniDatetimePickerOnMaskClick {
   (value: _UniDatetimePickerValue): void;
 }
 
-interface _UniDatetimePickerProps {
+type _UniDatetimePickerProps = Partial<{
   /**
    * 选择器类型
    *
@@ -135,10 +135,12 @@ interface _UniDatetimePickerProps {
   onChange: _UniDatetimePickerOnChange;
   /** 点击遮罩层触发 */
   onMaskClick: _UniDatetimePickerOnMaskClick;
-}
+}>;
 
 /** 支持时间戳输入和输出（起始时间、终止时间也支持时间戳），可同时选择日期和时间 */
-type _UniDatetimePicker = Component<Partial<_UniDatetimePickerProps>>;
+type _UniDatetimePicker = Component<_UniDatetimePickerProps>;
+
+type _UniDatetimePickerInstance = InstanceType<_UniDatetimePicker>;
 
 export {
   _UniDatetimePickerType as UniDatetimePickerType,
@@ -153,6 +155,7 @@ export {
   _UniDatetimePickerOnMaskClick as UniDatetimePickerOnMaskClick,
   _UniDatetimePickerProps as UniDatetimePickerProps,
   _UniDatetimePicker as UniDatetimePicker,
+  _UniDatetimePickerInstance as UniDatetimePickerInstance,
 };
 
 declare global {
@@ -199,9 +202,10 @@ declare global {
     export interface UniDatetimePickerOnChange extends _UniDatetimePickerOnChange {}
     /** 点击遮罩层触发 */
     export interface UniDatetimePickerOnMaskClick extends _UniDatetimePickerOnMaskClick {}
-    export interface UniDatetimePickerProps extends _UniDatetimePickerProps {}
+    export type UniDatetimePickerProps = _UniDatetimePickerProps;
     /** 支持时间戳输入和输出（起始时间、终止时间也支持时间戳），可同时选择日期和时间 */
     export type UniDatetimePicker = _UniDatetimePicker;
+    export type UniDatetimePickerInstance = _UniDatetimePickerInstance;
   }
 }
 

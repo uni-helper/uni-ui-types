@@ -13,7 +13,7 @@ interface _UniListItemChatOnClick {
   (event?: AnyRecord): void;
 }
 
-interface _UniListItemChatProps {
+type _UniListItemChatProps = Partial<{
   /** 标题 */
   title: string;
   /** 描述 */
@@ -66,9 +66,11 @@ interface _UniListItemChatProps {
   avatarList: _UniListItemChatAvatar[];
   /** 点击 uni-list-item-chat 触发，需开启点击反馈 */
   onClick: _UniListItemChatOnClick;
-}
+}>;
 
-type _UniListItemChat = Component<Partial<_UniListItemChatProps>>;
+type _UniListItemChat = Component<_UniListItemChatProps>;
+
+type _UniListItemChatInstance = InstanceType<_UniListItemChat>;
 
 export {
   _UniListItemChatLink as UniListItemChatLink,
@@ -76,6 +78,7 @@ export {
   _UniListItemChatOnClick as UniListItemChatOnClick,
   _UniListItemChatProps as UniListItemChatProps,
   _UniListItemChat as UniListItemChat,
+  _UniListItemChatInstance as UniListItemChatInstance,
 };
 
 declare global {
@@ -86,8 +89,9 @@ declare global {
     export interface UniListItemChatAvatar extends _UniListItemChatAvatar {}
     /** 点击 uni-list-item-chat 触发，需开启点击反馈 */
     export interface UniListItemChatOnClick extends _UniListItemChatOnClick {}
-    export interface UniListItemChatProps extends _UniListItemChatProps {}
+    export type UniListItemChatProps = _UniListItemChatProps;
     export type UniListItemChat = _UniListItemChat;
+    export type UniListItemChatInstance = _UniListItemChatInstance;
   }
 }
 

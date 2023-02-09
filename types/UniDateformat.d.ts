@@ -13,7 +13,7 @@ type _UniDateformatLocale = 'zh' | 'en';
 type _UniDateformatData = Date | string | number;
 
 /** 日期格式化组件属性 */
-interface _UniDateformatProps {
+type _UniDateformatProps = Partial<{
   /**
    * 要格式化的日期对象/日期字符串/时间戳
    *
@@ -70,16 +70,20 @@ interface _UniDateformatProps {
    * 默认为 zh
    */
   locale: _UniDateformatLocale;
-}
+}>;
 
 /** 日期格式化组件 */
-type _UniDateformat = Component<Partial<_UniDateformatProps>>;
+type _UniDateformat = Component<_UniDateformatProps>;
+
+/** 日期格式化组件实例 */
+type _UniDateformatInstance = InstanceType<_UniDateformat>;
 
 export {
   _UniDateformatLocale as UniDateformatLocale,
   _UniDateformatData as UniDateformatData,
   _UniDateformatProps as UniDateformatProps,
   _UniDateformat as UniDateformat,
+  _UniDateformatInstance as UniDateformatInstance,
 };
 
 declare global {
@@ -89,9 +93,11 @@ declare global {
     /** 要格式化的日期对象/日期字符串/时间戳 */
     export type UniDateformatData = _UniDateformatData;
     /** 日期格式化组件属性 */
-    export interface UniDateformatProps extends _UniDateformatProps {}
+    export type UniDateformatProps = _UniDateformatProps;
     /** 日期格式化组件 */
     export type UniDateformat = _UniDateformat;
+    /** 日期格式化组件实例 */
+    export type UniDateformatInstance = _UniDateformatInstance;
   }
 }
 

@@ -1,14 +1,14 @@
 import { Component } from '@uni-helper/uni-app-types';
 
 /** 列表属性 */
-interface _UniListProps {
+type _UniListProps = Partial<{
   /**
    * 是否显示边框
    *
    * 默认为 true
    */
   border: boolean;
-}
+}>;
 
 /**
  * 列表
@@ -25,14 +25,17 @@ interface _UniListProps {
  *
  * 涉及很多大图或丰富内容的列表，比如类今日头条的新闻列表、类淘宝的电商列表，需要通过扩展插槽实现
  */
-type _UniList = Component<Partial<_UniListProps>>;
+type _UniList = Component<_UniListProps>;
 
-export { _UniListProps as UniListProps, _UniList as UniList };
+/** 列表实例 */
+type _UniListInstance = InstanceType<_UniList>;
+
+export { _UniListProps as UniListProps, _UniList as UniList, _UniListInstance as UniListInstance };
 
 declare global {
   namespace UniHelper {
     /** 列表属性 */
-    export interface UniListProps extends _UniListProps {}
+    export type UniListProps = _UniListProps;
     /**
      * 列表
      *
@@ -49,6 +52,8 @@ declare global {
      * 涉及很多大图或丰富内容的列表，比如类今日头条的新闻列表、类淘宝的电商列表，需要通过扩展插槽实现
      */
     export type UniList = _UniList;
+    /** 列表实例 */
+    export type UniListInstance = _UniListInstance;
   }
 }
 

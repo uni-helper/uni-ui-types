@@ -33,7 +33,7 @@ interface _UniThOnFilterChange {
   (detail: _UniThOnFilterChangeDetail): void;
 }
 
-interface _UniThProps {
+type _UniThProps = Partial<{
   /** 单元格宽度 */
   width: string;
   /**
@@ -68,9 +68,11 @@ interface _UniThProps {
   onSortChange: _UniThOnSortChange;
   /** 筛选数据时触发 */
   onFilterChange: _UniThOnFilterChange;
-}
+}>;
 
-type _UniTh = Component<Partial<_UniThProps>>;
+type _UniTh = Component<_UniThProps>;
+
+type _UniThInstance = InstanceType<_UniTh>;
 
 export {
   _UniThAlign as UniThAlign,
@@ -82,6 +84,7 @@ export {
   _UniThOnFilterChange as UniThOnFilterChange,
   _UniThProps as UniThProps,
   _UniTh as UniTh,
+  _UniThInstance as UniThInstance,
 };
 
 declare global {
@@ -98,8 +101,9 @@ declare global {
     export interface UniThOnFilterChangeDetail extends _UniThOnFilterChangeDetail {}
     /** 筛选数据时触发 */
     export interface UniThOnFilterChange extends _UniThOnFilterChange {}
-    export interface UniThProps extends _UniThProps {}
+    export type UniThProps = _UniThProps;
     export type UniTh = _UniTh;
+    export type UniThInstance = _UniThInstance;
   }
 }
 

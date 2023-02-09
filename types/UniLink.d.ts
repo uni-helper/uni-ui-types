@@ -1,7 +1,7 @@
 import { Component } from '@uni-helper/uni-app-types';
 
 /** 外部网页超链接组件属性 */
-interface _UniLinkProps {
+type _UniLinkProps = Partial<{
   /** 链接地址 */
   href: string;
   /** 显示文字 */
@@ -34,7 +34,7 @@ interface _UniLinkProps {
    * 默认为 14
    */
   fontSize: number | string;
-}
+}>;
 
 /**
  * 外部网页超链接组件
@@ -45,14 +45,17 @@ interface _UniLinkProps {
  *
  * 在 H5 端打开新网页
  */
-type _UniLink = Component<Partial<_UniLinkProps>>;
+type _UniLink = Component<_UniLinkProps>;
 
-export { _UniLinkProps as UniLinkProps, _UniLink as UniLink };
+/** 外部网页超链接组件实例 */
+type _UniLinkInstance = InstanceType<_UniLink>;
+
+export { _UniLinkProps as UniLinkProps, _UniLink as UniLink, _UniLinkInstance as UniLinkInstance };
 
 declare global {
   namespace UniHelper {
     /** 外部网页超链接组件属性 */
-    export interface UniLinkProps extends _UniLinkProps {}
+    export type UniLinkProps = _UniLinkProps;
     /**
      * 外部网页超链接组件
      *
@@ -63,6 +66,8 @@ declare global {
      * 在 H5 端打开新网页
      */
     export type UniLink = _UniLink;
+    /** 外部网页超链接组件 */
+    export type UniLinkInstance = _UniLinkInstance;
   }
 }
 

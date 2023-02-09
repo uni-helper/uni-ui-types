@@ -11,7 +11,7 @@ interface _UniCountdownOnTimeup {
 }
 
 /** 倒计时属性 */
-interface _UniCountdownProps {
+type _UniCountdownProps = Partial<{
   /**
    * 背景色
    *
@@ -82,16 +82,20 @@ interface _UniCountdownProps {
   update: _UniCountdownOnUpdate;
   /** 倒计时时间到触发事件 */
   onTimeup: _UniCountdownOnTimeup;
-}
+}>;
 
 /** 倒计时 */
-type _UniCountdown = Component<Partial<_UniCountdownProps>>;
+type _UniCountdown = Component<_UniCountdownProps>;
+
+/** 倒计时实例 */
+type _UniCountdownInstance = InstanceType<_UniCountdown>;
 
 export {
   _UniCountdownOnUpdate as UniCountdownOnUpdate,
   _UniCountdownOnTimeup as UniCountdownOnTimeup,
   _UniCountdownProps as UniCountdownProps,
   _UniCountdown as UniCountdown,
+  _UniCountdownInstance as UniCountdownInstance,
 };
 
 declare global {
@@ -101,9 +105,11 @@ declare global {
     /** 倒计时时间到触发事件 */
     export interface UniCountdownOnTimeup extends _UniCountdownOnTimeup {}
     /** 倒计时属性 */
-    export interface UniCountdownProps extends _UniCountdownProps {}
+    export type UniCountdownProps = _UniCountdownProps;
     /** 倒计时 */
     export type UniCountdown = _UniCountdown;
+    /** 倒计时实例 */
+    export type UniCountdownInstance = _UniCountdownInstance;
   }
 }
 

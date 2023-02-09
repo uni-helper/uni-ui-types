@@ -57,7 +57,7 @@ interface _UniSwiperDotDotsStyles {
   selectedBorder: string;
 }
 
-interface _UniSwiperDotProps {
+type _UniSwiperDotProps = Partial<{
   /**
    * 当前指示点索引
    *
@@ -76,16 +76,19 @@ interface _UniSwiperDotProps {
   info: any[];
   /** 指示点样式 */
   dotsStyles: _UniSwiperDotDotsStyles;
-}
+}>;
 
 /** 轮播图指示点 */
-type _UniSwiperDot = Component<Partial<_UniSwiperDotProps>>;
+type _UniSwiperDot = Component<_UniSwiperDotProps>;
+
+type _UniSwiperDotInstance = InstanceType<_UniSwiperDot>;
 
 export {
   _UniSwiperDotMode as UniSwiperDotMode,
   _UniSwiperDotDotsStyles as UniSwiperDotDotsStyles,
   _UniSwiperDotProps as UniSwiperDotProps,
   _UniSwiperDot as UniSwiperDot,
+  _UniSwiperDotInstance as UniSwiperDotInstance,
 };
 
 declare global {
@@ -94,8 +97,9 @@ declare global {
     export type UniSwiperDotMode = _UniSwiperDotMode;
     /** 指示点样式 */
     export interface UniSwiperDotDotsStyles extends _UniSwiperDotDotsStyles {}
-    export interface UniSwiperDotProps extends _UniSwiperDotProps {}
+    export type UniSwiperDotProps = _UniSwiperDotProps;
     export type UniSwiperDot = _UniSwiperDot;
+    export type UniSwiperDotInstance = _UniSwiperDotInstance;
   }
 }
 

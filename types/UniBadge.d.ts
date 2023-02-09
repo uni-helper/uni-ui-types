@@ -46,7 +46,7 @@ interface _UniBadgeOnClick {
 }
 
 /** 数字角标属性 */
-interface _UniBadgeProps {
+type _UniBadgeProps = Partial<{
   /** 角标内容 */
   text: string;
   /**
@@ -127,14 +127,17 @@ interface _UniBadgeProps {
   offset: [number, number];
   /** 点击事件 */
   onClick: _UniBadgeOnClick;
-}
+}>;
 
 /**
  * 数字角标
  *
  * 一般和其它控件（列表、九宫格等）配合使用，用于进行数量提示，默认为实心灰色背景
  */
-type _UniBadge = Component<Partial<_UniBadgeProps>>;
+type _UniBadge = Component<_UniBadgeProps>;
+
+/** 数字角标实例 */
+type _UniBadgeInstance = InstanceType<_UniBadge>;
 
 export {
   _UniBadgeType as UniBadgeType,
@@ -144,6 +147,7 @@ export {
   _UniBadgeOnClick as UniBadgeOnClick,
   _UniBadgeProps as UniBadgeProps,
   _UniBadge as UniBadge,
+  _UniBadgeInstance as UniBadgeInstance,
 };
 
 declare global {
@@ -187,13 +191,15 @@ declare global {
     /** 点击事件 */
     export interface UniBadgeOnClick extends _UniBadgeOnClick {}
     /** 数字角标属性 */
-    export interface UniBadgeProps extends _UniBadgeProps {}
+    export type UniBadgeProps = _UniBadgeProps;
     /**
      * 数字角标
      *
      * 一般和其它控件（列表、九宫格等）配合使用，用于进行数量提示，默认为实心灰色背景
      */
     export type UniBadge = _UniBadge;
+    /** 数字角标实例 */
+    export type UniBadgeInstance = _UniBadgeInstance;
   }
 }
 

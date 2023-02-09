@@ -19,7 +19,7 @@ interface _UniIndexedListOnClick {
 }
 
 /** 索引列表属性 */
-interface _UniIndexedListProps {
+type _UniIndexedListProps = Partial<{
   /** 索引列表需要的数据对象 */
   options: _UniIndexedListOption[];
   /**
@@ -34,10 +34,13 @@ interface _UniIndexedListProps {
   showSelect: boolean;
   /** 点击触发 */
   onClick: _UniIndexedListOnClick;
-}
+}>;
 
 /** 索引列表 */
-type _UniIndexedList = Component<Partial<_UniIndexedListProps>>;
+type _UniIndexedList = Component<_UniIndexedListProps>;
+
+/** 索引列表实例 */
+type _UniIndexedListInstance = InstanceType<_UniIndexedList>;
 
 export {
   _UniIndexedListOption as UniIndexedListOption,
@@ -45,6 +48,7 @@ export {
   _UniIndexedListOnClick as UniIndexedListOnClick,
   _UniIndexedListProps as UniIndexedListProps,
   _UniIndexedList as UniIndexedList,
+  _UniIndexedListInstance as UniIndexedListInstance,
 };
 
 declare global {
@@ -55,9 +59,11 @@ declare global {
     /** 点击触发 */
     export interface UniIndexedListOnClick extends _UniIndexedListOnClick {}
     /** 索引列表属性 */
-    export interface UniIndexedListProps extends _UniIndexedListProps {}
+    export type UniIndexedListProps = _UniIndexedListProps;
     /** 索引列表 */
     export type UniIndexedList = _UniIndexedList;
+    /** 索引列表实例 */
+    export type UniIndexedListInstance = _UniIndexedListInstance;
   }
 }
 

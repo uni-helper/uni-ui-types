@@ -115,7 +115,7 @@ interface _UniDataPickerOnPopupclosed {
   (event: BaseEvent): void;
 }
 
-interface _UniDataPickerProps {
+type _UniDataPickerProps = Partial<{
   /** 绑定数据 */
   value: _UniDataPickerValue;
   /** 服务空间信息 */
@@ -190,7 +190,7 @@ interface _UniDataPickerProps {
   onPopupopened: _UniDataPickerOnPopupopened;
   /** 弹出层关闭时触发 */
   onPopupclosed: _UniDataPickerOnPopupclosed;
-}
+}>;
 
 /**
  * 选择类 datacom 组件
@@ -205,7 +205,10 @@ interface _UniDataPickerProps {
  *
  * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
  */
-type _UniDataPicker = Component<Partial<_UniDataPickerProps>>;
+type _UniDataPicker = Component<_UniDataPickerProps>;
+
+/** 选择类 datacom 组件实例 */
+type _UniDataPickerInstance = InstanceType<_UniDataPicker>;
 
 export {
   _UniDataPickerSpaceInfoProvider as UniDataPickerSpaceInfoProvider,
@@ -224,6 +227,7 @@ export {
   _UniDataPickerOnPopupclosed as UniDataPickerOnPopupclosed,
   _UniDataPickerProps as UniDataPickerProps,
   _UniDataPicker as UniDataPicker,
+  _UniDataPickerInstance as UniDataPickerInstance,
 };
 
 declare global {
@@ -264,7 +268,7 @@ declare global {
     export interface UniDataPickerOnPopupopened extends _UniDataPickerOnPopupopened {}
     /** 弹出层关闭时触发 */
     export interface UniDataPickerOnPopupclosed extends _UniDataPickerOnPopupclosed {}
-    export interface UniDataPickerProps extends _UniDataPickerProps {}
+    export type UniDataPickerProps = _UniDataPickerProps;
     /**
      * 选择类 datacom 组件
      *
@@ -279,6 +283,8 @@ declare global {
      * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
      */
     export type UniDataPicker = _UniDataPicker;
+    /** 选择类 datacom 组件实例 */
+    export type UniDataPickerInstance = _UniDataPickerInstance;
   }
 }
 

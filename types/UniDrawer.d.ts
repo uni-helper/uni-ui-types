@@ -24,7 +24,8 @@ interface _UniDrawerOnChange {
   (isDrawerOpen: boolean): void;
 }
 
-interface _UniDrawerProps {
+/** 抽屉侧滑菜单属性 */
+type _UniDrawerProps = Partial<{
   /**
    * 是否显示遮罩
    *
@@ -59,10 +60,13 @@ interface _UniDrawerProps {
   close: _UniDrawerClose;
   /** 抽屉状态发生变化时触发 */
   onChange: _UniDrawerOnChange;
-}
+}>;
 
 /** 抽屉侧滑菜单 */
-type _UniDrawer = Component<Partial<_UniDrawerProps>>;
+type _UniDrawer = Component<_UniDrawerProps>;
+
+/** 抽屉侧滑菜单实例 */
+type _UniDrawerInstance = InstanceType<_UniDrawer>;
 
 export {
   _UniDrawerMode as UniDrawerMode,
@@ -71,6 +75,7 @@ export {
   _UniDrawerOnChange as UniDrawerOnChange,
   _UniDrawerProps as UniDrawerProps,
   _UniDrawer as UniDrawer,
+  _UniDrawerInstance as UniDrawerInstance,
 };
 
 declare global {
@@ -89,9 +94,12 @@ declare global {
     export interface UniDrawerClose extends _UniDrawerClose {}
     /** 抽屉状态发生变化时触发 */
     export interface UniDrawerOnChange extends _UniDrawerOnChange {}
-    export interface UniDrawerProps extends _UniDrawerProps {}
+    /** 抽屉侧滑菜单属性 */
+    export type UniDrawerProps = _UniDrawerProps;
     /** 抽屉侧滑菜单 */
     export type UniDrawer = _UniDrawer;
+    /** 抽屉侧滑菜单实例 */
+    export type UniDrawerInstance = _UniDrawerInstance;
   }
 }
 

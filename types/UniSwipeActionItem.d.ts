@@ -49,7 +49,7 @@ interface _UniSwipeActionItemOnChange {
   (show: _UniSwipeActionItemShow): void;
 }
 
-interface _UniSwipeActionItemProps {
+type _UniSwipeActionItemProps = Partial<{
   /**
    * 其他组件开启的时候，当前组件是否自动关闭
    *
@@ -82,9 +82,11 @@ interface _UniSwipeActionItemProps {
   onClick: _UniSwipeActionItemOnClick;
   /** 打开或关闭时触发 */
   onChange: _UniSwipeActionItemOnChange;
-}
+}>;
 
-type _UniSwipeActionItem = Component<Partial<_UniSwipeActionItemProps>>;
+type _UniSwipeActionItem = Component<_UniSwipeActionItemProps>;
+
+type _UniSwipeActionItemInstance = InstanceType<_UniSwipeActionItem>;
 
 export {
   _UniSwipeActionItemShow as UniSwipeActionItemShow,
@@ -94,6 +96,7 @@ export {
   _UniSwipeActionItemOnChange as UniSwipeActionItemOnChange,
   _UniSwipeActionItemProps as UniSwipeActionItemProps,
   _UniSwipeActionItem as UniSwipeActionItem,
+  _UniSwipeActionItemInstance as UniSwipeActionItemInstance,
 };
 
 declare global {
@@ -111,8 +114,9 @@ declare global {
     export interface UniSwipeActionItemOnClick extends _UniSwipeActionItemOnClick {}
     /** 打开或关闭时触发 */
     export interface UniSwipeActionItemOnChange extends _UniSwipeActionItemOnChange {}
-    export interface UniSwipeActionItemProps extends _UniSwipeActionItemProps {}
-    export interface UniSwipeActionItem extends _UniSwipeActionItem {}
+    export type UniSwipeActionItemProps = _UniSwipeActionItemProps;
+    export type UniSwipeActionItem = _UniSwipeActionItem;
+    export type UniSwipeActionItemInstance = _UniSwipeActionItemInstance;
   }
 }
 

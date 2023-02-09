@@ -85,7 +85,7 @@ interface _UniFabOnFabClick {
   (event: BaseEvent): void;
 }
 
-interface _UniFabProps {
+type _UniFabProps = Partial<{
   /** 可选样式配置项 */
   pattern: _UniFabPattern;
   /**
@@ -130,10 +130,12 @@ interface _UniFabProps {
   onTrigger: _UniFabOnTrigger;
   /** 悬浮按钮点击事件 */
   onFabClick: _UniFabOnFabClick;
-}
+}>;
 
 /** 点击可展开一个图形按钮菜单 */
-type _UniFab = Component<Partial<_UniFabProps>>;
+type _UniFab = Component<_UniFabProps>;
+
+type _UniFabInstance = InstanceType<_UniFab>;
 
 export {
   _UniFabPattern as UniFabPattern,
@@ -147,6 +149,7 @@ export {
   _UniFabOnFabClick as UniFabOnFabClick,
   _UniFabProps as UniFabProps,
   _UniFab as UniFab,
+  _UniFabInstance as UniFabInstance,
 };
 
 declare global {
@@ -186,9 +189,10 @@ declare global {
     export interface UniFabOnTrigger extends _UniFabOnTrigger {}
     /** 悬浮按钮点击事件 */
     export interface UniFabOnFabClick extends _UniFabOnFabClick {}
-    export interface UniFabProps extends _UniFabProps {}
+    export type UniFabProps = _UniFabProps;
     /** 点击可展开一个图形按钮菜单 */
     export type UniFab = _UniFab;
+    export type UniFabInstance = _UniFabInstance;
   }
 }
 

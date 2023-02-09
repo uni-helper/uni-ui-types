@@ -28,7 +28,7 @@ interface _UniFormsItemOnFieldChange {
   (value: any): void;
 }
 
-interface _UniFormsItemProps {
+type _UniFormsItemProps = Partial<{
   /** 表单域的属性名，在使用校验规则时必填 */
   name: string | string[];
   /** 表单校验规则 */
@@ -65,9 +65,11 @@ interface _UniFormsItemProps {
   setRules: _UniFormsItemSetRules;
   /** 校验子表单 */
   onFieldChange: _UniFormsItemOnFieldChange;
-}
+}>;
 
-type _UniFormsItem = Component<Partial<_UniFormsItemProps>>;
+type _UniFormsItem = Component<_UniFormsItemProps>;
+
+type _UniFormsItemInstance = InstanceType<_UniFormsItem>;
 
 export {
   _UniFormsItemRulesRule as UniFormsItemRulesRule,
@@ -77,6 +79,7 @@ export {
   _UniFormsItemOnFieldChange as UniFormsItemOnFieldChange,
   _UniFormsItemProps as UniFormsItemProps,
   _UniFormsItem as UniFormsItem,
+  _UniFormsItemInstance as UniFormsItemInstance,
 };
 
 declare global {
@@ -91,8 +94,9 @@ declare global {
     export interface UniFormsItemSetRules extends _UniFormsItemSetRules {}
     /** 校验子表单 */
     export interface UniFormsItemOnFieldChange extends _UniFormsItemOnFieldChange {}
-    export interface UniFormsItemProps extends _UniFormsItemProps {}
+    export type UniFormsItemProps = _UniFormsItemProps;
     export type UniFormsItem = _UniFormsItem;
+    export type UniFormsItemInstance = _UniFormsItemInstance;
   }
 }
 

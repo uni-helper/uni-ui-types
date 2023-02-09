@@ -105,7 +105,7 @@ interface _UniFormsOnValidate {
 }
 
 /** 表单属性 */
-interface _UniFormsProps {
+type _UniFormsProps = Partial<{
   /** 表单数据 */
   model: AnyRecord;
   /** 表单校验规则 */
@@ -171,10 +171,13 @@ interface _UniFormsProps {
   clearValidate: _UniFormsClearValidate;
   /** 任意表单项被校验后触发，返回表单校验信息 */
   onValidate: _UniFormsOnValidate;
-}
+}>;
 
 /** 表单，用于提交表单内容，内置了表单验证功能 */
-type _UniForms = Component<Partial<_UniFormsProps>>;
+type _UniForms = Component<_UniFormsProps>;
+
+/** 表单实例 */
+type _UniFormsInstance = InstanceType<_UniForms>;
 
 export {
   _UniFormsFormat as UniFormsFormat,
@@ -193,6 +196,7 @@ export {
   _UniFormsOnValidate as UniFormsOnValidate,
   _UniFormsProps as UniFormsProps,
   _UniForms as UniForms,
+  _UniFormsInstance as UniFormsInstance,
 };
 
 declare global {
@@ -241,9 +245,11 @@ declare global {
     /** 任意表单项被校验后触发，返回表单校验信息 */
     export interface UniFormsOnValidate extends _UniFormsOnValidate {}
     /** 表单属性 */
-    export interface UniFormsProps extends _UniFormsProps {}
+    export type UniFormsProps = _UniFormsProps;
     /** 表单，用于提交表单内容，内置了表单验证功能 */
     export type UniForms = _UniForms;
+    /** 表单属性 */
+    export type UniFormsInstance = _UniFormsInstance;
   }
 }
 

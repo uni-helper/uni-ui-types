@@ -6,10 +6,10 @@ interface _UniCollapseResize {
 }
 
 /** 折叠面板基本属性 */
-interface _UniCollapseBaseProps {
+type _UniCollapseBaseProps = Partial<{
   /** 更新当前列表高度 */
   resize: _UniCollapseResize;
-}
+}>;
 
 /**
  * 折叠面板非手风琴模式展开面板的标识
@@ -24,18 +24,19 @@ interface _UniCollapseNoAccordionOnChange {
 }
 
 /** 折叠面板非手风琴模式属性 */
-interface _UniCollapseNoAccordionProps extends _UniCollapseBaseProps {
-  /**
-   * 展开面板的标识
-   *
-   * 不要和 uni-collapse-item open 一起使用
-   */
-  value: _UniCollapseNoAccordionValue;
-  /** 关闭手风琴模式 */
-  accordion?: false;
-  /** 切换面板时触发 */
-  onChange: _UniCollapseNoAccordionOnChange;
-}
+type _UniCollapseNoAccordionProps = _UniCollapseBaseProps &
+  Partial<{
+    /**
+     * 展开面板的标识
+     *
+     * 不要和 uni-collapse-item open 一起使用
+     */
+    value: _UniCollapseNoAccordionValue;
+    /** 关闭手风琴模式 */
+    accordion?: false;
+    /** 切换面板时触发 */
+    onChange: _UniCollapseNoAccordionOnChange;
+  }>;
 
 /**
  * 折叠面板手风琴模式展开面板的标识
@@ -50,18 +51,19 @@ interface _UniCollapseAccordionOnChange {
 }
 
 /** 折叠面板手风琴模式属性 */
-interface _UniCollapseAccordionProps extends _UniCollapseBaseProps {
-  /**
-   * 展开面板的标识
-   *
-   * 不要和 uni-collapse-item open 一起使用
-   */
-  value: _UniCollapseAccordionValue;
-  /** 关闭手风琴模式 */
-  accordion: true;
-  /** 切换面板时触发 */
-  onChange: _UniCollapseAccordionOnChange;
-}
+type _UniCollapseAccordionProps = _UniCollapseBaseProps &
+  Partial<{
+    /**
+     * 展开面板的标识
+     *
+     * 不要和 uni-collapse-item open 一起使用
+     */
+    value: _UniCollapseAccordionValue;
+    /** 关闭手风琴模式 */
+    accordion: true;
+    /** 切换面板时触发 */
+    onChange: _UniCollapseAccordionOnChange;
+  }>;
 
 /** 折叠面板属性 */
 type _UniCollapseProps = _UniCollapseNoAccordionProps | _UniCollapseAccordionProps;
@@ -73,7 +75,10 @@ type _UniCollapseProps = _UniCollapseNoAccordionProps | _UniCollapseAccordionPro
  *
  * 点击可以展开折叠部分
  */
-type _UniCollapse = Component<Partial<_UniCollapseProps>>;
+type _UniCollapse = Component<_UniCollapseProps>;
+
+/** 折叠面板实例 */
+type _UniCollapseInstance = InstanceType<_UniCollapse>;
 
 export {
   _UniCollapseResize as UniCollapseResize,
@@ -86,6 +91,7 @@ export {
   _UniCollapseAccordionProps as UniCollapseAccordionProps,
   _UniCollapseProps as UniCollapseProps,
   _UniCollapse as UniCollapse,
+  _UniCollapseInstance as UniCollapseInstance,
 };
 
 declare global {
@@ -93,7 +99,7 @@ declare global {
     /** 更新当前列表高度 */
     export interface UniCollapseResize extends _UniCollapseResize {}
     /** 折叠面板基本属性 */
-    export interface UniCollapseBaseProps extends _UniCollapseBaseProps {}
+    export type UniCollapseBaseProps = _UniCollapseBaseProps;
     /**
      * 折叠面板非手风琴模式展开面板的标识
      *
@@ -103,7 +109,7 @@ declare global {
     /** 折叠面板非手风琴模式切换面板时触发 */
     export interface UniCollapseNoAccordionOnChange extends _UniCollapseNoAccordionOnChange {}
     /** 折叠面板非手风琴模式属性 */
-    export interface UniCollapseNoAccordionProps extends _UniCollapseNoAccordionProps {}
+    export type UniCollapseNoAccordionProps = _UniCollapseNoAccordionProps;
     /**
      * 折叠面板手风琴模式展开面板的标识
      *
@@ -113,7 +119,7 @@ declare global {
     /** 折叠面板手风琴模式切换面板时触发 */
     export interface UniCollapseAccordionOnChange extends _UniCollapseAccordionOnChange {}
     /** 折叠面板手风琴模式属性 */
-    export interface UniCollapseAccordionProps extends _UniCollapseAccordionProps {}
+    export type UniCollapseAccordionProps = _UniCollapseAccordionProps;
     /** 折叠面板属性 */
     export type UniCollapseProps = _UniCollapseProps;
     /**
@@ -124,6 +130,8 @@ declare global {
      * 点击可以展开折叠部分
      */
     export type UniCollapse = _UniCollapse;
+    /** 折叠面板实例 */
+    export type UniCollapseInstance = _UniCollapseInstance;
   }
 }
 

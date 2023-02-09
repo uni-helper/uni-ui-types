@@ -193,7 +193,7 @@ interface _UniFilePickerOnDelete {
   (event: _UniFilePickerOnDeleteDetail): void;
 }
 
-interface _UniFilePickerBaseProps {
+type _UniFilePickerBaseProps = Partial<{
   /**
    * 组件是否禁用
    *
@@ -302,31 +302,36 @@ interface _UniFilePickerBaseProps {
   onFail: _UniFilePickerOnFail;
   /** 文件从列表移除时触发 */
   onDelete: _UniFilePickerOnDelete;
-}
+}>;
 
-interface _UniFilePickerArrayProps extends _UniFilePickerBaseProps {
-  /** 组件数据，通常用来回显 */
-  value: _UniFilePickerValue[];
-  /** 限制 value 类型 */
-  returnType?: 'array';
-}
+type _UniFilePickerArrayProps = _UniFilePickerBaseProps &
+  Partial<{
+    /** 组件数据，通常用来回显 */
+    value: _UniFilePickerValue[];
+    /** 限制 value 类型 */
+    returnType?: 'array';
+  }>;
 
-interface _UniFilePickerObjectProps extends _UniFilePickerBaseProps {
-  /** 组件数据，通常用来回显 */
-  value: _UniFilePickerValue;
-  /**
-   * 限制 value 类型
-   *
-   * 只能单选，且会覆盖
-   */
-  returnType: 'object';
-}
+type _UniFilePickerObjectProps = _UniFilePickerBaseProps &
+  Partial<{
+    /** 组件数据，通常用来回显 */
+    value: _UniFilePickerValue;
+    /**
+     * 限制 value 类型
+     *
+     * 只能单选，且会覆盖
+     */
+    returnType: 'object';
+  }>;
 
 /** 文件选择上传组件属性 */
 type _UniFilePickerProps = _UniFilePickerArrayProps | _UniFilePickerObjectProps;
 
 /** 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间 */
-type _UniFilePicker = Component<Partial<_UniFilePickerProps>>;
+type _UniFilePicker = Component<_UniFilePickerProps>;
+
+/** 文件选择上传组件属性 */
+type _UniFilePickerInstance = InstanceType<_UniFilePicker>;
 
 export {
   _UniFilePickerValue as UniFilePickerValue,
@@ -352,6 +357,7 @@ export {
   _UniFilePickerObjectProps as UniFilePickerObjectProps,
   _UniFilePickerProps as UniFilePickerProps,
   _UniFilePicker as UniFilePicker,
+  _UniFilePickerInstance as UniFilePickerInstance,
 };
 
 declare global {
@@ -414,13 +420,15 @@ declare global {
     export interface UniFilePickerOnDeleteDetail extends _UniFilePickerOnDeleteDetail {}
     /** 文件从列表移除时触发 */
     export interface UniFilePickerOnDelete extends _UniFilePickerOnDelete {}
-    export interface UniFilePickerBaseProps extends _UniFilePickerBaseProps {}
-    export interface UniFilePickerArrayProps extends _UniFilePickerArrayProps {}
-    export interface UniFilePickerObjectProps extends _UniFilePickerObjectProps {}
+    export type UniFilePickerBaseProps = _UniFilePickerBaseProps;
+    export type UniFilePickerArrayProps = _UniFilePickerArrayProps;
+    export type UniFilePickerObjectProps = _UniFilePickerObjectProps;
     /** 文件选择上传组件属性 */
     export type UniFilePickerProps = _UniFilePickerProps;
     /** 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间 */
-    export interface UniFilePicker extends _UniFilePicker {}
+    export type UniFilePicker = _UniFilePicker;
+    /** 文件选择上传组件实例 */
+    export type UniFilePickerInstance = _UniFilePickerInstance;
   }
 }
 

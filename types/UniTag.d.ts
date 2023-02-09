@@ -31,7 +31,7 @@ interface _UniTagOnClick {
   (event: BaseEvent): void;
 }
 
-interface _UniTagProps {
+type _UniTagProps = Partial<{
   /** 标签内容 */
   text: string;
   /**
@@ -82,10 +82,12 @@ interface _UniTagProps {
   circle: boolean;
   /** 点击触发 */
   onClick: _UniTagOnClick;
-}
+}>;
 
 /** 用于展示一个或多个文字标签，可点击切换选中、不选中的状态 */
-type _UniTag = Component<Partial<_UniTagProps>>;
+type _UniTag = Component<_UniTagProps>;
+
+type _UniTagInstance = InstanceType<_UniTag>;
 
 export {
   _UniTagSize as UniTagSize,
@@ -93,6 +95,7 @@ export {
   _UniTagOnClick as UniTagOnClick,
   _UniTagProps as UniTagProps,
   _UniTag as UniTag,
+  _UniTagInstance as UniTagInstance,
 };
 
 declare global {
@@ -123,9 +126,10 @@ declare global {
     export type UniTagType = _UniTagType;
     /** 点击触发 */
     export interface UniTagOnClick extends _UniTagOnClick {}
-    export interface UniTagProps extends _UniTagProps {}
+    export type UniTagProps = _UniTagProps;
     /** 用于展示一个或多个文字标签，可点击切换选中、不选中的状态 */
     export type UniTag = _UniTag;
+    export type UniTagInstance = _UniTagInstance;
   }
 }
 

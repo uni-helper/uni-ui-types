@@ -21,7 +21,7 @@ interface _UniDataSelectOnChange {
   (event: _UniDataSelectValue): void;
 }
 
-interface _UniDataSelectProps {
+type _UniDataSelectProps = Partial<{
   /** 已选择数据的 value 值 */
   value: _UniDataSelectValue;
   /** 本地数据 */
@@ -48,7 +48,7 @@ interface _UniDataSelectProps {
   emptyText: string;
   /** 改变时触发 */
   onChange: _UniDataSelectOnChange;
-}
+}>;
 
 /**
  * 当选项过多时，使用下拉菜单展示并选择内容
@@ -59,7 +59,9 @@ interface _UniDataSelectProps {
  *
  * 自动的表单校验：组件绑定了 data，且符合 uni-forms 的表单校验规范，搭配使用会自动实现表单校验
  */
-type _UniDataSelect = Component<Partial<_UniDataSelectProps>>;
+type _UniDataSelect = Component<_UniDataSelectProps>;
+
+type _UniDataSelectInstance = InstanceType<_UniDataSelect>;
 
 export {
   _UniDataSelectValue as UniDataSelectValue,
@@ -67,6 +69,7 @@ export {
   _UniDataSelectOnChange as UniDataSelectOnChange,
   _UniDataSelectProps as UniDataSelectProps,
   _UniDataSelect as UniDataSelect,
+  _UniDataSelectInstance as UniDataSelectInstance,
 };
 
 declare global {
@@ -76,8 +79,9 @@ declare global {
     export interface UniDataSelectLocaldata extends _UniDataSelectLocaldata {}
     /** 改变时触发 */
     export interface UniDataSelectOnChange extends _UniDataSelectOnChange {}
-    export interface UniDataSelectProps extends _UniDataSelectProps {}
+    export type UniDataSelectProps = _UniDataSelectProps;
     export type UniDataSelect = _UniDataSelect;
+    export type UniDataSelectInstance = _UniDataSelectInstance;
   }
 }
 

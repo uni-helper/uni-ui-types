@@ -40,7 +40,7 @@ type _UniListItemDirection = 'row' | 'column';
 type _UniListItemSwitchChecked = boolean;
 
 /** 扩展图标参数 */
-interface _UniListItemExtraIcon extends Omit<UniIconsProps, 'customPrefix'> {}
+type _UniListItemExtraIcon = Omit<UniIconsProps, 'customPrefix'>;
 
 /** 点击 uni-list-item 触发，需开启点击反馈 */
 interface _UniListItemOnClick {
@@ -57,7 +57,7 @@ interface _UniListItemOnSwitchChange {
   (detail: _UniListItemOnSwitchChangeDetail): void;
 }
 
-interface _UniListItemProps {
+type _UniListItemProps = Partial<{
   /** 标题 */
   title: string;
   /** 描述 */
@@ -170,9 +170,11 @@ interface _UniListItemProps {
   onClick: _UniListItemOnClick;
   /** 点击切换 switch 时触发，需显示 switch */
   onSwitchChange: _UniListItemOnSwitchChange;
-}
+}>;
 
-type _UniListItem = Component<Partial<_UniListItemProps>>;
+type _UniListItem = Component<_UniListItemProps>;
+
+type _UniListItemInstance = InstanceType<_UniListItem>;
 
 export {
   _UniListItemEllipsis as UniListItemEllipsis,
@@ -186,6 +188,7 @@ export {
   _UniListItemOnSwitchChange as UniListItemOnSwitchChange,
   _UniListItemProps as UniListItemProps,
   _UniListItem as UniListItem,
+  _UniListItemInstance as UniListItemInstance,
 };
 
 declare global {
@@ -229,8 +232,9 @@ declare global {
     export interface UniListItemOnSwitchChangeDetail extends _UniListItemOnSwitchChangeDetail {}
     /** 点击切换 switch 时触发，需显示 switch */
     export interface UniListItemOnSwitchChange extends _UniListItemOnSwitchChange {}
-    export interface UniListItemProps extends _UniListItemProps {}
+    export type UniListItemProps = _UniListItemProps;
     export type UniListItem = _UniListItem;
+    export type UniListItemInstance = _UniListItemInstance;
   }
 }
 

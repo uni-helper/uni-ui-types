@@ -10,25 +10,28 @@ interface _UniSwipeActionCloseAll {
   (): void;
 }
 
-interface _UniSwipeActionProps {
+type _UniSwipeActionProps = Partial<{
   /** 动态添加数据后，如不能正常滑动，需要主动调用此方法 */
   resize: _UniSwipeActionResize;
   /** 关闭所有已经打开的组件 */
   closeAll: _UniSwipeActionCloseAll;
-}
+}>;
 
 /**
  * 滑动操作
  *
  * 通过滑动触发选项的容器
  */
-type _UniSwipeAction = Component<Partial<_UniSwipeActionProps>>;
+type _UniSwipeAction = Component<_UniSwipeActionProps>;
+
+type _UniSwipeActionInstance = InstanceType<_UniSwipeAction>;
 
 export {
   _UniSwipeActionResize as UniSwipeActionResize,
   _UniSwipeActionCloseAll as UniSwipeActionCloseAll,
   _UniSwipeActionProps as UniSwipeActionProps,
   _UniSwipeAction as UniSwipeAction,
+  _UniSwipeActionInstance as UniSwipeActionInstance,
 };
 
 declare global {
@@ -37,13 +40,14 @@ declare global {
     export interface UniSwipeActionResize extends _UniSwipeActionResize {}
     /** 关闭所有已经打开的组件 */
     export interface UniSwipeActionCloseAll extends _UniSwipeActionCloseAll {}
-    export interface UniSwipeActionProps extends _UniSwipeActionProps {}
+    export type UniSwipeActionProps = _UniSwipeActionProps;
     /**
      * 滑动操作
      *
      * 通过滑动触发选项的容器
      */
     export type UniSwipeAction = _UniSwipeAction;
+    export type UniSwipeActionInstance = _UniSwipeActionInstance;
   }
 }
 

@@ -45,7 +45,7 @@ interface _UniGoodsNavOnButtonClick {
   (detail: _UniGoodsNavOnButtonClickDetail): void;
 }
 
-interface _UniGoodsNavProps {
+type _UniGoodsNavProps = Partial<{
   /** 选项 */
   options: _UniGoodsNavOption[];
   /** 组件按钮组 */
@@ -60,10 +60,12 @@ interface _UniGoodsNavProps {
   onClick: _UniGoodsNavOnClick;
   /** 右侧点击触发 */
   onButtonClick: _UniGoodsNavOnButtonClick;
-}
+}>;
 
 /** 商品加入购物车，立即购买 */
-type _UniGoodsNav = Component<Partial<_UniGoodsNavProps>>;
+type _UniGoodsNav = Component<_UniGoodsNavProps>;
+
+type _UniGoodsNavInstance = InstanceType<_UniGoodsNav>;
 
 export {
   _UniGoodsNavOption as UniGoodsNavOption,
@@ -74,6 +76,7 @@ export {
   _UniGoodsNavButton as UniGoodsNavButton,
   _UniGoodsNavProps as UniGoodsNavProps,
   _UniGoodsNav as UniGoodsNav,
+  _UniGoodsNavInstance as UniGoodsNavInstance,
 };
 
 declare global {
@@ -89,9 +92,10 @@ declare global {
     /** 右侧点击触发 */
     export interface UniGoodsNavOnButtonClick extends _UniGoodsNavOnButtonClick {}
 
-    export interface UniGoodsNavProps extends _UniGoodsNavProps {}
+    export type UniGoodsNavProps = _UniGoodsNavProps;
     /** 商品加入购物车，立即购买 */
     export type UniGoodsNav = _UniGoodsNav;
+    export type UniGoodsNavInstance = _UniGoodsNavInstance;
   }
 }
 

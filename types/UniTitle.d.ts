@@ -14,7 +14,7 @@ type _UniTitleType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
  */
 type _UniTitleAlign = 'left' | 'center' | 'right';
 
-interface _UniTitleProps {
+type _UniTitleProps = Partial<{
   /** 标题类型 */
   type: _UniTitleType;
   /** 章节标题内容 */
@@ -33,20 +33,23 @@ interface _UniTitleProps {
   color: string;
   /** 是否开启统计 */
   stat: boolean;
-}
+}>;
 
 /**
  * 章节标题，通常用于记录页面标题
  *
  * 使用当前组件，uni-app 如果开启统计，将会自动统计页面标题
  */
-type _UniTitle = Component<Partial<_UniTitleProps>>;
+type _UniTitle = Component<_UniTitleProps>;
+
+type _UniTitleInstance = InstanceType<_UniTitle>;
 
 export {
   _UniTitleType as UniTitleType,
   _UniTitleAlign as UniTitleAlign,
   _UniTitleProps as UniTitleProps,
   _UniTitle as UniTitle,
+  _UniTitleInstance as UniTitleInstance,
 };
 
 declare global {
@@ -63,13 +66,14 @@ declare global {
      * right 右对齐
      */
     export type UniTitleAlign = _UniTitleAlign;
-    export interface UniTitleProps extends _UniTitleProps {}
+    export type UniTitleProps = _UniTitleProps;
     /**
      * 章节标题，通常用于记录页面标题
      *
      * 使用当前组件，uni-app 如果开启统计，将会自动统计页面标题
      */
     export type UniTitle = _UniTitle;
+    export type UniTitleInstance = _UniTitleInstance;
   }
 }
 

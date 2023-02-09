@@ -6,7 +6,7 @@ interface _UniCardOnClick {
 }
 
 /** 卡片组件属性 */
-interface _UniCardProps {
+type _UniCardProps = Partial<{
   /** 标题文字 */
   title: string;
   /** 副标题文字 */
@@ -73,7 +73,7 @@ interface _UniCardProps {
   padding: string;
   /** 点击事件 */
   onClick: _UniCardOnClick;
-}
+}>;
 
 /**
  * 卡片组件通用来显示完整独立的一段信息，同时让用户理解它的作用
@@ -82,16 +82,24 @@ interface _UniCardProps {
  *
  * 卡片通常是更复杂和更详细信息的入口点
  */
-type _UniCard = Component<Partial<_UniCardProps>>;
+type _UniCard = Component<_UniCardProps>;
 
-export { _UniCardOnClick as UniCardOnClick, _UniCardProps as UniCardProps, _UniCard as UniCard };
+/** 卡片组件实例 */
+type _UniCardInstance = InstanceType<_UniCard>;
+
+export {
+  _UniCardOnClick as UniCardOnClick,
+  _UniCardProps as UniCardProps,
+  _UniCard as UniCard,
+  _UniCardInstance as UniCardInstance,
+};
 
 declare global {
   namespace UniHelper {
     /** 点击事件 */
     export interface UniCardOnClick extends _UniCardOnClick {}
     /** 卡片组件属性 */
-    export interface UniCardProps extends _UniCardProps {}
+    export type UniCardProps = _UniCardProps;
     /**
      * 卡片组件通用来显示完整独立的一段信息，同时让用户理解它的作用
      *
@@ -100,6 +108,8 @@ declare global {
      * 卡片通常是更复杂和更详细信息的入口点
      */
     export type UniCard = _UniCard;
+    /** 卡片组件实例 */
+    export type UniCardInstance = _UniCardInstance;
   }
 }
 

@@ -43,7 +43,7 @@ interface _UniPopupDialogOnConfirm {
   (detail?: _UniPopupDialogOnConfirmDetail): void;
 }
 
-interface _UniPopupDialogProps {
+type _UniPopupDialogProps = Partial<{
   /**
    * 对话框标题主题
    *
@@ -104,9 +104,11 @@ interface _UniPopupDialogProps {
   onClose: _UniPopupDialogOnClose;
   /** 点击确定时触发 */
   onConfirm: _UniPopupDialogOnConfirm;
-}
+}>;
 
-type _UniPopupDialog = Component<Partial<_UniPopupDialogProps>>;
+type _UniPopupDialog = Component<_UniPopupDialogProps>;
+
+type _UniPopupDialogInstance = InstanceType<_UniPopupDialog>;
 
 export {
   _UniPopupDialogType as UniPopupDialogType,
@@ -117,6 +119,7 @@ export {
   _UniPopupDialogOnConfirm as UniPopupDialogOnConfirm,
   _UniPopupDialogProps as UniPopupDialogProps,
   _UniPopupDialog as UniPopupDialog,
+  _UniPopupDialogInstance as UniPopupDialogInstance,
 };
 
 declare global {
@@ -152,8 +155,9 @@ declare global {
     export interface UniPopupDialogOnConfirmDetail extends _UniPopupDialogOnConfirmDetail {}
     /** 点击确定时触发 */
     export interface UniPopupDialogOnConfirm extends _UniPopupDialogOnConfirm {}
-    export interface UniPopupDialogProps extends _UniPopupDialogProps {}
+    export type UniPopupDialogProps = _UniPopupDialogProps;
     export type UniPopupDialog = _UniPopupDialog;
+    export type UniPopupDialogInstance = _UniPopupDialogInstance;
   }
 }
 

@@ -22,7 +22,7 @@ interface _UniSegmentedControlOnClickItem {
 }
 
 /** 分段器属性 */
-interface _UniSegmentedControlProps {
+type _UniSegmentedControlProps = Partial<{
   /**
    * 当前选中的索引
    *
@@ -49,10 +49,13 @@ interface _UniSegmentedControlProps {
   values: string[];
   /** 点击时触发 */
   onClickItem: _UniSegmentedControlOnClickItem;
-}
+}>;
 
 /** 分段器，用作不同视图的显示 */
-type _UniSegmentedControl = Component<Partial<_UniSegmentedControlProps>>;
+type _UniSegmentedControl = Component<_UniSegmentedControlProps>;
+
+/** 分段器实例 */
+type _UniSegmentedControlInstance = InstanceType<_UniSegmentedControl>;
 
 export {
   _UniSegmentedControlCurrent as UniSegmentedControlCurrent,
@@ -61,6 +64,7 @@ export {
   _UniSegmentedControlOnClickItem as UniSegmentedControlOnClickItem,
   _UniSegmentedControlProps as UniSegmentedControlProps,
   _UniSegmentedControl as UniSegmentedControl,
+  _UniSegmentedControlInstance as UniSegmentedControlInstance,
 };
 
 declare global {
@@ -80,9 +84,11 @@ declare global {
     /** 点击时触发 */
     export interface UniSegmentedControlOnClickItem extends _UniSegmentedControlOnClickItem {}
     /** 分段器属性 */
-    export interface UniSegmentedControlProps extends _UniSegmentedControlProps {}
+    export type UniSegmentedControlProps = _UniSegmentedControlProps;
     /** 分段器，用作不同视图的显示 */
     export type UniSegmentedControl = _UniSegmentedControl;
+    /** 分段器实例 */
+    export type UniSegmentedControlInstance = _UniSegmentedControlInstance;
   }
 }
 

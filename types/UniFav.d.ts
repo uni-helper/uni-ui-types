@@ -21,7 +21,7 @@ interface _UniFavOnClick {
   (event: BaseEvent): void;
 }
 
-interface _UniFavProps {
+type _UniFavProps = Partial<{
   /**
    * 按钮是否带星
    *
@@ -68,16 +68,19 @@ interface _UniFavProps {
   contentText: _UniFavContentText;
   /** 点击触发 */
   onClick: _UniFavOnClick;
-}
+}>;
 
 /** 用于收藏功能，可点击切换选中、不选中的状态 */
-type _UniFav = Component<Partial<_UniFavProps>>;
+type _UniFav = Component<_UniFavProps>;
+
+type _UniFavInstance = InstanceType<_UniFav>;
 
 export {
   _UniFavContentText as UniFavContentText,
   _UniFavOnClick as UniFavOnClick,
   _UniFavProps as UniFavProps,
   _UniFav as UniFav,
+  _UniFavInstance as UniFavInstance,
 };
 
 declare global {
@@ -86,9 +89,10 @@ declare global {
     export interface UniFavContentText extends _UniFavContentText {}
     /** 点击触发 */
     export interface UniFavOnClick extends _UniFavOnClick {}
-    export interface UniFavProps extends _UniFavProps {}
+    export type UniFavProps = _UniFavProps;
     /** 用于收藏功能，可点击切换选中、不选中的状态 */
     export type UniFav = _UniFav;
+    export type UniFavInstance = _UniFavInstance;
   }
 }
 

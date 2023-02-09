@@ -134,7 +134,7 @@ interface _UniCalendarOnClose {
 }
 
 /** 日历组件属性 */
-interface _UniCalendarProps {
+type _UniCalendarProps = Partial<{
   /**
    * 自定义当前时间
    *
@@ -215,14 +215,17 @@ interface _UniCalendarProps {
   onMonthSwitch: _UniCalendarOnMonthSwitch;
   /** 关闭日历组件时触发 */
   onClose: _UniCalendarOnClose;
-}
+}>;
 
 /**
  * 日历组件可以查看日期，选择任意范围内的日期，打点操作
  *
  * 常用场景如：酒店日期预订、火车机票选择购买日期、上下班打卡等
  */
-type _UniCalendar = Component<Partial<_UniCalendarProps>>;
+type _UniCalendar = Component<_UniCalendarProps>;
+
+/** 日历组件实例 */
+type _UniCalendarInstance = InstanceType<_UniCalendar>;
 
 export {
   _UniCalendarDate as UniCalendarDate,
@@ -240,6 +243,7 @@ export {
   _UniCalendarOnClose as UniCalendarOnClose,
   _UniCalendarProps as UniCalendarProps,
   _UniCalendar as UniCalendar,
+  _UniCalendarInstance as UniCalendarInstance,
 };
 
 declare global {
@@ -282,13 +286,15 @@ declare global {
     /** 关闭日历组件时触发 */
     export interface UniCalendarOnClose extends _UniCalendarOnClose {}
     /** 日历组件属性 */
-    export interface UniCalendarProps extends _UniCalendarProps {}
+    export type UniCalendarProps = _UniCalendarProps;
     /**
      * 日历组件可以查看日期，选择任意范围内的日期，打点操作
      *
      * 常用场景如：酒店日期预订、火车机票选择购买日期、上下班打卡等
      */
     export type UniCalendar = _UniCalendar;
+    /** 日历组件实例 */
+    export type UniCalendarInstance = _UniCalendarInstance;
   }
 }
 

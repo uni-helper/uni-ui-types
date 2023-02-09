@@ -13,7 +13,7 @@ import { Component } from '@uni-helper/uni-app-types';
  */
 type _UniPopupMessageType = 'success' | 'warn' | 'error' | 'info';
 
-interface _UniPopupMessageProps {
+type _UniPopupMessageProps = Partial<{
   /**
    * 消息提示主题
    *
@@ -38,14 +38,17 @@ interface _UniPopupMessageProps {
    * 默认为 3000
    */
   duration: number;
-}
+}>;
 
-type _UniPopupMessage = Component<Partial<_UniPopupMessageProps>>;
+type _UniPopupMessage = Component<_UniPopupMessageProps>;
+
+type _UniPopupMessageInstance = InstanceType<_UniPopupMessage>;
 
 export {
   _UniPopupMessageType as UniPopupMessageType,
   _UniPopupMessageProps as UniPopupMessageProps,
   _UniPopupMessage as UniPopupMessage,
+  _UniPopupMessageInstance as UniPopupMessageInstance,
 };
 
 declare global {
@@ -62,8 +65,9 @@ declare global {
      * info 消息
      */
     export type UniPopupMessageType = _UniPopupMessageType;
-    export interface UniPopupMessageProps extends _UniPopupMessageProps {}
+    export type UniPopupMessageProps = _UniPopupMessageProps;
     export type UniPopupMessage = _UniPopupMessage;
+    export type UniPopupMessageInstance = _UniPopupMessageInstance;
   }
 }
 

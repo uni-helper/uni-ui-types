@@ -16,7 +16,7 @@ interface _UniNoticeBarOnGetmore {
 }
 
 /** 通告栏属性 */
-interface _UniNoticeBarProps {
+type _UniNoticeBarProps = Partial<{
   /**
    * 文字滚动的速度
    *
@@ -87,10 +87,13 @@ interface _UniNoticeBarProps {
   onClose: _UniNoticeBarOnClose;
   /** 查看更多触发 */
   onGetmore: _UniNoticeBarOnGetmore;
-}
+}>;
 
 /** 通告栏 */
-type _UniNoticeBar = Component<Partial<_UniNoticeBarProps>>;
+type _UniNoticeBar = Component<_UniNoticeBarProps>;
+
+/** 通告栏实例 */
+type _UniNoticeBarInstance = InstanceType<_UniNoticeBar>;
 
 export {
   _UniNoticeBarOnClick as UniNoticeBarOnClick,
@@ -98,6 +101,7 @@ export {
   _UniNoticeBarOnGetmore as UniNoticeBarOnGetmore,
   _UniNoticeBarProps as UniNoticeBarProps,
   _UniNoticeBar as UniNoticeBar,
+  _UniNoticeBarInstance as UniNoticeBarInstance,
 };
 
 declare global {
@@ -109,9 +113,11 @@ declare global {
     /** 查看更多触发 */
     export interface UniNoticeBarOnGetmore extends _UniNoticeBarOnGetmore {}
     /** 通告栏属性 */
-    export interface UniNoticeBarProps extends _UniNoticeBarProps {}
+    export type UniNoticeBarProps = _UniNoticeBarProps;
     /** 通告栏 */
     export type UniNoticeBar = _UniNoticeBar;
+    /** 通告栏实例 */
+    export type UniNoticeBarInstance = _UniNoticeBarInstance;
   }
 }
 

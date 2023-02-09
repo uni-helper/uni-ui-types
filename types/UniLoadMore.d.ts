@@ -50,7 +50,7 @@ interface _UniLoadMoreOnClickLoadMore {
   (event: CustomEvent<_UniLoadMoreOnClickLoadMoreDetail>): void;
 }
 
-interface _UniLoadMoreProps {
+type _UniLoadMoreProps = Partial<{
   /**
    * 图标大小
    *
@@ -103,10 +103,12 @@ interface _UniLoadMoreProps {
   contentText: _UniLoadMoreContentText;
   /** 点击加载更多时触发 */
   onClickLoadMore: _UniLoadMoreOnClickLoadMore;
-}
+}>;
 
 /** 用于列表中，做滚动加载使用，展示 loading 的各种状态 */
-type _UniLoadMore = Component<Partial<_UniLoadMoreProps>>;
+type _UniLoadMore = Component<_UniLoadMoreProps>;
+
+type _UniLoadMoreInstance = InstanceType<_UniLoadMore>;
 
 export {
   _UniLoadMoreStatus as UniLoadMoreStatus,
@@ -116,6 +118,7 @@ export {
   _UniLoadMoreOnClickLoadMore as UniLoadMoreOnClickLoadMore,
   _UniLoadMoreProps as UniLoadMoreProps,
   _UniLoadMore as UniLoadMore,
+  _UniLoadMoreInstance as UniLoadMoreInstance,
 };
 
 declare global {
@@ -145,9 +148,10 @@ declare global {
     export interface UniLoadMoreOnClickLoadMoreDetail extends _UniLoadMoreOnClickLoadMoreDetail {}
     /** 点击加载更多时触发 */
     export interface UniLoadMoreOnClickLoadMore extends _UniLoadMoreOnClickLoadMore {}
-    export interface UniLoadMoreProps extends _UniLoadMoreProps {}
+    export type UniLoadMoreProps = _UniLoadMoreProps;
     /** 用于列表中，做滚动加载使用，展示 loading 的各种状态 */
     export type UniLoadMore = _UniLoadMore;
+    export type UniLoadMoreInstance = _UniLoadMoreInstance;
   }
 }
 

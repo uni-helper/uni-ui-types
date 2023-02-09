@@ -18,7 +18,7 @@ interface _UniStepsOption {
 }
 
 /** 步骤条属性 */
-interface _UniStepsProps {
+type _UniStepsProps = Partial<{
   /**
    * 当前步骤
    *
@@ -43,16 +43,20 @@ interface _UniStepsProps {
   activeColor: string;
   /** 数据源 */
   options: _UniStepsOption[];
-}
+}>;
 
 /** 步骤条，常用于显示进度 */
-type _UniSteps = Component<Partial<_UniStepsProps>>;
+type _UniSteps = Component<_UniStepsProps>;
+
+/** 步骤条实例 */
+type _UniStepsInstance = InstanceType<_UniSteps>;
 
 export {
   _UniStepsDirection as UniStepsDirection,
   _UniStepsOption as UniStepsOption,
   _UniStepsProps as UniStepsProps,
   _UniSteps as UniSteps,
+  _UniStepsInstance as UniStepsInstance,
 };
 
 declare global {
@@ -68,8 +72,10 @@ declare global {
     /** 数据源 */
     export interface UniStepsOption extends _UniStepsOption {}
     /** 步骤条属性 */
-    export interface UniStepsProps extends _UniStepsProps {}
+    export type UniStepsProps = _UniStepsProps;
     /** 步骤条，常用于显示进度 */
     export type UniSteps = _UniSteps;
+    /** 步骤条实例 */
+    export type UniStepsInstance = _UniStepsInstance;
   }
 }

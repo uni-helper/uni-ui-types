@@ -116,7 +116,7 @@ interface _UniEasyinputOnChange {
   (value: _UniEasyinputValue): void;
 }
 
-interface _UniEasyinputProps {
+type _UniEasyinputProps = Partial<{
   /** 输入内容 */
   value: _UniEasyinputValue;
   /**
@@ -259,10 +259,12 @@ interface _UniEasyinputProps {
   onIconClick: _UniEasyinputOnIconClick;
   /** 输入框失去焦点或用户按下回车时触发 */
   onChange: _UniEasyinputOnChange;
-}
+}>;
 
 /** 对原生 input 组件的增强 */
-type _UniEasyinput = Component<Partial<_UniEasyinputProps>>;
+type _UniEasyinput = Component<_UniEasyinputProps>;
+
+type _UniEasyinputInstance = InstanceType<_UniEasyinput>;
 
 export {
   _UniEasyinputValue as UniEasyinputValue,
@@ -280,6 +282,7 @@ export {
   _UniEasyinputOnChange as UniEasyinputOnChange,
   _UniEasyinputProps as UniEasyinputProps,
   _UniEasyinput as UniEasyinput,
+  _UniEasyinputInstance as UniEasyinputInstance,
 };
 
 declare global {
@@ -354,9 +357,10 @@ declare global {
     export interface UniEasyinputOnIconClick extends _UniEasyinputOnIconClick {}
     /** 输入框失去焦点或用户按下回车时触发 */
     export interface UniEasyinputOnChange extends _UniEasyinputOnChange {}
-    export interface UniEasyinputProps extends _UniEasyinputProps {}
+    export type UniEasyinputProps = _UniEasyinputProps;
     /** 对原生 input 组件的增强 */
     export type UniEasyinput = _UniEasyinput;
+    export type UniEasyinputInstance = _UniEasyinputInstance;
   }
 }
 

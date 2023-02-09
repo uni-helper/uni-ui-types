@@ -44,7 +44,8 @@ interface _UniPopupOnMaskClick {
   (): void;
 }
 
-interface _UniPopupProps {
+/** 弹出层属性 */
+type _UniPopupProps = Partial<{
   /**
    * 是否开启动画
    *
@@ -105,10 +106,13 @@ interface _UniPopupProps {
   onChange: _UniPopupOnChange;
   /** 点击遮罩层触发 */
   onMaskClick: _UniPopupOnMaskClick;
-}
+}>;
 
 /** 弹出层，在应用中弹出一个消息提示窗口、提示框等 */
-type _UniPopup = Component<Partial<_UniPopupProps>>;
+type _UniPopup = Component<_UniPopupProps>;
+
+/** 弹出层实例 */
+type _UniPopupInstance = InstanceType<_UniPopup>;
 
 export {
   _UniPopupType as UniPopupType,
@@ -117,6 +121,7 @@ export {
   _UniPopupOnMaskClick as UniPopupOnMaskClick,
   _UniPopupProps as UniPopupProps,
   _UniPopup as UniPopup,
+  _UniPopupInstance as UniPopupInstance,
 };
 
 declare global {
@@ -146,9 +151,12 @@ declare global {
     export interface UniPopupOnChange extends _UniPopupOnChange {}
     /** 点击遮罩层触发 */
     export interface UniPopupOnMaskClick extends _UniPopupOnMaskClick {}
-    export interface UniPopupProps extends _UniPopupProps {}
+    /** 弹出层属性 */
+    export type UniPopupProps = _UniPopupProps;
     /** 弹出层，在应用中弹出一个消息提示窗口、提示框等 */
     export type UniPopup = _UniPopup;
+    /** 弹出层实例 */
+    export type UniPopupInstance = _UniPopupInstance;
   }
 }
 

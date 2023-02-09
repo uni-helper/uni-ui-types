@@ -10,7 +10,7 @@ interface _UniGridOnChange {
 }
 
 /** 宫格属性 */
-interface _UniGridProps {
+type _UniGridProps = Partial<{
   /**
    * 每列显示个数
    *
@@ -43,16 +43,20 @@ interface _UniGridProps {
   highlight: boolean;
   /** 点击触发 */
   onChange: _UniGridOnChange;
-}
+}>;
 
 /** 宫格 */
-type _UniGrid = Component<Partial<_UniGridProps>>;
+type _UniGrid = Component<_UniGridProps>;
+
+/** 宫格属性 */
+type _UniGridInstance = InstanceType<_UniGrid>;
 
 export {
   _UniGridOnChangeDetail as UniGridOnChangeDetail,
   _UniGridOnChange as UniGridOnChange,
   _UniGridProps as UniGridProps,
   _UniGrid as UniGrid,
+  _UniGridInstance as UniGridInstance,
 };
 
 declare global {
@@ -61,9 +65,11 @@ declare global {
     /** 点击触发 */
     export interface UniGridOnChange extends _UniGridOnChange {}
     /** 宫格属性 */
-    export interface UniGridProps extends _UniGridProps {}
+    export type UniGridProps = _UniGridProps;
     /** 宫格 */
     export type UniGrid = _UniGrid;
+    /** 宫格实例 */
+    export type UniGridInstance = _UniGridInstance;
   }
 }
 

@@ -162,7 +162,7 @@ type _UniIconsType =
   | 'cart';
 
 /** 图标属性 */
-interface _UniIconsProps {
+type _UniIconsProps = Partial<{
   /**
    * 图标大小
    *
@@ -187,21 +187,31 @@ interface _UniIconsProps {
    * 默认为 空字符串
    */
   customPrefix: string;
-}
+}>;
 
 /** 图标 */
-type _UniIcons = Component<Partial<_UniIconsProps>>;
+type _UniIcons = Component<_UniIconsProps>;
 
-export { _UniIconsType as UniIconsType, _UniIconsProps as UniIconsProps, _UniIcons as UniIcons };
+/** 图标实例 */
+type _UniIconsInstance = InstanceType<_UniIcons>;
+
+export {
+  _UniIconsType as UniIconsType,
+  _UniIconsProps as UniIconsProps,
+  _UniIcons as UniIcons,
+  _UniIconsInstance as UniIconsInstance,
+};
 
 declare global {
   namespace UniHelper {
     /** 图标类型 */
     export type UniIconsType = _UniIconsType;
     /** 图标属性 */
-    export interface UniIconsProps extends _UniIconsProps {}
+    export type UniIconsProps = _UniIconsProps;
     /** 图标 */
     export type UniIcons = _UniIcons;
+    /** 图标实例 */
+    export type UniIconsInstance = _UniIconsInstance;
   }
 }
 

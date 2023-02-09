@@ -42,7 +42,7 @@ interface _UniTableOnSelectionChange {
 }
 
 /** 表格属性 */
-interface _UniTableProps {
+type _UniTableProps = Partial<{
   /**
    * 是否带有纵向边框
    *
@@ -89,10 +89,13 @@ interface _UniTableProps {
   toggleAllSelection: _UniTableToggleAllSelection;
   /** 开启多选时，当选择项发生变化时会触发该事件 */
   onSelectionChange: _UniTableOnSelectionChange;
-}
+}>;
 
 /** 表格 */
-type _UniTable = Component<Partial<_UniTableProps>>;
+type _UniTable = Component<_UniTableProps>;
+
+/** 表格实例 */
+type _UniTableInstance = InstanceType<_UniTable>;
 
 export {
   _UniTableType as UniTableType,
@@ -104,6 +107,7 @@ export {
   _UniTableOnSelectionChange as UniTableOnSelectionChange,
   _UniTableProps as UniTableProps,
   _UniTable as UniTable,
+  _UniTableInstance as UniTableInstance,
 };
 
 declare global {
@@ -130,9 +134,11 @@ declare global {
     /** 开启多选时，当选择项发生变化时会触发该事件 */
     export interface UniTableOnSelectionChange extends _UniTableOnSelectionChange {}
     /** 表格属性 */
-    export interface UniTableProps extends _UniTableProps {}
+    export type UniTableProps = _UniTableProps;
     /** 表格 */
     export type UniTable = _UniTable;
+    /** 表格实例 */
+    export type UniTableInstance = _UniTableInstance;
   }
 }
 

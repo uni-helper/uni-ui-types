@@ -13,7 +13,7 @@ interface _UniPaginationOnChange {
 }
 
 /** 分页器属性 */
-interface _UniPaginationProps {
+type _UniPaginationProps = Partial<{
   /**
    * 左侧按钮文字
    *
@@ -58,10 +58,13 @@ interface _UniPaginationProps {
   showIcon: boolean;
   /** 点击页码按钮时触发 */
   onChange: _UniPaginationOnChange;
-}
+}>;
 
 /** 分页器组件，用于展示页码、请求数据等 */
-type _UniPagination = Component<Partial<_UniPaginationProps>>;
+type _UniPagination = Component<_UniPaginationProps>;
+
+/** 分页器组件实例 */
+type _UniPaginationInstance = InstanceType<_UniPagination>;
 
 export {
   _UniPaginationOnChangeType as UniPaginationOnChangeType,
@@ -69,6 +72,7 @@ export {
   _UniPaginationOnChange as UniPaginationOnChange,
   _UniPaginationProps as UniPaginationProps,
   _UniPagination as UniPagination,
+  _UniPaginationInstance as UniPaginationInstance,
 };
 
 declare global {
@@ -78,9 +82,11 @@ declare global {
     /** 点击页码按钮时触发 */
     export interface UniPaginationOnChange extends _UniPaginationOnChange {}
     /** 分页器属性 */
-    export interface UniPaginationProps extends _UniPaginationProps {}
+    export type UniPaginationProps = _UniPaginationProps;
     /** 分页器组件，用于展示页码、请求数据等 */
     export type UniPagination = _UniPagination;
+    /** 分页器组件实例 */
+    export type UniPaginationInstance = _UniPaginationInstance;
   }
 }
 

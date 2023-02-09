@@ -14,7 +14,7 @@ interface _UniPopupShareOnSelect {
   (detail: _UniPopupShareOnSelectDetail): void;
 }
 
-interface _UniPopupShareProps {
+type _UniPopupShareProps = Partial<{
   /** 分享弹窗标题 */
   title: string;
   /**
@@ -27,15 +27,18 @@ interface _UniPopupShareProps {
   beforeClose: boolean;
   /** 选择时触发 */
   onSelect: _UniPopupShareOnSelect;
-}
+}>;
 
-type _UniPopupShare = Component<Partial<_UniPopupShareProps>>;
+type _UniPopupShare = Component<_UniPopupShareProps>;
+
+type _UniPopupShareInstance = InstanceType<_UniPopupShare>;
 
 export {
   _UniPopupShareOnSelectDetail as UniPopupShareOnSelectDetail,
   _UniPopupShareOnSelect as UniPopupShareOnSelect,
   _UniPopupShareProps as UniPopupShareProps,
   _UniPopupShare as UniPopupShare,
+  _UniPopupShareInstance as UniPopupShareInstance,
 };
 
 declare global {
@@ -43,8 +46,9 @@ declare global {
     export interface UniPopupShareOnSelectDetail extends _UniPopupShareOnSelectDetail {}
     /** 选择时触发 */
     export interface UniPopupShareOnSelect extends _UniPopupShareOnSelect {}
-    export interface UniPopupShareProps extends _UniPopupShareProps {}
+    export type UniPopupShareProps = _UniPopupShareProps;
     export type UniPopupShare = _UniPopupShare;
+    export type UniPopupShareInstance = _UniPopupShareInstance;
   }
 }
 

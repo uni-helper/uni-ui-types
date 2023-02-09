@@ -11,7 +11,7 @@ import { Component } from '@uni-helper/uni-app-types';
  */
 type _UniCollapseItemTitleBorder = 'auto' | 'none' | 'show';
 
-interface _UniCollapseItemProps {
+type _UniCollapseItemProps = Partial<{
   /** 标题文字 */
   title: string;
   /** 标题左侧缩略图 */
@@ -60,14 +60,17 @@ interface _UniCollapseItemProps {
    * 默认为 true
    */
   showArrow: boolean;
-}
+}>;
 
-type _UniCollapseItem = Component<Partial<_UniCollapseItemProps>>;
+type _UniCollapseItem = Component<_UniCollapseItemProps>;
+
+type _UniCollapseItemInstance = InstanceType<_UniCollapseItem>;
 
 export {
   _UniCollapseItemTitleBorder as UniCollapseItemTitleBorder,
   _UniCollapseItemProps as UniCollapseItemProps,
   _UniCollapseItem as UniCollapseItem,
+  _UniCollapseItemInstance as UniCollapseItemInstance,
 };
 
 declare global {
@@ -82,8 +85,9 @@ declare global {
      * show 一直显示分隔线
      */
     export type UniCollapseItemTitleBorder = _UniCollapseItemTitleBorder;
-    export interface UniCollapseItemProps extends _UniCollapseItemProps {}
+    export type UniCollapseItemProps = _UniCollapseItemProps;
     export type UniCollapseItem = _UniCollapseItem;
+    export type UniCollapseItemInstance = _UniCollapseItemInstance;
   }
 }
 
