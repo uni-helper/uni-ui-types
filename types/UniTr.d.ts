@@ -1,15 +1,19 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-interface _UniTrProps {}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type _UniTrProps = Partial<{}>;
 
-type _UniTr = Component<Partial<_UniTrProps>>;
+type _UniTr = Component<_UniTrProps>;
 
-export { _UniTrProps as UniTrProps, _UniTr as UniTr };
+type _UniTrInstance = InstanceType<_UniTr>;
+
+export { _UniTrProps as UniTrProps, _UniTr as UniTr, _UniTrInstance as UniTrInstance };
 
 declare global {
   namespace UniHelper {
-    export interface UniTrProps extends _UniTrProps {}
+    export type UniTrProps = _UniTrProps;
     export type UniTr = _UniTr;
+    export type UniTrInstance = _UniTrInstance;
   }
 }
 
