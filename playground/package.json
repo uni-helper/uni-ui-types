@@ -48,20 +48,20 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3061620221230002",
-    "@dcloudio/uni-ui": "^1.4.23",
-    "vue": "^3.2.45",
-    "vue-i18n": "^9.2.2"
+    "@dcloudio/uni-ui": "1.4.26",
+    "vue": "3.2.47",
+    "vue-i18n": "9.2.2"
   },
   "devDependencies": {
-    "@dcloudio/types": "^3.2.7",
+    "@dcloudio/types": "3.2.11",
     "@dcloudio/uni-automator": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-cli-shared": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-stacktracey": "3.0.0-alpha-3061620221230002",
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3061620221230002",
-    "@uni-helper/uni-app-types": "^0.3.1",
+    "@uni-helper/uni-app-types": "0.4.0",
     "@uni-helper/uni-ui-types": "workspace:*",
-    "sass": "^1.57.1",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.4"
+    "sass": "1.57.1",
+    "typescript": "4.9.5",
+    "vite": "4.0.4"
   }
 }
