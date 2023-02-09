@@ -1,5 +1,79 @@
 # 改动日志
 
+## 0.4.0 (2023-02-09)
+
+- feat: 提供所有组件的实例类型
+
+之前：
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { UniBadge } from '@uni-helper/uni-app-types';
+
+// 你必须手动构造组件实例类型
+type UniBadgeInstance = InstanceOf<UniBadge>;
+
+const uniBadgeRef = ref<UniBadgeInstance | null>();
+</script>
+
+<template>
+  <uni-badge ref="uniBadgeRef">uni-badge</uni-badge>
+</template>
+```
+
+现在：
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+// 你无需手动构造，导入即可使用
+import type { UniBadgeInstance } from '@uni-helper/uni-app-types';
+
+const uniBadgeRef = ref<UniBadgeInstance | null>();
+
+// 也可以直接使用全局命名空间下的组件实例类型
+// const uniBadgeRef = ref<UniHelper.UniBadgeInstance | null>();
+</script>
+
+<template>
+  <uni-badge ref="uniBadgeRef">uni-badge</uni-badge>
+</template>
+```
+
+- feat: 现在所有组件 Props 类型下的属性都是可选的，使用 `v-bind` 直接绑定一个对象更为方便
+
+之前：
+
+```vue
+<script setup lang="ts">
+import type { UniBadgeProps } from '@uni-helper/uni-app-types';
+
+// 你必须手动设置 Partial
+// 否则你需要设置所有属性或禁用检查
+const uniBadgeProps: Partial<UniBadgeProps> = { ... };
+</script>
+
+<template>
+  <uni-badge v-bind="uniBadgeProps">uni-badge</uni-badge>
+</template>
+```
+
+现在：
+
+```vue
+<script setup lang="ts">
+import type { UniBadgeProps } from '@uni-helper/uni-app-types';
+
+// 不需要设置 Partial，也不需要设置所有属性
+const uniBadgeProps: UniBadgeProps = { ... };
+</script>
+
+<template>
+  <uni-badge v-bind="uniBadgeProps">button</uni-badge>
+</template>
+```
+
 ## 0.3.3 (2023-01-31)
 
 - fix: 修复大小写
