@@ -1,5 +1,12 @@
 # 改动日志
 
+## Unreleased
+
+- build: 现在使用 `rollup` 打包生成类型文件
+- feat!: 核对并修复所有组件类型 WIP
+- feat: 移除部分组件内多余类型
+- feat!: 现在要求 `@uni-helper/uni-app-types@^0.5.1`
+
 ## 0.4.0 (2023-02-09)
 
 - feat: 提供所有组件的实例类型
