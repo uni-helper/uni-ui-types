@@ -3,7 +3,7 @@ import type {
   UniCalendarDate,
   UniCalendarSelectedElement,
   UniCalendarSelected,
-  UniCalendarOnOpen,
+  UniCalendarOpen,
   UniCalendarBaseDetail,
   UniCalendarOnChangeDetail,
   UniCalendarOnChange,
@@ -11,7 +11,6 @@ import type {
   UniCalendarOnConfirm,
   UniCalendarOnMonthSwitchDetail,
   UniCalendarOnMonthSwitch,
-  UniCalendarOnCloseDetail,
   UniCalendarOnClose,
   UniCalendarProps,
   UniCalendar,
@@ -28,8 +27,8 @@ describe('UniCalendar', () => {
   expectTypeOf<UniCalendarSelected>().toBeArray();
   expectTypeOf<UniCalendarSelected>().toEqualTypeOf<UniHelper.UniCalendarSelected>();
 
-  expectTypeOf<UniCalendarOnOpen>().toBeFunction();
-  expectTypeOf<UniCalendarOnOpen>().toEqualTypeOf<UniHelper.UniCalendarOnOpen>();
+  expectTypeOf<UniCalendarOpen>().toBeFunction();
+  expectTypeOf<UniCalendarOpen>().toEqualTypeOf<UniHelper.UniCalendarOpen>();
 
   expectTypeOf<UniCalendarBaseDetail>().toBeObject();
   expectTypeOf<UniCalendarBaseDetail>().toEqualTypeOf<UniHelper.UniCalendarBaseDetail>();
@@ -51,9 +50,6 @@ describe('UniCalendar', () => {
 
   expectTypeOf<UniCalendarOnMonthSwitch>().toBeObject();
   expectTypeOf<UniCalendarOnMonthSwitch>().toEqualTypeOf<UniHelper.UniCalendarOnMonthSwitch>();
-
-  expectTypeOf<UniCalendarOnCloseDetail>().toBeObject();
-  expectTypeOf<UniCalendarOnCloseDetail>().toEqualTypeOf<UniHelper.UniCalendarOnCloseDetail>();
 
   expectTypeOf<UniCalendarOnClose>().toBeObject();
   expectTypeOf<UniCalendarOnClose>().toEqualTypeOf<UniHelper.UniCalendarOnClose>();

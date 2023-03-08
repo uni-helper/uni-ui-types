@@ -1,4 +1,4 @@
-import { AnyRecord, BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 
 /**
  * 角标颜色类型
@@ -42,7 +42,7 @@ type _UniBadgeAbsolute = 'rightTop' | 'rightBottom' | 'leftBottom' | 'leftTop';
 
 /** 点击事件 */
 interface _UniBadgeOnClick {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 /** 数字角标属性 */

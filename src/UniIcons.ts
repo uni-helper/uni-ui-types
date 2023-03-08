@@ -174,7 +174,7 @@ type _UniIconsProps = Partial<{
    *
    * 默认为 空字符串
    */
-  type: UniIconsType;
+  type: _UniIconsType;
   /**
    * 图标颜色
    *

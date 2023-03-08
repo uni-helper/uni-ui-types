@@ -20,15 +20,15 @@ type _UniColRules = Partial<{
 type _UniColProps = _UniColRules &
   Partial<{
     /** 屏幕宽度 <768px 时，要显示的栅格规则 */
-    xs: number | UniColRules;
+    xs: number | _UniColRules;
     /** 屏幕宽度 ≥768px 时，要显示的栅格规则 */
-    sm: number | UniColRules;
+    sm: number | _UniColRules;
     /** 屏幕宽度 ≥992px 时，要显示的栅格规则 */
-    md: number | UniColRules;
+    md: number | _UniColRules;
     /** 屏幕宽度 ≥1200px 时，要显示的栅格规则 */
-    lg: number | UniColRules;
+    lg: number | _UniColRules;
     /** 屏幕宽度 ≥1920px 时，要显示的栅格规则 */
-    xl: number | UniColRules;
+    xl: number | _UniColRules;
   }>;
 
 /** 流式栅格系统中的列 */

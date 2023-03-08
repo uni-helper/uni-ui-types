@@ -1,7 +1,16 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniCardOnClick, UniCardProps, UniCard, UniCardInstance } from '@/UniCard';
+import type {
+  UniCardOnClickType,
+  UniCardOnClick,
+  UniCardProps,
+  UniCard,
+  UniCardInstance,
+} from '@/UniCard';
 
 describe('UniCard', () => {
+  expectTypeOf<UniCardOnClickType>().toBeString();
+  expectTypeOf<UniCardOnClickType>().toEqualTypeOf<UniHelper.UniCardOnClickType>();
+
   expectTypeOf<UniCardOnClick>().toBeFunction();
   expectTypeOf<UniCardOnClick>().toEqualTypeOf<UniHelper.UniCardOnClick>();
 

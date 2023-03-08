@@ -30,8 +30,8 @@ type _UniCalendarSelected = _UniCalendarSelectedElement[];
  *
  * insert 为 true 时有效
  */
-interface _UniCalendarOnOpen {
-  (event: BaseEvent): void;
+interface _UniCalendarOpen {
+  (): void;
 }
 
 interface _UniCalendarBaseDetail {
@@ -119,18 +119,21 @@ interface _UniCalendarOnConfirm {
   (detail: _UniCalendarOnConfirmDetail): void;
 }
 
-interface _UniCalendarOnMonthSwitchDetail extends _UniCalendarBaseDetail {}
+interface _UniCalendarOnMonthSwitchDetail {
+  /** 当前年 */
+  year: number;
+  /** 当前月 */
+  month: number;
+}
 
 /** 切换月份时触发 */
 interface _UniCalendarOnMonthSwitch {
   (detail: _UniCalendarOnMonthSwitchDetail): void;
 }
 
-interface _UniCalendarOnCloseDetail extends _UniCalendarBaseDetail {}
-
 /** 关闭日历组件时触发 */
 interface _UniCalendarOnClose {
-  (detail: _UniCalendarOnCloseDetail): void;
+  (): void;
 }
 
 /** 日历组件属性 */
@@ -198,7 +201,7 @@ type _UniCalendarProps = Partial<{
    *
    * insert 为 true 时有效
    */
-  open: _UniCalendarOnOpen;
+  open: _UniCalendarOpen;
   /**
    * 日期改变时触发
    *
@@ -231,7 +234,7 @@ export {
   _UniCalendarDate as UniCalendarDate,
   _UniCalendarSelectedElement as UniCalendarSelectedElement,
   _UniCalendarSelected as UniCalendarSelected,
-  _UniCalendarOnOpen as UniCalendarOnOpen,
+  _UniCalendarOpen as UniCalendarOpen,
   _UniCalendarBaseDetail as UniCalendarBaseDetail,
   _UniCalendarOnChangeDetail as UniCalendarOnChangeDetail,
   _UniCalendarOnChange as UniCalendarOnChange,
@@ -239,7 +242,6 @@ export {
   _UniCalendarOnConfirm as UniCalendarOnConfirm,
   _UniCalendarOnMonthSwitchDetail as UniCalendarOnMonthSwitchDetail,
   _UniCalendarOnMonthSwitch as UniCalendarOnMonthSwitch,
-  _UniCalendarOnCloseDetail as UniCalendarOnCloseDetail,
   _UniCalendarOnClose as UniCalendarOnClose,
   _UniCalendarProps as UniCalendarProps,
   _UniCalendar as UniCalendar,
@@ -263,7 +265,7 @@ declare global {
      *
      * insert 为 true 时有效
      */
-    export interface UniCalendarOnOpen extends _UniCalendarOnOpen {}
+    export interface UniCalendarOpen extends _UniCalendarOpen {}
     export interface UniCalendarBaseDetail extends _UniCalendarBaseDetail {}
     export interface UniCalendarOnChangeDetail extends _UniCalendarOnChangeDetail {}
     /**
@@ -282,7 +284,6 @@ declare global {
     export interface UniCalendarOnMonthSwitchDetail extends _UniCalendarOnMonthSwitchDetail {}
     /** 切换月份时触发 */
     export interface UniCalendarOnMonthSwitch extends _UniCalendarOnMonthSwitch {}
-    export interface UniCalendarOnCloseDetail extends _UniCalendarOnCloseDetail {}
     /** 关闭日历组件时触发 */
     export interface UniCalendarOnClose extends _UniCalendarOnClose {}
     /** 日历组件属性 */

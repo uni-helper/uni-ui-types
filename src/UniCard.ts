@@ -1,8 +1,10 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
+
+type _UniCardOnClickType = 'cover' | 'title' | 'extra' | 'content' | 'actions';
 
 /** 点击事件 */
 interface _UniCardOnClick {
-  (event: BaseEvent): void;
+  (type: _UniCardOnClickType): void;
 }
 
 /** 卡片组件属性 */
@@ -88,6 +90,7 @@ type _UniCard = Component<_UniCardProps>;
 type _UniCardInstance = InstanceType<_UniCard>;
 
 export {
+  _UniCardOnClickType as UniCardOnClickType,
   _UniCardOnClick as UniCardOnClick,
   _UniCardProps as UniCardProps,
   _UniCard as UniCard,
@@ -96,6 +99,7 @@ export {
 
 declare global {
   namespace UniHelper {
+    export type UniCardOnClickType = _UniCardOnClickType;
     /** 点击事件 */
     export interface UniCardOnClick extends _UniCardOnClick {}
     /** 卡片组件属性 */

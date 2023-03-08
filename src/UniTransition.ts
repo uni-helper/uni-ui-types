@@ -164,14 +164,6 @@ interface _UniTransitionType {
    * 两个参数时表示在 X 轴缩放 sx 倍数，在 Y 轴缩放 sy 倍数
    */
   scale: [number] | [number, number];
-  /** 在 X 轴缩放的倍数 */
-  scaleX: number;
-  /** 在 Y 轴缩放的倍数 */
-  scaleY: number;
-  /** 在 Z 轴缩放的倍数 */
-  scaleZ: number;
-  /** 在 X 轴、Y 轴和 Z 轴缩放的倍数 */
-  scale3d: string;
   /**
    * 一个参数时表示在 X 轴、Y 轴同时偏移
    *

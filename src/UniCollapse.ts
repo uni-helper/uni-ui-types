@@ -24,19 +24,18 @@ interface _UniCollapseNoAccordionOnChange {
 }
 
 /** 折叠面板非手风琴模式属性 */
-type _UniCollapseNoAccordionProps = _UniCollapseBaseProps &
-  Partial<{
-    /**
-     * 展开面板的标识
-     *
-     * 不要和 uni-collapse-item open 一起使用
-     */
-    value: _UniCollapseNoAccordionValue;
-    /** 关闭手风琴模式 */
-    accordion?: false;
-    /** 切换面板时触发 */
-    onChange: _UniCollapseNoAccordionOnChange;
-  }>;
+type _UniCollapseNoAccordionProps = _UniCollapseBaseProps & {
+  /**
+   * 展开面板的标识
+   *
+   * 不要和 uni-collapse-item open 一起使用
+   */
+  value?: _UniCollapseNoAccordionValue;
+  /** 关闭手风琴模式 */
+  accordion?: false;
+  /** 切换面板时触发 */
+  onChange?: _UniCollapseNoAccordionOnChange;
+};
 
 /**
  * 折叠面板手风琴模式展开面板的标识
@@ -51,19 +50,18 @@ interface _UniCollapseAccordionOnChange {
 }
 
 /** 折叠面板手风琴模式属性 */
-type _UniCollapseAccordionProps = _UniCollapseBaseProps &
-  Partial<{
-    /**
-     * 展开面板的标识
-     *
-     * 不要和 uni-collapse-item open 一起使用
-     */
-    value: _UniCollapseAccordionValue;
-    /** 关闭手风琴模式 */
-    accordion: true;
-    /** 切换面板时触发 */
-    onChange: _UniCollapseAccordionOnChange;
-  }>;
+type _UniCollapseAccordionProps = _UniCollapseBaseProps & {
+  /**
+   * 展开面板的标识
+   *
+   * 不要和 uni-collapse-item open 一起使用
+   */
+  value?: _UniCollapseAccordionValue;
+  /** 关闭手风琴模式 */
+  accordion: true;
+  /** 切换面板时触发 */
+  onChange?: _UniCollapseAccordionOnChange;
+};
 
 /** 折叠面板属性 */
 type _UniCollapseProps = _UniCollapseNoAccordionProps | _UniCollapseAccordionProps;
