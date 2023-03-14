@@ -1,7 +1,14 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type _UniTrProps = Partial<{}>;
+type _UniTrProps = Partial<{
+  /**
+   * 是否禁用选择
+   *
+   * 默认为 false
+   */
+  disabled: boolean;
+  keyValue: string | number;
+}>;
 
 type _UniTr = Component<_UniTrProps>;
 
