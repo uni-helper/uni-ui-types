@@ -7,8 +7,9 @@ import type {
   UniTransitionInit,
   UniTransitionStep,
   UniTransitionRun,
+  UniTransitionOnClickEvent,
   UniTransitionOnClick,
-  UniTransitionOnChangeDetail,
+  UniTransitionOnChangeEvent,
   UniTransitionOnChange,
   UniTransitionProps,
   UniTransition,
@@ -37,11 +38,14 @@ describe('UniTransition', () => {
   expectTypeOf<UniTransitionRun>().toBeFunction();
   expectTypeOf<UniTransitionRun>().toEqualTypeOf<UniHelper.UniTransitionRun>();
 
+  expectTypeOf<UniTransitionOnClickEvent>().toBeObject();
+  expectTypeOf<UniTransitionOnClickEvent>().toEqualTypeOf<UniHelper.UniTransitionOnClickEvent>();
+
   expectTypeOf<UniTransitionOnClick>().toBeFunction();
   expectTypeOf<UniTransitionOnClick>().toEqualTypeOf<UniHelper.UniTransitionOnClick>();
 
-  expectTypeOf<UniTransitionOnChangeDetail>().toBeObject();
-  expectTypeOf<UniTransitionOnChangeDetail>().toEqualTypeOf<UniHelper.UniTransitionOnChangeDetail>();
+  expectTypeOf<UniTransitionOnChangeEvent>().toBeObject();
+  expectTypeOf<UniTransitionOnChangeEvent>().toEqualTypeOf<UniHelper.UniTransitionOnChangeEvent>();
 
   expectTypeOf<UniTransitionOnChange>().toBeFunction();
   expectTypeOf<UniTransitionOnChange>().toEqualTypeOf<UniHelper.UniTransitionOnChange>();

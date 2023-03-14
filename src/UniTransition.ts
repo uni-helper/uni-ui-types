@@ -128,9 +128,29 @@ interface _UniTransitionType {
    * 可传入其他自定义单位的高度值
    */
   height: number | string;
+  /**
+   * 如果传入 number 默认使用 px
+   *
+   * 可传入其他自定义单位的高度值
+   */
   top: number | string;
+  /**
+   * 如果传入 number 默认使用 px
+   *
+   * 可传入其他自定义单位的高度值
+   */
   right: number | string;
+  /**
+   * 如果传入 number 默认使用 px
+   *
+   * 可传入其他自定义单位的高度值
+   */
   bottom: number | string;
+  /**
+   * 如果传入 number 默认使用 px
+   *
+   * 可传入其他自定义单位的高度值
+   */
   left: number | string;
   /**
    * 从原点顺时针旋转一个角度
@@ -164,6 +184,14 @@ interface _UniTransitionType {
    * 两个参数时表示在 X 轴缩放 sx 倍数，在 Y 轴缩放 sy 倍数
    */
   scale: [number] | [number, number];
+  /** 在 X 轴的缩放倍数 */
+  scaleX: number;
+  /** 在 Y 轴的缩放倍数 */
+  scaleY: number;
+  /** 在 Z 轴的缩放倍数 */
+  scaleZ: number;
+  /** 在 X 轴、Y 轴和 Z 轴的缩放倍数 */
+  scale3d: number;
   /**
    * 一个参数时表示在 X 轴、Y 轴同时偏移
    *
@@ -177,25 +205,25 @@ interface _UniTransitionType {
    *
    * 单位为 px
    */
-  scaleX: string;
+  translateX: string;
   /**
    * 在 Y 轴的偏移
    *
    * 单位为 px
    */
-  scaleY: string;
+  translateY: string;
   /**
    * 在 Z 轴的偏移
    *
    * 单位为 px
    */
-  scaleZ: string;
+  translateZ: string;
   /**
    * 在 X 轴、Y 轴和 Z 轴的偏移
    *
    * 单位为 px
    */
-  scale3d: string;
+  translate3d: string;
 }
 
 /** 手动设置动画配置 */
@@ -217,18 +245,21 @@ interface _UniTransitionRun {
   (callback: () => void): void;
 }
 
+type _UniTransitionOnClickEvent = {
+  /** 动画是否可见 */
+  detail: boolean;
+};
+
 /** 点击触发 */
 interface _UniTransitionOnClick {
-  (event: BaseEvent): void;
+  (event: _UniTransitionOnClickEvent): void;
 }
 
-interface _UniTransitionOnChangeDetail {
-  detail: boolean;
-}
+type _UniTransitionOnChangeEvent = _UniTransitionOnClickEvent;
 
 /** 过渡动画结束时触发 */
 interface _UniTransitionOnChange {
-  (detail: _UniTransitionOnChangeDetail): void;
+  (event: _UniTransitionOnChangeEvent): void;
 }
 
 type _UniTransitionProps = Partial<{
@@ -293,8 +324,9 @@ export {
   _UniTransitionInit as UniTransitionInit,
   _UniTransitionStep as UniTransitionStep,
   _UniTransitionRun as UniTransitionRun,
+  _UniTransitionOnClickEvent as UniTransitionOnClickEvent,
   _UniTransitionOnClick as UniTransitionOnClick,
-  _UniTransitionOnChangeDetail as UniTransitionOnChangeDetail,
+  _UniTransitionOnChangeEvent as UniTransitionOnChangeEvent,
   _UniTransitionOnChange as UniTransitionOnChange,
   _UniTransitionProps as UniTransitionProps,
   _UniTransition as UniTransition,
@@ -351,9 +383,10 @@ declare global {
      * @param callback 所有动画执行完毕后回调
      */
     export interface UniTransitionRun extends _UniTransitionRun {}
+    export type UniTransitionOnClickEvent = _UniTransitionOnClickEvent;
     /** 点击触发 */
     export interface UniTransitionOnClick extends _UniTransitionOnClick {}
-    export interface UniTransitionOnChangeDetail extends _UniTransitionOnChangeDetail {}
+    export type UniTransitionOnChangeEvent = _UniTransitionOnChangeEvent;
     /** 过渡动画结束时触发 */
     export interface UniTransitionOnChange extends _UniTransitionOnChange {}
     export type UniTransitionProps = _UniTransitionProps;
