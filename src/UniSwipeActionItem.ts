@@ -34,14 +34,17 @@ interface _UniSwipeActionItemOption {
   };
 }
 
-interface _UniSwipeActionItemOnClickDetail {
+type _UniSwipeActionItemOnClickEventPosition = Exclude<_UniSwipeActionItemShow, 'none'>;
+
+type _UniSwipeActionItemOnClickEvent = {
   content: _UniSwipeActionItemOption;
   index: number;
-}
+  position: _UniSwipeActionItemOnClickEventPosition;
+};
 
 /** 点击时触发 */
 interface _UniSwipeActionItemOnClick {
-  (detail: _UniSwipeActionItemOnClickDetail): void;
+  (event: _UniSwipeActionItemOnClickEvent): void;
 }
 
 /** 打开或关闭时触发 */
@@ -60,6 +63,8 @@ type _UniSwipeActionItemProps = Partial<{
    * 关闭组件
    *
    * autoClose 为 false 时有效
+   *
+   * 默认为 none
    */
   show: _UniSwipeActionItemShow;
   /**
@@ -75,9 +80,9 @@ type _UniSwipeActionItemProps = Partial<{
    */
   disabled: boolean;
   /** 左侧选项内容及样式 */
-  leftOptions: _UniSwipeActionItemOption | _UniSwipeActionItemOption[];
+  leftOptions: _UniSwipeActionItemOption[];
   /** 右侧选项内容及样式 */
-  rightOptions: _UniSwipeActionItemOption | _UniSwipeActionItemOption[];
+  rightOptions: _UniSwipeActionItemOption[];
   /** 点击时触发 */
   onClick: _UniSwipeActionItemOnClick;
   /** 打开或关闭时触发 */
@@ -91,7 +96,8 @@ type _UniSwipeActionItemInstance = InstanceType<_UniSwipeActionItem>;
 export {
   _UniSwipeActionItemShow as UniSwipeActionItemShow,
   _UniSwipeActionItemOption as UniSwipeActionItemOption,
-  _UniSwipeActionItemOnClickDetail as UniSwipeActionItemOnClickDetail,
+  _UniSwipeActionItemOnClickEventPosition as UniSwipeActionItemOnClickEventPosition,
+  _UniSwipeActionItemOnClickEvent as UniSwipeActionItemOnClickEvent,
   _UniSwipeActionItemOnClick as UniSwipeActionItemOnClick,
   _UniSwipeActionItemOnChange as UniSwipeActionItemOnChange,
   _UniSwipeActionItemProps as UniSwipeActionItemProps,
@@ -109,7 +115,8 @@ declare global {
     export type UniSwipeActionItemShow = _UniSwipeActionItemShow;
     /** 选项内容及样式 */
     export interface UniSwipeActionItemOption extends _UniSwipeActionItemOption {}
-    export interface UniSwipeActionItemOnClickDetail extends _UniSwipeActionItemOnClickDetail {}
+    export type UniSwipeActionItemOnClickEventPosition = _UniSwipeActionItemOnClickEventPosition;
+    export type UniSwipeActionItemOnClickEvent = _UniSwipeActionItemOnClickEvent;
     /** 点击时触发 */
     export interface UniSwipeActionItemOnClick extends _UniSwipeActionItemOnClick {}
     /** 打开或关闭时触发 */

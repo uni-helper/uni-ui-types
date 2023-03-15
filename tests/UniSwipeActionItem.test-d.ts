@@ -2,7 +2,8 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniSwipeActionItemShow,
   UniSwipeActionItemOption,
-  UniSwipeActionItemOnClickDetail,
+  UniSwipeActionItemOnClickEventPosition,
+  UniSwipeActionItemOnClickEvent,
   UniSwipeActionItemOnClick,
   UniSwipeActionItemOnChange,
   UniSwipeActionItemProps,
@@ -17,8 +18,11 @@ describe('UniSwipeActionItem', () => {
   expectTypeOf<UniSwipeActionItemOption>().toBeObject();
   expectTypeOf<UniSwipeActionItemOption>().toEqualTypeOf<UniHelper.UniSwipeActionItemOption>();
 
-  expectTypeOf<UniSwipeActionItemOnClickDetail>().toBeObject();
-  expectTypeOf<UniSwipeActionItemOnClickDetail>().toEqualTypeOf<UniHelper.UniSwipeActionItemOnClickDetail>();
+  expectTypeOf<UniSwipeActionItemOnClickEventPosition>().toBeString();
+  expectTypeOf<UniSwipeActionItemOnClickEventPosition>().toEqualTypeOf<UniHelper.UniSwipeActionItemOnClickEventPosition>();
+
+  expectTypeOf<UniSwipeActionItemOnClickEvent>().toBeObject();
+  expectTypeOf<UniSwipeActionItemOnClickEvent>().toEqualTypeOf<UniHelper.UniSwipeActionItemOnClickEvent>();
 
   expectTypeOf<UniSwipeActionItemOnClick>().toBeFunction();
   expectTypeOf<UniSwipeActionItemOnClick>().toEqualTypeOf<UniHelper.UniSwipeActionItemOnClick>();
