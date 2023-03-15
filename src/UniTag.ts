@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component, AnyRecord } from '@uni-helper/uni-app-types';
 
 /**
  * 大小尺寸
@@ -26,9 +26,12 @@ type _UniTagSize = 'normal' | 'small';
  */
 type _UniTagType = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'royal';
 
+/** 自定义样式 */
+type _UniTagCustomStyle = AnyRecord;
+
 /** 点击触发 */
 interface _UniTagOnClick {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 type _UniTagProps = Partial<{
@@ -80,6 +83,14 @@ type _UniTagProps = Partial<{
    * 默认为 false
    */
   circle: boolean;
+  /**
+   * 是否为标记样式
+   *
+   * 默认为 false
+   */
+  mark: boolean;
+  /** 自定义样式 */
+  customStyle: _UniTagCustomStyle;
   /** 点击触发 */
   onClick: _UniTagOnClick;
 }>;
@@ -92,6 +103,7 @@ type _UniTagInstance = InstanceType<_UniTag>;
 export {
   _UniTagSize as UniTagSize,
   _UniTagType as UniTagType,
+  _UniTagCustomStyle as UniTagCustomStyle,
   _UniTagOnClick as UniTagOnClick,
   _UniTagProps as UniTagProps,
   _UniTag as UniTag,
@@ -124,6 +136,8 @@ declare global {
      * royal 紫色
      */
     export type UniTagType = _UniTagType;
+    /** 自定义样式 */
+    export type UniTagCustomStyle = _UniTagCustomStyle;
     /** 点击触发 */
     export interface UniTagOnClick extends _UniTagOnClick {}
     export type UniTagProps = _UniTagProps;

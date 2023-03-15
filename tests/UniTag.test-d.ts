@@ -2,6 +2,7 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniTagType,
   UniTagSize,
+  UniTagCustomStyle,
   UniTagOnClick,
   UniTagProps,
   UniTag,
@@ -14,6 +15,9 @@ describe('UniTag', () => {
 
   expectTypeOf<UniTagSize>().toBeString();
   expectTypeOf<UniTagSize>().toEqualTypeOf<UniHelper.UniTagSize>();
+
+  expectTypeOf<UniTagCustomStyle>().toBeObject();
+  expectTypeOf<UniTagCustomStyle>().toEqualTypeOf<UniHelper.UniTagCustomStyle>();
 
   expectTypeOf<UniTagOnClick>().toBeFunction();
   expectTypeOf<UniTagOnClick>().toEqualTypeOf<UniHelper.UniTagOnClick>();
