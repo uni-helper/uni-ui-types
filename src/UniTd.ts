@@ -4,8 +4,12 @@ import { Component } from '@uni-helper/uni-app-types';
 type _UniTdAlign = 'left' | 'center' | 'right';
 
 type _UniTdProps = Partial<{
-  /** 单元格宽度 */
-  width: string;
+  /**
+   * 单元格宽度
+   *
+   * 单位为 px
+   */
+  width: string | number;
   /**
    * 对齐方式
    *
