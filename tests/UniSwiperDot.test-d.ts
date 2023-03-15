@@ -2,6 +2,7 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniSwiperDotMode,
   UniSwiperDotDotsStyles,
+  UniSwiperDotOnClickItem,
   UniSwiperDotProps,
   UniSwiperDot,
   UniSwiperDotInstance,
@@ -13,6 +14,9 @@ describe('UniSwiperDot', () => {
 
   expectTypeOf<UniSwiperDotDotsStyles>().toBeObject();
   expectTypeOf<UniSwiperDotDotsStyles>().toEqualTypeOf<UniHelper.UniSwiperDotDotsStyles>();
+
+  expectTypeOf<UniSwiperDotOnClickItem>().toBeFunction();
+  expectTypeOf<UniSwiperDotOnClickItem>().toEqualTypeOf<UniHelper.UniSwiperDotOnClickItem>();
 
   expectTypeOf<UniSwiperDotProps>().toBeObject();
   expectTypeOf<UniSwiperDotProps>().toEqualTypeOf<UniHelper.UniSwiperDotProps>();

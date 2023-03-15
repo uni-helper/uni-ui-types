@@ -10,11 +10,25 @@ interface _UniSwiperDotDotsStyles {
    *
    * mode="nav"、mode="indexes" 时无效
    *
-   * 默认为 8
+   * 单位为 px
+   *
+   * 默认为 6
    */
   width: number;
   /**
+   * 指示点高度
+   *
+   * mode="nav"、mode="indexes" 时无效
+   *
+   * 单位为 px
+   *
+   * 默认为 6
+   */
+  height: number;
+  /**
    * 指示点距 swiper 底部的高度
+   *
+   * 单位为 px
    *
    * 默认为 10
    */
@@ -57,14 +71,26 @@ interface _UniSwiperDotDotsStyles {
   selectedBorder: string;
 }
 
+/** 点击时触发 */
+interface _UniSwiperDotOnClickItem {
+  (index: number): void;
+}
+
+/** 轮播图指示点属性 */
 type _UniSwiperDotProps = Partial<{
   /**
    * 当前指示点索引
    *
    * 必须是通过 swiper 的 change 事件获取到的 e.detail.current
+   *
+   * 默认为 0
    */
   current: number;
-  /** 指示点类型 */
+  /**
+   * 指示点类型
+   *
+   * 默认为 default
+   */
   mode: _UniSwiperDotMode;
   /**
    * 显示的内容字段
@@ -76,6 +102,8 @@ type _UniSwiperDotProps = Partial<{
   info: any[];
   /** 指示点样式 */
   dotsStyles: _UniSwiperDotDotsStyles;
+  /** 点击时触发 */
+  onClickItem: _UniSwiperDotOnClickItem;
 }>;
 
 /** 轮播图指示点 */
@@ -86,6 +114,7 @@ type _UniSwiperDotInstance = InstanceType<_UniSwiperDot>;
 export {
   _UniSwiperDotMode as UniSwiperDotMode,
   _UniSwiperDotDotsStyles as UniSwiperDotDotsStyles,
+  _UniSwiperDotOnClickItem as UniSwiperDotOnClickItem,
   _UniSwiperDotProps as UniSwiperDotProps,
   _UniSwiperDot as UniSwiperDot,
   _UniSwiperDotInstance as UniSwiperDotInstance,
@@ -97,7 +126,11 @@ declare global {
     export type UniSwiperDotMode = _UniSwiperDotMode;
     /** 指示点样式 */
     export interface UniSwiperDotDotsStyles extends _UniSwiperDotDotsStyles {}
+    /** 点击时触发 */
+    export interface UniSwiperDotOnClickItem extends _UniSwiperDotOnClickItem {}
+    /** 轮播图指示点属性 */
     export type UniSwiperDotProps = _UniSwiperDotProps;
+    /** 轮播图指示点 */
     export type UniSwiperDot = _UniSwiperDot;
     export type UniSwiperDotInstance = _UniSwiperDotInstance;
   }
