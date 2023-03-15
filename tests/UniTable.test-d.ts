@@ -6,6 +6,7 @@ import type {
   UniTableClearSelection,
   UniTableToggleAllSelection,
   UniTableOnSelectionChangeDetail,
+  UniTableOnSelectionChangeEvent,
   UniTableOnSelectionChange,
   UniTableProps,
   UniTable,
@@ -30,6 +31,9 @@ describe('UniTable', () => {
 
   expectTypeOf<UniTableOnSelectionChangeDetail>().toBeObject();
   expectTypeOf<UniTableOnSelectionChangeDetail>().toEqualTypeOf<UniHelper.UniTableOnSelectionChangeDetail>();
+
+  expectTypeOf<UniTableOnSelectionChangeEvent>().toBeObject();
+  expectTypeOf<UniTableOnSelectionChangeEvent>().toEqualTypeOf<UniHelper.UniTableOnSelectionChangeEvent>();
 
   expectTypeOf<UniTableOnSelectionChange>().toBeFunction();
   expectTypeOf<UniTableOnSelectionChange>().toEqualTypeOf<UniHelper.UniTableOnSelectionChange>();

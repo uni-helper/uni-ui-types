@@ -1,4 +1,4 @@
-import { CustomEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /**
  * 空字符串 单选
@@ -36,9 +36,13 @@ interface _UniTableOnSelectionChangeDetail {
   index: any[];
 }
 
+type _UniTableOnSelectionChangeEvent = {
+  detail: _UniTableOnSelectionChangeDetail;
+};
+
 /** 开启多选时，当选择项发生变化时会触发该事件 */
 interface _UniTableOnSelectionChange {
-  (event: CustomEvent<_UniTableOnSelectionChangeDetail>): void;
+  (event: _UniTableOnSelectionChangeEvent): void;
 }
 
 /** 表格属性 */
@@ -52,7 +56,7 @@ type _UniTableProps = Partial<{
   /**
    * 是否显示斑马线样式
    *
-   * 默认为 true
+   * 默认为 false
    */
   stripe: boolean;
   /**
@@ -75,6 +79,13 @@ type _UniTableProps = Partial<{
    * 默认为 false
    */
   loading: boolean;
+  data: any[];
+  /**
+   * 行键名
+   *
+   * 默认为 空字符串
+   */
+  rowKey: string;
   /** 选中全部行 */
   selectionAll: _UniTableSelectionAll;
   /**
@@ -104,6 +115,7 @@ export {
   _UniTableClearSelection as UniTableClearSelection,
   _UniTableToggleAllSelection as UniTableToggleAllSelection,
   _UniTableOnSelectionChangeDetail as UniTableOnSelectionChangeDetail,
+  _UniTableOnSelectionChangeEvent as UniTableOnSelectionChangeEvent,
   _UniTableOnSelectionChange as UniTableOnSelectionChange,
   _UniTableProps as UniTableProps,
   _UniTable as UniTable,
@@ -131,6 +143,7 @@ declare global {
     /** 用于多选表格，切换所有行的选中状态 */
     export interface UniTableToggleAllSelection extends _UniTableToggleAllSelection {}
     export interface UniTableOnSelectionChangeDetail extends _UniTableOnSelectionChangeDetail {}
+    export type UniTableOnSelectionChangeEvent = _UniTableOnSelectionChangeEvent;
     /** 开启多选时，当选择项发生变化时会触发该事件 */
     export interface UniTableOnSelectionChange extends _UniTableOnSelectionChange {}
     /** 表格属性 */
