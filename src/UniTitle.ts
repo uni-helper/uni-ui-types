@@ -27,11 +27,23 @@ type _UniTitleProps = Partial<{
    * center 居中对齐
    *
    * right 右对齐
+   *
+   * 默认为 left
    */
   align: _UniTitleAlign;
-  /** 字体颜色 */
+  /**
+   * 字体颜色
+   *
+   * 默认为 #333
+   */
   color: string;
-  /** 是否开启统计 */
+  /**
+   * 是否开启统计
+   *
+   * 如果不填写 type，默认开启
+   *
+   * 如果填写 type，默认关闭
+   */
   stat: boolean;
 }>;
 
