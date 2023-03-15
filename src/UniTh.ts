@@ -4,7 +4,7 @@ import { Component } from '@uni-helper/uni-app-types';
 type _UniThAlign = 'left' | 'center' | 'right';
 
 /** 筛选类型 */
-type _UniThFilterType = 'search' | 'select' | 'range' | 'date';
+type _UniThFilterType = 'search' | 'select' | 'range' | 'date' | 'timestamp';
 
 /** 筛选数据 */
 interface _UniThFilterData {
@@ -14,28 +14,41 @@ interface _UniThFilterData {
   value: string;
 }
 
-interface _UniThOnSortChangeDetail {
+type _UniThOnSortChangeEvent = {
   order: 'ascending' | 'descending' | null;
-}
+};
 
 /** 点击排序时触发 */
 interface _UniThOnSortChange {
-  (detail: _UniThOnSortChangeDetail): void;
+  (event: _UniThOnSortChangeEvent): void;
 }
 
-interface _UniThOnFilterChangeDetail {
-  filterType: _UniThFilterType;
-  filter: string | string[];
-}
+type _UniThOnFilterChangeEvent =
+  | {
+      filterType: 'search';
+      filter: string;
+    }
+  | {
+      filterType: 'select' | 'range';
+      filter: [string, string];
+    }
+  | {
+      filterType: 'date' | 'timestamp';
+      filter: [number, number];
+    };
 
 /** 筛选数据时触发 */
 interface _UniThOnFilterChange {
-  (detail: _UniThOnFilterChangeDetail): void;
+  (event: _UniThOnFilterChangeEvent): void;
 }
 
 type _UniThProps = Partial<{
-  /** 单元格宽度 */
-  width: string;
+  /**
+   * 单元格宽度
+   *
+   * 如果传入 number 默认使用 px
+   */
+  width: string | number;
   /**
    * 对齐方式
    *
@@ -78,9 +91,9 @@ export {
   _UniThAlign as UniThAlign,
   _UniThFilterType as UniThFilterType,
   _UniThFilterData as UniThFilterData,
-  _UniThOnSortChangeDetail as UniThOnSortChangeDetail,
+  _UniThOnSortChangeEvent as UniThOnSortChangeEvent,
   _UniThOnSortChange as UniThOnSortChange,
-  _UniThOnFilterChangeDetail as UniThOnFilterChangeDetail,
+  _UniThOnFilterChangeEvent as UniThOnFilterChangeEvent,
   _UniThOnFilterChange as UniThOnFilterChange,
   _UniThProps as UniThProps,
   _UniTh as UniTh,
@@ -95,10 +108,10 @@ declare global {
     export type UniThFilterType = _UniThFilterType;
     /** 筛选数据 */
     export interface UniThFilterData extends _UniThFilterData {}
-    export interface UniThOnSortChangeDetail extends _UniThOnSortChangeDetail {}
+    export type UniThOnSortChangeEvent = _UniThOnSortChangeEvent;
     /** 点击排序时触发 */
     export interface UniThOnSortChange extends _UniThOnSortChange {}
-    export interface UniThOnFilterChangeDetail extends _UniThOnFilterChangeDetail {}
+    export type UniThOnFilterChangeEvent = _UniThOnFilterChangeEvent;
     /** 筛选数据时触发 */
     export interface UniThOnFilterChange extends _UniThOnFilterChange {}
     export type UniThProps = _UniThProps;

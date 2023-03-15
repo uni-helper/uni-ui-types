@@ -3,9 +3,9 @@ import type {
   UniThAlign,
   UniThFilterType,
   UniThFilterData,
-  UniThOnSortChangeDetail,
+  UniThOnSortChangeEvent,
   UniThOnSortChange,
-  UniThOnFilterChangeDetail,
+  UniThOnFilterChangeEvent,
   UniThOnFilterChange,
   UniThProps,
   UniTh,
@@ -22,14 +22,14 @@ describe('UniTh', () => {
   expectTypeOf<UniThFilterData>().toBeObject();
   expectTypeOf<UniThFilterData>().toEqualTypeOf<UniHelper.UniThFilterData>();
 
-  expectTypeOf<UniThOnSortChangeDetail>().toBeObject();
-  expectTypeOf<UniThOnSortChangeDetail>().toEqualTypeOf<UniHelper.UniThOnSortChangeDetail>();
+  expectTypeOf<UniThOnSortChangeEvent>().toBeObject();
+  expectTypeOf<UniThOnSortChangeEvent>().toEqualTypeOf<UniHelper.UniThOnSortChangeEvent>();
 
   expectTypeOf<UniThOnSortChange>().toBeFunction();
   expectTypeOf<UniThOnSortChange>().toEqualTypeOf<UniHelper.UniThOnSortChange>();
 
-  expectTypeOf<UniThOnFilterChangeDetail>().toBeObject();
-  expectTypeOf<UniThOnFilterChangeDetail>().toEqualTypeOf<UniHelper.UniThOnFilterChangeDetail>();
+  expectTypeOf<UniThOnFilterChangeEvent>().toBeObject();
+  expectTypeOf<UniThOnFilterChangeEvent>().toEqualTypeOf<UniHelper.UniThOnFilterChangeEvent>();
 
   expectTypeOf<UniThOnFilterChange>().toBeFunction();
   expectTypeOf<UniThOnFilterChange>().toEqualTypeOf<UniHelper.UniThOnFilterChange>();
