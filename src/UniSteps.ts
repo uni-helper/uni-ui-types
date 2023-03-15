@@ -1,4 +1,5 @@
 import { Component } from '@uni-helper/uni-app-types';
+import { UniIconsType } from './UniIcons';
 
 /**
  * 排列方向
@@ -38,9 +39,21 @@ type _UniStepsProps = Partial<{
   /**
    * 选中状态的颜色
    *
-   * 默认为 #1aad19
+   * 默认为 #2979ff
    */
   activeColor: string;
+  /**
+   * 未选中状态的颜色
+   *
+   * 默认为 #b7bdc6
+   */
+  deactiveColor: string;
+  /**
+   * 当前步骤图标
+   *
+   * 默认为 checkbox-filled
+   */
+  activeIcon: UniIconsType;
   /** 数据源 */
   options: _UniStepsOption[];
 }>;
