@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component, InputOnFocusEvent, InputOnBlurEvent } from '@uni-helper/uni-app-types';
 
 /** 值 */
 type _UniNumberBoxValue = number;
@@ -8,14 +8,23 @@ interface _UniNumberBoxOnChange {
   (value: _UniNumberBoxValue): void;
 }
 
+/** 值改变时触发 */
+interface _UniNumberBoxOnInput {
+  (value: _UniNumberBoxValue): void;
+}
+
+type _UniNumberBoxOnFocusEvent = InputOnFocusEvent;
+
 /** 聚焦时触发 */
 interface _UniNumberBoxOnFocus {
-  (event: BaseEvent): void;
+  (event: _UniNumberBoxOnFocusEvent): void;
 }
+
+type _UniNumberBoxOnBlurEvent = InputOnBlurEvent;
 
 /** 失焦时触发 */
 interface _UniNumberBoxOnBlur {
-  (event: BaseEvent): void;
+  (event: _UniNumberBoxOnBlurEvent): void;
 }
 
 /** 数字输入框属性 */
@@ -45,6 +54,18 @@ type _UniNumberBoxProps = Partial<{
    */
   step: number;
   /**
+   * 背景色
+   *
+   * 默认为 #f5f5f5
+   */
+  background: string;
+  /**
+   * 文本颜色
+   *
+   * 默认为 #333
+   */
+  color: string;
+  /**
    * 是否为禁用状态
    *
    * 默认为 false
@@ -52,6 +73,8 @@ type _UniNumberBoxProps = Partial<{
   disabled: boolean;
   /** 值改变时触发 */
   onChange: _UniNumberBoxOnChange;
+  /** 值改变时触发 */
+  onInput: _UniNumberBoxOnInput;
   /** 聚焦时触发 */
   onFocus: _UniNumberBoxOnFocus;
   /** 失焦时触发 */
@@ -67,7 +90,10 @@ type _UniNumberBoxInstance = InstanceType<_UniNumberBox>;
 export {
   _UniNumberBoxValue as UniNumberBoxValue,
   _UniNumberBoxOnChange as UniNumberBoxOnChange,
+  _UniNumberBoxOnInput as UniNumberBoxOnInput,
+  _UniNumberBoxOnFocusEvent as UniNumberBoxOnFocusEvent,
   _UniNumberBoxOnFocus as UniNumberBoxOnFocus,
+  _UniNumberBoxOnBlurEvent as UniNumberBoxOnBlurEvent,
   _UniNumberBoxOnBlur as UniNumberBoxOnBlur,
   _UniNumberBoxProps as UniNumberBoxProps,
   _UniNumberBox as UniNumberBox,
@@ -80,8 +106,12 @@ declare global {
     export type UniNumberBoxValue = _UniNumberBoxValue;
     /** 值改变时触发 */
     export interface UniNumberBoxOnChange extends _UniNumberBoxOnChange {}
+    /** 值改变时触发 */
+    export interface UniNumberBoxOnInput extends _UniNumberBoxOnInput {}
+    export type UniNumberBoxOnFocusEvent = _UniNumberBoxOnFocusEvent;
     /** 聚焦时触发 */
     export interface UniNumberBoxOnFocus extends _UniNumberBoxOnFocus {}
+    export type UniNumberBoxOnBlurEvent = _UniNumberBoxOnBlurEvent;
     /** 失焦时触发 */
     export interface UniNumberBoxOnBlur extends _UniNumberBoxOnBlur {}
     /** 数字输入框属性 */

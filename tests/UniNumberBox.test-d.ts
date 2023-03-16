@@ -2,7 +2,10 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniNumberBoxValue,
   UniNumberBoxOnChange,
+  UniNumberBoxOnInput,
+  UniNumberBoxOnFocusEvent,
   UniNumberBoxOnFocus,
+  UniNumberBoxOnBlurEvent,
   UniNumberBoxOnBlur,
   UniNumberBoxProps,
   UniNumberBox,
@@ -16,8 +19,17 @@ describe('UniNumberBox', () => {
   expectTypeOf<UniNumberBoxOnChange>().toBeFunction();
   expectTypeOf<UniNumberBoxOnChange>().toEqualTypeOf<UniHelper.UniNumberBoxOnChange>();
 
+  expectTypeOf<UniNumberBoxOnInput>().toBeFunction();
+  expectTypeOf<UniNumberBoxOnInput>().toEqualTypeOf<UniHelper.UniNumberBoxOnInput>();
+
+  expectTypeOf<UniNumberBoxOnFocusEvent>().toBeObject();
+  expectTypeOf<UniNumberBoxOnFocusEvent>().toEqualTypeOf<UniHelper.UniNumberBoxOnFocusEvent>();
+
   expectTypeOf<UniNumberBoxOnFocus>().toBeFunction();
   expectTypeOf<UniNumberBoxOnFocus>().toEqualTypeOf<UniHelper.UniNumberBoxOnFocus>();
+
+  expectTypeOf<UniNumberBoxOnBlurEvent>().toBeObject();
+  expectTypeOf<UniNumberBoxOnBlurEvent>().toEqualTypeOf<UniHelper.UniNumberBoxOnBlurEvent>();
 
   expectTypeOf<UniNumberBoxOnBlur>().toBeFunction();
   expectTypeOf<UniNumberBoxOnBlur>().toEqualTypeOf<UniHelper.UniNumberBoxOnBlur>();
