@@ -42,6 +42,7 @@ export * from './UniRate';
 export * from './UniRow';
 export * from './UniCol';
 export * from './UniSearchBar';
+export * from './UniSection';
 export * from './UniSegmentedControl';
 export * from './UniSteps';
 export * from './UniSwipeAction';
