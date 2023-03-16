@@ -2,7 +2,7 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniSegmentedControlCurrent,
   UniSegmentedControlStyleType,
-  UniSegmentedControlOnClickItemDetail,
+  UniSegmentedControlOnClickItemEvent,
   UniSegmentedControlOnClickItem,
   UniSegmentedControlProps,
   UniSegmentedControl,
@@ -16,8 +16,8 @@ describe('UniSegmentedControl', () => {
   expectTypeOf<UniSegmentedControlStyleType>().toBeString();
   expectTypeOf<UniSegmentedControlStyleType>().toEqualTypeOf<UniHelper.UniSegmentedControlStyleType>();
 
-  expectTypeOf<UniSegmentedControlOnClickItemDetail>().toBeObject();
-  expectTypeOf<UniSegmentedControlOnClickItemDetail>().toEqualTypeOf<UniHelper.UniSegmentedControlOnClickItemDetail>();
+  expectTypeOf<UniSegmentedControlOnClickItemEvent>().toBeObject();
+  expectTypeOf<UniSegmentedControlOnClickItemEvent>().toEqualTypeOf<UniHelper.UniSegmentedControlOnClickItemEvent>();
 
   expectTypeOf<UniSegmentedControlOnClickItem>().toBeFunction();
   expectTypeOf<UniSegmentedControlOnClickItem>().toEqualTypeOf<UniHelper.UniSegmentedControlOnClickItem>();

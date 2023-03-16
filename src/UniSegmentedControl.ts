@@ -12,13 +12,13 @@ type _UniSegmentedControlCurrent = number;
  */
 type _UniSegmentedControlStyleType = 'button' | 'text';
 
-interface _UniSegmentedControlOnClickItemDetail {
+type _UniSegmentedControlOnClickItemEvent = {
   currentIndex: _UniSegmentedControlCurrent;
-}
+};
 
 /** 点击时触发 */
 interface _UniSegmentedControlOnClickItem {
-  (detail: _UniSegmentedControlOnClickItemDetail): void;
+  (event: _UniSegmentedControlOnClickItemEvent): void;
 }
 
 /** 分段器属性 */
@@ -42,7 +42,7 @@ type _UniSegmentedControlProps = Partial<{
   /**
    * 选中的标签背景色与边框颜色
    *
-   * 默认为 #007aff
+   * 默认为 #2979ff
    */
   activeColor: string;
   /** 选项 */
@@ -60,7 +60,7 @@ type _UniSegmentedControlInstance = InstanceType<_UniSegmentedControl>;
 export {
   _UniSegmentedControlCurrent as UniSegmentedControlCurrent,
   _UniSegmentedControlStyleType as UniSegmentedControlStyleType,
-  _UniSegmentedControlOnClickItemDetail as UniSegmentedControlOnClickItemDetail,
+  _UniSegmentedControlOnClickItemEvent as UniSegmentedControlOnClickItemEvent,
   _UniSegmentedControlOnClickItem as UniSegmentedControlOnClickItem,
   _UniSegmentedControlProps as UniSegmentedControlProps,
   _UniSegmentedControl as UniSegmentedControl,
@@ -79,8 +79,7 @@ declare global {
      * text 文字
      */
     export type UniSegmentedControlStyleType = _UniSegmentedControlStyleType;
-    export interface UniSegmentedControlOnClickItemDetail
-      extends _UniSegmentedControlOnClickItemDetail {}
+    export type UniSegmentedControlOnClickItemEvent = _UniSegmentedControlOnClickItemEvent;
     /** 点击时触发 */
     export interface UniSegmentedControlOnClickItem extends _UniSegmentedControlOnClickItem {}
     /** 分段器属性 */
