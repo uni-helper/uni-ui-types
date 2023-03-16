@@ -3,18 +3,18 @@ import type {
   UniSearchBarValue,
   UniSearchBarClearButton,
   UniSearchBarCancelButton,
-  UniSearchBarBaseDetail,
-  UniSearchBarOnConfirmDetail,
+  UniSearchBarBaseEvent,
+  UniSearchBarOnConfirmEvent,
   UniSearchBarOnConfirm,
-  UniSearchBarOnInputDetail,
+  UniSearchBarOnInputEvent,
   UniSearchBarOnInput,
-  UniSearchBarOnCancelDetail,
+  UniSearchBarOnCancelEvent,
   UniSearchBarOnCancel,
-  UniSearchBarOnClearDetail,
+  UniSearchBarOnClearEvent,
   UniSearchBarOnClear,
-  UniSearchBarOnFocusDetail,
+  UniSearchBarOnFocusEvent,
   UniSearchBarOnFocus,
-  UniSearchBarOnBlurDetail,
+  UniSearchBarOnBlurEvent,
   UniSearchBarOnBlur,
   UniSearchBarProps,
   UniSearchBar,
@@ -31,41 +31,41 @@ describe('UniSearchBar', () => {
   expectTypeOf<UniSearchBarCancelButton>().toBeString();
   expectTypeOf<UniSearchBarCancelButton>().toEqualTypeOf<UniHelper.UniSearchBarCancelButton>();
 
-  expectTypeOf<UniSearchBarBaseDetail>().toBeObject();
-  expectTypeOf<UniSearchBarBaseDetail>().toEqualTypeOf<UniHelper.UniSearchBarBaseDetail>();
+  expectTypeOf<UniSearchBarBaseEvent>().toBeObject();
+  expectTypeOf<UniSearchBarBaseEvent>().toEqualTypeOf<UniHelper.UniSearchBarBaseEvent>();
 
-  expectTypeOf<UniSearchBarOnConfirmDetail>().toBeObject();
-  expectTypeOf<UniSearchBarOnConfirmDetail>().toEqualTypeOf<UniHelper.UniSearchBarOnConfirmDetail>();
+  expectTypeOf<UniSearchBarOnConfirmEvent>().toBeObject();
+  expectTypeOf<UniSearchBarOnConfirmEvent>().toEqualTypeOf<UniHelper.UniSearchBarOnConfirmEvent>();
 
   expectTypeOf<UniSearchBarOnConfirm>().toBeObject();
   expectTypeOf<UniSearchBarOnConfirm>().toEqualTypeOf<UniHelper.UniSearchBarOnConfirm>();
 
-  expectTypeOf<UniSearchBarOnInputDetail>().toBeObject();
-  expectTypeOf<UniSearchBarOnInputDetail>().toEqualTypeOf<UniHelper.UniSearchBarOnInputDetail>();
+  expectTypeOf<UniSearchBarOnInputEvent>().toBeObject();
+  expectTypeOf<UniSearchBarOnInputEvent>().toEqualTypeOf<UniHelper.UniSearchBarOnInputEvent>();
 
   expectTypeOf<UniSearchBarOnInput>().toBeObject();
   expectTypeOf<UniSearchBarOnInput>().toEqualTypeOf<UniHelper.UniSearchBarOnInput>();
 
-  expectTypeOf<UniSearchBarOnCancelDetail>().toBeObject();
-  expectTypeOf<UniSearchBarOnCancelDetail>().toEqualTypeOf<UniHelper.UniSearchBarOnCancelDetail>();
+  expectTypeOf<UniSearchBarOnCancelEvent>().toBeObject();
+  expectTypeOf<UniSearchBarOnCancelEvent>().toEqualTypeOf<UniHelper.UniSearchBarOnCancelEvent>();
 
   expectTypeOf<UniSearchBarOnCancel>().toBeObject();
   expectTypeOf<UniSearchBarOnCancel>().toEqualTypeOf<UniHelper.UniSearchBarOnCancel>();
 
-  expectTypeOf<UniSearchBarOnClearDetail>().toBeObject();
-  expectTypeOf<UniSearchBarOnClearDetail>().toEqualTypeOf<UniHelper.UniSearchBarOnClearDetail>();
+  expectTypeOf<UniSearchBarOnClearEvent>().toBeObject();
+  expectTypeOf<UniSearchBarOnClearEvent>().toEqualTypeOf<UniHelper.UniSearchBarOnClearEvent>();
 
   expectTypeOf<UniSearchBarOnClear>().toBeObject();
   expectTypeOf<UniSearchBarOnClear>().toEqualTypeOf<UniHelper.UniSearchBarOnClear>();
 
-  expectTypeOf<UniSearchBarOnFocusDetail>().toBeObject();
-  expectTypeOf<UniSearchBarOnFocusDetail>().toEqualTypeOf<UniHelper.UniSearchBarOnFocusDetail>();
+  expectTypeOf<UniSearchBarOnFocusEvent>().toBeObject();
+  expectTypeOf<UniSearchBarOnFocusEvent>().toEqualTypeOf<UniHelper.UniSearchBarOnFocusEvent>();
 
   expectTypeOf<UniSearchBarOnFocus>().toBeObject();
   expectTypeOf<UniSearchBarOnFocus>().toEqualTypeOf<UniHelper.UniSearchBarOnFocus>();
 
-  expectTypeOf<UniSearchBarOnBlurDetail>().toBeObject();
-  expectTypeOf<UniSearchBarOnBlurDetail>().toEqualTypeOf<UniHelper.UniSearchBarOnBlurDetail>();
+  expectTypeOf<UniSearchBarOnBlurEvent>().toBeObject();
+  expectTypeOf<UniSearchBarOnBlurEvent>().toEqualTypeOf<UniHelper.UniSearchBarOnBlurEvent>();
 
   expectTypeOf<UniSearchBarOnBlur>().toBeObject();
   expectTypeOf<UniSearchBarOnBlur>().toEqualTypeOf<UniHelper.UniSearchBarOnBlur>();

@@ -25,50 +25,50 @@ type _UniSearchBarClearButton = 'always' | 'auto' | 'none';
  */
 type _UniSearchBarCancelButton = 'always' | 'auto' | 'none';
 
-interface _UniSearchBarBaseDetail {
+type _UniSearchBarBaseEvent = {
   value: _UniSearchBarValue;
-}
+};
 
-interface _UniSearchBarOnConfirmDetail extends _UniSearchBarBaseDetail {}
+type _UniSearchBarOnConfirmEvent = _UniSearchBarBaseEvent;
 
 /** 确认时触发 */
 interface _UniSearchBarOnConfirm {
-  (detail: _UniSearchBarOnConfirmDetail): void;
+  (event: _UniSearchBarOnConfirmEvent): void;
 }
 
-interface _UniSearchBarOnInputDetail extends _UniSearchBarBaseDetail {}
+type _UniSearchBarOnInputEvent = _UniSearchBarBaseEvent;
 
 /** value 改变时触发 */
 interface _UniSearchBarOnInput {
-  (detail: _UniSearchBarOnInputDetail): void;
+  (event: _UniSearchBarOnInputEvent): void;
 }
 
-interface _UniSearchBarOnCancelDetail extends _UniSearchBarBaseDetail {}
+type _UniSearchBarOnCancelEvent = _UniSearchBarBaseEvent;
 
 /** 取消时触发 */
 interface _UniSearchBarOnCancel {
-  (detail: _UniSearchBarOnCancelDetail): void;
+  (event: _UniSearchBarOnCancelEvent): void;
 }
 
-interface _UniSearchBarOnClearDetail extends _UniSearchBarBaseDetail {}
+type _UniSearchBarOnClearEvent = _UniSearchBarBaseEvent;
 
 /** 清除时触发 */
 interface _UniSearchBarOnClear {
-  (detail: _UniSearchBarOnClearDetail): void;
+  (event: _UniSearchBarOnClearEvent): void;
 }
 
-interface _UniSearchBarOnFocusDetail extends _UniSearchBarBaseDetail {}
+type _UniSearchBarOnFocusEvent = _UniSearchBarBaseEvent;
 
 /** 聚焦时触发 */
 interface _UniSearchBarOnFocus {
-  (detail: _UniSearchBarOnFocusDetail): void;
+  (event: _UniSearchBarOnFocusEvent): void;
 }
 
-interface _UniSearchBarOnBlurDetail extends _UniSearchBarBaseDetail {}
+type _UniSearchBarOnBlurEvent = _UniSearchBarBaseEvent;
 
 /** 失焦时触发 */
 interface _UniSearchBarOnBlur {
-  (detail: _UniSearchBarOnBlurDetail): void;
+  (event: _UniSearchBarOnBlurEvent): void;
 }
 
 /** 搜索栏属性 */
@@ -86,9 +86,9 @@ type _UniSearchBarProps = Partial<{
    *
    * 单位为 px
    *
-   * 默认为 10
+   * 默认为 5
    */
-  radius: number;
+  radius: number | string;
   /**
    * 清除按钮的显示方式
    *
@@ -130,7 +130,7 @@ type _UniSearchBarProps = Partial<{
    *
    * 默认为 100
    */
-  maxlength: number;
+  maxlength: number | string;
   /**
    * 是否自动聚焦
    *
@@ -161,18 +161,18 @@ export {
   _UniSearchBarValue as UniSearchBarValue,
   _UniSearchBarClearButton as UniSearchBarClearButton,
   _UniSearchBarCancelButton as UniSearchBarCancelButton,
-  _UniSearchBarBaseDetail as UniSearchBarBaseDetail,
-  _UniSearchBarOnConfirmDetail as UniSearchBarOnConfirmDetail,
+  _UniSearchBarBaseEvent as UniSearchBarBaseEvent,
+  _UniSearchBarOnConfirmEvent as UniSearchBarOnConfirmEvent,
   _UniSearchBarOnConfirm as UniSearchBarOnConfirm,
-  _UniSearchBarOnInputDetail as UniSearchBarOnInputDetail,
+  _UniSearchBarOnInputEvent as UniSearchBarOnInputEvent,
   _UniSearchBarOnInput as UniSearchBarOnInput,
-  _UniSearchBarOnCancelDetail as UniSearchBarOnCancelDetail,
+  _UniSearchBarOnCancelEvent as UniSearchBarOnCancelEvent,
   _UniSearchBarOnCancel as UniSearchBarOnCancel,
-  _UniSearchBarOnClearDetail as UniSearchBarOnClearDetail,
+  _UniSearchBarOnClearEvent as UniSearchBarOnClearEvent,
   _UniSearchBarOnClear as UniSearchBarOnClear,
-  _UniSearchBarOnFocusDetail as UniSearchBarOnFocusDetail,
+  _UniSearchBarOnFocusEvent as UniSearchBarOnFocusEvent,
   _UniSearchBarOnFocus as UniSearchBarOnFocus,
-  _UniSearchBarOnBlurDetail as UniSearchBarOnBlurDetail,
+  _UniSearchBarOnBlurEvent as UniSearchBarOnBlurEvent,
   _UniSearchBarOnBlur as UniSearchBarOnBlur,
   _UniSearchBarProps as UniSearchBarProps,
   _UniSearchBar as UniSearchBar,
@@ -203,23 +203,23 @@ declare global {
      * none 一直不显示
      */
     export type UniSearchBarCancelButton = _UniSearchBarCancelButton;
-    export interface UniSearchBarBaseDetail extends _UniSearchBarBaseDetail {}
-    export interface UniSearchBarOnConfirmDetail extends _UniSearchBarOnConfirmDetail {}
+    export type UniSearchBarBaseEvent = _UniSearchBarBaseEvent;
+    export type UniSearchBarOnConfirmEvent = _UniSearchBarOnConfirmEvent;
     /** 确认时触发 */
     export interface UniSearchBarOnConfirm extends _UniSearchBarOnConfirm {}
-    export interface UniSearchBarOnInputDetail extends _UniSearchBarOnInputDetail {}
+    export type UniSearchBarOnInputEvent = _UniSearchBarOnInputEvent;
     /** value 改变时触发 */
     export interface UniSearchBarOnInput extends _UniSearchBarOnInput {}
-    export interface UniSearchBarOnCancelDetail extends _UniSearchBarOnCancelDetail {}
+    export type UniSearchBarOnCancelEvent = _UniSearchBarOnCancelEvent;
     /** 取消时触发 */
     export interface UniSearchBarOnCancel extends _UniSearchBarOnCancel {}
-    export interface UniSearchBarOnClearDetail extends _UniSearchBarOnClearDetail {}
+    export type UniSearchBarOnClearEvent = _UniSearchBarOnClearEvent;
     /** 清除时触发 */
     export interface UniSearchBarOnClear extends _UniSearchBarOnClear {}
-    export interface UniSearchBarOnFocusDetail extends _UniSearchBarOnFocusDetail {}
+    export type UniSearchBarOnFocusEvent = _UniSearchBarOnFocusEvent;
     /** 聚焦时触发 */
     export interface UniSearchBarOnFocus extends _UniSearchBarOnFocus {}
-    export interface UniSearchBarOnBlurDetail extends _UniSearchBarOnBlurDetail {}
+    export type UniSearchBarOnBlurEvent = _UniSearchBarOnBlurEvent;
     /** 失焦时触发 */
     export interface UniSearchBarOnBlur extends _UniSearchBarOnBlur {}
     /** 搜索栏属性 */
