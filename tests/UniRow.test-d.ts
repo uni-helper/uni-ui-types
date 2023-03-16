@@ -1,7 +1,13 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { UniRowProps, UniRow, UniRowInstance } from '@/UniRow';
+import type { UniRowJustify, UniRowAlign, UniRowProps, UniRow, UniRowInstance } from '@/UniRow';
 
 describe('UniRow', () => {
+  expectTypeOf<UniRowJustify>().toBeString();
+  expectTypeOf<UniRowJustify>().toEqualTypeOf<UniHelper.UniRowJustify>();
+
+  expectTypeOf<UniRowAlign>().toBeString();
+  expectTypeOf<UniRowAlign>().toEqualTypeOf<UniHelper.UniRowAlign>();
+
   expectTypeOf<UniRowProps>().toBeObject();
   expectTypeOf<UniRowProps>().toEqualTypeOf<UniHelper.UniRowProps>();
 
