@@ -1,6 +1,6 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
-  UniPopupShareOnSelectDetail,
+  UniPopupShareOnSelectEvent,
   UniPopupShareOnSelect,
   UniPopupShareProps,
   UniPopupShare,
@@ -8,8 +8,8 @@ import type {
 } from '@/UniPopupShare';
 
 describe('UniPopupShare', () => {
-  expectTypeOf<UniPopupShareOnSelectDetail>().toBeObject();
-  expectTypeOf<UniPopupShareOnSelectDetail>().toEqualTypeOf<UniHelper.UniPopupShareOnSelectDetail>();
+  expectTypeOf<UniPopupShareOnSelectEvent>().toBeObject();
+  expectTypeOf<UniPopupShareOnSelectEvent>().toEqualTypeOf<UniHelper.UniPopupShareOnSelectEvent>();
 
   expectTypeOf<UniPopupShareOnSelect>().toBeFunction();
   expectTypeOf<UniPopupShareOnSelect>().toEqualTypeOf<UniHelper.UniPopupShareOnSelect>();

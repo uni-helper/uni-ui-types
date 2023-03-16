@@ -1,19 +1,20 @@
 import { Component } from '@uni-helper/uni-app-types';
 
-interface _UniPopupShareOnSelectDetail {
-  value: {
+type _UniPopupShareOnSelectEvent = {
+  item: {
     text: string;
     icon: string;
     name: string;
   };
   index: number;
-}
+};
 
 /** 选择时触发 */
 interface _UniPopupShareOnSelect {
-  (detail: _UniPopupShareOnSelectDetail): void;
+  (event: _UniPopupShareOnSelectEvent): void;
 }
 
+/** 分享弹窗属性 */
 type _UniPopupShareProps = Partial<{
   /** 分享弹窗标题 */
   title: string;
@@ -29,12 +30,13 @@ type _UniPopupShareProps = Partial<{
   onSelect: _UniPopupShareOnSelect;
 }>;
 
+/** 分享弹窗 */
 type _UniPopupShare = Component<_UniPopupShareProps>;
 
 type _UniPopupShareInstance = InstanceType<_UniPopupShare>;
 
 export {
-  _UniPopupShareOnSelectDetail as UniPopupShareOnSelectDetail,
+  _UniPopupShareOnSelectEvent as UniPopupShareOnSelectEvent,
   _UniPopupShareOnSelect as UniPopupShareOnSelect,
   _UniPopupShareProps as UniPopupShareProps,
   _UniPopupShare as UniPopupShare,
@@ -43,10 +45,12 @@ export {
 
 declare global {
   namespace UniHelper {
-    export interface UniPopupShareOnSelectDetail extends _UniPopupShareOnSelectDetail {}
+    export type UniPopupShareOnSelectEvent = _UniPopupShareOnSelectEvent;
     /** 选择时触发 */
     export interface UniPopupShareOnSelect extends _UniPopupShareOnSelect {}
+    /** 分享弹窗属性 */
     export type UniPopupShareProps = _UniPopupShareProps;
+    /** 分享弹窗 */
     export type UniPopupShare = _UniPopupShare;
     export type UniPopupShareInstance = _UniPopupShareInstance;
   }
