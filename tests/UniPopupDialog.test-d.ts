@@ -4,7 +4,7 @@ import type {
   UniPopupDialogMode,
   UniPopupDialogValue,
   UniPopupDialogOnClose,
-  UniPopupDialogOnConfirmDetail,
+  UniPopupDialogOnConfirmEvent,
   UniPopupDialogOnConfirm,
   UniPopupDialogProps,
   UniPopupDialog,
@@ -24,8 +24,8 @@ describe('UniPopupDialog', () => {
   expectTypeOf<UniPopupDialogOnClose>().toBeFunction();
   expectTypeOf<UniPopupDialogOnClose>().toEqualTypeOf<UniHelper.UniPopupDialogOnClose>();
 
-  expectTypeOf<UniPopupDialogOnConfirmDetail>().toBeObject();
-  expectTypeOf<UniPopupDialogOnConfirmDetail>().toEqualTypeOf<UniHelper.UniPopupDialogOnConfirmDetail>();
+  expectTypeOf<UniPopupDialogOnConfirmEvent>().toBeObject();
+  expectTypeOf<UniPopupDialogOnConfirmEvent>().toEqualTypeOf<UniHelper.UniPopupDialogOnConfirmEvent>();
 
   expectTypeOf<UniPopupDialogOnConfirm>().toBeFunction();
   expectTypeOf<UniPopupDialogOnConfirm>().toEqualTypeOf<UniHelper.UniPopupDialogOnConfirm>();

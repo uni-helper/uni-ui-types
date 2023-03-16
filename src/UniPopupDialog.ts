@@ -1,4 +1,4 @@
-import { Component } from '@uni-helper/uni-app-types';
+import { Component, InputType } from '@uni-helper/uni-app-types';
 
 /**
  * 消息提示主题
@@ -23,6 +23,25 @@ type _UniPopupDialogType = 'success' | 'warn' | 'error' | 'info';
 type _UniPopupDialogMode = 'base' | 'input';
 
 /**
+ * 输入框类型
+ *
+ * text 文本输入键盘
+ *
+ * number 数字输入键盘
+ *
+ * idcard 身份证输入键盘
+ *
+ * digit 带小数点的数字键盘
+ *
+ * tel 电话输入键盘
+ *
+ * safe-password 密码安全输入键盘
+ *
+ * nickname 昵称输入键盘
+ */
+type _UniPopupDialogInputType = InputType;
+
+/**
  * 输入框值
  *
  * mode="input" 时有效
@@ -34,15 +53,16 @@ interface _UniPopupDialogOnClose {
   (): void;
 }
 
-interface _UniPopupDialogOnConfirmDetail {
+interface _UniPopupDialogOnConfirmEvent {
   value: _UniPopupDialogValue;
 }
 
 /** 点击确定时触发 */
 interface _UniPopupDialogOnConfirm {
-  (detail?: _UniPopupDialogOnConfirmDetail): void;
+  (event?: _UniPopupDialogOnConfirmEvent): void;
 }
 
+/** 对话框弹窗属性 */
 type _UniPopupDialogProps = Partial<{
   /**
    * 对话框标题主题
@@ -54,8 +74,6 @@ type _UniPopupDialogProps = Partial<{
    * error 失败
    *
    * info 消息
-   *
-   * 默认为 success
    */
   type: _UniPopupDialogType;
   /**
@@ -76,10 +94,40 @@ type _UniPopupDialogProps = Partial<{
    * mode="base" 时有效
    */
   content: string;
-  /** 确定按钮文本 */
+  /**
+   * 确定按钮文本
+   *
+   * 默认为 确定
+   */
   confirmText: string;
-  /** 取消按钮文本 */
+  /**
+   * 取消按钮文本
+   *
+   * 默认为 取消
+   */
   cancelText: string;
+  /**
+   * 输入框类型
+   *
+   * mode="input" 时有效
+   *
+   * text 文本输入键盘
+   *
+   * number 数字输入键盘
+   *
+   * idcard 身份证输入键盘
+   *
+   * digit 带小数点的数字键盘
+   *
+   * tel 电话输入键盘
+   *
+   * safe-password 密码安全输入键盘
+   *
+   * nickname 昵称输入键盘
+   *
+   * 默认为 text
+   */
+  inputType: _UniPopupDialogInputType;
   /**
    * 输入框默认值
    *
@@ -106,6 +154,7 @@ type _UniPopupDialogProps = Partial<{
   onConfirm: _UniPopupDialogOnConfirm;
 }>;
 
+/** 对话框弹窗 */
 type _UniPopupDialog = Component<_UniPopupDialogProps>;
 
 type _UniPopupDialogInstance = InstanceType<_UniPopupDialog>;
@@ -115,7 +164,7 @@ export {
   _UniPopupDialogMode as UniPopupDialogMode,
   _UniPopupDialogValue as UniPopupDialogValue,
   _UniPopupDialogOnClose as UniPopupDialogOnClose,
-  _UniPopupDialogOnConfirmDetail as UniPopupDialogOnConfirmDetail,
+  _UniPopupDialogOnConfirmEvent as UniPopupDialogOnConfirmEvent,
   _UniPopupDialogOnConfirm as UniPopupDialogOnConfirm,
   _UniPopupDialogProps as UniPopupDialogProps,
   _UniPopupDialog as UniPopupDialog,
@@ -152,7 +201,7 @@ declare global {
     export type UniPopupDialogValue = _UniPopupDialogValue;
     /** 点击取消时触发 */
     export interface UniPopupDialogOnClose extends _UniPopupDialogOnClose {}
-    export interface UniPopupDialogOnConfirmDetail extends _UniPopupDialogOnConfirmDetail {}
+    export type UniPopupDialogOnConfirmEvent = _UniPopupDialogOnConfirmEvent;
     /** 点击确定时触发 */
     export interface UniPopupDialogOnConfirm extends _UniPopupDialogOnConfirm {}
     export type UniPopupDialogProps = _UniPopupDialogProps;
