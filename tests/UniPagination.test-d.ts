@@ -1,7 +1,8 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
+  UniPaginationOnInput,
   UniPaginationOnChangeType,
-  UniPaginationOnChangeDetail,
+  UniPaginationOnChangeEvent,
   UniPaginationOnChange,
   UniPaginationProps,
   UniPagination,
@@ -9,11 +10,14 @@ import type {
 } from '@/UniPagination';
 
 describe('UniPagination', () => {
+  expectTypeOf<UniPaginationOnInput>().toBeFunction();
+  expectTypeOf<UniPaginationOnInput>().toEqualTypeOf<UniHelper.UniPaginationOnInput>();
+
   expectTypeOf<UniPaginationOnChangeType>().toBeString();
   expectTypeOf<UniPaginationOnChangeType>().toEqualTypeOf<UniHelper.UniPaginationOnChangeType>();
 
-  expectTypeOf<UniPaginationOnChangeDetail>().toBeObject();
-  expectTypeOf<UniPaginationOnChangeDetail>().toEqualTypeOf<UniHelper.UniPaginationOnChangeDetail>();
+  expectTypeOf<UniPaginationOnChangeEvent>().toBeObject();
+  expectTypeOf<UniPaginationOnChangeEvent>().toEqualTypeOf<UniHelper.UniPaginationOnChangeEvent>();
 
   expectTypeOf<UniPaginationOnChange>().toBeFunction();
   expectTypeOf<UniPaginationOnChange>().toEqualTypeOf<UniHelper.UniPaginationOnChange>();
