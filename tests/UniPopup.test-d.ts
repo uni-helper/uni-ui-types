@@ -1,7 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   UniPopupType,
-  UniPopupOnChangeDetail,
+  UniPopupOnChangeEvent,
   UniPopupOnChange,
   UniPopupOnMaskClick,
   UniPopupProps,
@@ -13,8 +13,8 @@ describe('UniPopup', () => {
   expectTypeOf<UniPopupType>().toBeString();
   expectTypeOf<UniPopupType>().toEqualTypeOf<UniHelper.UniPopupType>();
 
-  expectTypeOf<UniPopupOnChangeDetail>().toBeObject();
-  expectTypeOf<UniPopupOnChangeDetail>().toEqualTypeOf<UniHelper.UniPopupOnChangeDetail>();
+  expectTypeOf<UniPopupOnChangeEvent>().toBeObject();
+  expectTypeOf<UniPopupOnChangeEvent>().toEqualTypeOf<UniHelper.UniPopupOnChangeEvent>();
 
   expectTypeOf<UniPopupOnChange>().toBeFunction();
   expectTypeOf<UniPopupOnChange>().toEqualTypeOf<UniHelper.UniPopupOnChange>();

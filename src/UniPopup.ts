@@ -29,14 +29,14 @@ type _UniPopupType =
   | 'dialog'
   | 'share';
 
-interface _UniPopupOnChangeDetail {
+type _UniPopupOnChangeEvent = {
   show: boolean;
   type: _UniPopupType;
-}
+};
 
 /** 状态变化时触发 */
 interface _UniPopupOnChange {
-  (detail: _UniPopupOnChangeDetail): void;
+  (event: _UniPopupOnChangeEvent): void;
 }
 
 /** 点击遮罩层触发 */
@@ -116,7 +116,7 @@ type _UniPopupInstance = InstanceType<_UniPopup>;
 
 export {
   _UniPopupType as UniPopupType,
-  _UniPopupOnChangeDetail as UniPopupOnChangeDetail,
+  _UniPopupOnChangeEvent as UniPopupOnChangeEvent,
   _UniPopupOnChange as UniPopupOnChange,
   _UniPopupOnMaskClick as UniPopupOnMaskClick,
   _UniPopupProps as UniPopupProps,
@@ -146,7 +146,7 @@ declare global {
      * share 预置样式，底部弹出分享
      */
     export type UniPopupType = _UniPopupType;
-    export interface UniPopupOnChangeDetail extends _UniPopupOnChangeDetail {}
+    export type UniPopupOnChangeEvent = _UniPopupOnChangeEvent;
     /** 状态变化时触发 */
     export interface UniPopupOnChange extends _UniPopupOnChange {}
     /** 点击遮罩层触发 */
