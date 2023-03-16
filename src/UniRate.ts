@@ -3,13 +3,13 @@ import { Component } from '@uni-helper/uni-app-types';
 /** 评分 */
 type _UniRateValue = number;
 
-interface _UniRateOnChangeDetail {
+type _UniRateOnChangeEvent = {
   value: _UniRateValue;
-}
+};
 
 /** 值改变时触发 */
 interface _UniRateOnChange {
-  (detail: _UniRateOnChangeDetail): void;
+  (event: _UniRateOnChangeEvent): void;
 }
 
 /** 评分组件属性 */
@@ -41,9 +41,13 @@ type _UniRateProps = Partial<{
   /**
    * 星星的大小
    *
+   * 如果传入 number 默认使用 px
+   *
+   * 可传入其他自定义单位的宽度值
+   *
    * 默认为 24
    */
-  size: number;
+  size: number | string;
   /**
    * 最大评分评分数量
    *
@@ -57,7 +61,7 @@ type _UniRateProps = Partial<{
    *
    * 默认为 0
    */
-  margin: number;
+  margin: number | string;
   /**
    * 是否显示实心星星
    *
@@ -100,7 +104,7 @@ type _UniRateInstance = InstanceType<_UniRate>;
 
 export {
   _UniRateValue as UniRateValue,
-  _UniRateOnChangeDetail as UniRateOnChangeDetail,
+  _UniRateOnChangeEvent as UniRateOnChangeEvent,
   _UniRateOnChange as UniRateOnChange,
   _UniRateProps as UniRateProps,
   _UniRate as UniRate,
@@ -111,7 +115,7 @@ declare global {
   namespace UniHelper {
     /** 评分 */
     export type UniRateValue = _UniRateValue;
-    export interface UniRateOnChangeDetail extends _UniRateOnChangeDetail {}
+    export type UniRateOnChangeEvent = _UniRateOnChangeEvent;
     /** 值改变时触发 */
     export interface UniRateOnChange extends _UniRateOnChange {}
     /** 评分组件属性 */

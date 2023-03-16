@@ -1,7 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   UniRateValue,
-  UniRateOnChangeDetail,
+  UniRateOnChangeEvent,
   UniRateOnChange,
   UniRateProps,
   UniRate,
@@ -12,14 +12,17 @@ describe('UniRate', () => {
   expectTypeOf<UniRateValue>().toBeNumber();
   expectTypeOf<UniRateValue>().toEqualTypeOf<UniHelper.UniRateValue>();
 
-  expectTypeOf<UniRateOnChangeDetail>().toBeObject();
-  expectTypeOf<UniRateOnChangeDetail>().toEqualTypeOf<UniHelper.UniRateOnChangeDetail>();
+  expectTypeOf<UniRateOnChangeEvent>().toBeObject();
+  expectTypeOf<UniRateOnChangeEvent>().toEqualTypeOf<UniHelper.UniRateOnChangeEvent>();
 
   expectTypeOf<UniRateOnChange>().toBeFunction();
   expectTypeOf<UniRateOnChange>().toEqualTypeOf<UniHelper.UniRateOnChange>();
 
   expectTypeOf<UniRateProps>().toBeObject();
   expectTypeOf<UniRateProps>().toEqualTypeOf<UniHelper.UniRateProps>();
+
+  expectTypeOf<UniRate>().not.toBeAny();
+  expectTypeOf<UniRate>().toEqualTypeOf<UniHelper.UniRate>();
 
   expectTypeOf<UniRateInstance>().not.toBeAny();
   expectTypeOf<UniRateInstance>().toEqualTypeOf<UniHelper.UniRateInstance>();
