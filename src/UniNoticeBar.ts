@@ -1,18 +1,18 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /** 点击触发 */
 interface _UniNoticeBarOnClick {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 /** 关闭触发 */
 interface _UniNoticeBarOnClose {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 /** 查看更多触发 */
 interface _UniNoticeBarOnGetmore {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 /** 通告栏属性 */
@@ -27,26 +27,34 @@ type _UniNoticeBarProps = Partial<{
   speed: number;
   /** 显示文字 */
   text: string;
+  /** 查看更多的文本 */
+  moreText: string;
   /**
    * 背景颜色
    *
-   * 默认为 #fffbe8
+   * 默认为 #fff9ea
    */
   backgroundColor: string;
   /**
    * 文字颜色
    *
-   * 默认为 #de8c17
+   * 默认为 #ff9a43
    */
   color: string;
   /**
    * 查看更多的文字颜色
    *
-   * 默认为 #999999
+   * 默认为 #ff9a43
    */
   moreColor: string;
-  /** 查看更多的文本 */
-  moreText: string;
+  /**
+   * 字体大小，也用于计算 line-height
+   *
+   * 单位为 px
+   *
+   * 默认为 14
+   */
+  fontSize: number;
   /**
    * 是否单行
    *
@@ -56,7 +64,7 @@ type _UniNoticeBarProps = Partial<{
   /**
    * 是否滚动
    *
-   * true 滚动，单行
+   * true 滚动，强制单行
    *
    * false 不滚动
    *
