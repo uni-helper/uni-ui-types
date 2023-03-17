@@ -8,21 +8,29 @@ interface _UniGoodsNavOption {
   /** 图标 */
   icon: UniIconsType;
   /** 右上角数字角标 */
-  info: number;
-  /** 角标背景色 */
-  infoBackgroundColor: string;
-  /** 角标前景色 */
-  infoColor: string;
+  info?: number;
+  /**
+   * 角标背景色
+   *
+   * 默认为 #ff0000
+   */
+  infoBackgroundColor?: string;
+  /**
+   * 角标前景色
+   *
+   * 默认为 #fff
+   */
+  infoColor?: string;
 }
 
-interface _UniGoodsNavOnClickDetail {
+type _UniGoodsNavOnClickEvent = {
   index: number;
   content: _UniGoodsNavOption;
-}
+};
 
 /** 左侧点击触发 */
 interface _UniGoodsNavOnClick {
-  (detail: _UniGoodsNavOnClickDetail): void;
+  (event: _UniGoodsNavOnClickEvent): void;
 }
 
 /** 按钮 */
@@ -35,20 +43,30 @@ interface _UniGoodsNavButton {
   color: string;
 }
 
-interface _UniGoodsNavOnButtonClickDetail {
+type _UniGoodsNavOnButtonClickEvent = {
   index: number;
   content: _UniGoodsNavButton;
-}
+};
 
 /** 右侧点击触发 */
 interface _UniGoodsNavOnButtonClick {
-  (detail: _UniGoodsNavOnButtonClickDetail): void;
+  (event: _UniGoodsNavOnButtonClickEvent): void;
 }
 
 type _UniGoodsNavProps = Partial<{
-  /** 选项 */
+  /**
+   * 选项
+   *
+   * 默认为 [{ icon: 'shop', text: '店铺' }, { icon: 'cart', text: '购物车' }]
+   */
   options: _UniGoodsNavOption[];
-  /** 组件按钮组 */
+  /**
+   * 组件按钮组
+   *
+   * 默认为 [{ text: '加入购物车', backgroundColor: 'linear-gradient(90deg, #ffcd1e, #ff8a18)', color:
+   * '#fff' }, { text: '立即购买', backgroundColor: 'linear-gradient(90deg, #fe6035, #ef1224)', color:
+   * '#fff' }]
+   */
   buttonGroup: _UniGoodsNavButton[];
   /**
    * 按钮是否平铺
@@ -69,9 +87,9 @@ type _UniGoodsNavInstance = InstanceType<_UniGoodsNav>;
 
 export {
   _UniGoodsNavOption as UniGoodsNavOption,
-  _UniGoodsNavOnClickDetail as UniGoodsNavOnClickDetail,
+  _UniGoodsNavOnClickEvent as UniGoodsNavOnClickEvent,
   _UniGoodsNavOnClick as UniGoodsNavOnClick,
-  _UniGoodsNavOnButtonClickDetail as UniGoodsNavOnButtonClickDetail,
+  _UniGoodsNavOnButtonClickEvent as UniGoodsNavOnButtonClickEvent,
   _UniGoodsNavOnButtonClick as UniGoodsNavOnButtonClick,
   _UniGoodsNavButton as UniGoodsNavButton,
   _UniGoodsNavProps as UniGoodsNavProps,
@@ -83,12 +101,12 @@ declare global {
   namespace UniHelper {
     /** 选项 */
     export interface UniGoodsNavOption extends _UniGoodsNavOption {}
-    export interface UniGoodsNavOnClickDetail extends _UniGoodsNavOnClickDetail {}
+    export type UniGoodsNavOnClickEvent = _UniGoodsNavOnClickEvent;
     /** 左侧点击触发 */
     export interface UniGoodsNavOnClick extends _UniGoodsNavOnClick {}
     /** 按钮 */
     export interface UniGoodsNavButton extends _UniGoodsNavButton {}
-    export interface UniGoodsNavOnButtonClickDetail extends _UniGoodsNavOnButtonClickDetail {}
+    export type UniGoodsNavOnButtonClickEvent = _UniGoodsNavOnButtonClickEvent;
     /** 右侧点击触发 */
     export interface UniGoodsNavOnButtonClick extends _UniGoodsNavOnButtonClick {}
 

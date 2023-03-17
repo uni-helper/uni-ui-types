@@ -1,9 +1,9 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   UniGoodsNavOption,
-  UniGoodsNavOnClickDetail,
+  UniGoodsNavOnClickEvent,
   UniGoodsNavOnClick,
-  UniGoodsNavOnButtonClickDetail,
+  UniGoodsNavOnButtonClickEvent,
   UniGoodsNavOnButtonClick,
   UniGoodsNavButton,
   UniGoodsNavProps,
@@ -15,14 +15,14 @@ describe('UniGoodsNav', () => {
   expectTypeOf<UniGoodsNavOption>().toBeObject();
   expectTypeOf<UniGoodsNavOption>().toEqualTypeOf<UniHelper.UniGoodsNavOption>();
 
-  expectTypeOf<UniGoodsNavOnClickDetail>().toBeObject();
-  expectTypeOf<UniGoodsNavOnClickDetail>().toEqualTypeOf<UniHelper.UniGoodsNavOnClickDetail>();
+  expectTypeOf<UniGoodsNavOnClickEvent>().toBeObject();
+  expectTypeOf<UniGoodsNavOnClickEvent>().toEqualTypeOf<UniHelper.UniGoodsNavOnClickEvent>();
 
   expectTypeOf<UniGoodsNavOnClick>().toBeFunction();
   expectTypeOf<UniGoodsNavOnClick>().toEqualTypeOf<UniHelper.UniGoodsNavOnClick>();
 
-  expectTypeOf<UniGoodsNavOnButtonClickDetail>().toBeObject();
-  expectTypeOf<UniGoodsNavOnButtonClickDetail>().toEqualTypeOf<UniHelper.UniGoodsNavOnButtonClickDetail>();
+  expectTypeOf<UniGoodsNavOnButtonClickEvent>().toBeObject();
+  expectTypeOf<UniGoodsNavOnButtonClickEvent>().toEqualTypeOf<UniHelper.UniGoodsNavOnButtonClickEvent>();
 
   expectTypeOf<UniGoodsNavOnButtonClick>().toBeFunction();
   expectTypeOf<UniGoodsNavOnButtonClick>().toEqualTypeOf<UniHelper.UniGoodsNavOnButtonClick>();
