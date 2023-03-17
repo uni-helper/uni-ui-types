@@ -1,6 +1,5 @@
 import { AnyRecord, Component } from '@uni-helper/uni-app-types';
 
-/** 新页面的跳转方式 */
 type _UniListChatLink = 'navigateTo' | 'redirectTo' | 'reLaunch' | 'switchTab';
 
 /** 角标位置 */
