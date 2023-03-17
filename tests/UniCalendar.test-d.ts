@@ -4,12 +4,12 @@ import type {
   UniCalendarSelectedElement,
   UniCalendarSelected,
   UniCalendarOpen,
-  UniCalendarBaseDetail,
-  UniCalendarOnChangeDetail,
+  UniCalendarBaseEvent,
+  UniCalendarOnChangeEvent,
   UniCalendarOnChange,
-  UniCalendarOnConfirmDetail,
+  UniCalendarOnConfirmEvent,
   UniCalendarOnConfirm,
-  UniCalendarOnMonthSwitchDetail,
+  UniCalendarOnMonthSwitchEvent,
   UniCalendarOnMonthSwitch,
   UniCalendarOnClose,
   UniCalendarProps,
@@ -30,23 +30,23 @@ describe('UniCalendar', () => {
   expectTypeOf<UniCalendarOpen>().toBeFunction();
   expectTypeOf<UniCalendarOpen>().toEqualTypeOf<UniHelper.UniCalendarOpen>();
 
-  expectTypeOf<UniCalendarBaseDetail>().toBeObject();
-  expectTypeOf<UniCalendarBaseDetail>().toEqualTypeOf<UniHelper.UniCalendarBaseDetail>();
+  expectTypeOf<UniCalendarBaseEvent>().toBeObject();
+  expectTypeOf<UniCalendarBaseEvent>().toEqualTypeOf<UniHelper.UniCalendarBaseEvent>();
 
-  expectTypeOf<UniCalendarOnChangeDetail>().toBeObject();
-  expectTypeOf<UniCalendarOnChangeDetail>().toEqualTypeOf<UniHelper.UniCalendarOnChangeDetail>();
+  expectTypeOf<UniCalendarOnChangeEvent>().toBeObject();
+  expectTypeOf<UniCalendarOnChangeEvent>().toEqualTypeOf<UniHelper.UniCalendarOnChangeEvent>();
 
   expectTypeOf<UniCalendarOnChange>().toBeObject();
   expectTypeOf<UniCalendarOnChange>().toEqualTypeOf<UniHelper.UniCalendarOnChange>();
 
-  expectTypeOf<UniCalendarOnConfirmDetail>().toBeObject();
-  expectTypeOf<UniCalendarOnConfirmDetail>().toEqualTypeOf<UniHelper.UniCalendarOnConfirmDetail>();
+  expectTypeOf<UniCalendarOnConfirmEvent>().toBeObject();
+  expectTypeOf<UniCalendarOnConfirmEvent>().toEqualTypeOf<UniHelper.UniCalendarOnConfirmEvent>();
 
   expectTypeOf<UniCalendarOnConfirm>().toBeObject();
   expectTypeOf<UniCalendarOnConfirm>().toEqualTypeOf<UniHelper.UniCalendarOnConfirm>();
 
-  expectTypeOf<UniCalendarOnMonthSwitchDetail>().toBeObject();
-  expectTypeOf<UniCalendarOnMonthSwitchDetail>().toEqualTypeOf<UniHelper.UniCalendarOnMonthSwitchDetail>();
+  expectTypeOf<UniCalendarOnMonthSwitchEvent>().toBeObject();
+  expectTypeOf<UniCalendarOnMonthSwitchEvent>().toEqualTypeOf<UniHelper.UniCalendarOnMonthSwitchEvent>();
 
   expectTypeOf<UniCalendarOnMonthSwitch>().toBeObject();
   expectTypeOf<UniCalendarOnMonthSwitch>().toEqualTypeOf<UniHelper.UniCalendarOnMonthSwitch>();
