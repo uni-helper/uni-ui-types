@@ -52,24 +52,38 @@ type _UniNavBarProps = Partial<{
   /**
    * 导航栏高度
    *
+   * 如果传入 number 默认使用 px
+   *
    * 默认为 44
    */
   height: number | string;
-  /** 导航栏是否开启暗黑模式 */
+  /**
+   * 导航栏是否开启暗黑模式
+   *
+   * 默认为 false
+   */
   dark: boolean;
   /**
    * 导航栏左侧插槽宽度
    *
-   * 默认为 120rpx
+   * 如果传入 number 默认使用 px
+   *
+   * 默认为 60
    */
   leftWidth: number | string;
   /**
    * 导航栏右侧插槽宽度
    *
-   * 默认为 120rpx
+   * 如果传入 number 默认使用 px
+   *
+   * 默认为 60
    */
   rightWidth: number | string;
-  /** 是否开启统计标题功能 */
+  /**
+   * 是否开启统计标题功能
+   *
+   * 使用 title 属性且开启了统计功能生效
+   */
   stat: boolean | string;
 }>;
 
