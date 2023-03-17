@@ -1,6 +1,6 @@
 import { AnyRecord, Component } from '@uni-helper/uni-app-types';
-import { UniBadgeCustomStyle } from './UniBadge';
-import { UniIconsProps, UniIconsType } from './UniIcons';
+import { UniBadgeCustomStyle, UniBadgeType } from './UniBadge';
+import { UniIconsProps } from './UniIcons';
 
 /**
  * title 是否溢出隐藏
@@ -42,19 +42,23 @@ type _UniListItemSwitchChecked = boolean;
 /** 扩展图标参数 */
 type _UniListItemExtraIcon = Omit<UniIconsProps, 'customPrefix'>;
 
+type _UniListItemOnClickEvent = {
+  data: AnyRecord;
+};
+
 /** 点击 uni-list-item 触发，需开启点击反馈 */
 interface _UniListItemOnClick {
-  (detail?: AnyRecord): void;
+  (event: _UniListItemOnClickEvent): void;
 }
 
-interface _UniListItemOnSwitchChangeDetail {
+interface _UniListItemOnSwitchChangeEvent {
   /** switch 是否被选中 */
   value: _UniListItemSwitchChecked;
 }
 
 /** 点击切换 switch 时触发，需显示 switch */
 interface _UniListItemOnSwitchChange {
-  (detail: _UniListItemOnSwitchChangeDetail): void;
+  (event: _UniListItemOnSwitchChangeEvent): void;
 }
 
 type _UniListItemProps = Partial<{
@@ -100,8 +104,12 @@ type _UniListItemProps = Partial<{
   showBadge: boolean;
   /** 数字角标内容 */
   badgeText: string;
-  /** 数字角标类型 */
-  badgeType: UniIconsType;
+  /**
+   * 数字角标类型
+   *
+   * 默认为 success
+   */
+  badgeType: UniBadgeType;
   /** 数字角标样式 */
   badgeStyle: UniBadgeCustomStyle;
   /** 右侧文字内容 */
@@ -115,15 +123,15 @@ type _UniListItemProps = Partial<{
   /**
    * 是否显示箭头图标
    *
-   * 默认为 true
+   * 默认为 false
    */
   showArrow: boolean;
   /**
-   * 新页面的跳转方式
+   * 是否展示右侧箭头并开启点击反馈
    *
-   * 默认为 navigateTo
+   * 默认为 false，表示不开启
    */
-  link: _UniListItemLink;
+  link: false | _UniListItemLink;
   /**
    * 新页面跳转地址
    *
@@ -166,6 +174,18 @@ type _UniListItemProps = Partial<{
    * 默认为 row
    */
   direction: _UniListItemDirection;
+  /**
+   * 是否显示边框
+   *
+   * 默认为 true
+   */
+  border: boolean;
+  /**
+   * 自定义样式
+   *
+   * 默认为 { padding: '', backgroundColor: '#FFFFFF' }
+   */
+  customStyle: AnyRecord;
   /** 点击 uni-list-item 触发，需开启点击反馈 */
   onClick: _UniListItemOnClick;
   /** 点击切换 switch 时触发，需显示 switch */
@@ -183,8 +203,9 @@ export {
   _UniListItemDirection as UniListItemDirection,
   _UniListItemSwitchChecked as UniListItemSwitchChecked,
   _UniListItemExtraIcon as UniListItemExtraIcon,
+  _UniListItemOnClickEvent as UniListItemOnClickEvent,
   _UniListItemOnClick as UniListItemOnClick,
-  _UniListItemOnSwitchChangeDetail as UniListItemOnSwitchChangeDetail,
+  _UniListItemOnSwitchChangeEvent as UniListItemOnSwitchChangeEvent,
   _UniListItemOnSwitchChange as UniListItemOnSwitchChange,
   _UniListItemProps as UniListItemProps,
   _UniListItem as UniListItem,
@@ -227,9 +248,10 @@ declare global {
     export type UniListItemSwitchChecked = _UniListItemSwitchChecked;
     /** 扩展图标参数 */
     export interface UniListItemExtraIcon extends _UniListItemExtraIcon {}
+    export type UniListItemOnClickEvent = _UniListItemOnClickEvent;
     /** 点击 uni-list-item 触发，需开启点击反馈 */
     export interface UniListItemOnClick extends _UniListItemOnClick {}
-    export interface UniListItemOnSwitchChangeDetail extends _UniListItemOnSwitchChangeDetail {}
+    export type UniListItemOnSwitchChangeEvent = _UniListItemOnSwitchChangeEvent;
     /** 点击切换 switch 时触发，需显示 switch */
     export interface UniListItemOnSwitchChange extends _UniListItemOnSwitchChange {}
     export type UniListItemProps = _UniListItemProps;

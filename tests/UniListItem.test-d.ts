@@ -6,8 +6,9 @@ import type {
   UniListItemDirection,
   UniListItemSwitchChecked,
   UniListItemExtraIcon,
+  UniListItemOnClickEvent,
   UniListItemOnClick,
-  UniListItemOnSwitchChangeDetail,
+  UniListItemOnSwitchChangeEvent,
   UniListItemOnSwitchChange,
   UniListItemProps,
   UniListItem,
@@ -33,11 +34,14 @@ describe('UniListItem', () => {
   expectTypeOf<UniListItemExtraIcon>().toBeObject();
   expectTypeOf<UniListItemExtraIcon>().toEqualTypeOf<UniHelper.UniListItemExtraIcon>();
 
+  expectTypeOf<UniListItemOnClickEvent>().toBeObject();
+  expectTypeOf<UniListItemOnClickEvent>().toEqualTypeOf<UniHelper.UniListItemOnClickEvent>();
+
   expectTypeOf<UniListItemOnClick>().toBeFunction();
   expectTypeOf<UniListItemOnClick>().toEqualTypeOf<UniHelper.UniListItemOnClick>();
 
-  expectTypeOf<UniListItemOnSwitchChangeDetail>().toBeObject();
-  expectTypeOf<UniListItemOnSwitchChangeDetail>().toEqualTypeOf<UniHelper.UniListItemOnSwitchChangeDetail>();
+  expectTypeOf<UniListItemOnSwitchChangeEvent>().toBeObject();
+  expectTypeOf<UniListItemOnSwitchChangeEvent>().toEqualTypeOf<UniHelper.UniListItemOnSwitchChangeEvent>();
 
   expectTypeOf<UniListItemOnSwitchChange>().toBeFunction();
   expectTypeOf<UniListItemOnSwitchChange>().toEqualTypeOf<UniHelper.UniListItemOnSwitchChange>();
