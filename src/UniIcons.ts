@@ -166,6 +166,10 @@ type _UniIconsProps = Partial<{
   /**
    * 图标大小
    *
+   * 如果传入 number 默认使用 px
+   *
+   * 可传入其他自定义单位的宽度值
+   *
    * 默认为 16
    */
   size: number | string;
