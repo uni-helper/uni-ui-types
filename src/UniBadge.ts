@@ -62,7 +62,7 @@ type _UniBadgeProps = Partial<{
    *
    * error 红色
    *
-   * 默认为 default
+   * 默认为 error
    */
   type: _UniBadgeType;
   /**
@@ -82,7 +82,7 @@ type _UniBadgeProps = Partial<{
    */
   isDot: boolean;
   /**
-   * 展示封顶的数字值，超过 99 显示 99+
+   * 展示封顶的数字值，超过后显示 封顶数字+
    *
    * 默认为 99
    */
@@ -95,6 +95,8 @@ type _UniBadgeProps = Partial<{
    * true 背景颜色将变为文字的字体颜色
    *
    * false 正常显示
+   *
+   * 默认为 false
    */
   inverted: boolean;
   /**
@@ -107,8 +109,6 @@ type _UniBadgeProps = Partial<{
    * leftBottom 左下角
    *
    * leftTop 左上角
-   *
-   * 默认为 rightTop
    */
   absolute: _UniBadgeAbsolute;
   /**
@@ -123,6 +123,8 @@ type _UniBadgeProps = Partial<{
    * 存在 absolute 属性时有效
    *
    * 单位为 px
+   *
+   * 默认为 [0, 0]
    */
   offset: [number, number];
   /** 点击事件 */
