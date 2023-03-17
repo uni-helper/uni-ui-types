@@ -82,9 +82,9 @@ type _UniNavBarProps = Partial<{
   /**
    * 是否开启统计标题功能
    *
-   * 使用 title 属性且开启了统计功能生效
+   * 默认为 false
    */
-  stat: boolean | string;
+  stat: boolean;
 }>;
 
 /** 导航栏组件，主要用于头部导航 */
