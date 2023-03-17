@@ -1,9 +1,13 @@
-import { AnyRecord, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 type _UniBreadcrumbItemProps = Partial<{
   /** 路由跳转页面路径 */
-  to: string | AnyRecord;
-  /** 在使用 to 进行路由跳转时，启用 replace 将不会向 history 添加新记录 */
+  to: string;
+  /**
+   * 在使用 to 进行路由跳转时，启用 replace 将不会向 history 添加新记录
+   *
+   * 默认为 false
+   */
   replace: boolean;
 }>;
 
