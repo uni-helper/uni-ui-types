@@ -1,4 +1,4 @@
-import { CustomEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /**
  * loading 的状态
@@ -45,14 +45,20 @@ interface _UniLoadMoreOnClickLoadMoreDetail {
   status: _UniLoadMoreStatus;
 }
 
+type _UniLoadMoreOnClickLoadMoreEvent = {
+  detail: _UniLoadMoreOnClickLoadMoreDetail;
+};
+
 /** 点击加载更多时触发 */
 interface _UniLoadMoreOnClickLoadMore {
-  (event: CustomEvent<_UniLoadMoreOnClickLoadMoreDetail>): void;
+  (event: _UniLoadMoreOnClickLoadMoreEvent): void;
 }
 
 type _UniLoadMoreProps = Partial<{
   /**
    * 图标大小
+   *
+   * 单位为 px
    *
    * 默认为 24
    */
@@ -115,6 +121,7 @@ export {
   _UniLoadMoreIconType as UniLoadMoreIconType,
   _UniLoadMoreContentText as UniLoadMoreContentText,
   _UniLoadMoreOnClickLoadMoreDetail as UniLoadMoreOnClickLoadMoreDetail,
+  _UniLoadMoreOnClickLoadMoreEvent as UniLoadMoreOnClickLoadMoreEvent,
   _UniLoadMoreOnClickLoadMore as UniLoadMoreOnClickLoadMore,
   _UniLoadMoreProps as UniLoadMoreProps,
   _UniLoadMore as UniLoadMore,
@@ -146,6 +153,7 @@ declare global {
     /** 各状态文字说明 */
     export interface UniLoadMoreContentText extends _UniLoadMoreContentText {}
     export interface UniLoadMoreOnClickLoadMoreDetail extends _UniLoadMoreOnClickLoadMoreDetail {}
+    export type UniLoadMoreOnClickLoadMoreEvent = _UniLoadMoreOnClickLoadMoreEvent;
     /** 点击加载更多时触发 */
     export interface UniLoadMoreOnClickLoadMore extends _UniLoadMoreOnClickLoadMore {}
     export type UniLoadMoreProps = _UniLoadMoreProps;

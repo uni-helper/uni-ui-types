@@ -4,6 +4,7 @@ import type {
   UniLoadMoreIconType,
   UniLoadMoreContentText,
   UniLoadMoreOnClickLoadMoreDetail,
+  UniLoadMoreOnClickLoadMoreEvent,
   UniLoadMoreOnClickLoadMore,
   UniLoadMoreProps,
   UniLoadMore,
@@ -22,6 +23,9 @@ describe('UniLoadMore', () => {
 
   expectTypeOf<UniLoadMoreOnClickLoadMoreDetail>().toBeObject();
   expectTypeOf<UniLoadMoreOnClickLoadMoreDetail>().toEqualTypeOf<UniHelper.UniLoadMoreOnClickLoadMoreDetail>();
+
+  expectTypeOf<UniLoadMoreOnClickLoadMoreEvent>().toBeObject();
+  expectTypeOf<UniLoadMoreOnClickLoadMoreEvent>().toEqualTypeOf<UniHelper.UniLoadMoreOnClickLoadMoreEvent>();
 
   expectTypeOf<UniLoadMoreOnClickLoadMore>().toBeFunction();
   expectTypeOf<UniLoadMoreOnClickLoadMore>().toEqualTypeOf<UniHelper.UniLoadMoreOnClickLoadMore>();
