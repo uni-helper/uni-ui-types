@@ -40,7 +40,7 @@ type _UniCardProps = Partial<{
   /**
    * 是否开启阴影
    *
-   * 默认为 false
+   * 默认为 true
    */
   isShadow: boolean;
   /**
@@ -58,13 +58,13 @@ type _UniCardProps = Partial<{
   /**
    * 卡片外边距
    *
-   * 默认为 10px
+   * 默认为 15px
    */
   margin: string;
   /**
    * 卡片内边距
    *
-   * 默认为 10px
+   * 默认为 0 10px
    */
   spacing: string;
   /**
