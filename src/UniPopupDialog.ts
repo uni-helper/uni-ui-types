@@ -53,9 +53,9 @@ interface _UniPopupDialogOnClose {
   (): void;
 }
 
-interface _UniPopupDialogOnConfirmEvent {
+type _UniPopupDialogOnConfirmEvent = {
   value: _UniPopupDialogValue;
-}
+};
 
 /** 点击确定时触发 */
 interface _UniPopupDialogOnConfirm {

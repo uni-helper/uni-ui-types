@@ -7,10 +7,10 @@ interface _UniPaginationOnInput {
 
 type _UniPaginationOnChangeType = 'prev' | 'next';
 
-interface _UniPaginationOnChangeEvent {
+type _UniPaginationOnChangeEvent = {
   type: _UniPaginationOnChangeType;
   current: number;
-}
+};
 
 /** 点击页码按钮时触发 */
 interface _UniPaginationOnChange {

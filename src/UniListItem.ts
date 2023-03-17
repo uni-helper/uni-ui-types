@@ -51,10 +51,10 @@ interface _UniListItemOnClick {
   (event: _UniListItemOnClickEvent): void;
 }
 
-interface _UniListItemOnSwitchChangeEvent {
+type _UniListItemOnSwitchChangeEvent = {
   /** switch 是否被选中 */
   value: _UniListItemSwitchChecked;
-}
+};
 
 /** 点击切换 switch 时触发，需显示 switch */
 interface _UniListItemOnSwitchChange {
