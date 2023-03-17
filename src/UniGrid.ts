@@ -1,12 +1,16 @@
-import { CustomEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 interface _UniGridOnChangeDetail {
   index: number;
 }
 
+type _UniGridOnChangeEvent = {
+  detail: _UniGridOnChangeDetail;
+};
+
 /** 点击触发 */
 interface _UniGridOnChange {
-  (event: CustomEvent<_UniGridOnChangeDetail>): void;
+  (event: _UniGridOnChangeEvent): void;
 }
 
 /** 宫格属性 */
@@ -20,7 +24,7 @@ type _UniGridProps = Partial<{
   /**
    * 边框颜色
    *
-   * 默认为 #d0dee5
+   * 默认为 #d2d2d2
    */
   borderColor: string;
   /**
@@ -53,6 +57,7 @@ type _UniGridInstance = InstanceType<_UniGrid>;
 
 export {
   _UniGridOnChangeDetail as UniGridOnChangeDetail,
+  _UniGridOnChangeEvent as UniGridOnChangeEvent,
   _UniGridOnChange as UniGridOnChange,
   _UniGridProps as UniGridProps,
   _UniGrid as UniGrid,
@@ -62,6 +67,7 @@ export {
 declare global {
   namespace UniHelper {
     export interface UniGridOnChangeDetail extends _UniGridOnChangeDetail {}
+    export type UniGridOnChangeEvent = _UniGridOnChangeEvent;
     /** 点击触发 */
     export interface UniGridOnChange extends _UniGridOnChange {}
     /** 宫格属性 */

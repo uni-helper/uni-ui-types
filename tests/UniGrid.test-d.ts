@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   UniGridOnChangeDetail,
+  UniGridOnChangeEvent,
   UniGridOnChange,
   UniGridProps,
   UniGrid,
@@ -10,6 +11,9 @@ import type {
 describe('UniGrid', () => {
   expectTypeOf<UniGridOnChangeDetail>().toBeObject();
   expectTypeOf<UniGridOnChangeDetail>().toEqualTypeOf<UniHelper.UniGridOnChangeDetail>();
+
+  expectTypeOf<UniGridOnChangeEvent>().toBeObject();
+  expectTypeOf<UniGridOnChangeEvent>().toEqualTypeOf<UniHelper.UniGridOnChangeEvent>();
 
   expectTypeOf<UniGridOnChange>().toBeFunction();
   expectTypeOf<UniGridOnChange>().toEqualTypeOf<UniHelper.UniGridOnChange>();
