@@ -8,14 +8,14 @@ interface _UniIndexedListOption {
   data: string[];
 }
 
-interface _UniIndexedListOnClickDetail {
+type _UniIndexedListOnClickEvent = {
   item: _UniIndexedListOption;
   select: _UniIndexedListOption[];
-}
+};
 
 /** 点击触发 */
 interface _UniIndexedListOnClick {
-  (detail: _UniIndexedListOnClickDetail): void;
+  (event: _UniIndexedListOnClickEvent): void;
 }
 
 /** 索引列表属性 */
@@ -44,7 +44,7 @@ type _UniIndexedListInstance = InstanceType<_UniIndexedList>;
 
 export {
   _UniIndexedListOption as UniIndexedListOption,
-  _UniIndexedListOnClickDetail as UniIndexedListOnClickDetail,
+  _UniIndexedListOnClickEvent as UniIndexedListOnClickEvent,
   _UniIndexedListOnClick as UniIndexedListOnClick,
   _UniIndexedListProps as UniIndexedListProps,
   _UniIndexedList as UniIndexedList,
@@ -55,7 +55,7 @@ declare global {
   namespace UniHelper {
     /** 数据对象 */
     export interface UniIndexedListOption extends _UniIndexedListOption {}
-    export interface UniIndexedListOnClickDetail extends _UniIndexedListOnClickDetail {}
+    export type UniIndexedListOnClickEvent = _UniIndexedListOnClickEvent;
     /** 点击触发 */
     export interface UniIndexedListOnClick extends _UniIndexedListOnClick {}
     /** 索引列表属性 */
