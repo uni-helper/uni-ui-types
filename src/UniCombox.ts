@@ -10,11 +10,21 @@ interface _UniComboxOnInput {
 
 /** 组合框属性 */
 type _UniComboxProps = Partial<{
+  /**
+   * 是否显示边框
+   *
+   * 默认为 true
+   */
+  border: boolean;
   /** 标签文字 */
   label: string;
   /** 组合框值 */
   value: _UniComboxValue;
-  /** 标签宽度 */
+  /**
+   * 标签宽度
+   *
+   * 默认为 auto
+   */
   labelWidth: string;
   /** 输入框占位符 */
   placeholder: string;
