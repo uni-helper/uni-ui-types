@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /** 动态更新时间后，刷新组件显示 */
 interface _UniCountdownOnUpdate {
@@ -7,7 +7,7 @@ interface _UniCountdownOnUpdate {
 
 /** 倒计时时间到触发事件 */
 interface _UniCountdownOnTimeup {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 /** 倒计时属性 */
@@ -27,7 +27,7 @@ type _UniCountdownProps = Partial<{
   /**
    * 分隔符颜色
    *
-   * 默认为 #000000
+   * 默认为 #333
    */
   splitorColor: string;
   /**
