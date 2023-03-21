@@ -65,7 +65,7 @@ type _UniCountdownProps = Partial<{
    *
    * 默认为 true
    */
-  showDay: true;
+  showDay: boolean;
   /**
    * 是否以冒号为分隔符
    *
