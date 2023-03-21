@@ -2,14 +2,17 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniDataCheckboxValue,
   UniDataCheckboxMode,
+  UniDataCheckboxLocaldataItem,
   UniDataCheckboxLocaldata,
   UniDataCheckboxIcon,
   UniDataCheckboxMap,
   UniDataCheckboxBaseProps,
   UniDataCheckboxSingleOnChangeDetail,
+  UniDataCheckboxSingleOnChangeEvent,
   UniDataCheckboxSingleOnChange,
   UniDataCheckboxSingleProps,
   UniDataCheckboxMultipleOnChangeDetail,
+  UniDataCheckboxMultipleOnChangeEvent,
   UniDataCheckboxMultipleOnChange,
   UniDataCheckboxMultipleProps,
   UniDataCheckboxProps,
@@ -24,7 +27,10 @@ describe('UniDataCheckbox', () => {
   expectTypeOf<UniDataCheckboxMode>().toBeString();
   expectTypeOf<UniDataCheckboxMode>().toEqualTypeOf<UniHelper.UniDataCheckboxMode>();
 
-  expectTypeOf<UniDataCheckboxLocaldata>().toBeObject();
+  expectTypeOf<UniDataCheckboxLocaldataItem>().toBeObject();
+  expectTypeOf<UniDataCheckboxLocaldataItem>().toEqualTypeOf<UniHelper.UniDataCheckboxLocaldataItem>();
+
+  expectTypeOf<UniDataCheckboxLocaldata>().toBeArray();
   expectTypeOf<UniDataCheckboxLocaldata>().toEqualTypeOf<UniHelper.UniDataCheckboxLocaldata>();
 
   expectTypeOf<UniDataCheckboxIcon>().toBeString();
@@ -40,6 +46,10 @@ describe('UniDataCheckbox', () => {
   expectTypeOf<UniDataCheckboxSingleOnChangeDetail>()
     .toEqualTypeOf<UniHelper.UniDataCheckboxSingleOnChangeDetail>;
 
+  expectTypeOf<UniDataCheckboxSingleOnChangeEvent>().toBeObject();
+  expectTypeOf<UniDataCheckboxSingleOnChangeEvent>()
+    .toEqualTypeOf<UniHelper.UniDataCheckboxSingleOnChangeEvent>;
+
   expectTypeOf<UniDataCheckboxSingleOnChange>().toBeObject();
   expectTypeOf<UniDataCheckboxSingleOnChange>()
     .toEqualTypeOf<UniHelper.UniDataCheckboxSingleOnChange>;
@@ -50,6 +60,10 @@ describe('UniDataCheckbox', () => {
   expectTypeOf<UniDataCheckboxMultipleOnChangeDetail>().toBeObject();
   expectTypeOf<UniDataCheckboxMultipleOnChangeDetail>()
     .toEqualTypeOf<UniHelper.UniDataCheckboxMultipleOnChangeDetail>;
+
+  expectTypeOf<UniDataCheckboxMultipleOnChangeEvent>().toBeObject();
+  expectTypeOf<UniDataCheckboxMultipleOnChangeEvent>()
+    .toEqualTypeOf<UniHelper.UniDataCheckboxMultipleOnChangeEvent>;
 
   expectTypeOf<UniDataCheckboxMultipleOnChange>().toBeObject();
   expectTypeOf<UniDataCheckboxMultipleOnChange>()
