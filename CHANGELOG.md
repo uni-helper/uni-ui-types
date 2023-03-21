@@ -24,6 +24,11 @@
   - fix!: 修复 `UniCountdownOnTimeup` 参数
   - fix: 修复 `UniCountdownProps` `splitorColor` 描述
   - fix: 修复 `UniCountdownProps` `showDay` 类型
+- feat!: 调整 `UniDataCheckbox`
+  - feat!: `_UniDataCheckboxLocaldata` -> `UniDataCheckboxLocaldataItem`
+  - feat!: 调整 `UniDataCheckboxProps` `localdata` 类型
+  - fix: 修复 `UniDataCheckboxProps` `wrap`、`selectedColor`、`selectedTextColor`、`map` 描述
+  - fix!: 修复 `UniDataCheckboxSingleOnChange`、`UniDataCheckboxMultipleOnChange` 参数
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
