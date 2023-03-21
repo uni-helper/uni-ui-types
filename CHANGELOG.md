@@ -7,16 +7,23 @@
 - fix: 移除部分组件内多余类型
 - fix: 调整 `UniBadge`
   - fix: 修复 `UniBadgeProps` `type`、`maxNum`、`inverted`、`absolute`、`offset` 描述
+- fix!: 调整 `UniBreadcrumbItem`
+  - fix!: 修复 `UniBreadcrumbItemProps` `to` 类型
 - feat!: 调整 `UniCalendar`
   - feat!: `UniCalendarBaseDetail` -> `UniCalendarBaseEvent`
   - feat!: `UniCalendarOnChangeDetail` -> `UniCalendarOnChangeEvent`
   - feat!: `UniCalendarOnConfirmDetail` -> `UniCalendarOnConfirmEvent`
   - feat!: `UniCalendarOnMonthSwitchDetail` -> `UniCalendarOnMonthSwitchEvent`
-  - fix: 修复 `_UniCalendarSelectedElement` 类型
+  - fix: 修复 `UniCalendarSelectedElement` 类型
 - fix: 调整 `UniCard`
   - fix: 修复 `UniCardProps` `isShadow`、`margin`、`spacing` 描述
-- fix!: 调整 `UniBreadcrumbItem`
-  - fix!: 修复 `UniBreadcrumbItemProps` `to` 类型
+- feat: 调整 `UniCombox`
+  - feat: 增加 `UniComboxProps` `border` 属性
+  - fix: 修复 `UniComboxProps` `labelWidth` 描述
+- fix!: 调整 `UniCountdown`
+  - fix!: 修复 `UniCountdownOnTimeup` 参数
+  - fix: 修复 `UniCountdownProps` `splitorColor` 描述
+  - fix: 修复 `UniCountdownProps` `showDay` 类型
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
