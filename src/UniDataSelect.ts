@@ -2,8 +2,7 @@ import { Component } from '@uni-helper/uni-app-types';
 
 type _UniDataSelectValue = string | number;
 
-/** 本地数据 */
-interface _UniDataSelectLocaldata {
+interface _UniDataSelectLocaldataItem {
   /** 值 */
   value: _UniDataSelectValue;
   /** 显示文字 */
@@ -16,16 +15,19 @@ interface _UniDataSelectLocaldata {
   disable: boolean;
 }
 
+/** 本地数据 */
+type _UniDataSelectLocaldata = _UniDataSelectLocaldataItem[];
+
 /** 改变时触发 */
 interface _UniDataSelectOnChange {
-  (event: _UniDataSelectValue): void;
+  (value: _UniDataSelectValue): void;
 }
 
 type _UniDataSelectProps = Partial<{
   /** 已选择数据的 value 值 */
   value: _UniDataSelectValue;
   /** 本地数据 */
-  localdata: _UniDataSelectLocaldata[];
+  localdata: _UniDataSelectLocaldata;
   /**
    * 是否可以清空已选项
    *
@@ -43,9 +45,23 @@ type _UniDataSelectProps = Partial<{
   /**
    * 没有数据时显示的文字，本地数据无效
    *
+   * 默认为 无选项
+   */
+  emptyTips: string;
+  /**
+   * 没有数据时显示的文字，本地数据无效
+   *
    * 默认为 暂无数据
    */
   emptyText: string;
+  /**
+   * 是否禁用
+   *
+   * 默认为 false
+   */
+  disabled: boolean;
+  /** 格式化输出 */
+  format: string;
   /** 改变时触发 */
   onChange: _UniDataSelectOnChange;
 }>;
@@ -65,6 +81,7 @@ type _UniDataSelectInstance = InstanceType<_UniDataSelect>;
 
 export {
   _UniDataSelectValue as UniDataSelectValue,
+  _UniDataSelectLocaldataItem as UniDataSelectLocaldataItem,
   _UniDataSelectLocaldata as UniDataSelectLocaldata,
   _UniDataSelectOnChange as UniDataSelectOnChange,
   _UniDataSelectProps as UniDataSelectProps,
@@ -75,8 +92,9 @@ export {
 declare global {
   namespace UniHelper {
     export type UniDataSelectValue = _UniDataSelectValue;
+    export interface UniDataSelectLocaldataItem extends _UniDataSelectLocaldataItem {}
     /** 本地数据 */
-    export interface UniDataSelectLocaldata extends _UniDataSelectLocaldata {}
+    export type UniDataSelectLocaldata = _UniDataSelectLocaldata;
     /** 改变时触发 */
     export interface UniDataSelectOnChange extends _UniDataSelectOnChange {}
     export type UniDataSelectProps = _UniDataSelectProps;

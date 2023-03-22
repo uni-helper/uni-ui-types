@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   UniDataSelectValue,
+  UniDataSelectLocaldataItem,
   UniDataSelectLocaldata,
   UniDataSelectOnChange,
   UniDataSelectProps,
@@ -12,7 +13,10 @@ describe('UniDataSelect', () => {
   expectTypeOf<UniDataSelectValue>().toMatchTypeOf<string | number>();
   expectTypeOf<UniDataSelectValue>().toEqualTypeOf<UniHelper.UniDataSelectValue>();
 
-  expectTypeOf<UniDataSelectLocaldata>().toBeObject();
+  expectTypeOf<UniDataSelectLocaldataItem>().toBeObject();
+  expectTypeOf<UniDataSelectLocaldataItem>().toEqualTypeOf<UniHelper.UniDataSelectLocaldataItem>();
+
+  expectTypeOf<UniDataSelectLocaldata>().toBeArray();
   expectTypeOf<UniDataSelectLocaldata>().toEqualTypeOf<UniHelper.UniDataSelectLocaldata>();
 
   expectTypeOf<UniDataSelectOnChange>().toBeFunction();
