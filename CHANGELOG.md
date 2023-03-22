@@ -42,6 +42,13 @@
   - feat: 增加 `UniDateformatProps` `refreshRate`
 - fix: 调整 `UniDrawer`
   - fix: 修复 `UniDrawerProps` `width` 描述
+- feat!: 调整 `UniEasyinput`
+  - feat: 增加 `UniEasyinputStyles` `backgroundColor`
+  - fix: 修复 `UniEasyinputStyles` `color`、`disableColor` 描述
+  - fix!: 修复 `UniEasyinputOnFocus` 参数
+  - fix!: 修复 `UniEasyinputOnBlur` 参数
+  - feat: 增加 `UniEasyinputProps` `name`、`primaryColor`、`errorMessage`
+  - fix: 修复 `UniEasyinputProps` `clearSize`、`trim` 描述
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
