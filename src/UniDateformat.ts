@@ -17,7 +17,7 @@ type _UniDateformatProps = Partial<{
   /**
    * 要格式化的日期对象/日期字符串/时间戳
    *
-   * 默认为 Date.now()
+   * 默认为 -
    */
   date: _UniDateformatData;
   /**
@@ -70,6 +70,14 @@ type _UniDateformatProps = Partial<{
    * 默认为 zh
    */
   locale: _UniDateformatLocale;
+  /**
+   * 刷新频率
+   *
+   * 单位为 ms
+   *
+   * 默认为 0，表示不刷新
+   */
+  refreshRate: number | string;
 }>;
 
 /** 日期格式化组件 */
