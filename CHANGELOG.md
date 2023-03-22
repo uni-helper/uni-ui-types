@@ -49,6 +49,12 @@
   - fix!: 修复 `UniEasyinputOnBlur` 参数
   - feat: 增加 `UniEasyinputProps` `name`、`primaryColor`、`errorMessage`
   - fix: 修复 `UniEasyinputProps` `clearSize`、`trim` 描述
+- feat!: 调整 `UniFab`
+  - feat: 增加 `UniFabPattern` `iconColor`
+  - fix: 修复 `UniFabPattern` `backgroundColor`、`buttonColor` 描述
+  - feat!: `UniFabContentElement` -> `UniFabContentItem`
+  - feat!: `UniFabOnTriggerDetail` -> `UniFabOnTriggerEvent`
+  - fix!: 修复 `UniFabOnFabClick` 参数
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
