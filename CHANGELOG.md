@@ -35,6 +35,9 @@
   - feat: 增加 `UniDataPickerProps` `action`、`pageData`、`pageCurrent`、`pageSize`、`getcount`、`getone`、`getree`、`manual`、`multiple`、`placeholder`、`border`、`split`
   - fix: 修复 `UniDataPickerProps` `popupTitle`、`map` 描述
   - fix!: 修复 `UniDataPickerOnChange`、`UniDataPickerOnPopupopened`、`UniDataPickerOnPopupclosed` 参数
+- feat!: 调整 `UniDataSelect`
+  - feat: 增加 `UniDataSelectProps` `emptyTips`、`disabled`、`format`
+  - feat!: `UniDataSelectLocaldata` -> `UniDataSelectLocaldata`，另外新增 `UniDataSelectLocaldataItem`
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
