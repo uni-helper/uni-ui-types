@@ -38,6 +38,8 @@
 - feat!: 调整 `UniDataSelect`
   - feat: 增加 `UniDataSelectProps` `emptyTips`、`disabled`、`format`
   - feat!: `UniDataSelectLocaldata` -> `UniDataSelectLocaldata`，另外新增 `UniDataSelectLocaldataItem`
+- feat: 调整 `UniDateformat`
+  - feat: 增加 `UniDateformatProps` `refreshRate`
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
