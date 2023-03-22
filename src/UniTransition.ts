@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /**
  * 内置过渡动画类型

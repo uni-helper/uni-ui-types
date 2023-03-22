@@ -1,4 +1,4 @@
-import { CustomEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /** 默认值 */
 type _UniDataCheckboxValue = string | number;

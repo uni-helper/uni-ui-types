@@ -1,4 +1,4 @@
-import { BaseEvent, CustomEvent, Component } from '@uni-helper/uni-app-types';
+import { BaseEvent, Component } from '@uni-helper/uni-app-types';
 
 /**
  * 服务商
