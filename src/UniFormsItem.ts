@@ -9,7 +9,7 @@ type _UniFormsItemRules = Record<
   string,
   {
     /** 校验规则 */
-    rules?: Array<Partial<_UniFormsItemRulesRule>>;
+    rules?: _UniFormsItemRulesRule | Array<_UniFormsItemRulesRule>;
     /** 当前表单域的字段中文名，多用于 errorMessage 的显示，可不填 */
     label?: string;
   }
@@ -46,7 +46,7 @@ type _UniFormsItemProps = Partial<{
    *
    * 单位为 px
    *
-   * 默认为 70
+   * 默认为 65
    */
   labelWidth: number;
   /**
