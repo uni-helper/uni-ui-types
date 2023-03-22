@@ -1,6 +1,8 @@
 # 改动日志
 
-## Unreleased
+## 0.5.0 (2023-03-22)
+
+比对源码和文档后，这个版本修复了大量描述和类型，也补全了一些缺失的属性。为了提供和 `@uni-helper/uni-app-types` 类似的体验，重命名了某些类型。希望能给你带来更好的体验！
 
 - build: 现在使用 `rollup` 打包生成类型文件
 - feat!: 现在要求 `@uni-helper/uni-app-types@^0.5.1`
@@ -68,6 +70,17 @@
   - feat!: `UniFilePickerOnFailDetail` -> `UniFilePickerOnFailEvent`
   - feat!: `UniFilePickerOnDeleteDetail` -> `UniFilePickerOnDeleteEvent`
   - feat: 增加 `UniFilePickerProps` `sizeType`、`sourceType`
+- feat!: 调整 `UniForms`
+  - fix: 修复 `UniFormsValidateFunction` 描述
+  - fix: `UniFormsRulesRule` 所有属性可选
+  - feat: 增加 `UniFormsRulesRule` `range`
+  - fix: 修复 `UniFormsRules`、`UniFormsValidateField`、`UniFormsOnValidate` 类型
+  - fix: 修复 `UniFormsProps` `labelWidth` 描述
+  - fix!: `UniFormsValidateFields` -> `UniFormsValidateField`
+  - fix!: `UniFormsProps` `validateFields` -> `validateField`
+- fix: 调整 `UniFormsItem`
+  - fix: 修复 `UniFormsItemRules` 类型
+  - fix: 修复 `UniFormsItemProps` `labelWidth` 描述
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
