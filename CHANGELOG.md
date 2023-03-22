@@ -55,6 +55,8 @@
   - feat!: `UniFabContentElement` -> `UniFabContentItem`
   - feat!: `UniFabOnTriggerDetail` -> `UniFabOnTriggerEvent`
   - fix!: 修复 `UniFabOnFabClick` 参数
+- fix!: 调整 `UniFav`
+  - fix!: 修复 `UniFavOnClick` 参数
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
