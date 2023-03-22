@@ -166,7 +166,7 @@ type _UniDataPickerProps = Partial<{
    *
    * 默认为 true
    */
-  stepSearh: true;
+  stepSearh: boolean;
   /** 分步查询时，动态加载云端数据的 URL */
   stepSearchUrl: string;
   /** 分步查询时当前字段名称 */

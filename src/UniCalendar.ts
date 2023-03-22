@@ -80,7 +80,7 @@ interface _UniCalendarBaseEvent {
     /** 周几中文表示 */
     ncWeek: string;
     /** 是否节气 */
-    isTerm: false;
+    isTerm: boolean;
     /** 节气名 */
     term: string | null | undefined;
     /** 星座 */
