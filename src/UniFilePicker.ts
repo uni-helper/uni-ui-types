@@ -37,7 +37,7 @@ interface _UniFilePickerListStyles {
     /**
      * 颜色
      *
-     * 默认为 #eeeeee
+     * 默认为 #eee
      */
     color: string;
     /**
@@ -64,7 +64,7 @@ interface _UniFilePickerListStyles {
   /**
    * 是否显示边框
    *
-   * 默认为 false
+   * 默认为 true
    */
   border: boolean;
   /**
@@ -81,16 +81,24 @@ interface _UniFilePickerListStyles {
  * mode="grid" 时有效
  */
 interface _UniFilePickerImageStyles {
-  /** 高度 */
-  height: number;
-  /** 宽度 */
-  width: number;
+  /**
+   * 高度
+   *
+   * 默认为 auto
+   */
+  height: number | string;
+  /**
+   * 宽度
+   *
+   * 默认为 auto
+   */
+  width: number | string;
   /** 边框样式 */
   border: {
     /**
      * 颜色
      *
-     * 默认为 #eeeeee
+     * 默认为 #eee
      */
     color: string;
     /**
@@ -110,37 +118,43 @@ interface _UniFilePickerImageStyles {
      *
      * 支持百分比
      *
-     * 默认为 50%
+     * 默认为 3px
      */
     radius: string;
   };
 }
 
-/** 事件回调参数 */
-interface _UniFilePickerBaseDetail {
-  /** 上传进度 */
-  progress?: number;
-  /** 上传文件索引 */
-  index?: number;
-  /**
-   * 当前文件对象
-   *
-   * 包含文件流，文件大小，文件名称等
-   */
-  tempFile: File;
-  /**
-   * 文件列表
-   *
-   * 包含文件流，文件大小，文件名称等
-   */
-  tempFiles: File[];
-  /**
-   * 上传后的线上文件地址列表
-   *
-   * 腾讯云返回 fileId
-   */
-  tempFilePaths?: string[];
-}
+/**
+ * original 原图
+ *
+ * compressed 压缩图
+ */
+type _UniFilePickerSizeTypeItem = 'original' | 'compressed';
+
+/**
+ * 尺寸类型
+ *
+ * original 原图
+ *
+ * compressed 压缩图
+ */
+type _UniFilePickerSizeType = _UniFilePickerSizeTypeItem[];
+
+/**
+ * album 从相册选图
+ *
+ * camera 使用相机
+ */
+type _UniFilePickerSourceTypeItem = 'album' | 'camera';
+
+/**
+ * 来源类型
+ *
+ * album 从相册选图
+ *
+ * camera 使用相机
+ */
+type _UniFilePickerSourceType = _UniFilePickerSourceTypeItem[];
 
 /** 手动上传 */
 interface _UniFilePickerUpload {
@@ -158,39 +172,62 @@ interface _UniFilePickerClearFiles {
   (index?: number): void;
 }
 
-interface _UniFilePickerOnSelectDetail extends _UniFilePickerBaseDetail {}
+/** 通用事件回调参数 */
+interface _UniFilePickerBaseEvent {
+  /**
+   * 文件列表
+   *
+   * 包含文件流，文件大小，文件名称等
+   */
+  tempFiles: File[];
+  /**
+   * 上传后的线上文件地址列表
+   *
+   * 腾讯云返回 fileId
+   */
+  tempFilePaths?: string[];
+}
+
+type _UniFilePickerOnSelectEvent = _UniFilePickerBaseEvent;
 
 /** 选择文件后触发 */
 interface _UniFilePickerOnSelect {
-  (event: _UniFilePickerOnSelectDetail): void;
+  (event: _UniFilePickerOnSelectEvent): void;
 }
 
-interface _UniFilePickerOnProgressDetail extends _UniFilePickerBaseDetail {}
+type _UniFilePickerOnProgressEvent = _UniFilePickerBaseEvent & {
+  /** 上传进度 */
+  progress: number;
+  /** 上传文件索引 */
+  index: number;
+  /** 当前文件对象，包含文件流，文件大小，文件名称等 */
+  tempFile: File;
+};
 
 /** 文件上传时触发 */
 interface _UniFilePickerOnProgress {
-  (event: _UniFilePickerOnProgressDetail): void;
+  (event: _UniFilePickerOnProgressEvent): void;
 }
 
-interface _UniFilePickerOnSuccessDetail extends _UniFilePickerBaseDetail {}
+type _UniFilePickerOnSuccessEvent = _UniFilePickerBaseEvent;
 
 /** 上传成功触发 */
 interface _UniFilePickerOnSuccess {
-  (event: _UniFilePickerOnSuccessDetail): void;
+  (event: _UniFilePickerOnSuccessEvent): void;
 }
 
-interface _UniFilePickerOnFailDetail extends _UniFilePickerBaseDetail {}
+type _UniFilePickerOnFailEvent = _UniFilePickerBaseEvent;
 
 /** 上传失败触发 */
 interface _UniFilePickerOnFail {
-  (event: _UniFilePickerOnFailDetail): void;
+  (event: _UniFilePickerOnFailEvent): void;
 }
 
-interface _UniFilePickerOnDeleteDetail extends _UniFilePickerBaseDetail {}
+type _UniFilePickerOnDeleteEvent = _UniFilePickerBaseEvent;
 
 /** 文件从列表移除时触发 */
 interface _UniFilePickerOnDelete {
-  (event: _UniFilePickerOnDeleteDetail): void;
+  (event: _UniFilePickerOnDeleteEvent): void;
 }
 
 type _UniFilePickerBaseProps = Partial<{
@@ -282,6 +319,26 @@ type _UniFilePickerBaseProps = Partial<{
    * mode="grid" 时有效
    */
   imageStyles: _UniFilePickerImageStyles;
+  /**
+   * 尺寸类型
+   *
+   * original 原图
+   *
+   * compressed 压缩图
+   *
+   * 默认为 ['original', 'compressed']
+   */
+  sizeType: _UniFilePickerSizeType;
+  /**
+   * 来源类型
+   *
+   * album 从相册选图
+   *
+   * camera 使用相机
+   *
+   * 默认为 ['album', 'camera']
+   */
+  sourceType: _UniFilePickerSourceType;
   /** 手动上传 */
   upload: _UniFilePickerUpload;
   /**
@@ -339,18 +396,22 @@ export {
   _UniFilePickerFileMediatype as UniFilePickerFileMediatype,
   _UniFilePickerListStyles as UniFilePickerListStyles,
   _UniFilePickerImageStyles as UniFilePickerImageStyles,
-  _UniFilePickerBaseDetail as UniFilePickerBaseDetail,
+  _UniFilePickerSizeTypeItem as UniFilePickerSizeTypeItem,
+  _UniFilePickerSizeType as UniFilePickerSizeType,
+  _UniFilePickerSourceTypeItem as UniFilePickerSourceTypeItem,
+  _UniFilePickerSourceType as UniFilePickerSourceType,
+  _UniFilePickerBaseEvent as UniFilePickerBaseEvent,
   _UniFilePickerUpload as UniFilePickerUpload,
   _UniFilePickerClearFiles as UniFilePickerClearFiles,
-  _UniFilePickerOnSelectDetail as UniFilePickerOnSelectDetail,
+  _UniFilePickerOnSelectEvent as UniFilePickerOnSelectEvent,
   _UniFilePickerOnSelect as UniFilePickerOnSelect,
-  _UniFilePickerOnProgressDetail as UniFilePickerOnProgressDetail,
+  _UniFilePickerOnProgressEvent as UniFilePickerOnProgressEvent,
   _UniFilePickerOnProgress as UniFilePickerOnProgress,
-  _UniFilePickerOnSuccessDetail as UniFilePickerOnSuccessDetail,
+  _UniFilePickerOnSuccessEvent as UniFilePickerOnSuccessEvent,
   _UniFilePickerOnSuccess as UniFilePickerOnSuccess,
-  _UniFilePickerOnFailDetail as UniFilePickerOnFailDetail,
+  _UniFilePickerOnFailEvent as UniFilePickerOnFailEvent,
   _UniFilePickerOnFail as UniFilePickerOnFail,
-  _UniFilePickerOnDeleteDetail as UniFilePickerOnDeleteDetail,
+  _UniFilePickerOnDeleteEvent as UniFilePickerOnDeleteEvent,
   _UniFilePickerOnDelete as UniFilePickerOnDelete,
   _UniFilePickerBaseProps as UniFilePickerBaseProps,
   _UniFilePickerArrayProps as UniFilePickerArrayProps,
@@ -393,8 +454,34 @@ declare global {
      * mode="grid" 时有效
      */
     export interface UniFilePickerImageStyles extends _UniFilePickerImageStyles {}
-    /** 事件回调参数 */
-    export interface UniFilePickerBaseDetail extends _UniFilePickerBaseDetail {}
+    /**
+     * original 原图
+     *
+     * compressed 压缩图
+     */
+    export type UniFilePickerSizeTypeItem = _UniFilePickerSizeTypeItem;
+    /**
+     * 尺寸类型
+     *
+     * original 原图
+     *
+     * compressed 压缩图
+     */
+    export type UniFilePickerSizeType = _UniFilePickerSizeType;
+    /**
+     * album 从相册选图
+     *
+     * camera 使用相机
+     */
+    export type UniFilePickerSourceTypeItem = _UniFilePickerSourceTypeItem;
+    /**
+     * 来源类型
+     *
+     * album 从相册选图
+     *
+     * camera 使用相机
+     */
+    export type UniFilePickerSourceType = _UniFilePickerSourceType;
     /** 手动上传 */
     export interface UniFilePickerUpload extends _UniFilePickerUpload {}
     /**
@@ -405,19 +492,21 @@ declare global {
      * 不传入下标则删除所有
      */
     export interface UniFilePickerClearFiles extends _UniFilePickerClearFiles {}
-    export interface UniFilePickerOnSelectDetail extends _UniFilePickerOnSelectDetail {}
+    /** 通用事件回调参数 */
+    export type UniFilePickerBaseEvent = _UniFilePickerBaseEvent;
+    export type UniFilePickerOnSelectEvent = _UniFilePickerOnSelectEvent;
     /** 选择文件后触发 */
     export interface UniFilePickerOnSelect extends _UniFilePickerOnSelect {}
-    export interface UniFilePickerOnProgressDetail extends _UniFilePickerOnProgressDetail {}
+    export type UniFilePickerOnProgressEvent = _UniFilePickerOnProgressEvent;
     /** 文件上传时触发 */
     export interface UniFilePickerOnProgress extends _UniFilePickerOnProgress {}
-    export interface UniFilePickerOnSuccessDetail extends _UniFilePickerOnSuccessDetail {}
+    export type UniFilePickerOnSuccessEvent = _UniFilePickerOnSuccessEvent;
     /** 上传成功触发 */
     export interface UniFilePickerOnSuccess extends _UniFilePickerOnSuccess {}
-    export interface UniFilePickerOnFailDetail extends _UniFilePickerOnFailDetail {}
+    export type UniFilePickerOnFailEvent = _UniFilePickerOnFailEvent;
     /** 上传失败触发 */
     export interface UniFilePickerOnFail extends _UniFilePickerOnFail {}
-    export interface UniFilePickerOnDeleteDetail extends _UniFilePickerOnDeleteDetail {}
+    export type UniFilePickerOnDeleteEvent = _UniFilePickerOnDeleteEvent;
     /** 文件从列表移除时触发 */
     export interface UniFilePickerOnDelete extends _UniFilePickerOnDelete {}
     export type UniFilePickerBaseProps = _UniFilePickerBaseProps;

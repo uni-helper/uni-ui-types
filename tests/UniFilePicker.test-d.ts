@@ -5,18 +5,22 @@ import type {
   UniFilePickerFileMediatype,
   UniFilePickerListStyles,
   UniFilePickerImageStyles,
-  UniFilePickerBaseDetail,
+  UniFilePickerSizeTypeItem,
+  UniFilePickerSizeType,
+  UniFilePickerSourceTypeItem,
+  UniFilePickerSourceType,
   UniFilePickerUpload,
   UniFilePickerClearFiles,
-  UniFilePickerOnSelectDetail,
+  UniFilePickerBaseEvent,
+  UniFilePickerOnSelectEvent,
   UniFilePickerOnSelect,
-  UniFilePickerOnProgressDetail,
+  UniFilePickerOnProgressEvent,
   UniFilePickerOnProgress,
-  UniFilePickerOnSuccessDetail,
+  UniFilePickerOnSuccessEvent,
   UniFilePickerOnSuccess,
-  UniFilePickerOnFailDetail,
+  UniFilePickerOnFailEvent,
   UniFilePickerOnFail,
-  UniFilePickerOnDeleteDetail,
+  UniFilePickerOnDeleteEvent,
   UniFilePickerOnDelete,
   UniFilePickerBaseProps,
   UniFilePickerArrayProps,
@@ -42,8 +46,20 @@ describe('UniFilePicker', () => {
   expectTypeOf<UniFilePickerImageStyles>().toBeObject();
   expectTypeOf<UniFilePickerImageStyles>().toEqualTypeOf<UniHelper.UniFilePickerImageStyles>();
 
-  expectTypeOf<UniFilePickerBaseDetail>().toBeObject();
-  expectTypeOf<UniFilePickerBaseDetail>().toEqualTypeOf<UniHelper.UniFilePickerBaseDetail>();
+  expectTypeOf<UniFilePickerSizeTypeItem>().toBeString();
+  expectTypeOf<UniFilePickerSizeTypeItem>().toEqualTypeOf<UniHelper.UniFilePickerSizeTypeItem>();
+
+  expectTypeOf<UniFilePickerSizeType>().toBeArray();
+  expectTypeOf<UniFilePickerSizeType>().toEqualTypeOf<UniHelper.UniFilePickerSizeType>();
+
+  expectTypeOf<UniFilePickerSourceTypeItem>().toBeString();
+  expectTypeOf<UniFilePickerSourceTypeItem>().toEqualTypeOf<UniHelper.UniFilePickerSourceTypeItem>();
+
+  expectTypeOf<UniFilePickerSourceType>().toBeArray();
+  expectTypeOf<UniFilePickerSourceType>().toEqualTypeOf<UniHelper.UniFilePickerSourceType>();
+
+  expectTypeOf<UniFilePickerBaseEvent>().toBeObject();
+  expectTypeOf<UniFilePickerBaseEvent>().toEqualTypeOf<UniHelper.UniFilePickerBaseEvent>();
 
   expectTypeOf<UniFilePickerUpload>().toBeFunction();
   expectTypeOf<UniFilePickerUpload>().toEqualTypeOf<UniHelper.UniFilePickerUpload>();
@@ -51,32 +67,32 @@ describe('UniFilePicker', () => {
   expectTypeOf<UniFilePickerClearFiles>().toBeFunction();
   expectTypeOf<UniFilePickerClearFiles>().toEqualTypeOf<UniHelper.UniFilePickerClearFiles>();
 
-  expectTypeOf<UniFilePickerOnSelectDetail>().toBeObject();
-  expectTypeOf<UniFilePickerOnSelectDetail>().toEqualTypeOf<UniHelper.UniFilePickerOnSelectDetail>();
+  expectTypeOf<UniFilePickerOnSelectEvent>().toBeObject();
+  expectTypeOf<UniFilePickerOnSelectEvent>().toEqualTypeOf<UniHelper.UniFilePickerOnSelectEvent>();
 
   expectTypeOf<UniFilePickerOnSelect>().toBeFunction();
   expectTypeOf<UniFilePickerOnSelect>().toEqualTypeOf<UniHelper.UniFilePickerOnSelect>();
 
-  expectTypeOf<UniFilePickerOnProgressDetail>().toBeObject();
-  expectTypeOf<UniFilePickerOnProgressDetail>().toEqualTypeOf<UniHelper.UniFilePickerOnProgressDetail>();
+  expectTypeOf<UniFilePickerOnProgressEvent>().toBeObject();
+  expectTypeOf<UniFilePickerOnProgressEvent>().toEqualTypeOf<UniHelper.UniFilePickerOnProgressEvent>();
 
   expectTypeOf<UniFilePickerOnProgress>().toBeFunction();
   expectTypeOf<UniFilePickerOnProgress>().toEqualTypeOf<UniHelper.UniFilePickerOnProgress>();
 
-  expectTypeOf<UniFilePickerOnSuccessDetail>().toBeObject();
-  expectTypeOf<UniFilePickerOnSuccessDetail>().toEqualTypeOf<UniHelper.UniFilePickerOnSuccessDetail>();
+  expectTypeOf<UniFilePickerOnSuccessEvent>().toBeObject();
+  expectTypeOf<UniFilePickerOnSuccessEvent>().toEqualTypeOf<UniHelper.UniFilePickerOnSuccessEvent>();
 
   expectTypeOf<UniFilePickerOnSuccess>().toBeFunction();
   expectTypeOf<UniFilePickerOnSuccess>().toEqualTypeOf<UniHelper.UniFilePickerOnSuccess>();
 
-  expectTypeOf<UniFilePickerOnFailDetail>().toBeObject();
-  expectTypeOf<UniFilePickerOnFailDetail>().toEqualTypeOf<UniHelper.UniFilePickerOnFailDetail>();
+  expectTypeOf<UniFilePickerOnFailEvent>().toBeObject();
+  expectTypeOf<UniFilePickerOnFailEvent>().toEqualTypeOf<UniHelper.UniFilePickerOnFailEvent>();
 
   expectTypeOf<UniFilePickerOnFail>().toBeFunction();
   expectTypeOf<UniFilePickerOnFail>().toEqualTypeOf<UniHelper.UniFilePickerOnFail>();
 
-  expectTypeOf<UniFilePickerOnDeleteDetail>().toBeObject();
-  expectTypeOf<UniFilePickerOnDeleteDetail>().toEqualTypeOf<UniHelper.UniFilePickerOnDeleteDetail>();
+  expectTypeOf<UniFilePickerOnDeleteEvent>().toBeObject();
+  expectTypeOf<UniFilePickerOnDeleteEvent>().toEqualTypeOf<UniHelper.UniFilePickerOnDeleteEvent>();
 
   expectTypeOf<UniFilePickerOnDelete>().toBeFunction();
   expectTypeOf<UniFilePickerOnDelete>().toEqualTypeOf<UniHelper.UniFilePickerOnDelete>();
