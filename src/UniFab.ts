@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /** 可选样式配置项 */
 interface _UniFabPattern {
@@ -17,15 +17,21 @@ interface _UniFabPattern {
   /**
    * 背景色
    *
-   * 默认为 #ffffff
+   * 默认为 #fff
    */
   backgroundColor: string;
   /**
    * 按钮背景色
    *
-   * 默认为 #3c3e49
+   * 默认为 #007a7ff
    */
   buttonColor: string;
+  /**
+   * 图标颜色
+   *
+   * 默认为 #fff
+   */
+  iconColor: string;
 }
 
 /**
@@ -56,7 +62,7 @@ type _UniFabVertical = 'bottom' | 'right';
 type _UniFabDirection = 'horizontal' | 'vertical';
 
 /** 展开菜单内容配置项 */
-interface _UniFabContentElement {
+interface _UniFabContentItem {
   /** 图片路径 */
   iconPath: string;
   /** 选中后图片路径 */
@@ -68,21 +74,21 @@ interface _UniFabContentElement {
 }
 
 /** 展开菜单内容配置 */
-type _UniFabContent = _UniFabContentElement[];
+type _UniFabContent = _UniFabContentItem[];
 
-interface _UniFabOnTriggerDetail {
+type _UniFabOnTriggerEvent = {
   index: number;
-  item: _UniFabContentElement;
-}
+  item: _UniFabContentItem;
+};
 
 /** 展开菜单点击事件，返回点击信息 */
 interface _UniFabOnTrigger {
-  (detail: _UniFabOnTriggerDetail): void;
+  (event: _UniFabOnTriggerEvent): void;
 }
 
 /** 悬浮按钮点击事件 */
 interface _UniFabOnFabClick {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 type _UniFabProps = Partial<{
@@ -142,9 +148,9 @@ export {
   _UniFabHorizontal as UniFabHorizontal,
   _UniFabVertical as UniFabVertical,
   _UniFabDirection as UniFabDirection,
-  _UniFabContentElement as UniFabContentElement,
+  _UniFabContentItem as UniFabContentItem,
   _UniFabContent as UniFabContent,
-  _UniFabOnTriggerDetail as UniFabOnTriggerDetail,
+  _UniFabOnTriggerEvent as UniFabOnTriggerEvent,
   _UniFabOnTrigger as UniFabOnTrigger,
   _UniFabOnFabClick as UniFabOnFabClick,
   _UniFabProps as UniFabProps,
@@ -181,10 +187,10 @@ declare global {
      */
     export type UniFabDirection = _UniFabDirection;
     /** 展开菜单内容配置项 */
-    export interface UniFabContentElement extends _UniFabContentElement {}
+    export interface UniFabContentItem extends _UniFabContentItem {}
     /** 展开菜单内容配置 */
     export type UniFabContent = _UniFabContent;
-    export interface UniFabOnTriggerDetail extends _UniFabOnTriggerDetail {}
+    export type UniFabOnTriggerEvent = _UniFabOnTriggerEvent;
     /** 展开菜单点击事件，返回点击信息 */
     export interface UniFabOnTrigger extends _UniFabOnTrigger {}
     /** 悬浮按钮点击事件 */

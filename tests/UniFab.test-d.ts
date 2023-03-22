@@ -4,9 +4,9 @@ import type {
   UniFabHorizontal,
   UniFabVertical,
   UniFabDirection,
-  UniFabContentElement,
+  UniFabContentItem,
   UniFabContent,
-  UniFabOnTriggerDetail,
+  UniFabOnTriggerEvent,
   UniFabOnTrigger,
   UniFabOnFabClick,
   UniFabProps,
@@ -27,14 +27,14 @@ describe('UniFab', () => {
   expectTypeOf<UniFabDirection>().toBeString();
   expectTypeOf<UniFabDirection>().toEqualTypeOf<UniHelper.UniFabDirection>();
 
-  expectTypeOf<UniFabContentElement>().toBeObject();
-  expectTypeOf<UniFabContentElement>().toEqualTypeOf<UniHelper.UniFabContentElement>();
+  expectTypeOf<UniFabContentItem>().toBeObject();
+  expectTypeOf<UniFabContentItem>().toEqualTypeOf<UniHelper.UniFabContentItem>();
 
   expectTypeOf<UniFabContent>().toBeArray();
   expectTypeOf<UniFabContent>().toEqualTypeOf<UniHelper.UniFabContent>();
 
-  expectTypeOf<UniFabOnTriggerDetail>().toBeObject();
-  expectTypeOf<UniFabOnTriggerDetail>().toEqualTypeOf<UniHelper.UniFabOnTriggerDetail>();
+  expectTypeOf<UniFabOnTriggerEvent>().toBeObject();
+  expectTypeOf<UniFabOnTriggerEvent>().toEqualTypeOf<UniHelper.UniFabOnTriggerEvent>();
 
   expectTypeOf<UniFabOnTrigger>().toBeFunction();
   expectTypeOf<UniFabOnTrigger>().toEqualTypeOf<UniHelper.UniFabOnTrigger>();
