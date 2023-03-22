@@ -57,6 +57,17 @@
   - fix!: 修复 `UniFabOnFabClick` 参数
 - fix!: 调整 `UniFav`
   - fix!: 修复 `UniFavOnClick` 参数
+- feat!: 调整 `UniFilePicker`
+  - fix: 修复 `UniFilePickerListStyles` `borderStyle.color`、`border` 描述
+  - fix: 修复 `UniFilePickerImageStyles` `height`、`width`、`border.color`、`border.radius` 描述
+  - feat: 增加 `UniFilePickerSizeTypeItem`、`UniFilePickerSizeType`、`UniFilePickerSourceTypeItem`、`UniFilePickerSourceType`
+  - feat!: `UniFilePickerBaseDetail` -> `UniFilePickerBaseEvent`，移除多余属性
+  - feat!: `UniFilePickerOnSelectDetail` -> `UniFilePickerOnSelectEvent`
+  - feat!: `UniFilePickerOnProgressDetail` -> `UniFilePickerOnProgressEvent`
+  - feat!: `UniFilePickerOnSuccessDetail` -> `UniFilePickerOnSuccessEvent`
+  - feat!: `UniFilePickerOnFailDetail` -> `UniFilePickerOnFailEvent`
+  - feat!: `UniFilePickerOnDeleteDetail` -> `UniFilePickerOnDeleteEvent`
+  - feat: 增加 `UniFilePickerProps` `sizeType`、`sourceType`
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
