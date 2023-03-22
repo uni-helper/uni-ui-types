@@ -51,7 +51,9 @@ type _UniDrawerProps = Partial<{
   /**
    * 宽度
    *
-   * 默认为 200
+   * 单位为 px
+   *
+   * 默认为 220
    */
   width: number;
   /** 打开抽屉 */
