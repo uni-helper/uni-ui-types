@@ -40,6 +40,8 @@
   - feat!: `UniDataSelectLocaldata` -> `UniDataSelectLocaldata`，另外新增 `UniDataSelectLocaldataItem`
 - feat: 调整 `UniDateformat`
   - feat: 增加 `UniDateformatProps` `refreshRate`
+- fix: 调整 `UniDrawer`
+  - fix: 修复 `UniDrawerProps` `width` 描述
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
