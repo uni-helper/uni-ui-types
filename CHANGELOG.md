@@ -17,6 +17,7 @@
   - feat!: `UniCalendarOnConfirmDetail` -> `UniCalendarOnConfirmEvent`
   - feat!: `UniCalendarOnMonthSwitchDetail` -> `UniCalendarOnMonthSwitchEvent`
   - fix: 修复 `UniCalendarSelectedElement` 类型
+  - fix: 修复 `UniCalendarBaseEvent` `lunar.isTerm` 类型
 - fix: 调整 `UniCard`
   - fix: 修复 `UniCardProps` `isShadow`、`margin`、`spacing` 描述
 - feat: 调整 `UniCombox`
@@ -35,6 +36,7 @@
   - feat: `UniDataPickerSpaceInfo` `clientSecret` 现在是可选的
   - feat!: `UniDataPickerLocaldata` -> `UniDataPickerLocaldataItem`，另外新增 `UniDataPickerLocaldata`
   - feat: 增加 `UniDataPickerProps` `action`、`pageData`、`pageCurrent`、`pageSize`、`getcount`、`getone`、`getree`、`manual`、`multiple`、`placeholder`、`border`、`split`
+  - fix: 修复 `UniDataPickerProps` `stepSearh` 类型
   - fix: 修复 `UniDataPickerProps` `popupTitle`、`map` 描述
   - fix!: 修复 `UniDataPickerOnChange`、`UniDataPickerOnPopupopened`、`UniDataPickerOnPopupclosed` 参数
 - feat!: 调整 `UniDataSelect`
