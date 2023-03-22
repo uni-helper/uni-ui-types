@@ -115,7 +115,7 @@ interface _UniDataPickerOnNodeclick {
   (node: any): void;
 }
 
-/** 动态加载节点数据前触发 */
+/** TODO 动态加载节点数据前触发 */
 interface _UniDataPickerOnStepsearch {
   (event: BaseEvent): void;
 }
