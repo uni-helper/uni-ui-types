@@ -25,10 +25,16 @@
   - fix: 修复 `UniCountdownProps` `splitorColor` 描述
   - fix: 修复 `UniCountdownProps` `showDay` 类型
 - feat!: 调整 `UniDataCheckbox`
-  - feat!: `_UniDataCheckboxLocaldata` -> `UniDataCheckboxLocaldataItem`
+  - feat!: `UniDataCheckboxLocaldata` -> `UniDataCheckboxLocaldataItem`，另外新增 `UniDataCheckboxLocaldata`
   - feat!: 调整 `UniDataCheckboxProps` `localdata` 类型
   - fix: 修复 `UniDataCheckboxProps` `wrap`、`selectedColor`、`selectedTextColor`、`map` 描述
   - fix!: 修复 `UniDataCheckboxSingleOnChange`、`UniDataCheckboxMultipleOnChange` 参数
+- feat!: 调整 `UniDataPicker`
+  - feat: `UniDataPickerSpaceInfo` `clientSecret` 现在是可选的
+  - feat!: `UniDataPickerLocaldata` -> `UniDataPickerLocaldataItem`，另外新增 `UniDataPickerLocaldata`
+  - feat: 增加 `UniDataPickerProps` `action`、`pageData`、`pageCurrent`、`pageSize`、`getcount`、`getone`、`getree`、`manual`、`multiple`、`placeholder`、`border`、`split`
+  - fix: 修复 `UniDataPickerProps` `popupTitle`、`map` 描述
+  - fix!: 修复 `UniDataPickerOnChange`、`UniDataPickerOnPopupopened`、`UniDataPickerOnPopupclosed` 参数
 - feat!: 调整 `UniGoodsNav`
   - feat!: `UniGoodsNavOnClickDetail` -> `UniGoodsNavOnClickEvent`
   - feat!: `UniGoodsNavOnButtonClickDetail` -> `UniGoodsNavOnButtonClickEvent`
