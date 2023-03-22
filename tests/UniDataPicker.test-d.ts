@@ -3,7 +3,9 @@ import type {
   UniDataPickerSpaceInfoProvider,
   UniDataPickerSpaceInfo,
   UniDataPickerValue,
+  UniDataPickerLocaldataItem,
   UniDataPickerLocaldata,
+  UniDataPickerPageData,
   UniDataPickerMap,
   UniDataPickerShow,
   UniDataPickerHide,
@@ -29,8 +31,14 @@ describe('UniDataPicker', () => {
   expectTypeOf<UniDataPickerValue>().toMatchTypeOf<string | number | boolean | null>();
   expectTypeOf<UniDataPickerValue>().toEqualTypeOf<UniHelper.UniDataPickerValue>();
 
-  expectTypeOf<UniDataPickerLocaldata>().toBeObject();
+  expectTypeOf<UniDataPickerLocaldataItem>().toBeObject();
+  expectTypeOf<UniDataPickerLocaldataItem>().toEqualTypeOf<UniHelper.UniDataPickerLocaldataItem>();
+
+  expectTypeOf<UniDataPickerLocaldata>().toBeArray();
   expectTypeOf<UniDataPickerLocaldata>().toEqualTypeOf<UniHelper.UniDataPickerLocaldata>();
+
+  expectTypeOf<UniDataPickerPageData>().toBeString();
+  expectTypeOf<UniDataPickerPageData>().toEqualTypeOf<UniHelper.UniDataPickerPageData>();
 
   expectTypeOf<UniDataPickerMap>().toBeObject();
   expectTypeOf<UniDataPickerMap>().toEqualTypeOf<UniHelper.UniDataPickerMap>();

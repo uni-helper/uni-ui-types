@@ -22,15 +22,14 @@ interface _UniDataPickerSpaceInfo {
   /** 服务空间 ID */
   spaceId: string;
   /** 阿里云支持，在控制台服务空间列表中查看 */
-  clientSecret: string;
+  clientSecret?: string;
   /** 服务空间地址，阿里云支持 */
   endpoint?: string;
 }
 
 export type _UniDataPickerValue = string | number | boolean | null;
 
-/** 本地数据 */
-interface _UniDataPickerLocaldata {
+interface _UniDataPickerLocaldataItem {
   /** 值 */
   value: _UniDataPickerValue;
   /** 显示文字 */
@@ -58,8 +57,20 @@ interface _UniDataPickerLocaldata {
    */
   isleaf?: boolean;
   /** 子节点 */
-  children?: _UniDataPickerLocaldata[];
+  children?: _UniDataPickerLocaldataItem[];
 }
+
+/** 本地数据 */
+type _UniDataPickerLocaldata = _UniDataPickerLocaldataItem[];
+
+/**
+ * 分页策略
+ *
+ * add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+ *
+ * replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+ */
+type _UniDataPickerPageData = 'add' | 'replace';
 
 /**
  * 字段映射
@@ -87,17 +98,21 @@ interface _UniDataPickerClear {
 }
 
 interface _UniDataPickerOnChangeDetail {
-  value: _UniDataPickerValue;
+  value: any[];
 }
+
+type _UniDataPickerOnChangeEvent = {
+  detail: _UniDataPickerOnChangeDetail;
+};
 
 /** 选择完成时触发 */
 interface _UniDataPickerOnChange {
-  (event: CustomEvent<_UniDataPickerOnChangeDetail>): void;
+  (event: _UniDataPickerOnChangeEvent): void;
 }
 
 /** 节点被点击时触发 */
 interface _UniDataPickerOnNodeclick {
-  (event: BaseEvent): void;
+  (node: any): void;
 }
 
 /** 动态加载节点数据前触发 */
@@ -107,12 +122,12 @@ interface _UniDataPickerOnStepsearch {
 
 /** 弹出层弹出时触发 */
 interface _UniDataPickerOnPopupopened {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 /** 弹出层关闭时触发 */
 interface _UniDataPickerOnPopupclosed {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 type _UniDataPickerProps = Partial<{
@@ -121,7 +136,7 @@ type _UniDataPickerProps = Partial<{
   /** 服务空间信息 */
   spaceInfo: _UniDataPickerSpaceInfo;
   /** 本地数据 */
-  localdata: _UniDataPickerLocaldata[];
+  localdata: _UniDataPickerLocaldata;
   /**
    * 是否预加载数据
    *
@@ -160,18 +175,104 @@ type _UniDataPickerProps = Partial<{
   parentField: string;
   /** 表名，多个表名用 , 分割 */
   collection: string;
+  /**
+   * 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
+   *
+   * 场景：前端无权操作的数据，比如阅读数 +1
+   */
+  action: string;
   /** 查询字段，多个字段用 , 分割 */
   field: string;
   /** 查询条件 */
   where: string;
   /** 排序字段及正序倒叙设置 */
   orderby: string;
-  /** 弹出层标题 */
+  /**
+   * 分页策略
+   *
+   * add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+   *
+   * replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+   *
+   * 默认为 add
+   */
+  pageData: _UniDataPickerPageData;
+  /**
+   * 当前页
+   *
+   * 默认为 1
+   */
+  pageCurrent: number;
+  /**
+   * 每页数据数量
+   *
+   * 默认为 500
+   */
+  pageSize: number;
+  /**
+   * 是否查询总数据条数
+   *
+   * 默认 false
+   */
+  getcount: boolean;
+  /**
+   * 指定查询结果是否仅返回数组第一条数据
+   *
+   * false 结果数据外会再用数组包裹一层，一般用于列表页
+   *
+   * true 直接返回结果数据，一般用于非列表页
+   *
+   * 默认 false
+   */
+  getone: boolean;
+  /**
+   * 是否查询树状结构数据
+   *
+   * 默认为 false
+   */
+  gettree: boolean;
+  /**
+   * 是否手动触发
+   *
+   * 默认为 false
+   */
+  manual: boolean;
+  /**
+   * 是否多个
+   *
+   * 默认为 false
+   */
+  multiple: boolean;
+  /**
+   * 弹出层标题
+   *
+   * 默认为 请选择
+   */
   popupTitle: string;
+  /**
+   * 占位文本
+   *
+   * 默认为 请选择
+   */
+  placeholder: string;
+  /**
+   * 是否显示边框
+   *
+   * 默认为 true
+   */
+  border: boolean;
+  /**
+   * 分隔符
+   *
+   * 默认为 /
+   */
+  split: string;
   /**
    * 字段映射
    *
    * 将 text/value 映射到数据中的其他字段
+   *
+   * 默认为 [{ text: 'text', value: 'value' }]
    */
   map: _UniDataPickerMap;
   /** 打开弹出层 */
@@ -214,7 +315,9 @@ export {
   _UniDataPickerSpaceInfoProvider as UniDataPickerSpaceInfoProvider,
   _UniDataPickerSpaceInfo as UniDataPickerSpaceInfo,
   _UniDataPickerValue as UniDataPickerValue,
+  _UniDataPickerLocaldataItem as UniDataPickerLocaldataItem,
   _UniDataPickerLocaldata as UniDataPickerLocaldata,
+  _UniDataPickerPageData as UniDataPickerPageData,
   _UniDataPickerMap as UniDataPickerMap,
   _UniDataPickerShow as UniDataPickerShow,
   _UniDataPickerHide as UniDataPickerHide,
@@ -243,8 +346,17 @@ declare global {
     /** 服务空间信息 */
     export interface UniDataPickerSpaceInfo extends _UniDataPickerSpaceInfo {}
     export type UniDataPickerValue = _UniDataPickerValue;
+    export interface UniDataPickerLocaldataItem extends _UniDataPickerLocaldataItem {}
     /** 本地数据 */
-    export interface UniDataPickerLocaldata extends _UniDataPickerLocaldata {}
+    export type UniDataPickerLocaldata = _UniDataPickerLocaldata;
+    /**
+     * 分页策略
+     *
+     * add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+     *
+     * replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+     */
+    export type UniDataPickerPageData = _UniDataPickerPageData;
     /**
      * 字段映射
      *
