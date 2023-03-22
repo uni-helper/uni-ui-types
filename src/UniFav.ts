@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /** 收藏按钮文字 */
 interface _UniFavContentText {
@@ -18,7 +18,7 @@ interface _UniFavContentText {
 
 /** 点击触发 */
 interface _UniFavOnClick {
-  (event: BaseEvent): void;
+  (): void;
 }
 
 type _UniFavProps = Partial<{
