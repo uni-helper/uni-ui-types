@@ -1,4 +1,4 @@
-import { BaseEvent, Component } from '@uni-helper/uni-app-types';
+import { CustomEvent, Component } from '@uni-helper/uni-app-types';
 
 /** 输入内容 */
 type _UniEasyinputValue = string | number;
@@ -61,13 +61,19 @@ interface _UniEasyinputStyles {
   /**
    * 输入文字颜色
    *
-   * 默认为 #333333
+   * 默认为 #333
    */
   color: string;
   /**
+   * 输入框背景色
+   *
+   * 默认为 #fff
+   */
+  backgroundColor: string;
+  /**
    * 输入框禁用背景色
    *
-   * 默认为 #eeeeee
+   * 默认为 #f7f6f6
    */
   disableColor: string;
   /**
@@ -91,14 +97,30 @@ interface _UniEasyinputOnClear {
   (): void;
 }
 
+interface _UniEasyinputOnFocusDetail {
+  value: _UniEasyinputValue;
+  /** 键盘高度 */
+  height?: number;
+}
+
+type _UniEasyinputOnFocusEvent = CustomEvent<_UniEasyinputOnFocusDetail>;
+
 /** 输入框获得焦点时触发 */
 interface _UniEasyinputOnFocus {
-  (event: BaseEvent): void;
+  (event: _UniEasyinputOnFocusEvent): void;
 }
+
+interface _UniEasyinputOnBlurDetail {
+  value: _UniEasyinputValue;
+  /** 光标位置 */
+  cursor?: number;
+}
+
+type _UniEasyinputOnBlurEvent = CustomEvent<_UniEasyinputOnBlurDetail>;
 
 /** 输入框失去焦点时触发 */
 interface _UniEasyinputOnBlur {
-  (event: BaseEvent): void;
+  (event: _UniEasyinputOnBlurEvent): void;
 }
 
 /** 点击完成时触发 */
@@ -117,6 +139,8 @@ interface _UniEasyinputOnChange {
 }
 
 type _UniEasyinputProps = Partial<{
+  /** 名称 */
+  name: string;
   /** 输入内容 */
   value: _UniEasyinputValue;
   /**
@@ -202,7 +226,7 @@ type _UniEasyinputProps = Partial<{
    *
    * 单位为 px
    *
-   * 默认为 15
+   * 默认为 24
    */
   clearSize: number;
   /** 输入框头部图标 */
@@ -226,7 +250,7 @@ type _UniEasyinputProps = Partial<{
    *
    * none 不去除空格
    *
-   * 默认为 false
+   * 默认为 true
    */
   trim: _UniEasyinputTrim;
   /**
@@ -245,6 +269,14 @@ type _UniEasyinputProps = Partial<{
    * 默认为 true
    */
   passwordIcon: boolean;
+  /**
+   * 主题色
+   *
+   * 默认为 #2979ff
+   */
+  primaryColor: string;
+  /** 错误信息 */
+  errorMessage: string;
   /** 输入框发生变化时触发 */
   onInput: _UniEasyinputOnInput;
   /** 清除时触发 */
@@ -275,7 +307,11 @@ export {
   _UniEasyinputIconPosition as UniEasyinputIconPosition,
   _UniEasyinputOnInput as UniEasyinputOnInput,
   _UniEasyinputOnClear as UniEasyinputOnClear,
+  _UniEasyinputOnFocusDetail as UniEasyinputOnFocusDetail,
+  _UniEasyinputOnFocusEvent as UniEasyinputOnFocusEvent,
   _UniEasyinputOnFocus as UniEasyinputOnFocus,
+  _UniEasyinputOnBlurDetail as UniEasyinputOnBlurDetail,
+  _UniEasyinputOnBlurEvent as UniEasyinputOnBlurEvent,
   _UniEasyinputOnBlur as UniEasyinputOnBlur,
   _UniEasyinputOnConfirm as UniEasyinputOnConfirm,
   _UniEasyinputOnIconClick as UniEasyinputOnIconClick,
@@ -347,8 +383,12 @@ declare global {
     export interface UniEasyinputOnInput extends _UniEasyinputOnInput {}
     /** 清除时触发 */
     export interface UniEasyinputOnClear extends _UniEasyinputOnClear {}
+    export interface UniEasyinputOnFocusDetail extends _UniEasyinputOnFocusDetail {}
+    export type UniEasyinputOnFocusEvent = _UniEasyinputOnFocusEvent;
     /** 输入框获得焦点时触发 */
     export interface UniEasyinputOnFocus extends _UniEasyinputOnFocus {}
+    export interface UniEasyinputOnBlurDetail extends _UniEasyinputOnBlurDetail {}
+    export type UniEasyinputOnBlurEvent = _UniEasyinputOnBlurEvent;
     /** 输入框失去焦点时触发 */
     export interface UniEasyinputOnBlur extends _UniEasyinputOnBlur {}
     /** 点击完成时触发 */

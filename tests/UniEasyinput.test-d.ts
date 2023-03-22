@@ -8,7 +8,11 @@ import type {
   UniEasyinputIconPosition,
   UniEasyinputOnInput,
   UniEasyinputOnClear,
+  UniEasyinputOnFocusDetail,
+  UniEasyinputOnFocusEvent,
   UniEasyinputOnFocus,
+  UniEasyinputOnBlurDetail,
+  UniEasyinputOnBlurEvent,
   UniEasyinputOnBlur,
   UniEasyinputOnConfirm,
   UniEasyinputOnIconClick,
@@ -43,8 +47,20 @@ describe('UniEasyinput', () => {
   expectTypeOf<UniEasyinputOnClear>().toBeFunction();
   expectTypeOf<UniEasyinputOnClear>().toEqualTypeOf<UniHelper.UniEasyinputOnClear>();
 
+  expectTypeOf<UniEasyinputOnFocusDetail>().toBeObject();
+  expectTypeOf<UniEasyinputOnFocusDetail>().toEqualTypeOf<UniHelper.UniEasyinputOnFocusDetail>();
+
+  expectTypeOf<UniEasyinputOnFocusEvent>().toBeObject();
+  expectTypeOf<UniEasyinputOnFocusEvent>().toEqualTypeOf<UniHelper.UniEasyinputOnFocusEvent>();
+
   expectTypeOf<UniEasyinputOnFocus>().toBeFunction();
   expectTypeOf<UniEasyinputOnFocus>().toEqualTypeOf<UniHelper.UniEasyinputOnFocus>();
+
+  expectTypeOf<UniEasyinputOnBlurDetail>().toBeObject();
+  expectTypeOf<UniEasyinputOnBlurDetail>().toEqualTypeOf<UniHelper.UniEasyinputOnBlurDetail>();
+
+  expectTypeOf<UniEasyinputOnBlurEvent>().toBeObject();
+  expectTypeOf<UniEasyinputOnBlurEvent>().toEqualTypeOf<UniHelper.UniEasyinputOnBlurEvent>();
 
   expectTypeOf<UniEasyinputOnBlur>().toBeFunction();
   expectTypeOf<UniEasyinputOnBlur>().toEqualTypeOf<UniHelper.UniEasyinputOnBlur>();
