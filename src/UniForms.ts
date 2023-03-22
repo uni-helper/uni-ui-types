@@ -7,6 +7,14 @@ interface _UniFormsCallback {
   (...args: any): any;
 }
 
+/**
+ * 自定义校验规则方法
+ *
+ * @param rule 当前校验字段在 rules 中所对应的校验规则
+ * @param value 当前校验字段的值
+ * @param data 所有校验字段的字段和值的对象
+ * @param callback 校验完成时的回调
+ */
 interface _UniFormsValidateFunction {
   (rule: any, value: any, data: any, callback: _UniFormsCallback):
     | boolean
@@ -22,21 +30,27 @@ interface _UniFormsRulesRule {
    *
    * 配置此参数不会显示输入框左边的必填星号
    */
-  required: boolean;
-  /** 内置校验规则 */
-  format: _UniFormsFormat;
-  /** 校验用的正则表达式 */
-  pattern: RegExp;
+  required?: boolean;
+  /** 数组至少要有一个元素，且数组内每个元素都唯一 */
+  range?: any[];
+  /**
+   * 内置校验规则
+   *
+   * 默认为 string
+   */
+  format?: _UniFormsFormat;
+  /** 校验用的正则表达式，建议使用字符串表示 */
+  pattern?: string | RegExp;
   /** 校验最大值 */
-  maximum: number;
+  maximum?: number;
   /** 校验最小值 */
-  minimum: number;
+  minimum?: number;
   /** 校验数据最大长度 */
-  maxLength: number;
+  maxLength?: number;
   /** 校验失败提示信息语 */
-  errorMessage: string;
+  errorMessage?: string;
   /** 自定义校验规则 */
-  validateFunction: _UniFormsValidateFunction;
+  validateFunction?: _UniFormsValidateFunction;
 }
 
 /** 校验规则 */
@@ -44,7 +58,7 @@ type _UniFormsRules = Record<
   string,
   {
     /** 校验规则 */
-    rules?: Array<Partial<_UniFormsRulesRule>>;
+    rules?: _UniFormsRulesRule | Array<_UniFormsRulesRule>;
     /** 当前表单域的字段中文名，多用于 errorMessage 的显示，可不填 */
     label?: string;
   }
@@ -86,8 +100,8 @@ interface _UniFormsValidate {
  *
  * @param items 需要校验的字段
  */
-interface _UniFormsValidateFields {
-  (items: string | string[]): Promise<any>;
+interface _UniFormsValidateField {
+  (items?: string | string[]): Promise<any>;
 }
 
 /**
@@ -101,7 +115,7 @@ interface _UniFormsClearValidate {
 
 /** 任意表单项被校验后触发，返回表单校验信息 */
 interface _UniFormsOnValidate {
-  (results: any[]): void;
+  (results: any): void;
 }
 
 /** 表单属性 */
@@ -127,7 +141,7 @@ type _UniFormsProps = Partial<{
    *
    * 单位为 px
    *
-   * 默认为 75
+   * 默认为 65
    */
   labelWidth: string | number;
   /**
@@ -162,7 +176,7 @@ type _UniFormsProps = Partial<{
    *
    * @param items 需要校验的字段
    */
-  validateFields: _UniFormsValidateFields;
+  validateField: _UniFormsValidateField;
   /**
    * 移除表单的校验结果
    *
@@ -191,7 +205,7 @@ export {
   _UniFormsErrShowType as UniFormsErrShowType,
   _UniFormsSetRules as UniFormsSetRules,
   _UniFormsValidate as UniFormsValidate,
-  _UniFormsValidateFields as UniFormsValidateFields,
+  _UniFormsValidateField as UniFormsValidateField,
   _UniFormsClearValidate as UniFormsClearValidate,
   _UniFormsOnValidate as UniFormsOnValidate,
   _UniFormsProps as UniFormsProps,
@@ -235,7 +249,7 @@ declare global {
      *
      * @param items 需要校验的字段
      */
-    export interface UniFormsValidateFields extends _UniFormsValidateFields {}
+    export interface UniFormsValidateField extends _UniFormsValidateField {}
     /**
      * 移除表单的校验结果
      *

@@ -11,7 +11,7 @@ import type {
   UniFormsErrShowType,
   UniFormsSetRules,
   UniFormsValidate,
-  UniFormsValidateFields,
+  UniFormsValidateField,
   UniFormsClearValidate,
   UniFormsOnValidate,
   UniFormsProps,
@@ -53,8 +53,8 @@ describe('UniForms', () => {
   expectTypeOf<UniFormsValidate>().toBeFunction();
   expectTypeOf<UniFormsValidate>().toEqualTypeOf<UniHelper.UniFormsValidate>();
 
-  expectTypeOf<UniFormsValidateFields>().toBeFunction();
-  expectTypeOf<UniFormsValidateFields>().toEqualTypeOf<UniHelper.UniFormsValidateFields>();
+  expectTypeOf<UniFormsValidateField>().toBeFunction();
+  expectTypeOf<UniFormsValidateField>().toEqualTypeOf<UniHelper.UniFormsValidateField>();
 
   expectTypeOf<UniFormsClearValidate>().toBeFunction();
   expectTypeOf<UniFormsClearValidate>().toEqualTypeOf<UniHelper.UniFormsClearValidate>();
