@@ -1,5 +1,10 @@
 # 改动日志
 
+## 0.5.1 (2023-03-27)
+
+- fix: 修复 `UniListChatProps` `clickable` 类型，关闭 [#32](https://github.com/uni-helper/uni-ui-types/issues/32)
+- fix: 调整 `UniIconsProps` `type` 类型，现在支持自定义图标，但只能使用 `icon-` 前缀，关闭 [#31](https://github.com/uni-helper/uni-ui-types/issues/31)
+
 ## 0.5.0 (2023-03-22)
 
 比对源码和文档后，这个版本修复了大量描述和类型，也补全了一些缺失的属性。为了提供和 `@uni-helper/uni-app-types` 类似的体验，重命名了某些类型。希望能给你带来更好的体验！
