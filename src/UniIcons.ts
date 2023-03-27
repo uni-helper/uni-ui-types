@@ -161,6 +161,9 @@ type _UniIconsType =
   | 'headphones'
   | 'cart';
 
+/** 自定义图标类型 */
+export type _UniIconsCustomType = `icon-${string}`;
+
 /** 图标属性 */
 type _UniIconsProps = Partial<{
   /**
@@ -178,7 +181,7 @@ type _UniIconsProps = Partial<{
    *
    * 默认为 空字符串
    */
-  type: _UniIconsType;
+  type: _UniIconsType | _UniIconsCustomType;
   /**
    * 图标颜色
    *
@@ -201,6 +204,7 @@ type _UniIconsInstance = InstanceType<_UniIcons>;
 
 export {
   _UniIconsType as UniIconsType,
+  _UniIconsCustomType as UniIconsCustomType,
   _UniIconsProps as UniIconsProps,
   _UniIcons as UniIcons,
   _UniIconsInstance as UniIconsInstance,
@@ -210,6 +214,8 @@ declare global {
   namespace UniHelper {
     /** 图标类型 */
     export type UniIconsType = _UniIconsType;
+    /** 自定义图标类型 */
+    export type UniIconsCustomType = _UniIconsCustomType;
     /** 图标属性 */
     export type UniIconsProps = _UniIconsProps;
     /** 图标 */
