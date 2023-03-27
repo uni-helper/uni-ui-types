@@ -25,7 +25,7 @@ type _UniListChatProps = Partial<{
    *
    * 默认为 false
    */
-  clickable: string;
+  clickable: boolean;
   /**
    * 是否展示右侧箭头并开启点击反馈
    *
