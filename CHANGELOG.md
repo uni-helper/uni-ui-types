@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.2 (2023-03-28)
+
+- fix: `UniSwiperDotDotsStyles` 属性可选
+
 ## 0.5.1 (2023-03-27)
 
 - fix: 修复 `UniListChatProps` `clickable` 类型，关闭 [#32](https://github.com/uni-helper/uni-ui-types/issues/32)
