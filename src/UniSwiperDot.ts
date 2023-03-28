@@ -14,7 +14,7 @@ interface _UniSwiperDotDotsStyles {
    *
    * 默认为 6
    */
-  width: number;
+  width?: number;
   /**
    * 指示点高度
    *
@@ -24,7 +24,7 @@ interface _UniSwiperDotDotsStyles {
    *
    * 默认为 6
    */
-  height: number;
+  height?: number;
   /**
    * 指示点距 swiper 底部的高度
    *
@@ -32,7 +32,7 @@ interface _UniSwiperDotDotsStyles {
    *
    * 默认为 10
    */
-  bottom: number;
+  bottom?: number;
   /**
    * 指示点前景色
    *
@@ -40,19 +40,19 @@ interface _UniSwiperDotDotsStyles {
    *
    * 默认为 #ffffff
    */
-  color: string;
+  color?: string;
   /**
    * 未选择指示点背景色
    *
    * 默认为 rgba(0, 0, 0, 0.3)
    */
-  backgroundColor: string;
+  backgroundColor?: string;
   /**
    * 未选择指示点边框样式
    *
    * 默认为 1px rgba(0, 0, 0, 0.3) solid
    */
-  border: string;
+  border?: string;
   /**
    * 已选择指示点背景色
    *
@@ -60,7 +60,7 @@ interface _UniSwiperDotDotsStyles {
    *
    * 默认为 #333333
    */
-  selectedBackgroundColor: string;
+  selectedBackgroundColor?: string;
   /**
    * 已选择指示点边框样式
    *
@@ -68,7 +68,7 @@ interface _UniSwiperDotDotsStyles {
    *
    * 默认为 1px rgba(0, 0, 0, 0.9) solid
    */
-  selectedBorder: string;
+  selectedBorder?: string;
 }
 
 /** 点击时触发 */
