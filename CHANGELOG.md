@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.3 (2023-03-30)
+
+- fix: 修复 `UniFabVertical` 类型，关闭 [#34](https://github.com/uni-helper/uni-ui-types/issues/34)
+
 ## 0.5.2 (2023-03-28)
 
 - fix: `UniSwiperDotDotsStyles` 属性可选
