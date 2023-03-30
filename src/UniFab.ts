@@ -50,7 +50,7 @@ type _UniFabHorizontal = 'left' | 'right';
  *
  * top 上对齐
  */
-type _UniFabVertical = 'bottom' | 'right';
+type _UniFabVertical = 'bottom' | 'top';
 
 /**
  * 展开菜单显示方式
