@@ -44,24 +44,24 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.2.11",
-    "@uni-helper/uni-app-types": "^0.5.3",
+    "@uni-helper/uni-app-types": "^0.5.4",
     "vue3": "npm:vue@^3.2.47"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.5.0",
+    "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@commitlint/prompt": "^17.5.0",
     "@modyqyw/fabric": "^7.5.0",
     "@modyqyw/utils": "^5.0.0",
     "@tsconfig/node18": "^1.0.1",
-    "@types/node": "^18.15.10",
+    "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
-    "@vitest/coverage-c8": "^0.29.7",
-    "bumpp": "^9.0.0",
+    "@vitest/coverage-c8": "^0.29.8",
+    "bumpp": "^9.1.0",
     "c8": "^7.13.0",
     "commitizen": "^4.3.0",
-    "eslint": "^8.36.0",
+    "eslint": "^8.37.0",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.2.0",
@@ -74,7 +74,7 @@
     "rollup-plugin-dts": "^5.3.0",
     "taze": "^0.9.1",
     "typescript": "^5.0.2",
-    "vitest": "^0.29.7"
+    "vitest": "^0.29.8"
   },
   "peerDependencies": {
     "@uni-helper/uni-app-types": "^0.5.1"
@@ -84,7 +84,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@7.30.5",
+  "packageManager": "pnpm@8.1.0",
   "engines": {
     "node": ">=14.18"
   },
