@@ -27,6 +27,15 @@ type _UniFilePickerMode = 'list' | 'grid';
 type _UniFilePickerFileMediatype = 'image' | 'video' | 'all';
 
 /**
+ * 文件类型
+ *
+ * image 图片
+ *
+ * video 视频
+ */
+type _UniFilePickerFileType = Exclude<_UniFilePickerFileMediatype, 'all'>;
+
+/**
  * 样式
  *
  * mode="list" 时有效
@@ -172,36 +181,102 @@ interface _UniFilePickerClearFiles {
   (index?: number): void;
 }
 
-/** 通用事件回调参数 */
-interface _UniFilePickerBaseEvent {
-  /**
-   * 文件列表
-   *
-   * 包含文件流，文件大小，文件名称等
-   */
-  tempFiles: File[];
-  /**
-   * 上传后的线上文件地址列表
-   *
-   * 腾讯云返回 fileId
-   */
-  tempFilePaths?: string[];
+interface _UniFilePickerFileImage {
+  width: number;
+  height: number;
+  location: string;
 }
 
-type _UniFilePickerOnSelectEvent = _UniFilePickerBaseEvent;
+/** 文件状态 */
+type _UniFilePickerFileStatus = 'ready' | 'error' | 'success';
+
+interface _UniFilePickerBaseFile {
+  cloudPath: string;
+  /** 文件后缀名，不含 . */
+  extname: string;
+  /**
+   * 文件类型
+   *
+   * image 图片
+   *
+   * video 视频
+   */
+  fileType: _UniFilePickerFileType;
+  /** 图片信息 */
+  image?: _UniFilePickerFileImage;
+  /** 视频信息，预留但未使用，请从 file 属性中获取视频信息 */
+  video?: Record<string, never>;
+  /** 临时名称 */
+  name: string;
+  /** 临时路径 */
+  path: string;
+  /** 文件大小 */
+  size: number;
+  /** 文件状态 */
+  status: _UniFilePickerFileStatus;
+  /** 临时路径，建议使用 path */
+  url: string;
+  /** 唯一标识 */
+  uuid: string;
+}
+
+interface _UniFilePickerTempFileFile extends Partial<File> {
+  cloudPath: string;
+  /**
+   * 文件类型
+   *
+   * image 图片
+   *
+   * video 视频
+   */
+  fileType: _UniFilePickerFileType;
+  /** 临时名称 */
+  name: string;
+  /** 临时路径 */
+  path: string;
+  /** 文件大小 */
+  size: number;
+  /** 唯一标识 */
+  uuid: string;
+  /** 视频宽度 */
+  width?: number;
+  /** 视频的高度 */
+  height?: number;
+  /** 视频时长，单位 s */
+  duration?: number;
+}
+
+interface _UniFilePickerTempFile extends _UniFilePickerBaseFile {
+  /** 文件内容 */
+  file: _UniFilePickerTempFileFile;
+  /** 上传进度 */
+  progress: number;
+}
+
+interface _UniFilePickerCallbackFile extends _UniFilePickerBaseFile {
+  /** 文件云上 ID */
+  fileID: string;
+}
+
+type _UniFilePickerOnSelectEvent = {
+  /** 文件信息 */
+  tempFiles: _UniFilePickerTempFile[];
+  /** 文件临时路径 */
+  tempFilePaths: string[];
+};
 
 /** 选择文件后触发 */
 interface _UniFilePickerOnSelect {
   (event: _UniFilePickerOnSelectEvent): void;
 }
 
-type _UniFilePickerOnProgressEvent = _UniFilePickerBaseEvent & {
+type _UniFilePickerOnProgressEvent = {
   /** 上传进度 */
   progress: number;
   /** 上传文件索引 */
   index: number;
-  /** 当前文件对象，包含文件流，文件大小，文件名称等 */
-  tempFile: File;
+  /** 文件信息 */
+  tempFile: _UniFilePickerTempFile;
 };
 
 /** 文件上传时触发 */
@@ -209,21 +284,36 @@ interface _UniFilePickerOnProgress {
   (event: _UniFilePickerOnProgressEvent): void;
 }
 
-type _UniFilePickerOnSuccessEvent = _UniFilePickerBaseEvent;
+type _UniFilePickerOnSuccessEvent = {
+  /** 文件云上路径 */
+  tempFilePaths: string[];
+  /** 文件云上信息 */
+  tempFiles: _UniFilePickerCallbackFile[];
+};
 
 /** 上传成功触发 */
 interface _UniFilePickerOnSuccess {
   (event: _UniFilePickerOnSuccessEvent): void;
 }
 
-type _UniFilePickerOnFailEvent = _UniFilePickerBaseEvent;
+type _UniFilePickerOnFailEvent = {
+  /** 文件临时路径 */
+  tempFilePaths: string[];
+  /** 文件信息 */
+  tempFiles: _UniFilePickerCallbackFile[];
+};
 
 /** 上传失败触发 */
 interface _UniFilePickerOnFail {
   (event: _UniFilePickerOnFailEvent): void;
 }
 
-type _UniFilePickerOnDeleteEvent = _UniFilePickerBaseEvent;
+type _UniFilePickerOnDeleteEvent = {
+  /** 删除的文件信息 */
+  tempFile: _UniFilePickerTempFile;
+  /** 删除的文件临时路径 */
+  tempFilePath: string;
+};
 
 /** 文件从列表移除时触发 */
 interface _UniFilePickerOnDelete {
@@ -394,15 +484,21 @@ export {
   _UniFilePickerValue as UniFilePickerValue,
   _UniFilePickerMode as UniFilePickerMode,
   _UniFilePickerFileMediatype as UniFilePickerFileMediatype,
+  _UniFilePickerFileType as UniFilePickerFileType,
   _UniFilePickerListStyles as UniFilePickerListStyles,
   _UniFilePickerImageStyles as UniFilePickerImageStyles,
   _UniFilePickerSizeTypeItem as UniFilePickerSizeTypeItem,
   _UniFilePickerSizeType as UniFilePickerSizeType,
   _UniFilePickerSourceTypeItem as UniFilePickerSourceTypeItem,
   _UniFilePickerSourceType as UniFilePickerSourceType,
-  _UniFilePickerBaseEvent as UniFilePickerBaseEvent,
   _UniFilePickerUpload as UniFilePickerUpload,
   _UniFilePickerClearFiles as UniFilePickerClearFiles,
+  _UniFilePickerFileImage as UniFilePickerFileImage,
+  _UniFilePickerFileStatus as UniFilePickerFileStatus,
+  _UniFilePickerBaseFile as UniFilePickerBaseFile,
+  _UniFilePickerTempFileFile as UniFilePickerTempFileFile,
+  _UniFilePickerTempFile as UniFilePickerTempFile,
+  _UniFilePickerCallbackFile as UniFilePickerCallbackFile,
   _UniFilePickerOnSelectEvent as UniFilePickerOnSelectEvent,
   _UniFilePickerOnSelect as UniFilePickerOnSelect,
   _UniFilePickerOnProgressEvent as UniFilePickerOnProgressEvent,
@@ -442,6 +538,14 @@ declare global {
      * all 全部
      */
     export type UniFilePickerFileMediatype = _UniFilePickerFileMediatype;
+    /**
+     * 文件类型
+     *
+     * image 图片
+     *
+     * video 视频
+     */
+    export type UniFilePickerFileType = _UniFilePickerFileType;
     /**
      * 样式
      *
@@ -492,8 +596,13 @@ declare global {
      * 不传入下标则删除所有
      */
     export interface UniFilePickerClearFiles extends _UniFilePickerClearFiles {}
-    /** 通用事件回调参数 */
-    export type UniFilePickerBaseEvent = _UniFilePickerBaseEvent;
+    export interface UniFilePickerFileImage extends _UniFilePickerFileImage {}
+    /** 文件状态 */
+    export type UniFilePickerFileStatus = _UniFilePickerFileStatus;
+    export interface UniFilePickerBaseFile extends _UniFilePickerBaseFile {}
+    export interface UniFilePickerTempFileFile extends _UniFilePickerTempFileFile {}
+    export interface UniFilePickerTempFile extends _UniFilePickerTempFile {}
+    export interface UniFilePickerCallbackFile extends _UniFilePickerCallbackFile {}
     export type UniFilePickerOnSelectEvent = _UniFilePickerOnSelectEvent;
     /** 选择文件后触发 */
     export interface UniFilePickerOnSelect extends _UniFilePickerOnSelect {}
