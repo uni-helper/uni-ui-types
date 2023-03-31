@@ -1,7 +1,9 @@
 # 改动日志
 
-## Unreleased
+## 0.5.4 (2023-03-31)
 
+- fix: 修复 `UniFilePickerListStyles` 和 `UniFilePickerImageStyles` 类型
+- fix: 修复 `UniFilePicker` `onSelect`、`onProgress`、`onSuccess`、`onFail`、`onDelete` 类型，⚠️ 可能造成 breaking changes，关闭 [#35](https://github.com/uni-helper/uni-ui-types/issues/35)
 - fix: 修复 `UniFabPattern` 类型，补充 `UniFabPattern.icon`，关闭 [#36](https://github.com/uni-helper/uni-ui-types/issues/36)
 
 ## 0.5.3 (2023-03-30)
