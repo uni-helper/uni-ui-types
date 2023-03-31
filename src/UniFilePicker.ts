@@ -220,7 +220,7 @@ interface _UniFilePickerBaseFile {
   uuid: string;
 }
 
-interface _UniFilePickerTempFileFile extends Partial<File> {
+interface _UniFilePickerTempFileFile extends File {
   cloudPath: string;
   /**
    * 文件类型
