@@ -33,25 +33,25 @@ type _UniFilePickerFileMediatype = 'image' | 'video' | 'all';
  */
 interface _UniFilePickerListStyles {
   /** 边框样式 */
-  borderStyle: {
+  borderStyle?: {
     /**
      * 颜色
      *
      * 默认为 #eee
      */
-    color: string;
+    color?: string;
     /**
      * 宽度
      *
      * 默认为 1px
      */
-    width: string;
+    width?: string;
     /**
      * 样式
      *
      * 默认为 solid
      */
-    style: string;
+    style?: string;
     /**
      * 边框圆角
      *
@@ -59,20 +59,20 @@ interface _UniFilePickerListStyles {
      *
      * 默认为 5px
      */
-    radius: string;
+    radius?: string;
   };
   /**
    * 是否显示边框
    *
    * 默认为 true
    */
-  border: boolean;
+  border?: boolean;
   /**
    * 是否显示分隔线
    *
    * 默认为 true
    */
-  dividline: boolean;
+  dividline?: boolean;
 }
 
 /**
@@ -86,33 +86,33 @@ interface _UniFilePickerImageStyles {
    *
    * 默认为 auto
    */
-  height: number | string;
+  height?: number | string;
   /**
    * 宽度
    *
    * 默认为 auto
    */
-  width: number | string;
+  width?: number | string;
   /** 边框样式 */
-  border: {
+  border?: {
     /**
      * 颜色
      *
      * 默认为 #eee
      */
-    color: string;
+    color?: string;
     /**
      * 宽度
      *
      * 默认为 1px
      */
-    width: string;
+    width?: string;
     /**
      * 样式
      *
      * 默认为 solid
      */
-    style: string;
+    style?: string;
     /**
      * 边框圆角
      *
@@ -120,7 +120,7 @@ interface _UniFilePickerImageStyles {
      *
      * 默认为 3px
      */
-    radius: string;
+    radius?: string;
   };
 }
 
