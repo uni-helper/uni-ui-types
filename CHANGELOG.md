@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.5 (2023-03-31)
+
+- fix: 修复 `UniFilePickerTempFileFile` 类型
+
 ## 0.5.4 (2023-03-31)
 
 - fix: 修复 `UniFilePickerListStyles` 和 `UniFilePickerImageStyles` 类型
