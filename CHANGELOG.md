@@ -1,5 +1,9 @@
 # 改动日志
 
+## Unreleased
+
+- fix: 修复 `UniFabPattern` 类型，补充 `UniFabPattern.icon`，关闭 [#36](https://github.com/uni-helper/uni-ui-types/issues/36)
+
 ## 0.5.3 (2023-03-30)
 
 - fix: 修复 `UniFabVertical` 类型，关闭 [#34](https://github.com/uni-helper/uni-ui-types/issues/34)
