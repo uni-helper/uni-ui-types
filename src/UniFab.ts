@@ -1,4 +1,5 @@
 import { Component } from '@uni-helper/uni-app-types';
+import { UniIconsType, UniIconsCustomType } from './UniIcons';
 
 /** 可选样式配置项 */
 interface _UniFabPattern {
@@ -7,31 +8,37 @@ interface _UniFabPattern {
    *
    * 默认为 #3c3e49
    */
-  color: string;
+  color?: string;
   /**
    * 文字选中时的颜色
    *
    * 默认为 #007aff
    */
-  selectedColor: string;
+  selectedColor?: string;
   /**
    * 背景色
    *
    * 默认为 #fff
    */
-  backgroundColor: string;
+  backgroundColor?: string;
   /**
    * 按钮背景色
    *
    * 默认为 #007a7ff
    */
-  buttonColor: string;
+  buttonColor?: string;
   /**
    * 图标颜色
    *
    * 默认为 #fff
    */
-  iconColor: string;
+  iconColor?: string;
+  /**
+   * 图标类型
+   *
+   * 默认为 plusempty
+   */
+  icon?: UniIconsType | UniIconsCustomType;
 }
 
 /**
