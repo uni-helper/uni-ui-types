@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.6 (2023-04-04)
+
+- fix: 修复 `UniSteps` 类型，关闭 [#39](https://github.com/uni-helper/uni-ui-types/issues/39)
+
 ## 0.5.5 (2023-03-31)
 
 - fix: 修复 `UniFilePickerTempFileFile` 类型
