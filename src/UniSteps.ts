@@ -92,3 +92,10 @@ declare global {
     export type UniStepsInstance = _UniStepsInstance;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 步骤条 */
+    UniSteps: _UniSteps;
+  }
+}
