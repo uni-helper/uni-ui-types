@@ -164,7 +164,7 @@ importers:
         version: 3.0.0-alpha-3070620230227001(postcss@8.4.21)(ts-node@10.9.1)(vite@4.1.4)(vue@3.2.47)
       '@uni-helper/uni-app-types':
         specifier: 0.5.1
-        version: 0.5.1(typescript@4.9.5)
+        version: 0.5.1(typescript@5.0.4)
       '@uni-helper/uni-ui-types':
         specifier: workspace:*
         version: link:..
@@ -172,8 +172,8 @@ importers:
         specifier: 1.57.1
         version: 1.57.1
       typescript:
-        specifier: 4.9.5
-        version: 4.9.5
+        specifier: 5.0.4
+        version: 5.0.4
       vite:
         specifier: 4.1.4
         version: 4.1.4(@types/node@18.16.1)(sass@1.57.1)(terser@5.16.1)
@@ -3784,14 +3784,14 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@uni-helper/uni-app-types@0.5.1(typescript@4.9.5):
+  /@uni-helper/uni-app-types@0.5.1(typescript@5.0.4):
     resolution: {integrity: sha512-rJsBDyQAsjSK+1I/wipqE0UA94xNsjWJhuJ6geZLTHNup1zeuq1ilx8L2IdbBnAEPLlZDHirNr78zQ3Vs33Zyg==}
     engines: {node: '>=14.18'}
     peerDependencies:
       typescript: ^4.8.0
     dependencies:
       '@dcloudio/types': 3.2.11
-      typescript: 4.9.5
+      typescript: 5.0.4
       vue3: /vue@3.2.47
     dev: true
 
@@ -11542,12 +11542,6 @@ packages:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
     dependencies:
       is-typedarray: 1.0.0
-    dev: true
-
-  /typescript@4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
     dev: true
 
   /typescript@5.0.4:
