@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.7 (2023-04-26)
+
+- fix: 修复 `UniDataCheckboxLocaldataItem`、`UniDataPickerLocaldataItem`、`UniDataSelectLocaldataItem` 字段，关闭 [#41](https://github.com/uni-helper/uni-ui-types/issues/41)
+
 ## 0.5.6 (2023-04-04)
 
 - fix: 修复 `UniSteps` 类型，关闭 [#39](https://github.com/uni-helper/uni-ui-types/issues/39)
