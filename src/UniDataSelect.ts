@@ -12,7 +12,7 @@ interface _UniDataSelectLocaldataItem {
    *
    * 默认为 false
    */
-  disable: boolean;
+  disable?: boolean;
 }
 
 /** 本地数据 */

@@ -21,8 +21,12 @@ interface _UniDataCheckboxLocaldataItem {
   text: string;
   /** 选中后的值 */
   value: _UniDataCheckboxValue;
-  /** 是否禁用 */
-  disabled: boolean;
+  /**
+   * 是否禁用
+   *
+   * 默认为 false
+   */
+  disable?: boolean;
 }
 
 /** 本地渲染数据 */

@@ -45,7 +45,7 @@ interface _UniDataPickerLocaldataItem {
    *
    * 默认为 false
    */
-  disable: boolean;
+  disable?: boolean;
   /** 数组分组标识 */
   group?: string;
   /**
