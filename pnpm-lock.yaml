@@ -5,11 +5,11 @@ importers:
   .:
     dependencies:
       '@dcloudio/types':
-        specifier: ^3.2.11
-        version: 3.2.11
+        specifier: ^3.3.3
+        version: 3.3.3
       '@uni-helper/uni-app-types':
-        specifier: ^0.5.4
-        version: 0.5.4(typescript@5.0.4)
+        specifier: ^0.5.5
+        version: 0.5.5(typescript@5.0.4)
       vue3:
         specifier: npm:vue@^3.2.47
         version: /vue@3.2.47
@@ -26,9 +26,6 @@ importers:
       '@modyqyw/fabric':
         specifier: ^7.5.0
         version: 7.5.0(eslint@8.39.0)(postcss@8.4.21)(prettier@2.8.8)(stylelint@15.3.0)(vue@3.2.47)
-      '@modyqyw/utils':
-        specifier: ^6.0.0
-        version: 6.0.0
       '@tsconfig/node18':
         specifier: ^2.0.0
         version: 2.0.0
@@ -59,9 +56,6 @@ importers:
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
-      husky:
-        specifier: ^8.0.3
-        version: 8.0.3
       is-ci:
         specifier: ^3.0.1
         version: 3.0.1
@@ -1705,6 +1699,10 @@ packages:
   /@dcloudio/types@3.2.11:
     resolution: {integrity: sha512-Ws+pUiQMvCcSjg0soF+vTTwwsdNlK/1cxIfo5LBBDFPoXfUAAh6k9HnCt5cudERNhY0M3wE7ATMx/1Cb9bmUig==}
 
+  /@dcloudio/types@3.3.3:
+    resolution: {integrity: sha512-xfp88QOJ2fgCzv49HhEGrX0L+3xDsCyyvcoApL7z0J1Lr7tqPUkxqAVBe9zBlKsDX/mO9mNj7NzKIisHfp+fNQ==}
+    dev: false
+
   /@dcloudio/uni-app-plus@3.0.0-alpha-3070620230227001(postcss@8.4.21)(ts-node@10.9.1)(vite@4.1.4)(vue@3.2.47):
     resolution: {integrity: sha512-NF/CL61e7YHKrWwK0bO6jAJcf7GlFPvSoESrapQt9ulx/DRmmXSv6pJgfC1QQw74oLsI5EH6HArPCEGrnynjYw==}
     dependencies:
@@ -3334,11 +3332,6 @@ packages:
       - supports-color
     dev: true
 
-  /@modyqyw/utils@6.0.0:
-    resolution: {integrity: sha512-DJiKmx/xRq7NqunQNcBngjgtESUJMe57KHhnz7hOom8IpfILwdNiE4+z/2ShaffxzFJP3y6SC4mbRRQnyBkZiw==}
-    engines: {node: '>=14.18'}
-    dev: true
-
   /@next/eslint-plugin-next@13.2.4:
     resolution: {integrity: sha512-ck1lI+7r1mMJpqLNa3LJ5pxCfOB1lfJncKmRJeJxcJqcngaFwylreLP7da6Rrjr6u2gVRTfmnkSkjc80IiQCwQ==}
     dependencies:
@@ -3795,13 +3788,13 @@ packages:
       vue3: /vue@3.2.47
     dev: true
 
-  /@uni-helper/uni-app-types@0.5.4(typescript@5.0.4):
-    resolution: {integrity: sha512-hbM4i9vE/mrZ4ZDauvARR5UPiY/OY9JNhfE/s2yiGO1VPulYx8koXJzkfYXR0Xgj9juVMhqi+aIUFYVWDYifkQ==}
+  /@uni-helper/uni-app-types@0.5.5(typescript@5.0.4):
+    resolution: {integrity: sha512-8oF5kca9E+8lyVtjIRlxsQKunPtaWZVbIK1zb3Fa1IgFcpyUPTrfv+slkQAsKLwDDRPoaBCqbhWRyveyDmmDxA==}
     engines: {node: '>=14.18'}
     peerDependencies:
       typescript: ^4.8.0 || ^5.0.0
     dependencies:
-      '@dcloudio/types': 3.2.11
+      '@dcloudio/types': 3.3.3
       typescript: 5.0.4
       vue3: /vue@3.2.47
     dev: false
@@ -7126,12 +7119,6 @@ packages:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
     dependencies:
       ms: 2.1.3
-    dev: true
-
-  /husky@8.0.3:
-    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
-    engines: {node: '>=14'}
-    hasBin: true
     dev: true
 
   /iconv-lite@0.4.24:
