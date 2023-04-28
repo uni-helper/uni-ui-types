@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.3.3",
-    "@uni-helper/uni-app-types": "^0.5.5",
+    "@uni-helper/uni-app-types": "^0.5.6",
     "vue3": "npm:vue@^3.2.47"
   },
   "devDependencies": {
@@ -53,7 +53,7 @@
     "@commitlint/prompt": "^17.6.1",
     "@modyqyw/fabric": "^7.5.0",
     "@tsconfig/node18": "^2.0.0",
-    "@types/node": "^18.16.1",
+    "@types/node": "^18.16.2",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "@vitest/coverage-c8": "^0.30.1",
