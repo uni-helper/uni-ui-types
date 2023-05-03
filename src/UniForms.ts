@@ -92,7 +92,8 @@ interface _UniFormsSetRules {
  * @param callback 回调函数
  */
 interface _UniFormsValidate {
-  (keepItem: string[], callback: _UniFormsCallback): void | Promise<void>;
+  (keepItem?: string[], callback?: _UniFormsCallback): void | Promise<void>;
+  (callback?: _UniFormsCallback): void | Promise<void>;
 }
 
 /**
