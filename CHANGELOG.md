@@ -1,8 +1,12 @@
 # 改动日志
 
+## 0.5.8 (2023-05-04)
+
+- fix: 修复 `UniFormsValidate` 类型，关闭 [#42](https://github.com/uni-helper/uni-ui-types/issues/42)
+
 ## 0.5.7 (2023-04-26)
 
-- fix: 修复 `UniDataCheckboxLocaldataItem`、`UniDataPickerLocaldataItem`、`UniDataSelectLocaldataItem` 字段，关闭 [#41](https://github.com/uni-helper/uni-ui-types/issues/41)
+- fix: 修复 `UniDataCheckboxLocaldataItem`、`UniDataPickerLocaldataItem`、`UniDataSelectLocaldataItem` 类型，关闭 [#41](https://github.com/uni-helper/uni-ui-types/issues/41)
 
 ## 0.5.6 (2023-04-04)
 
