@@ -97,7 +97,7 @@ type _UniDataCheckboxBaseProps = Partial<{
    *
    * 将 text/value 映射到数据中的其他字段
    *
-   * 默认为 { text: 'text', value: 'value }
+   * 默认为 { text: 'text', value: 'value' }
    */
   map: _UniDataCheckboxMap;
 }>;
