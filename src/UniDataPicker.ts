@@ -29,7 +29,15 @@ interface _UniDataPickerSpaceInfo {
 
 export type _UniDataPickerValue = string | number | boolean | null;
 
+export type _UniDataPickerKey = _UniDataPickerValue;
+
 interface _UniDataPickerLocaldataItem {
+  /**
+   * 节点唯一标识
+   *
+   * 如果不传，则以 value 为准
+   */
+  key?: _UniDataPickerKey;
   /** 值 */
   value: _UniDataPickerValue;
   /** 显示文字 */
@@ -39,7 +47,7 @@ interface _UniDataPickerLocaldataItem {
    *
    * 默认为 false
    */
-  selected: boolean;
+  selected?: boolean;
   /**
    * 是否禁用
    *
@@ -58,6 +66,10 @@ interface _UniDataPickerLocaldataItem {
   isleaf?: boolean;
   /** 子节点 */
   children?: _UniDataPickerLocaldataItem[];
+  /**
+   * 自由扩展 key
+   */
+  [key: string]: any;
 }
 
 /** 本地数据 */
