@@ -37,7 +37,7 @@
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:publint": "publint",
     "prepare": "is-ci || simple-git-hooks",
-    "release": "pnpm install && pnpm run build && pnpm run lint && bumpp",
+    "release": "pnpm install && pnpm run build && pnpm run lint && pnpm run check:types && pnpm run test && bumpp",
     "prepublishOnly": "pnpm run build",
     "test": "vitest typecheck --run",
     "test:coverage": "vitest typecheck --run --coverage"
