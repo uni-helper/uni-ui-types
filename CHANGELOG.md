@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.9 (2023-05-07)
+
+- fix: 修复 `UniDataPickerLocaldataItem` 类型
+
 ## 0.5.8 (2023-05-04)
 
 - fix: 修复 `UniFormsValidate` 类型，关闭 [#42](https://github.com/uni-helper/uni-ui-types/issues/42)
