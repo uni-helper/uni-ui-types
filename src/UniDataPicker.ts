@@ -66,9 +66,7 @@ interface _UniDataPickerLocaldataItem {
   isleaf?: boolean;
   /** 子节点 */
   children?: _UniDataPickerLocaldataItem[];
-  /**
-   * 自由扩展 key
-   */
+  /** 自由扩展 key */
   [key: string]: any;
 }
 
@@ -327,6 +325,7 @@ export {
   _UniDataPickerSpaceInfoProvider as UniDataPickerSpaceInfoProvider,
   _UniDataPickerSpaceInfo as UniDataPickerSpaceInfo,
   _UniDataPickerValue as UniDataPickerValue,
+  _UniDataPickerKey as UniDataPickerKey,
   _UniDataPickerLocaldataItem as UniDataPickerLocaldataItem,
   _UniDataPickerLocaldata as UniDataPickerLocaldata,
   _UniDataPickerPageData as UniDataPickerPageData,
@@ -358,6 +357,7 @@ declare global {
     /** 服务空间信息 */
     export interface UniDataPickerSpaceInfo extends _UniDataPickerSpaceInfo {}
     export type UniDataPickerValue = _UniDataPickerValue;
+    export type UniDataPickerKey = _UniDataPickerKey;
     export interface UniDataPickerLocaldataItem extends _UniDataPickerLocaldataItem {}
     /** 本地数据 */
     export type UniDataPickerLocaldata = _UniDataPickerLocaldata;

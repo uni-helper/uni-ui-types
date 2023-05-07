@@ -2,6 +2,7 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   UniDataPickerSpaceInfoProvider,
   UniDataPickerSpaceInfo,
+  UniDataPickerKey,
   UniDataPickerValue,
   UniDataPickerLocaldataItem,
   UniDataPickerLocaldata,
@@ -27,6 +28,9 @@ describe('UniDataPicker', () => {
 
   expectTypeOf<UniDataPickerSpaceInfo>().toBeObject();
   expectTypeOf<UniDataPickerSpaceInfo>().toEqualTypeOf<UniHelper.UniDataPickerSpaceInfo>();
+
+  expectTypeOf<UniDataPickerKey>().toMatchTypeOf<string | number | boolean | null>();
+  expectTypeOf<UniDataPickerKey>().toEqualTypeOf<UniHelper.UniDataPickerKey>();
 
   expectTypeOf<UniDataPickerValue>().toMatchTypeOf<string | number | boolean | null>();
   expectTypeOf<UniDataPickerValue>().toEqualTypeOf<UniHelper.UniDataPickerValue>();
