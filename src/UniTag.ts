@@ -1,4 +1,4 @@
-import { Component, AnyRecord } from '@uni-helper/uni-app-types';
+import { Component } from '@uni-helper/uni-app-types';
 
 /**
  * 大小尺寸
@@ -27,7 +27,7 @@ type _UniTagSize = 'normal' | 'small';
 type _UniTagType = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'royal';
 
 /** 自定义样式 */
-type _UniTagCustomStyle = AnyRecord;
+type _UniTagCustomStyle = string;
 
 /** 点击触发 */
 interface _UniTagOnClick {

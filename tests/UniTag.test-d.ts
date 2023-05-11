@@ -16,7 +16,7 @@ describe('UniTag', () => {
   expectTypeOf<UniTagSize>().toBeString();
   expectTypeOf<UniTagSize>().toEqualTypeOf<UniHelper.UniTagSize>();
 
-  expectTypeOf<UniTagCustomStyle>().toBeObject();
+  expectTypeOf<UniTagCustomStyle>().toBeString();
   expectTypeOf<UniTagCustomStyle>().toEqualTypeOf<UniHelper.UniTagCustomStyle>();
 
   expectTypeOf<UniTagOnClick>().toBeFunction();
