@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.11 (2023-07-24)
+
+- fix: 修复 `UniFormsItemRules` 类型
+
 ## 0.5.10 (2023-05-11)
 
 - fix: 修复 `UniTagCustomStyle` 类型
