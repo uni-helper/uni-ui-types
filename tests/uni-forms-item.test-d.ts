@@ -14,7 +14,7 @@ describe('UniFormsItem', () => {
   expectTypeOf<UniFormsItemRulesRule>().toBeObject();
   expectTypeOf<UniFormsItemRulesRule>().toEqualTypeOf<UniHelper.UniFormsItemRulesRule>();
 
-  expectTypeOf<UniFormsItemRules>().toBeObject();
+  expectTypeOf<UniFormsItemRules>().toBeArray();
   expectTypeOf<UniFormsItemRules>().toEqualTypeOf<UniHelper.UniFormsItemRules>();
 
   expectTypeOf<UniFormsItemLabelAlign>().toBeString();

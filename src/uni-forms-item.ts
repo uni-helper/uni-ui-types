@@ -5,15 +5,7 @@ import type { UniFormsRulesRule } from './uni-forms';
 interface _UniFormsItemRulesRule extends UniFormsRulesRule {}
 
 /** 校验规则 */
-type _UniFormsItemRules = Record<
-  string,
-  {
-    /** 校验规则 */
-    rules?: _UniFormsItemRulesRule | Array<_UniFormsItemRulesRule>;
-    /** 当前表单域的字段中文名，多用于 errorMessage 的显示，可不填 */
-    label?: string;
-  }
->;
+type _UniFormsItemRules = Array<_UniFormsItemRulesRule>;
 
 /** label 对齐方式 */
 type _UniFormsItemLabelAlign = 'left' | 'center' | 'right';
