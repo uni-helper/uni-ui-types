@@ -114,7 +114,7 @@
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { UniBadgeType, UniBadgeOnClick } from '@uni-helper/uni-app-types';
+import type { UniBadgeType, UniBadgeOnClick } from '@uni-helper/uni-ui-types';
 
 const type = ref<UniBadgeType>('default');
 const onClick: UniBadgeOnClick = (event) => {
