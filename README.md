@@ -46,7 +46,7 @@
   ```json
   {
     "compilerOptions": {
-      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+      "types": ["@dcloudio/types", "@uni-helper/uni-ui-types"]
     },
     "vueCompilerOptions": {
       "nativeTags": ["block", "component", "template", "slot"]
