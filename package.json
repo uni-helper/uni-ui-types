@@ -29,18 +29,18 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "check:deps": "taze",
-    "check:types": "tsc --noEmit",
+    "depupdate": "taze -fw",
     "dev": "rollup -c --watch",
     "lint": "conc \"pnpm:lint:eslint\" \"pnpm:lint:markdownlint\" \"pnpm:lint:publint\"",
     "lint:eslint": "eslint ./src --fix --cache --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:publint": "publint",
     "prepare": "is-ci || simple-git-hooks",
-    "release": "pnpm install && pnpm run build && pnpm run lint && pnpm run check:types && pnpm run test && bumpp",
     "prepublishOnly": "pnpm run build",
+    "release": "pnpm install && pnpm run build && pnpm run lint && pnpm run typecheck && pnpm run test && bumpp",
     "test": "vitest typecheck --run",
-    "test:coverage": "vitest typecheck --run --coverage"
+    "test:coverage": "vitest typecheck --run --coverage",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@dcloudio/types": "^3.3.3",
