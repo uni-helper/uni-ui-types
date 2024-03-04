@@ -7,10 +7,21 @@ interface _UniIndexedListOption {
   /** 索引 */
   data: string[];
 }
+/** 数据对象 */
+interface _UniIndexedItemSelected {
+  /** 索引标题 */
+  key: string;
+  /** 索引 */
+  name: string;
+  /** 索引序号 */
+  itemIndex: number;
+  /** 索引是否选中 */
+  checked: boolean;
+}
 
 interface _UniIndexedListOnClickEvent {
-  item: _UniIndexedListOption;
-  select: _UniIndexedListOption[];
+  item: _UniIndexedItemSelected;
+  select: _UniIndexedItemSelected[];
 }
 
 /** 点击触发 */
@@ -44,6 +55,7 @@ type _UniIndexedListInstance = InstanceType<_UniIndexedList>;
 
 export {
   _UniIndexedListOption as UniIndexedListOption,
+  _UniIndexedItemSelected as UniIndexedItemSelected,
   _UniIndexedListOnClickEvent as UniIndexedListOnClickEvent,
   _UniIndexedListOnClick as UniIndexedListOnClick,
   _UniIndexedListProps as UniIndexedListProps,
@@ -55,6 +67,7 @@ declare global {
   namespace UniHelper {
     /** 数据对象 */
     export interface UniIndexedListOption extends _UniIndexedListOption {}
+    export interface UniIndexedItemSelected extends _UniIndexedItemSelected {}
     export type UniIndexedListOnClickEvent = _UniIndexedListOnClickEvent;
     /** 点击触发 */
     export interface UniIndexedListOnClick extends _UniIndexedListOnClick {}
