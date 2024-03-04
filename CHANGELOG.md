@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.12 (2024-03-04)
+
+- fix: 修复 `UniIndexedListOnClickEvent` 类型
+
 ## 0.5.11 (2023-07-24)
 
 - fix: 修复 `UniFormsItemRules` 类型
