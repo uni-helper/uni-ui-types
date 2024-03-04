@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   UniIndexedListOption,
+  UniIndexedItemSelected,
   UniIndexedListOnClickEvent,
   UniIndexedListOnClick,
   UniIndexedListProps,
@@ -11,6 +12,9 @@ import type {
 describe('UniIndexedList', () => {
   expectTypeOf<UniIndexedListOption>().toBeObject();
   expectTypeOf<UniIndexedListOption>().toEqualTypeOf<UniHelper.UniIndexedListOption>();
+
+  expectTypeOf<UniIndexedItemSelected>().toBeObject();
+  expectTypeOf<UniIndexedItemSelected>().toEqualTypeOf<UniHelper.UniIndexedItemSelected>();
 
   expectTypeOf<UniIndexedListOnClickEvent>().toBeObject();
   expectTypeOf<UniIndexedListOnClickEvent>().toEqualTypeOf<UniHelper.UniIndexedListOnClickEvent>();
