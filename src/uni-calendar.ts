@@ -14,7 +14,7 @@ interface _UniCalendarSelectedElement {
   /** 信息 */
   info: string;
   /** 自定义数据 */
-  data: AnyRecord;
+  data?: AnyRecord;
 }
 
 /** 打点 */
