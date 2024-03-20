@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.13 (2024-03-20)
+
+- fix: 修复 `UniCalendarSelectedElement` 类型
+
 ## 0.5.12 (2024-03-04)
 
 - fix: 修复 `UniIndexedListOnClickEvent` 类型
