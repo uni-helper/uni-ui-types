@@ -124,6 +124,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 分页器组件，用于展示页码、请求数据等 */

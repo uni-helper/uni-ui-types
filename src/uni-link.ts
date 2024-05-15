@@ -50,7 +50,11 @@ type _UniLink = Component<_UniLinkProps>;
 /** 外部网页超链接组件实例 */
 type _UniLinkInstance = InstanceType<_UniLink>;
 
-export { _UniLinkProps as UniLinkProps, _UniLink as UniLink, _UniLinkInstance as UniLinkInstance };
+export {
+  _UniLinkProps as UniLinkProps,
+  _UniLink as UniLink,
+  _UniLinkInstance as UniLinkInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -71,6 +75,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

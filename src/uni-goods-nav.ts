@@ -63,9 +63,9 @@ type _UniGoodsNavProps = Partial<{
   /**
    * 组件按钮组
    *
-   * 默认为 [{ text: '加入购物车', backgroundColor: 'linear-gradient(90deg, #ffcd1e, #ff8a18)', color:
-   * '#fff' }, { text: '立即购买', backgroundColor: 'linear-gradient(90deg, #fe6035, #ef1224)', color:
-   * '#fff' }]
+   * 默认为 [{ text: '加入购物车', backgroundColor: 'linear-gradient(90deg, #ffcd1e,
+   * #ff8a18)', color: '#fff' }, { text: '立即购买', backgroundColor:
+   * 'linear-gradient(90deg, #fe6035, #ef1224)', color: '#fff' }]
    */
   buttonGroup: _UniGoodsNavButton[];
   /**
@@ -108,7 +108,8 @@ declare global {
     export interface UniGoodsNavButton extends _UniGoodsNavButton {}
     export type UniGoodsNavOnButtonClickEvent = _UniGoodsNavOnButtonClickEvent;
     /** 右侧点击触发 */
-    export interface UniGoodsNavOnButtonClick extends _UniGoodsNavOnButtonClick {}
+    export interface UniGoodsNavOnButtonClick
+      extends _UniGoodsNavOnButtonClick {}
 
     export type UniGoodsNavProps = _UniGoodsNavProps;
     /** 商品加入购物车，立即购买 */
@@ -117,6 +118,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 商品加入购物车，立即购买 */

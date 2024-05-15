@@ -34,7 +34,10 @@ interface _UniSwipeActionItemOption {
   };
 }
 
-type _UniSwipeActionItemOnClickEventPosition = Exclude<_UniSwipeActionItemShow, 'none'>;
+type _UniSwipeActionItemOnClickEventPosition = Exclude<
+  _UniSwipeActionItemShow,
+  'none'
+>;
 
 interface _UniSwipeActionItemOnClickEvent {
   content: _UniSwipeActionItemOption;
@@ -114,19 +117,25 @@ declare global {
      */
     export type UniSwipeActionItemShow = _UniSwipeActionItemShow;
     /** 选项内容及样式 */
-    export interface UniSwipeActionItemOption extends _UniSwipeActionItemOption {}
-    export type UniSwipeActionItemOnClickEventPosition = _UniSwipeActionItemOnClickEventPosition;
-    export type UniSwipeActionItemOnClickEvent = _UniSwipeActionItemOnClickEvent;
+    export interface UniSwipeActionItemOption
+      extends _UniSwipeActionItemOption {}
+    export type UniSwipeActionItemOnClickEventPosition =
+      _UniSwipeActionItemOnClickEventPosition;
+    export type UniSwipeActionItemOnClickEvent =
+      _UniSwipeActionItemOnClickEvent;
     /** 点击时触发 */
-    export interface UniSwipeActionItemOnClick extends _UniSwipeActionItemOnClick {}
+    export interface UniSwipeActionItemOnClick
+      extends _UniSwipeActionItemOnClick {}
     /** 打开或关闭时触发 */
-    export interface UniSwipeActionItemOnChange extends _UniSwipeActionItemOnChange {}
+    export interface UniSwipeActionItemOnChange
+      extends _UniSwipeActionItemOnChange {}
     export type UniSwipeActionItemProps = _UniSwipeActionItemProps;
     export type UniSwipeActionItem = _UniSwipeActionItem;
     export type UniSwipeActionItemInstance = _UniSwipeActionItemInstance;
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     UniSwipeActionItem: _UniSwipeActionItem;

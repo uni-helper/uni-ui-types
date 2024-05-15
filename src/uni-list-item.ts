@@ -251,15 +251,18 @@ declare global {
     export type UniListItemOnClickEvent = _UniListItemOnClickEvent;
     /** 点击 uni-list-item 触发，需开启点击反馈 */
     export interface UniListItemOnClick extends _UniListItemOnClick {}
-    export type UniListItemOnSwitchChangeEvent = _UniListItemOnSwitchChangeEvent;
+    export type UniListItemOnSwitchChangeEvent =
+      _UniListItemOnSwitchChangeEvent;
     /** 点击切换 switch 时触发，需显示 switch */
-    export interface UniListItemOnSwitchChange extends _UniListItemOnSwitchChange {}
+    export interface UniListItemOnSwitchChange
+      extends _UniListItemOnSwitchChange {}
     export type UniListItemProps = _UniListItemProps;
     export type UniListItem = _UniListItem;
     export type UniListItemInstance = _UniListItemInstance;
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     UniListItem: _UniListItem;

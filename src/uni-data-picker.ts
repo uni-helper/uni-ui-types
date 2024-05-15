@@ -314,7 +314,8 @@ type _UniDataPickerProps = Partial<{
  *
  * uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
  *
- * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+ * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code
+ * 中自动生成前端页面，还支持服务器端校验
  */
 type _UniDataPicker = Component<_UniDataPickerProps>;
 
@@ -353,12 +354,14 @@ declare global {
      *
      * tencent 腾讯云
      */
-    export type UniDataPickerSpaceInfoProvider = _UniDataPickerSpaceInfoProvider;
+    export type UniDataPickerSpaceInfoProvider =
+      _UniDataPickerSpaceInfoProvider;
     /** 服务空间信息 */
     export interface UniDataPickerSpaceInfo extends _UniDataPickerSpaceInfo {}
     export type UniDataPickerValue = _UniDataPickerValue;
     export type UniDataPickerKey = _UniDataPickerKey;
-    export interface UniDataPickerLocaldataItem extends _UniDataPickerLocaldataItem {}
+    export interface UniDataPickerLocaldataItem
+      extends _UniDataPickerLocaldataItem {}
     /** 本地数据 */
     export type UniDataPickerLocaldata = _UniDataPickerLocaldata;
     /**
@@ -381,17 +384,22 @@ declare global {
     export interface UniDataPickerHide extends _UniDataPickerHide {}
     /** 清除已选项 */
     export interface UniDataPickerClear extends _UniDataPickerClear {}
-    export interface UniDataPickerOnChangeDetail extends _UniDataPickerOnChangeDetail {}
+    export interface UniDataPickerOnChangeDetail
+      extends _UniDataPickerOnChangeDetail {}
     /** 选择完成时触发 */
     export interface UniDataPickerOnChange extends _UniDataPickerOnChange {}
     /** 节点被点击时触发 */
-    export interface UniDataPickerOnNodeclick extends _UniDataPickerOnNodeclick {}
+    export interface UniDataPickerOnNodeclick
+      extends _UniDataPickerOnNodeclick {}
     /** 动态加载节点数据前触发 */
-    export interface UniDataPickerOnStepsearch extends _UniDataPickerOnStepsearch {}
+    export interface UniDataPickerOnStepsearch
+      extends _UniDataPickerOnStepsearch {}
     /** 弹出层弹出时触发 */
-    export interface UniDataPickerOnPopupopened extends _UniDataPickerOnPopupopened {}
+    export interface UniDataPickerOnPopupopened
+      extends _UniDataPickerOnPopupopened {}
     /** 弹出层关闭时触发 */
-    export interface UniDataPickerOnPopupclosed extends _UniDataPickerOnPopupclosed {}
+    export interface UniDataPickerOnPopupclosed
+      extends _UniDataPickerOnPopupclosed {}
     export type UniDataPickerProps = _UniDataPickerProps;
     /**
      * 选择类 datacom 组件
@@ -404,7 +412,8 @@ declare global {
      *
      * uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
      *
-     * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+     * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code
+     * 中自动生成前端页面，还支持服务器端校验
      */
     export type UniDataPicker = _UniDataPicker;
     /** 选择类 datacom 组件实例 */
@@ -412,6 +421,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -425,7 +435,8 @@ declare module '@vue/runtime-core' {
      *
      * uni-data-picker 支持本地数据、云端静态数据 json 和 uni-cloud 云数据库数据
      *
-     * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code 中自动生成前端页面，还支持服务器端校验
+     * uni-data-picker 可以通过 JQL 直连 uni-cloud 云数据库，配套 DB Schema，可在 schema2code
+     * 中自动生成前端页面，还支持服务器端校验
      */
     UniDataPicker: _UniDataPicker;
   }

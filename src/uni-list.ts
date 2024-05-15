@@ -30,7 +30,11 @@ type _UniList = Component<_UniListProps>;
 /** 列表实例 */
 type _UniListInstance = InstanceType<_UniList>;
 
-export { _UniListProps as UniListProps, _UniList as UniList, _UniListInstance as UniListInstance };
+export {
+  _UniListProps as UniListProps,
+  _UniList as UniList,
+  _UniListInstance as UniListInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -57,6 +61,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

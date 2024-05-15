@@ -252,7 +252,8 @@ declare global {
      */
     export type UniCalendarDate = _UniCalendarDate;
     /** 打点项 */
-    export interface UniCalendarSelectedElement extends _UniCalendarSelectedElement {}
+    export interface UniCalendarSelectedElement
+      extends _UniCalendarSelectedElement {}
     /** 打点 */
     export interface UniCalendarSelected extends _UniCalendarSelected {}
     /**
@@ -262,23 +263,27 @@ declare global {
      */
     export interface UniCalendarOpen extends _UniCalendarOpen {}
     export interface UniCalendarBaseEvent extends _UniCalendarBaseEvent {}
-    export interface UniCalendarOnChangeEvent extends _UniCalendarOnChangeEvent {}
+    export interface UniCalendarOnChangeEvent
+      extends _UniCalendarOnChangeEvent {}
     /**
      * 日期改变时触发
      *
      * insert 为 true 时有效
      */
     export interface UniCalendarOnChange extends _UniCalendarOnChange {}
-    export interface UniCalendarOnConfirmEvent extends _UniCalendarOnConfirmEvent {}
+    export interface UniCalendarOnConfirmEvent
+      extends _UniCalendarOnConfirmEvent {}
     /**
      * 确认选择时触发
      *
      * insert 为 false 时有效
      */
     export interface UniCalendarOnConfirm extends _UniCalendarOnConfirm {}
-    export interface UniCalendarOnMonthSwitchEvent extends _UniCalendarOnMonthSwitchEvent {}
+    export interface UniCalendarOnMonthSwitchEvent
+      extends _UniCalendarOnMonthSwitchEvent {}
     /** 切换月份时触发 */
-    export interface UniCalendarOnMonthSwitch extends _UniCalendarOnMonthSwitch {}
+    export interface UniCalendarOnMonthSwitch
+      extends _UniCalendarOnMonthSwitch {}
     /** 关闭日历组件时触发 */
     export interface UniCalendarOnClose extends _UniCalendarOnClose {}
     /** 日历组件属性 */
@@ -294,6 +299,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

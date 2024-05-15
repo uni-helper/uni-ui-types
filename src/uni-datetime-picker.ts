@@ -11,10 +11,20 @@ import type { Component } from '@uni-helper/uni-app-types';
  *
  * datetimerange 日期时间范围
  */
-type _UniDatetimePickerType = 'date' | 'daterange' | 'datetime' | 'datetimerange';
+type _UniDatetimePickerType =
+  | 'date'
+  | 'daterange'
+  | 'datetime'
+  | 'datetimerange';
 
 /** 值类型 */
-type _UniDatetimePickerValue = string | number | Date | string[] | number[] | Date[];
+type _UniDatetimePickerValue =
+  | string
+  | number
+  | Date
+  | string[]
+  | number[]
+  | Date[];
 
 /**
  * 最小值
@@ -199,9 +209,11 @@ declare global {
     /** 清除上次选中的状态和值 */
     export interface UniDatetimePickerClear extends _UniDatetimePickerClear {}
     /** 确定日期时间时触发的事件 */
-    export interface UniDatetimePickerOnChange extends _UniDatetimePickerOnChange {}
+    export interface UniDatetimePickerOnChange
+      extends _UniDatetimePickerOnChange {}
     /** 点击遮罩层触发 */
-    export interface UniDatetimePickerOnMaskClick extends _UniDatetimePickerOnMaskClick {}
+    export interface UniDatetimePickerOnMaskClick
+      extends _UniDatetimePickerOnMaskClick {}
     export type UniDatetimePickerProps = _UniDatetimePickerProps;
     /** 支持时间戳输入和输出（起始时间、终止时间也支持时间戳），可同时选择日期和时间 */
     export type UniDatetimePicker = _UniDatetimePicker;
@@ -209,6 +221,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 支持时间戳输入和输出（起始时间、终止时间也支持时间戳），可同时选择日期和时间 */

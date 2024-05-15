@@ -137,15 +137,20 @@ declare global {
      *
      * 如果使用了第二个参数，则要设置这一行选中与否
      */
-    export interface UniTableToggleRowSelection extends _UniTableToggleRowSelection {}
+    export interface UniTableToggleRowSelection
+      extends _UniTableToggleRowSelection {}
     /** 用于多选表格，清空用户的选择 */
     export interface UniTableClearSelection extends _UniTableClearSelection {}
     /** 用于多选表格，切换所有行的选中状态 */
-    export interface UniTableToggleAllSelection extends _UniTableToggleAllSelection {}
-    export interface UniTableOnSelectionChangeDetail extends _UniTableOnSelectionChangeDetail {}
-    export type UniTableOnSelectionChangeEvent = _UniTableOnSelectionChangeEvent;
+    export interface UniTableToggleAllSelection
+      extends _UniTableToggleAllSelection {}
+    export interface UniTableOnSelectionChangeDetail
+      extends _UniTableOnSelectionChangeDetail {}
+    export type UniTableOnSelectionChangeEvent =
+      _UniTableOnSelectionChangeEvent;
     /** 开启多选时，当选择项发生变化时会触发该事件 */
-    export interface UniTableOnSelectionChange extends _UniTableOnSelectionChange {}
+    export interface UniTableOnSelectionChange
+      extends _UniTableOnSelectionChange {}
     /** 表格属性 */
     export type UniTableProps = _UniTableProps;
     /** 表格 */
@@ -155,6 +160,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 表格 */

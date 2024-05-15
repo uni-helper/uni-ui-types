@@ -79,9 +79,11 @@ declare global {
      * text 文字
      */
     export type UniSegmentedControlStyleType = _UniSegmentedControlStyleType;
-    export type UniSegmentedControlOnClickItemEvent = _UniSegmentedControlOnClickItemEvent;
+    export type UniSegmentedControlOnClickItemEvent =
+      _UniSegmentedControlOnClickItemEvent;
     /** 点击时触发 */
-    export interface UniSegmentedControlOnClickItem extends _UniSegmentedControlOnClickItem {}
+    export interface UniSegmentedControlOnClickItem
+      extends _UniSegmentedControlOnClickItem {}
     /** 分段器属性 */
     export type UniSegmentedControlProps = _UniSegmentedControlProps;
     /** 分段器，用作不同视图的显示 */
@@ -91,6 +93,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 分段器，用作不同视图的显示 */

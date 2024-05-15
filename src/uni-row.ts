@@ -1,7 +1,12 @@
 import type { Component } from '@uni-helper/uni-app-types';
 
 /** flex 布局下的水平排列方式 */
-type _UniRowJustify = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+type _UniRowJustify =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'space-around'
+  | 'space-between';
 
 /** flex 布局下的垂直排列方式 */
 type _UniRowAlign = 'top' | 'middle' | 'bottom';
@@ -65,6 +70,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 流式栅格系统中的行 */

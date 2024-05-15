@@ -14,7 +14,11 @@ type _UniTr = Component<_UniTrProps>;
 
 type _UniTrInstance = InstanceType<_UniTr>;
 
-export { _UniTrProps as UniTrProps, _UniTr as UniTr, _UniTrInstance as UniTrInstance };
+export {
+  _UniTrProps as UniTrProps,
+  _UniTr as UniTr,
+  _UniTrInstance as UniTrInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -24,6 +28,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     UniTr: _UniTr;

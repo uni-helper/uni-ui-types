@@ -24,7 +24,13 @@ type _UniTagSize = 'normal' | 'small';
  *
  * royal 紫色
  */
-type _UniTagType = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'royal';
+type _UniTagType =
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'royal';
 
 /** 自定义样式 */
 type _UniTagCustomStyle = string;
@@ -147,6 +153,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 用于展示一个或多个文字标签，可点击切换选中、不选中的状态 */

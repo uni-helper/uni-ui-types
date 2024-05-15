@@ -1,7 +1,14 @@
 import type { AnyRecord, Component } from '@uni-helper/uni-app-types';
 
 /** 内置校验规则 */
-type _UniFormsFormat = 'string' | 'number' | 'boolean' | 'array' | 'object' | 'url' | 'email';
+type _UniFormsFormat =
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'array'
+  | 'object'
+  | 'url'
+  | 'email';
 
 interface _UniFormsCallback {
   (...args: any): any;
@@ -16,11 +23,12 @@ interface _UniFormsCallback {
  * @param callback 校验完成时的回调
  */
 interface _UniFormsValidateFunction {
-  (rule: any, value: any, data: any, callback: _UniFormsCallback):
-    | boolean
-    | void
-    | Promise<boolean>
-    | Promise<void>;
+  (
+    rule: any,
+    value: any,
+    data: any,
+    callback: _UniFormsCallback,
+  ): boolean | void | Promise<boolean> | Promise<void>;
 }
 
 /** 校验规则 */
@@ -219,7 +227,8 @@ declare global {
     /** 内置校验规则 */
     export type UniFormsFormat = _UniFormsFormat;
     export interface UniFormsCallback extends _UniFormsCallback {}
-    export interface UniFormsValidateFunction extends _UniFormsValidateFunction {}
+    export interface UniFormsValidateFunction
+      extends _UniFormsValidateFunction {}
     /** 校验规则 */
     export interface UniFormsRulesRule extends _UniFormsRulesRule {}
     /** 校验规则 */
@@ -268,6 +277,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 表单，用于提交表单内容，内置了表单验证功能 */

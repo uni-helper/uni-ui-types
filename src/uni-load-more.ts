@@ -152,10 +152,13 @@ declare global {
     export type UniLoadMoreIconType = _UniLoadMoreIconType;
     /** 各状态文字说明 */
     export interface UniLoadMoreContentText extends _UniLoadMoreContentText {}
-    export interface UniLoadMoreOnClickLoadMoreDetail extends _UniLoadMoreOnClickLoadMoreDetail {}
-    export type UniLoadMoreOnClickLoadMoreEvent = _UniLoadMoreOnClickLoadMoreEvent;
+    export interface UniLoadMoreOnClickLoadMoreDetail
+      extends _UniLoadMoreOnClickLoadMoreDetail {}
+    export type UniLoadMoreOnClickLoadMoreEvent =
+      _UniLoadMoreOnClickLoadMoreEvent;
     /** 点击加载更多时触发 */
-    export interface UniLoadMoreOnClickLoadMore extends _UniLoadMoreOnClickLoadMore {}
+    export interface UniLoadMoreOnClickLoadMore
+      extends _UniLoadMoreOnClickLoadMore {}
     export type UniLoadMoreProps = _UniLoadMoreProps;
     /** 用于列表中，做滚动加载使用，展示 loading 的各种状态 */
     export type UniLoadMore = _UniLoadMore;
@@ -163,6 +166,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 用于列表中，做滚动加载使用，展示 loading 的各种状态 */

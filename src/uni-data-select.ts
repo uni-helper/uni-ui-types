@@ -92,7 +92,8 @@ export {
 declare global {
   namespace UniHelper {
     export type UniDataSelectValue = _UniDataSelectValue;
-    export interface UniDataSelectLocaldataItem extends _UniDataSelectLocaldataItem {}
+    export interface UniDataSelectLocaldataItem
+      extends _UniDataSelectLocaldataItem {}
     /** 本地数据 */
     export type UniDataSelectLocaldata = _UniDataSelectLocaldata;
     /** 改变时触发 */
@@ -103,6 +104,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     UniDataSelect: _UniDataSelect;

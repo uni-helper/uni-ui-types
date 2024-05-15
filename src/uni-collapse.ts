@@ -64,7 +64,9 @@ type _UniCollapseAccordionProps = _UniCollapseBaseProps & {
 };
 
 /** 折叠面板属性 */
-type _UniCollapseProps = _UniCollapseNoAccordionProps | _UniCollapseAccordionProps;
+type _UniCollapseProps =
+  | _UniCollapseNoAccordionProps
+  | _UniCollapseAccordionProps;
 
 /**
  * 折叠面板用来折叠/显示过长的内容或者是列表
@@ -105,7 +107,8 @@ declare global {
      */
     export type UniCollapseNoAccordionValue = _UniCollapseNoAccordionValue;
     /** 折叠面板非手风琴模式切换面板时触发 */
-    export interface UniCollapseNoAccordionOnChange extends _UniCollapseNoAccordionOnChange {}
+    export interface UniCollapseNoAccordionOnChange
+      extends _UniCollapseNoAccordionOnChange {}
     /** 折叠面板非手风琴模式属性 */
     export type UniCollapseNoAccordionProps = _UniCollapseNoAccordionProps;
     /**
@@ -115,7 +118,8 @@ declare global {
      */
     export type UniCollapseAccordionValue = _UniCollapseAccordionValue;
     /** 折叠面板手风琴模式切换面板时触发 */
-    export interface UniCollapseAccordionOnChange extends _UniCollapseAccordionOnChange {}
+    export interface UniCollapseAccordionOnChange
+      extends _UniCollapseAccordionOnChange {}
     /** 折叠面板手风琴模式属性 */
     export type UniCollapseAccordionProps = _UniCollapseAccordionProps;
     /** 折叠面板属性 */
@@ -133,6 +137,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

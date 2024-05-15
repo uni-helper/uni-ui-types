@@ -220,6 +220,7 @@ interface _UniFilePickerBaseFile {
   uuid: string;
 }
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins
 interface _UniFilePickerTempFileFile extends File {
   cloudPath: string;
   /**
@@ -557,7 +558,8 @@ declare global {
      *
      * mode="grid" 时有效
      */
-    export interface UniFilePickerImageStyles extends _UniFilePickerImageStyles {}
+    export interface UniFilePickerImageStyles
+      extends _UniFilePickerImageStyles {}
     /**
      * original 原图
      *
@@ -600,9 +602,11 @@ declare global {
     /** 文件状态 */
     export type UniFilePickerFileStatus = _UniFilePickerFileStatus;
     export interface UniFilePickerBaseFile extends _UniFilePickerBaseFile {}
-    export interface UniFilePickerTempFileFile extends _UniFilePickerTempFileFile {}
+    export interface UniFilePickerTempFileFile
+      extends _UniFilePickerTempFileFile {}
     export interface UniFilePickerTempFile extends _UniFilePickerTempFile {}
-    export interface UniFilePickerCallbackFile extends _UniFilePickerCallbackFile {}
+    export interface UniFilePickerCallbackFile
+      extends _UniFilePickerCallbackFile {}
     export type UniFilePickerOnSelectEvent = _UniFilePickerOnSelectEvent;
     /** 选择文件后触发 */
     export interface UniFilePickerOnSelect extends _UniFilePickerOnSelect {}
@@ -630,6 +634,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 文件选择上传组件，可以选择图片、视频等任意文件并上传到当前绑定的服务空间 */

@@ -18,7 +18,13 @@ type _UniEasyinputValue = string | number;
  *
  * digit 带小数点的数字键盘
  */
-type _UniEasyinputType = 'text' | 'textarea' | 'password' | 'number' | 'idcard' | 'digit';
+type _UniEasyinputType =
+  | 'text'
+  | 'textarea'
+  | 'password'
+  | 'number'
+  | 'idcard'
+  | 'digit';
 
 /**
  * 设置键盘右下角按钮的文字
@@ -383,11 +389,13 @@ declare global {
     export interface UniEasyinputOnInput extends _UniEasyinputOnInput {}
     /** 清除时触发 */
     export interface UniEasyinputOnClear extends _UniEasyinputOnClear {}
-    export interface UniEasyinputOnFocusDetail extends _UniEasyinputOnFocusDetail {}
+    export interface UniEasyinputOnFocusDetail
+      extends _UniEasyinputOnFocusDetail {}
     export type UniEasyinputOnFocusEvent = _UniEasyinputOnFocusEvent;
     /** 输入框获得焦点时触发 */
     export interface UniEasyinputOnFocus extends _UniEasyinputOnFocus {}
-    export interface UniEasyinputOnBlurDetail extends _UniEasyinputOnBlurDetail {}
+    export interface UniEasyinputOnBlurDetail
+      extends _UniEasyinputOnBlurDetail {}
     export type UniEasyinputOnBlurEvent = _UniEasyinputOnBlurEvent;
     /** 输入框失去焦点时触发 */
     export interface UniEasyinputOnBlur extends _UniEasyinputOnBlur {}
@@ -404,6 +412,7 @@ declare global {
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 对原生 input 组件的增强 */

@@ -85,13 +85,15 @@ declare global {
     /** 动态设置表单规则 */
     export interface UniFormsItemSetRules extends _UniFormsItemSetRules {}
     /** 校验子表单 */
-    export interface UniFormsItemOnFieldChange extends _UniFormsItemOnFieldChange {}
+    export interface UniFormsItemOnFieldChange
+      extends _UniFormsItemOnFieldChange {}
     export type UniFormsItemProps = _UniFormsItemProps;
     export type UniFormsItem = _UniFormsItem;
     export type UniFormsItemInstance = _UniFormsItemInstance;
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     UniFormsItem: _UniFormsItem;

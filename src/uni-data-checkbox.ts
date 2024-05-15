@@ -168,7 +168,9 @@ type _UniDataCheckboxMultipleProps = Partial<{
   onChange: _UniDataCheckboxMultipleOnChange;
 }>;
 
-type _UniDataCheckboxProps = _UniDataCheckboxSingleProps | _UniDataCheckboxMultipleProps;
+type _UniDataCheckboxProps =
+  | _UniDataCheckboxSingleProps
+  | _UniDataCheckboxMultipleProps;
 
 /**
  * 本组件是基于 uni-app 基础组件 checkbox 的封装。本组件要解决问题包括：
@@ -181,8 +183,8 @@ type _UniDataCheckboxProps = _UniDataCheckboxSingleProps | _UniDataCheckboxMulti
  *
  * 本组件有若干风格选择，如普通的单选多选框、并列 button 风格、tag 风格，开发者可以快速选择需要的风格，会牺牲一定的样式自定义性
  *
- * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成 uni-data-checkbox 组件并绑定好
- * data
+ * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成
+ * uni-data-checkbox 组件并绑定好 data
  */
 type _UniDataCheckbox = Component<_UniDataCheckboxProps>;
 
@@ -225,7 +227,8 @@ declare global {
      * tag 标签
      */
     export type UniDataCheckboxMode = _UniDataCheckboxMode;
-    export interface UniDataCheckboxLocaldataItem extends _UniDataCheckboxLocaldataItem {}
+    export interface UniDataCheckboxLocaldataItem
+      extends _UniDataCheckboxLocaldataItem {}
     /** 本地渲染数据 */
     export type UniDataCheckboxLocaldata = _UniDataCheckboxLocaldata;
     /** list 模式下 icon 显示的位置 */
@@ -239,15 +242,19 @@ declare global {
     export type UniDataCheckboxBaseProps = _UniDataCheckboxBaseProps;
     export interface UniDataCheckboxSingleOnChangeDetail
       extends _UniDataCheckboxSingleOnChangeDetail {}
-    export type UniDataCheckboxSingleOnChangeEvent = _UniDataCheckboxSingleOnChangeEvent;
+    export type UniDataCheckboxSingleOnChangeEvent =
+      _UniDataCheckboxSingleOnChangeEvent;
     /** 选中状态改变时触发 */
-    export interface UniDataCheckboxSingleOnChange extends _UniDataCheckboxSingleOnChange {}
+    export interface UniDataCheckboxSingleOnChange
+      extends _UniDataCheckboxSingleOnChange {}
     export type UniDataCheckboxSingleProps = _UniDataCheckboxSingleProps;
     export interface UniDataCheckboxMultipleOnChangeDetail
       extends _UniDataCheckboxMultipleOnChangeDetail {}
-    export type UniDataCheckboxMultipleOnChangeEvent = _UniDataCheckboxMultipleOnChangeEvent;
+    export type UniDataCheckboxMultipleOnChangeEvent =
+      _UniDataCheckboxMultipleOnChangeEvent;
     /** 选中状态改变时触发 */
-    export interface UniDataCheckboxMultipleOnChange extends _UniDataCheckboxMultipleOnChange {}
+    export interface UniDataCheckboxMultipleOnChange
+      extends _UniDataCheckboxMultipleOnChange {}
     export type UniDataCheckboxMultipleProps = _UniDataCheckboxMultipleProps;
     export type UniDataCheckboxProps = _UniDataCheckboxProps;
     /**
@@ -261,14 +268,15 @@ declare global {
      *
      * 本组件有若干风格选择，如普通的单选多选框、并列 button 风格、tag 风格，开发者可以快速选择需要的风格，会牺牲一定的样式自定义性
      *
-     * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成 uni-data-checkbox 组件并绑定好
-     * data
+     * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成
+     * uni-data-checkbox 组件并绑定好 data
      */
     export type UniDataCheckbox = _UniDataCheckbox;
     export type UniDataCheckboxInstance = _UniDataCheckboxInstance;
   }
 }
 
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -282,8 +290,8 @@ declare module '@vue/runtime-core' {
      *
      * 本组件有若干风格选择，如普通的单选多选框、并列 button 风格、tag 风格，开发者可以快速选择需要的风格，会牺牲一定的样式自定义性
      *
-     * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成 uni-data-checkbox 组件并绑定好
-     * data
+     * 在 uni-cloud 开发中，DB Schema 中配置了 enum 枚举等类型后，在 web 控制台的自动生成表单功能中，会自动生成
+     * uni-data-checkbox 组件并绑定好 data
      */
     UniDataCheckbox: _UniDataCheckbox;
   }
