@@ -62,7 +62,7 @@
   </details>
 
   <details>
-    <summary>1.7.12 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> <= 2.0.13</summary>
+    <summary>1.7.12 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> < 2.0.14</summary>
 
   ```json
   {
