@@ -80,7 +80,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 分组组件可用于将组件分组，添加间隔，以产生明显的区块 */

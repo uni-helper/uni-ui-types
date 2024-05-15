@@ -127,7 +127,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 带加减按钮的数字输入框 */

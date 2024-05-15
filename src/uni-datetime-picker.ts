@@ -221,7 +221,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 支持时间戳输入和输出（起始时间、终止时间也支持时间戳），可同时选择日期和时间 */

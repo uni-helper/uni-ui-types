@@ -277,7 +277,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 表单，用于提交表单内容，内置了表单验证功能 */

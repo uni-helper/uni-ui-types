@@ -73,7 +73,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 组合框组件，一般用于可以选择也可以输入的表单项 */
