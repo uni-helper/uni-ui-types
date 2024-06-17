@@ -310,6 +310,8 @@ interface _UniFilePickerOnFail {
 }
 
 interface _UniFilePickerOnDeleteEvent {
+  /** 删除的文件索引 */
+  index: number;
   /** 删除的文件信息 */
   tempFile: _UniFilePickerTempFile;
   /** 删除的文件临时路径 */
