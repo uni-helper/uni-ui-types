@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.15 (2024-06-17)
+
+- fix: 修复 `UniFilePickerOnDeleteEvent` 类型，感谢 [LUDA0831](https://github.com/LUDA0831) 在 [#58](https://github.com/uni-helper/uni-ui-types/issues/58) 的贡献
+
 ## 0.5.14 (2024-05-15)
 
 - fix: 修复导出配置
